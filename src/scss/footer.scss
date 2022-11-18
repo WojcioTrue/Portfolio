@@ -1,0 +1,8 @@
+@use 'variables';
+
+
+.footer {
+	height: 100%;
+	width: 100%;
+	font-family: variables.$font-to-use;
+}

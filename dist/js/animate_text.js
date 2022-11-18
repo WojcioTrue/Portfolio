@@ -1,0 +1,2 @@
+"use strict";function animateText(){let e=document.getElementById("animationText"),t=e.innerHTML.split("");e.innerHTML="";for(let n of t){let t=document.createElement("span");t.innerHTML=n," "==n||t.classList.add("animateText"),e.appendChild(t)}let n=document.getElementsByClassName("animateText");for(let e=0;e<n.length;e++)setTimeout((function(){n[e].classList.add("animateText--visible")}),75*(e+1))}animateText();
+//# sourceMappingURL=animate_text.js.map

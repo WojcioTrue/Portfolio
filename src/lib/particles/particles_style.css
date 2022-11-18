@@ -1,0 +1,58 @@
+#animation {
+  position: relative;
+  overflow: hidden; }
+
+.hexagon {
+  position: absolute; }
+
+.hexagon__modifyOne {
+  animation: animationOne 5s infinite; }
+
+@keyframes animationOne {
+  0% {
+    opacity: 0;
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0));
+    transform: rotate(0deg); }
+  30% {
+    opacity: 0.3;
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.3)); }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0px 0px 5px white);
+    transform: rotate(40deg); }
+  75% {
+    opacity: 0.3;
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.3));
+    transform: rotate(15deg); }
+  100% {
+    opacity: 0;
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0));
+    transform: rotate(0deg); } }
+
+.hexagon__modifyTwo {
+  animation: animationTwo 3s infinite; }
+
+@keyframes animationTwo {
+  0% {
+    opacity: 0;
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0));
+    transform: rotate(-20deg); }
+  30% {
+    opacity: 0.3;
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.3)); }
+  50% {
+    opacity: 0.6;
+    filter: drop-shadow(0px 0px 5px white);
+    transform: rotate(50deg); }
+  50% {
+    opacity: 0.3; }
+  100% {
+    opacity: 0;
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0));
+    transform: rotate(-20deg); } }
+
+.stop {
+  position: absolute; }
+
+.main_container {
+  height: 100%; }

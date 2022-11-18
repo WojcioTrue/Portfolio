@@ -1,0 +1,2 @@
+window.onload=function(){document.getElementsByClassName("main-block__title");let e=document.getElementsByClassName("main-block__line");e[0].classList.add("main-block__line--after","main-block__line1--after"),e[1].classList.add("main-block__line--after","main-block__line2--after")};
+//# sourceMappingURL=animateLines.js.map

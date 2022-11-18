@@ -1,0 +1,2 @@
+.animateText{display:inline-block;opacity:0;transform:translate(15px);transition:opacity .7s 1.5s,transform 1s 1.2s}.animateText--visible{opacity:1;transform:translate(0)}
+/*# sourceMappingURL=animationText.css.map */

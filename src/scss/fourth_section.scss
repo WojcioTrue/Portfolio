@@ -1,0 +1,244 @@
+@use 'variables';
+ @keyframes fourth__section__opacity {
+     0%{
+         opacity: 0;
+         filter: drop-shadow(0px 0px 5px rgba(238, 198, 67,0));
+    }
+     20%{
+         opacity: .15;
+    }
+     50%{
+         opacity: .75;
+    }
+     60%{
+         opacity: .4;
+         filter: drop-shadow(0px 0px 5px rgba(238, 198, 67,0.75));
+    }
+     90%{
+         opacity: .15;
+    }
+     100% {
+         opacity: 0;
+         filter: drop-shadow(0px 0px 5px rgba(238, 198, 67,0));
+    }
+}
+ .fourth__section {
+     position: relative;
+     padding: calc(101px + 5%) 10px;
+     background-color: variables.$black-erie;
+     text-align: center;
+     font-family: variables.$font-to-use;
+     h2 {
+         color: variables.$gold-color;
+         margin-bottom: 50px;
+         span {
+             background-color: variables.$gold-color;
+             color: variables.$black-erie;
+        }
+    }
+     .row {
+         .fourth__section__square {
+             padding: 15px 15px;
+             border-style: solid;
+             border-color: variables.$gold-color;
+             position: relative;
+             z-index: 5;
+             img {
+                 width: 30px;
+            }
+             h4 {
+                 margin: 10px 0px;
+                 color: variables.$gold-color;
+                 z-index: 6;
+            }
+             p {
+                 color: variables.$white-cult;
+            }
+        }
+    }
+     .row:first-child{
+         .fourth__section__square {
+             border-width: 0px 0px 1px 0px;
+        }
+    }
+     .row:last-child{
+         .fourth__section__square {
+             border-width: 0px 0px 1px 0px;
+        }
+         .fourth__section__square:last-child {
+             border-width: 0px;
+        }
+    }
+}
+ .hex__baxground {
+     position: absolute;
+     top: 10%;
+     left: 15%;
+     width: 75px;
+     height: 75px;
+     fill: variables.$gold-color;
+     opacity: 0.2;
+     animation: fourth__section__opacity;
+     animation-duration: 10s;
+     animation-iteration-count: infinite;
+}
+ .hex__baxground:nth-child(2) {
+     position: absolute;
+     top: 40%;
+     left: 75%;
+     width: 30px;
+     height: 30px;
+     fill: variables.$gold-color;
+     animation-duration: 8s;
+}
+ .hex__baxground:nth-child(3) {
+     position: absolute;
+     top: 60%;
+     left: 25%;
+     width: 50px;
+     height: 50px;
+     fill: variables.$gold-color;
+     animation-duration: 12s;
+}
+ .hex__baxground:nth-child(4) {
+     position: absolute;
+     top: 85%;
+     left: 65%;
+     width: 60px;
+     height: 60px;
+     fill: variables.$gold-color;
+     animation-duration: 5s;
+}
+
+
+ @media (min-width: 576px) {
+}
+ @media (min-width: 768px) {
+     .fourth__section {
+         .row:first-child{
+             .fourth__section__square {
+                 border-width: 0px 1px 1px 0px;
+            }
+             .fourth__section__square:last-child {
+                 border-width: 0px 0px 1px 0px;
+            }
+        }
+         .row:last-child{
+             .fourth__section__square {
+                 border-width: 0px 1px 0px 0px;
+            }
+             .fourth__section__square:last-child {
+                 border-width: 0px;
+            }
+        }
+    }
+     .hex__baxground {
+         top: 25%;
+         left: 15%;
+    }
+     .hex__baxground:nth-child(2) {
+         top: 35%;
+         left: 75%;
+    }
+     .hex__baxground:nth-child(3) {
+         top: 45%;
+         left: 25%;
+    }
+     .hex__baxground:nth-child(4) {
+         top: 75%;
+         left: 75%;
+    }
+     .fourth__section {
+         .row{
+             .fourth__section__square {
+                 &:after {
+                     opacity: 0.2;
+                     position: absolute;
+                     content: "";
+                     background-color: variables.$white-cult;
+                }
+            }
+        }
+         .row:first-child {
+             .fourth__section__square:first-child {
+                 &:after {
+                     bottom: 0;
+                     right: 0;
+                     height: 100%;
+                     width: 0%;
+                     transition: width .3s;
+                }
+                 &:hover:after {
+                     width: 100%;
+                }
+            }
+             .fourth__section__square:nth-child(2) {
+                 &:after {
+                     bottom: 0;
+                     right: 0;
+                     height: 0%;
+                     width: 100%;
+                     transition: height .3s;
+                }
+                 &:hover:after {
+                     height: 100%;
+                }
+            }
+             .fourth__section__square:nth-child(3) {
+                 &:after {
+                     bottom: 0;
+                     left: 0;
+                     height: 100%;
+                     width: 0%;
+                     transition: width .3s;
+                }
+                 &:hover:after {
+                     width: 100%;
+                }
+            }
+        }
+         .row:last-child {
+             .fourth__section__square:first-child {
+                 &:after {
+                     bottom: 0;
+                     right: 0;
+                     height: 100%;
+                     width: 0%;
+                     transition: width .3s;
+                }
+                 &:hover:after {
+                     width: 100%;
+                }
+            }
+             .fourth__section__square:nth-child(2) {
+                 &:after {
+                     top: 0;
+                     right: 0;
+                     height: 0%;
+                     width: 100%;
+                     transition: height .3s;
+                }
+                 &:hover:after {
+                     height: 100%;
+                }
+            }
+             .fourth__section__square:nth-child(3) {
+                 &:after {
+                     bottom: 0;
+                     left: 0;
+                     height: 100%;
+                     width: 0%;
+                     transition: width .3s;
+                }
+                 &:hover:after {
+                     width: 100%;
+                }
+            }
+        }
+    }
+}
+ @media (min-width: 992px) {
+}
+ @media (min-width: 1200px) {
+}
+ 
