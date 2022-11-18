@@ -15,11 +15,7 @@
 
 
 ## General Information
-- Smooth animation for background particles .
-- Getting better understanding how particles can be generated, animated and modified.
-- Learning how `Window.requestAnimationFrame()` work.
-- modifying CSS properieties of particle using JavaScript.
-- working on HTMLCollection.
+
 
 
 
