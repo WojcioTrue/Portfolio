@@ -1,51 +1,39 @@
 "use client"
 import Image from "next/image"
 import { useState, useEffect } from "react"
+import "./NavBar.scss"
 
 const NavBar = () => {
-    const [toggleDisplay, setToggleDisplay] = useState(false)
 
-    const toggleClick = () => {
-        setToggleDisplay(!toggleDisplay)
-    }
 
-    const afterResize = () => {
-        window.innerWidth > 768 && setToggleDisplay(false)
-    }
-
-    useEffect(() => {
-        window.addEventListener('resize', afterResize)
-        return () => window.removeEventListener("resize", afterResize);
-    }, [])
 
     return (
-        <nav className="navbar bg-slate-400 md:flex justify-between mr-2 md:mr-0 rounded-br-md md:rounded-none">
-            <a className="navbar__brand bg-red-500 w-fit p-1 inline-block">
-                <Image
-                    src="/template_logo.svg"
-                    alt="logo missing"
-                    width="25"
-                    height="25"
-                    className="inline"
-                />
-                <p className="pl-2 inline">Portfolio</p>
-            </a>
-            <button
-                className="bg-yellow-400 p-1 md:hidden inline-block float-right"
-                type="button"
-                aria-controls="dropdown__navbar"
-                aria-expanded="false"
-                aria-label="Toggle navbar"
-                onClick={() => toggleClick()}
-            >X</button>
-            <div className={`navbar__collapse bg-fuchsia-500 ${!toggleDisplay ? ' hidden' : ''} md:block`} id="dropdown__navbar">
-                <ul className="md:flex">
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                </ul>
+        <nav className=" flex navbar justify-between items-stretch flex-col md:flex-row">
+            <div className="flex justify-between w-full bg-slate-400">
+                <a className="navbar__brand bg-red-500" href="#">
+                    <Image
+                        src="/template_logo.svg"
+                        alt="logo missing"
+                        width="25"
+                        height="25"
+                        className="inline bg-slate"
+                    />
+                    <p className="pl-2 inline">Portfolio</p>
+                </a>
+                <button
+                    className="bg-red-500 float-right md:hidden"
+                    type="button"
+                    aria-controls="dropdown__navbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navbar"
+                >X</button>
             </div>
+            <ul className="navbar_list w-full md:w-auto bg-slate-400">
+                <li className="md:inline px-3"><a href="#">text</a></li>
+                <li className="md:inline px-3"><a href="#">About</a></li>
+                <li className="md:inline px-3"><a href="#">Bullshido</a></li>
+                <li className="md:inline px-3"><a href="#">contact</a></li>
+            </ul>
         </nav>
     )
 }
