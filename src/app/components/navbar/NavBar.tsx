@@ -1,24 +1,42 @@
 "use client"
 import Image from "next/image"
-import { useState, useEffect } from "react"
-import "./NavBar.scss"
+import NavBarLlist from "./NavBarList"
+import { useEffect, useState } from "react"
+
 
 const NavBar = () => {
+    const [displayMenu, setDisplayMenu] = useState(true)
 
+    const toggleMenu = () => {
+        setDisplayMenu(!displayMenu)
+    }
 
+    const toggleOff = () => {
+        if(window.innerWidth > 768){
+            setDisplayMenu(true)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', toggleOff)
+        return () => {
+            window.addEventListener('resize', toggleOff)
+        }
+    }, [])
 
     return (
         <nav className=" flex navbar justify-between items-stretch flex-col md:flex-row">
             <div className="flex justify-between w-full bg-slate-400 items-center">
                 <a className="navbar__brand bg-red-500 flex" href="#">
                     <Image
+                        priority={true}
                         src="/template_logo.svg"
                         alt="Logo"
                         width="20"
                         height="20"
                         className="inline bg-slate m-auto"
                     />
-                    <p className="pl-2 inline my-auto">Portfolio</p>
+                    <p className="px-2 inline my-auto">Portfolio</p>
                 </a>
                 <button
                     className="bg-red-500 float-right md:hidden px-2"
@@ -26,14 +44,10 @@ const NavBar = () => {
                     aria-controls="dropdown__navbar"
                     aria-expanded="false"
                     aria-label="Toggle navbar"
+                    onClick={() => toggleMenu()}
                 >X</button>
             </div>
-            <ul className="navbar_list w-full md:w-auto bg-slate-400 flex flex-col md:flex-row  md:items-center">
-                <li className="md:inline px-3"><a href="#">text</a></li>
-                <li className="md:inline px-3"><a href="#">About</a></li>
-                <li className="md:inline px-3"><a href="#">Bullshido</a></li>
-                <li className="md:inline px-3"><a href="#">contact</a></li>
-            </ul>
+            {displayMenu && <NavBarLlist />}
         </nav>
     )
 }
