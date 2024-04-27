@@ -12,8 +12,8 @@ const NavBar = () => {
     }
 
     const toggleOff = () => {
-        if(window.innerWidth > 768){
-            setDisplayMenu(true)
+        if(window.innerWidth >= 768){
+            setDisplayMenu(false)
         }
     }
 
