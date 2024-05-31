@@ -2,15 +2,15 @@
 import Image from "next/image"
 import NavBarList from "./NavBarList"
 import { useEffect, useState } from "react"
-
+import MobileNavBarList from "./mobileNavbar/MobileNavBarList"
 
 const NavBar = () => {
     const [displayMenu, setDisplayMenu] = useState(false)
 
     const toggleMenu = () => {
         setDisplayMenu(!displayMenu)
+        console.log(displayMenu)
     }
-
 
     return (
         <nav className=" flex navbar justify-between items-stretch flex-col md:flex-row">
@@ -36,6 +36,7 @@ const NavBar = () => {
                 >X</button>
             </div>
             <NavBarList />
+            <MobileNavBarList toggleMenu={toggleMenu}/>
         </nav>
     )
 }
