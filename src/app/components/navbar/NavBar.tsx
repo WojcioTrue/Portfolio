@@ -9,7 +9,6 @@ const NavBar = () => {
 
     const toggleMenu = () => {
         setDisplayMenu(!displayMenu)
-        console.log(displayMenu)
     }
 
     return (
@@ -36,7 +35,7 @@ const NavBar = () => {
                 >X</button>
             </div>
             <NavBarList />
-            <MobileNavBarList toggleMenu={toggleMenu}/>
+            {displayMenu && <MobileNavBarList toggleMenu={toggleMenu}/>}
         </nav>
     )
 }
