@@ -1,0 +1,1 @@
+export const categories: string[] = ['Welcome','about','text','something']

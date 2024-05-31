@@ -1,28 +1,16 @@
 "use client"
 import Image from "next/image"
-import NavBarLlist from "./NavBarList"
+import NavBarList from "./NavBarList"
 import { useEffect, useState } from "react"
 
 
 const NavBar = () => {
-    const [displayMenu, setDisplayMenu] = useState(true)
+    const [displayMenu, setDisplayMenu] = useState(false)
 
     const toggleMenu = () => {
         setDisplayMenu(!displayMenu)
     }
 
-    const toggleOff = () => {
-        if(window.innerWidth >= 768){
-            setDisplayMenu(false)
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener('resize', toggleOff)
-        return () => {
-            window.addEventListener('resize', toggleOff)
-        }
-    }, [])
 
     return (
         <nav className=" flex navbar justify-between items-stretch flex-col md:flex-row">
@@ -47,7 +35,7 @@ const NavBar = () => {
                     onClick={() => toggleMenu()}
                 >X</button>
             </div>
-            {displayMenu && <NavBarLlist />}
+            <NavBarList />
         </nav>
     )
 }
