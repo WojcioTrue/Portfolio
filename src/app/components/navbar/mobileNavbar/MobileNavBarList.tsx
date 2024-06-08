@@ -1,31 +1,18 @@
 import React from 'react'
-import MobileUnList from './MobileUnList'
+import MobileListElement from './MobileListElement'
+import { v4 as uuidv4 } from 'uuid';
+import { categories } from "../navItems";
 
-type MobileNavBarListType = {
-    toggleMenu: () => void
+const MobileUnList = () => {
+  return (
+    <div className='bg-red-300 h-full'>
+      <label htmlFor="mobile-navbar-list">Beauty list printed in saturday</label>
+      <ul id="mobile-navbar-list" >
+      {categories.map((x) => <MobileListElement key={uuidv4()} text={x} image='/template_logo.svg' />)}
+      </ul>
+    </div>
+
+  )
 }
 
-const MobileNavBarList = ({ toggleMenu }: MobileNavBarListType) => {
-
-
-    return (
-        <div className='fixed right-0 bg-yellow-100 w-full h-full max-w-sm' >
-            <div className='bg-blue-300 flex items-center p-3'>
-                <span className='mobile-logo w-full flex-1'>
-                    <h1>text</h1>
-                </span>
-                <button
-                    className="bg-red-500 h-8 w-8"
-                    type="button"
-                    aria-controls="dropdown__navbar"
-                    aria-expanded="false"
-                    aria-label="Toggle navbar"
-                    onClick={() => toggleMenu()}
-                >X</button>
-            </div>
-            <MobileUnList/>
-        </div>
-    )
-}
-
-export default MobileNavBarList
+export default MobileUnList

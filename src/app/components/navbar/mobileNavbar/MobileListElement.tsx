@@ -13,8 +13,8 @@ const MobileListElement  = ({text, image} : NavBarListElementType) => {
               priority={true}
               src={image}
               alt="Logo"
-              width="40"
-              height="40"
+              width="30"
+              height="30"
             />
             {text}
           </a>

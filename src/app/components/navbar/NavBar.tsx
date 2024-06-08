@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image"
 import NavBarList from "./NavBarList"
-import { useEffect, useState } from "react"
-import MobileNavBarList from "./mobileNavbar/MobileNavBarList"
+import { useState } from "react"
+import MobileNavBar from "./mobileNavbar/MobileNavBar"
 
 const NavBar = () => {
     const [displayMenu, setDisplayMenu] = useState(false)
@@ -35,7 +35,7 @@ const NavBar = () => {
                 >X</button>
             </div>
             <NavBarList />
-            {displayMenu && <MobileNavBarList toggleMenu={toggleMenu}/>}
+            {displayMenu && <MobileNavBar toggleMenu={toggleMenu}/>}
         </nav>
     )
 }
