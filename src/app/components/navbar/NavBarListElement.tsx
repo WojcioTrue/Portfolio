@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 
 type NavBarListElementType = {
     text: string,
@@ -14,9 +13,8 @@ const NavBarListElement = ({text, image} : NavBarListElementType) => {
             priority={true}
             src={image}
             alt="Logo"
-            width="20"
-            height="20"
-            className="bg-slate m-auto mr-2"
+            width="30"
+            height="30"
           />
           {text}
         </a>
