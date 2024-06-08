@@ -1,4 +1,5 @@
 import React from 'react'
+import MobileUnList from './MobileUnList'
 
 type MobileNavBarListType = {
     toggleMenu: () => void
@@ -22,7 +23,7 @@ const MobileNavBarList = ({ toggleMenu }: MobileNavBarListType) => {
                     onClick={() => toggleMenu()}
                 >X</button>
             </div>
-
+            <MobileUnList/>
         </div>
     )
 }
