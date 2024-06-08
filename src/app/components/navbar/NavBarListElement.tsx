@@ -13,8 +13,8 @@ const NavBarListElement = ({text, image} : NavBarListElementType) => {
             priority={true}
             src={image}
             alt="Logo"
-            width="30"
-            height="30"
+            width="20"
+            height="20"
           />
           {text}
         </a>
