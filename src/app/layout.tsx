@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "WojcioTrue_Portfolio",
   description: "Made in Next.js",
+  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({
