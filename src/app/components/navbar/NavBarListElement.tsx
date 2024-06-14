@@ -8,7 +8,7 @@ type NavBarListElementType = {
 const NavBarListElement = ({text, image} : NavBarListElementType) => {
   return (
     <li className="px-1">
-        <a className="flex items-center">
+        <a className="flex items-center w-max">
           <Image
             priority={true}
             src={image}
