@@ -13,7 +13,7 @@ const NavBar = () => {
     }
 
     return (
-        <nav className=" flex navbar justify-between items-stretch flex-col md:flex-row">
+        <nav className=" flex navbar justify-between items-stretch flex-col md:flex-row ">
             <div className="flex justify-between w-full bg-slate-400 items-center">
                 <a className="navbar__brand bg-red-500 flex" href="#">
                     <Image
@@ -37,7 +37,7 @@ const NavBar = () => {
             </div>
             <NavBarList />
             <MobileNavBar toggleMenu={toggleMenu} displayMenu={displayMenu}/>
-        <BackDrop/>
+        {displayMenu && <BackDrop/>}
         </nav>
     )
 }
