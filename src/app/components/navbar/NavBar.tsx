@@ -17,9 +17,9 @@ const NavBar = () => {
     },[displayMenu])
 
     return (
-        <nav className="navbar flex justify-between items-stretch flex-col md:flex-row w-full">
-            <div className="flex justify-between w-full bg-slate-400 items-center">
-                <a className="navbar__brand bg-red-500 flex" href="#">
+        <nav className="navbar bg-slate-400 flex justify-between items-stretch flex-col md:flex-row w-full">
+            <div className="flex justify-between w-full items-center">
+                <a className="navbar__brand flex" href="#">
                     <Image
                         priority={true}
                         src="/template_logo.svg"
@@ -31,7 +31,7 @@ const NavBar = () => {
                     <p className="px-2 inline my-auto">Portfolio</p>
                 </a>
                 <button
-                    className="bg-red-500 float-right md:hidden px-2"
+                    className="float-right md:hidden px-2"
                     type="button"
                     aria-controls="dropdown__navbar"
                     aria-expanded="false"

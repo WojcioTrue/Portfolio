@@ -6,7 +6,7 @@ import { categories } from "./navItems";
 
 const NavBarList = () => {
   return (
-    <ul className="hidden navbar-list w-auto bg-slate-400 md:flex flex-row  items-center pr-2">
+    <ul className="hidden navbar-list w-auto md:flex flex-row items-center pr-2">
       {categories.map((x) => <NavBarListElement key={uuidv4()} text={x} image='/template_logo.svg' />)}
     </ul>
   );
