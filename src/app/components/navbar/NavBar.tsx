@@ -3,6 +3,7 @@ import Image from "next/image"
 import NavBarList from "./NavBarList"
 import { useState } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
+import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 
 const NavBar = () => {
     const [displayMenu, setDisplayMenu] = useState(false)
@@ -36,6 +37,7 @@ const NavBar = () => {
             </div>
             <NavBarList />
             <MobileNavBar toggleMenu={toggleMenu} displayMenu={displayMenu}/>
+        <BackDrop/>
         </nav>
     )
 }
