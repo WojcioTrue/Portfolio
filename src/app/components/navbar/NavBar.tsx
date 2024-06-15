@@ -17,7 +17,7 @@ const NavBar = () => {
     },[displayMenu])
 
     return (
-        <nav className=" flex navbar justify-between items-stretch flex-col md:flex-row ">
+        <nav className="navbar flex justify-between items-stretch flex-col md:flex-row w-full">
             <div className="flex justify-between w-full bg-slate-400 items-center">
                 <a className="navbar__brand bg-red-500 flex" href="#">
                     <Image
