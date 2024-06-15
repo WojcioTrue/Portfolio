@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import NavBarList from "./NavBarList"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 
@@ -11,6 +11,10 @@ const NavBar = () => {
     const toggleMenu = () => {
         setDisplayMenu(!displayMenu)
     }
+
+    useEffect(() => {
+        displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
+    },[displayMenu])
 
     return (
         <nav className=" flex navbar justify-between items-stretch flex-col md:flex-row ">
