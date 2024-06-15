@@ -35,7 +35,7 @@ const NavBar = () => {
                 >X</button>
             </div>
             <NavBarList />
-            {displayMenu && <MobileNavBar toggleMenu={toggleMenu} displayMenu={displayMenu}/>}
+            <MobileNavBar toggleMenu={toggleMenu} displayMenu={displayMenu}/>
         </nav>
     )
 }

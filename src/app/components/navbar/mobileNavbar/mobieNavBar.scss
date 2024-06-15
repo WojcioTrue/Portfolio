@@ -1,0 +1,9 @@
+.display-on {
+    transition: transform .30s;
+    transform: translateX(0%);
+}
+
+.display-off {
+    transition: transform .30s;
+    transform: translateX(100%);
+}
