@@ -7,7 +7,7 @@ type NavBarListElementType = {
 
 const NavBarListElement = ({text, image} : NavBarListElementType) => {
   return (
-    <li className="px-1">
+    <li className="px-4 text-md font-semibold">
         <a className="flex items-center w-max">
           <Image
             priority={true}
@@ -15,6 +15,7 @@ const NavBarListElement = ({text, image} : NavBarListElementType) => {
             alt="Logo"
             width="20"
             height="20"
+            className='mr-1'
           />
           {text}
         </a>
