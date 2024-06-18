@@ -21,10 +21,10 @@ const NavBar = () => {
             <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto">
                 <div className="flex justify-between w-full items-center">
                     <a className="navbar__brand flex" href="#">
-                        <p className="px-2 py-4 inline my-auto text-3xl md:text-4xl font-medium">WOJCIO_TRUE</p>
+                        <p className="px-2 py-4 inline my-auto text-3xl font-medium">WOJCIO_TRUE</p>
                     </a>
                     <button
-                        className="float-right md:hidden px-2"
+                        className="float-right md:hidden px-2 border-red-400 border-2"
                         type="button"
                         aria-controls="dropdown__navbar"
                         aria-expanded="false"
