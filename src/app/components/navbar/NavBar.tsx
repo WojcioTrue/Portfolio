@@ -36,7 +36,6 @@ const NavBar = () => {
                 <MobileNavBar />
                 {displayMenu && <BackDrop />}
             </nav>
-            <button className="bg-slate-500" onClick={() => setDisplayMenu(prev => !prev)}>Change</button>
         </DisplayMenuContext.Provider>
 
     )

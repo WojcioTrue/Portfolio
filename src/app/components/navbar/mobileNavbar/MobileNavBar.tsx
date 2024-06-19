@@ -6,12 +6,10 @@ import { DisplayMenuContext } from '../NavBar'
 const MobileNavBar = () => {
     // reference to mobile navbar
     const navBarRef = useRef<HTMLDivElement | null>(null);
-    const {displayMenu, setDisplayMenu} = useContext(DisplayMenuContext)
-
-    // event listener checking if click occured inside navBar with current method
-
+    const { displayMenu, setDisplayMenu } = useContext(DisplayMenuContext)
 
     useEffect(() => {
+        // event listener checking if click occured inside navBar with current method
         const handleClickOutside = (event: MouseEvent) => {
             (navBarRef.current && !navBarRef.current.contains(event.target as Node)) && setDisplayMenu(false)
         };
@@ -39,7 +37,7 @@ const MobileNavBar = () => {
                     onClick={() => setDisplayMenu(prev => !prev)}
                 >X</button>
             </div>
-            <MobileNavBarList/>
+            <MobileNavBarList />
         </div>
     )
 }
