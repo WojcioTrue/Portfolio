@@ -1,15 +1,12 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import MobileNavBarList from './MobileNavBarList'
 import './mobieNavBar.scss'
+import { DisplayMenuContext } from '../NavBar'
 
-type MobileNavBarType = {
-    toggleMenu: () => void,
-    displayMenu: boolean
-}
-
-const MobileNavBar = ({ toggleMenu, displayMenu }: MobileNavBarType) => {
+const MobileNavBar = () => {
     // reference to mobile navbar
     const navBarRef = useRef<HTMLDivElement | null>(null);
+    const {displayMenu, setDisplayMenu} = useContext(DisplayMenuContext)
 
     // event listener checking if click occured inside navBar with current method
     const handleClickOutside = (event: MouseEvent) => {
@@ -43,7 +40,7 @@ const MobileNavBar = ({ toggleMenu, displayMenu }: MobileNavBarType) => {
                     aria-controls="dropdown__navbar"
                     aria-expanded="false"
                     aria-label="Toggle navbar"
-                    onClick={() => toggleMenu()}
+                    onClick={() => setDisplayMenu(prev => !prev)}
                 >X</button>
             </div>
             <MobileNavBarList/>
