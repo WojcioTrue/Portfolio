@@ -34,7 +34,7 @@ const NavBar = () => {
                     <NavBarList />
                 </span>
                 <MobileNavBar />
-                {displayMenu && <BackDrop />}
+                <BackDrop />
             </nav>
         </DisplayMenuContext.Provider>
 
