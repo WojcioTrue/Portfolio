@@ -8,8 +8,10 @@ type MobileNavBarType = {
 }
 
 const MobileNavBar = ({ toggleMenu, displayMenu }: MobileNavBarType) => {
+    // reference to mobile navbar
     const navBarRef = useRef<HTMLDivElement | null>(null);
 
+    // event listener checking if click occured inside navBar with current method
     const handleClickOutside = (event: MouseEvent) => {
         if (navBarRef.current && !navBarRef.current.contains(event.target as Node)) {
             console.log('Clicked outside the div');
@@ -20,9 +22,11 @@ const MobileNavBar = ({ toggleMenu, displayMenu }: MobileNavBarType) => {
     };
 
     useEffect(() => {
-        document.addEventListener('click', handleClickOutside);
+
+        document.body.addEventListener('click', handleClickOutside);
+        // cleanup
         return () => {
-            document.removeEventListener('click', handleClickOutside);
+            document.body.removeEventListener('click', handleClickOutside);
         };
     }, []);
 

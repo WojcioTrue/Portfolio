@@ -17,7 +17,7 @@ const NavBar = () => {
     }, [displayMenu])
 
     return (
-        <nav className="navbar bg-slate-400 w-full py-6 px-4 md:py-4">
+        <nav className="navbar bg-slate-400 w-full py-6 px-4">
             <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto">
                 <div className="flex justify-between w-full items-center">
                     <a className="navbar__brand flex" href="#">
