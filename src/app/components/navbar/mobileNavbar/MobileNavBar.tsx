@@ -9,23 +9,19 @@ const MobileNavBar = () => {
     const {displayMenu, setDisplayMenu} = useContext(DisplayMenuContext)
 
     // event listener checking if click occured inside navBar with current method
-    const handleClickOutside = (event: MouseEvent) => {
-        if (navBarRef.current && !navBarRef.current.contains(event.target as Node)) {
-            console.log('Clicked outside the div');
 
-        } else {
-            console.log('Clicked inside the div');
-        }
-    };
 
     useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            (navBarRef.current && !navBarRef.current.contains(event.target as Node)) && setDisplayMenu(false)
+        };
         // added event listener to body
         document.body.addEventListener('click', handleClickOutside);
         // cleanup
         return () => {
             document.body.removeEventListener('click', handleClickOutside);
         };
-    }, []);
+    }, [setDisplayMenu]);
 
 
     return (
