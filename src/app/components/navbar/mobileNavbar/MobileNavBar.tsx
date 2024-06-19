@@ -13,6 +13,7 @@ const MobileNavBar = ({ toggleMenu, displayMenu }: MobileNavBarType) => {
     const handleClickOutside = (event: MouseEvent) => {
         if (navBarRef.current && !navBarRef.current.contains(event.target as Node)) {
             console.log('Clicked outside the div');
+
         } else {
             console.log('Clicked inside the div');
         }
