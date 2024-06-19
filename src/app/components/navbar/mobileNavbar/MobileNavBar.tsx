@@ -22,7 +22,7 @@ const MobileNavBar = ({ toggleMenu, displayMenu }: MobileNavBarType) => {
     };
 
     useEffect(() => {
-
+        // added event listener to body
         document.body.addEventListener('click', handleClickOutside);
         // cleanup
         return () => {
