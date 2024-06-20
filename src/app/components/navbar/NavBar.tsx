@@ -16,7 +16,6 @@ const NavBar = () => {
 
     // check if window passed breakpoint while scrolling
     const scrolledWindow = () => {
-        console.log(navBarStyles)
         const scrolled = window.scrollY > 100 ? true : false
         setStyleFixed(scrolled)
     }
