@@ -6,7 +6,9 @@ import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 
-export const NavBarContext = createContext<{ displayMenu: boolean, setDisplayMenu: Dispatch<SetStateAction<boolean>> }>({ displayMenu: false, setDisplayMenu: () => { } })
+export const NavBarContext = createContext<{toogleMobileNav: {
+    displayMenu: boolean, setDisplayMenu: Dispatch<SetStateAction<boolean>>
+}  }>({toogleMobileNav: {displayMenu: false, setDisplayMenu: () => { } }})
 
 const NavBar = () => {
     // state for context
@@ -31,7 +33,7 @@ const NavBar = () => {
     }, [displayMenu])
 
     return (
-        <NavBarContext.Provider value={{ displayMenu, setDisplayMenu }}>
+        <NavBarContext.Provider value={{toogleMobileNav : {displayMenu, setDisplayMenu}}}>
             <nav className={`
                 ${styleFixed && navBarStyles.navchange + ' fixed'} 
                  bg-slate-400 navbar w-full py-6 px-4 `}>
