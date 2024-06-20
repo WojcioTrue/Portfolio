@@ -33,8 +33,7 @@ const NavBar = () => {
     return (
         <DisplayMenuContext.Provider value={{ displayMenu, setDisplayMenu }}>
             <nav className={`
-                ${styleFixed && navBarStyles.navchange} 
-                ${styleFixed && 'fixed'}
+                ${styleFixed && navBarStyles.navchange + ' fixed'} 
                  bg-slate-400 navbar w-full py-6 px-4 `}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto">
                     <div className="flex justify-between w-full items-center">
