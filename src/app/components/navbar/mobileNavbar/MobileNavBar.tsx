@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useContext } from 'react'
 import MobileNavBarList from './MobileNavBarList'
 import './mobieNavBar.scss'
-import { DisplayMenuContext } from '../NavBar'
+import { NavBarContext } from '../NavBar'
 
 const MobileNavBar = () => {
     // reference to mobile navbar
     const navBarRef = useRef<HTMLDivElement | null>(null);
-    const { displayMenu, setDisplayMenu } = useContext(DisplayMenuContext)
+    const { displayMenu, setDisplayMenu } = useContext(NavBarContext)
 
     useEffect(() => {
         // event listener checking if click occured inside navBar with current method
