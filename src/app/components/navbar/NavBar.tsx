@@ -6,9 +6,11 @@ import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 
-export const NavBarContext = createContext<{toogleMobileNav: {
-    displayMenu: boolean, setDisplayMenu: Dispatch<SetStateAction<boolean>>
-}  }>({toogleMobileNav: {displayMenu: false, setDisplayMenu: () => { } }})
+export const NavBarContext = createContext<{
+    toogleMobileNav: {
+        displayMenu: boolean, setDisplayMenu: Dispatch<SetStateAction<boolean>>
+    }
+}>({ toogleMobileNav: { displayMenu: false, setDisplayMenu: () => { } } })
 
 const NavBar = () => {
     // state for context
@@ -33,10 +35,9 @@ const NavBar = () => {
     }, [displayMenu])
 
     return (
-        <NavBarContext.Provider value={{toogleMobileNav : {displayMenu, setDisplayMenu}}}>
-            <nav className={`
-                ${styleFixed && navBarStyles.navchange + ' fixed'} 
-                 bg-slate-400 navbar w-full py-6 px-4 `}>
+        <NavBarContext.Provider value={{ toogleMobileNav: { displayMenu, setDisplayMenu } }}>
+            <nav className={
+                `${styleFixed && navBarStyles.navchange + ' fixed'} bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto">
                     <div className="flex justify-between w-full items-center">
                         <a className="navbar__brand flex" href="#">
@@ -55,6 +56,8 @@ const NavBar = () => {
                 </span>
                 <MobileNavBar />
                 <BackDrop />
+                {/* <div id="left-side" className='bg-green-400 w-full h-[116px] absolute top-0 right-[700px]'></div>
+                <div id="right-side" className='bg-green-400 w-full h-[116px] absolute top-0 left-[700px]'></div> */}
             </nav>
         </NavBarContext.Provider>
 
