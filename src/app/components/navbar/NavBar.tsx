@@ -6,23 +6,31 @@ import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 
+type ItemPositionType = {
+    x: number,
+    y: number,
+}
+
 export const NavBarContext = createContext<{
     toogleMobileNav: {
-        displayMenu: boolean, 
+        displayMenu: boolean,
         setDisplayMenu: Dispatch<SetStateAction<boolean>>
     },
-    temporaryCoordinates: {
-        x: number,
-        y: number,
+    navBarItemPosition: {
+        values: ItemPositionType
+        setPosition: Dispatch<SetStateAction<ItemPositionType>>
     }
 }>({
     toogleMobileNav: {
         displayMenu: false,
         setDisplayMenu: () => { }
     },
-    temporaryCoordinates: {
-        x: 0,
-        y: 0,
+    navBarItemPosition: {
+        values: {
+            x: 0,
+            y: 0,
+        },
+        setPosition: () => { }
     }
 })
 
@@ -31,7 +39,11 @@ const NavBar = () => {
     const [displayMenu, setDisplayMenu] = useState<boolean>(false)
     //state for changing menu to fixed
     const [fixedMenu, setFixedMenu] = useState<boolean>(false)
-
+    const [navBarItemPosition, setNavBarItemPosition] = useState<ItemPositionType>(
+        {
+            x: 0,
+            y: 0,
+        })
     // check if window passed breakpoint while scrolling
     const scrolledWindow = () => {
         const scrolled = window.scrollY > 100 ? true : false
@@ -52,7 +64,10 @@ const NavBar = () => {
         <NavBarContext.Provider value={
             {
                 toogleMobileNav: { displayMenu, setDisplayMenu },
-                temporaryCoordinates: { x: 0, y: 0 }
+                navBarItemPosition: {
+                    values: navBarItemPosition,
+                    setPosition: setNavBarItemPosition,
+                }
             }}>
             <nav className={
                 `${fixedMenu && navBarStyles.navchange + ' fixed'} bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
