@@ -16,12 +16,12 @@ const NavBar = () => {
     // state for context
     const [displayMenu, setDisplayMenu] = useState<boolean>(false)
     //state for changing menu to fixed
-    const [styleFixed, setStyleFixed] = useState(false)
+    const [fixedMenu, setFixedMenu] = useState(false)
 
     // check if window passed breakpoint while scrolling
     const scrolledWindow = () => {
         const scrolled = window.scrollY > 100 ? true : false
-        setStyleFixed(scrolled)
+        setFixedMenu(scrolled)
     }
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const NavBar = () => {
     return (
         <NavBarContext.Provider value={{ toogleMobileNav: { displayMenu, setDisplayMenu } }}>
             <nav className={
-                `${styleFixed && navBarStyles.navchange + ' fixed'} bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
+                `${fixedMenu && navBarStyles.navchange + ' fixed'} bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto">
                     <div className="flex justify-between w-full items-center">
                         <a className="navbar__brand flex" href="#">
