@@ -17,7 +17,7 @@ export const NavBarContext = createContext<{
         setDisplayMenu: Dispatch<SetStateAction<boolean>>
     },
     navBarItemPosition: {
-        values: ItemPositionType
+        position: ItemPositionType
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
     }
 }>({
@@ -26,7 +26,7 @@ export const NavBarContext = createContext<{
         setDisplayMenu: () => { }
     },
     navBarItemPosition: {
-        values: {
+        position: {
             x: 0,
             y: 0,
         },
@@ -51,6 +51,10 @@ const NavBar = () => {
     }
 
     useEffect(() => {
+        console.log(navBarItemPosition)
+    },[navBarItemPosition])
+
+    useEffect(() => {
         window.addEventListener('scroll', scrolledWindow)
         // cleanup
         return () => window.removeEventListener('scroll', scrolledWindow)
@@ -65,7 +69,7 @@ const NavBar = () => {
             {
                 toogleMobileNav: { displayMenu, setDisplayMenu },
                 navBarItemPosition: {
-                    values: navBarItemPosition,
+                    position: navBarItemPosition,
                     setPosition: setNavBarItemPosition,
                 }
             }}>

@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import { NavBarContext } from './NavBar'
+import { useContext } from 'react'
 
 type NavBarListElementType = {
     text: string,
@@ -6,6 +8,9 @@ type NavBarListElementType = {
 }
 
 const NavBarListElement = ({text, image} : NavBarListElementType) => {
+  const {navBarItemPosition} = useContext(NavBarContext)
+  const {position, setPosition} = navBarItemPosition
+
   return (
     //.textContent for target
     <li onClick={(e) => console.log(
