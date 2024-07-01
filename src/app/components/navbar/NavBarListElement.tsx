@@ -13,7 +13,7 @@ const NavBarListElement = ({text, image} : NavBarListElementType) => {
 
   useEffect(() => {
     console.log(position)
-  },[])
+  },[position])
 
   return (
     //.textContent for target
