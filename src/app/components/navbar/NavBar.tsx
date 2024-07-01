@@ -9,8 +9,21 @@ import navBarStyles from "./NavBar.module.scss"
 export const NavBarContext = createContext<{
     toogleMobileNav: {
         displayMenu: boolean, setDisplayMenu: Dispatch<SetStateAction<boolean>>
+    },
+    temporaryCoordinates: {
+        x: number,
+        y: number,
     }
-}>({ toogleMobileNav: { displayMenu: false, setDisplayMenu: () => { } } })
+}>({
+    toogleMobileNav: {
+        displayMenu: false,
+        setDisplayMenu: () => { }
+    },
+    temporaryCoordinates: {
+        x: 0,
+        y: 0,
+    }
+})
 
 const NavBar = () => {
     // state for context
@@ -35,7 +48,11 @@ const NavBar = () => {
     }, [displayMenu])
 
     return (
-        <NavBarContext.Provider value={{ toogleMobileNav: { displayMenu, setDisplayMenu } }}>
+        <NavBarContext.Provider value={
+            {
+                toogleMobileNav: { displayMenu, setDisplayMenu },
+                temporaryCoordinates: { x: 0, y: 0 }
+            }}>
             <nav className={
                 `${fixedMenu && navBarStyles.navchange + ' fixed'} bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto">
