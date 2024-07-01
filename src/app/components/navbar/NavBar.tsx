@@ -8,7 +8,8 @@ import navBarStyles from "./NavBar.module.scss"
 
 export const NavBarContext = createContext<{
     toogleMobileNav: {
-        displayMenu: boolean, setDisplayMenu: Dispatch<SetStateAction<boolean>>
+        displayMenu: boolean, 
+        setDisplayMenu: Dispatch<SetStateAction<boolean>>
     },
     temporaryCoordinates: {
         x: number,
@@ -29,7 +30,7 @@ const NavBar = () => {
     // state for context
     const [displayMenu, setDisplayMenu] = useState<boolean>(false)
     //state for changing menu to fixed
-    const [fixedMenu, setFixedMenu] = useState(false)
+    const [fixedMenu, setFixedMenu] = useState<boolean>(false)
 
     // check if window passed breakpoint while scrolling
     const scrolledWindow = () => {
