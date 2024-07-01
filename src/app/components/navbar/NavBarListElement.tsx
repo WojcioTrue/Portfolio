@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { NavBarContext } from './NavBar'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 type NavBarListElementType = {
     text: string,
@@ -11,12 +11,17 @@ const NavBarListElement = ({text, image} : NavBarListElementType) => {
   const {navBarItemPosition} = useContext(NavBarContext)
   const {position, setPosition} = navBarItemPosition
 
+  useEffect(() => {
+    console.log(position)
+  },[])
+
   return (
     //.textContent for target
-    <li onClick={(e) => console.log(
-      'left ' + (e.target as HTMLLIElement).getBoundingClientRect().left, 
-      '\n' 
-      + 'right ' +(e.target as HTMLLIElement).getBoundingClientRect().right)} className="px-4 text-md font-semibold">
+    <li onClick={(e) => setPosition({
+      left: Number((e.target as HTMLLIElement).getBoundingClientRect().left.toFixed(1)),
+      right: Number((e.target as HTMLLIElement).getBoundingClientRect().right.toFixed(1)),
+    })} 
+    className="px-4 text-md font-semibold">
         <a className="flex items-center w-max">
           <Image
             priority={true}

@@ -7,8 +7,8 @@ import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 
 type ItemPositionType = {
-    x: number,
-    y: number,
+    left: number,
+    right: number,
 }
 
 export const NavBarContext = createContext<{
@@ -27,8 +27,8 @@ export const NavBarContext = createContext<{
     },
     navBarItemPosition: {
         position: {
-            x: 0,
-            y: 0,
+            left: 0,
+            right: 0,
         },
         setPosition: () => { }
     }
@@ -41,18 +41,14 @@ const NavBar = () => {
     const [fixedMenu, setFixedMenu] = useState<boolean>(false)
     const [navBarItemPosition, setNavBarItemPosition] = useState<ItemPositionType>(
         {
-            x: 0,
-            y: 0,
+            left: 0,
+            right: 0,
         })
     // check if window passed breakpoint while scrolling
     const scrolledWindow = () => {
         const scrolled = window.scrollY > 100 ? true : false
         setFixedMenu(scrolled)
     }
-
-    useEffect(() => {
-        console.log(navBarItemPosition)
-    },[navBarItemPosition])
 
     useEffect(() => {
         window.addEventListener('scroll', scrolledWindow)
