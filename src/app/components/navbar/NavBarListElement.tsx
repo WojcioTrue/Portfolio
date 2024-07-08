@@ -11,17 +11,13 @@ const NavBarListElement = ({text, image} : NavBarListElementType) => {
   const {navBarItemPosition} = useContext(NavBarContext)
   const {position, setPosition} = navBarItemPosition
 
-  useEffect(() => {
-    console.log(position)
-  },[position])
-
   return (
     //.textContent for target
     <li onClick={(e) => setPosition({
-      left: Number((e.target as HTMLLIElement).getBoundingClientRect().left.toFixed(1)),
-      right: Number((e.target as HTMLLIElement).getBoundingClientRect().right.toFixed(1)),
+      left: Number((e.target as HTMLLIElement).getBoundingClientRect().left.toFixed(0)),
+      right: Number((e.target as HTMLLIElement).getBoundingClientRect().right.toFixed(0)),
     })} 
-    className="px-4 text-md font-semibold">
+    className="px-2 mx-2 text-md font-semibold cursor-pointer">
         <a className="flex items-center w-max">
           <Image
             priority={true}

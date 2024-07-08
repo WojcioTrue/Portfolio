@@ -51,6 +51,10 @@ const NavBar = () => {
     }
 
     useEffect(() => {
+        console.log(navBarItemPosition.left)
+    }, [navBarItemPosition])
+
+    useEffect(() => {
         window.addEventListener('scroll', scrolledWindow)
         // cleanup
         return () => window.removeEventListener('scroll', scrolledWindow)
@@ -70,7 +74,7 @@ const NavBar = () => {
                 }
             }}>
             <nav className={
-                `${fixedMenu && navBarStyles.navchange + ' fixed'} bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
+                `${fixedMenu && navBarStyles.navchange + ' fixed'} bg-slate-400 navbar w-full py-6 px-4 overflow-hidden relative`}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto">
                     <div className="flex justify-between w-full items-center">
                         <a className="navbar__brand flex" href="#">
@@ -87,10 +91,12 @@ const NavBar = () => {
                     </div>
                     <NavBarList />
                 </span>
+                <div 
+                className={`bg-cyan-300 w-[400px] h-7 absolute top-0 `} 
+                style={{ left: `${navBarItemPosition.left + 100}px` }}> 
+                </div>
                 <MobileNavBar />
                 <BackDrop />
-                {/* <div id="left-side" className='bg-green-400 w-full h-[116px] absolute top-0 right-[700px]'></div>
-                <div id="right-side" className='bg-green-400 w-full h-[116px] absolute top-0 left-[700px]'></div> */}
             </nav>
         </NavBarContext.Provider>
 
