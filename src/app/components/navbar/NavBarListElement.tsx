@@ -14,15 +14,10 @@ const NavBarListElement = ({ text, image }: NavBarListElementType) => {
   return (
     <li onClick={(e) => {
       const centerOfElement = Number((e.currentTarget.offsetWidth / 2).toFixed(0));
-
+      // offset left element with 'left' property
       const leftValue = Number((e.currentTarget as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + centerOfElement;
-      const rightValue = (document.body.clientWidth - Number((e.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)))
-
-      console.log(`
-        innerWidth ${document.body.clientWidth} 
-        element right: ${Number((e.target as HTMLLIElement).getBoundingClientRect().right.toFixed(0))}
-        element : ${e.currentTarget}
-        `)
+      // offset element with 'right' property
+      const rightValue = (document.body.clientWidth - Number((e.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) + centerOfElement)
 
       setPosition({
         left: leftValue,
