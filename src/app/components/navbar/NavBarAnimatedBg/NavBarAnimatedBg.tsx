@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react"
-import { NavBarContext } from "./NavBar"
+import { NavBarContext } from "../NavBar"
 
 const NavBarAnimatedBg = () => {
     const { navBarItemPosition } = useContext(NavBarContext)

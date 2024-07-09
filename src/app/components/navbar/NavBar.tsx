@@ -5,7 +5,7 @@ import { useEffect, useState, createContext } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
-import NavBarAnimatedBg from "./NavBarAnimatedBg"
+import NavBarAnimatedBg from "./NavBarAnimatedBg/NavBarAnimatedBg"
 
 type ItemPositionType = {
     left: number,
