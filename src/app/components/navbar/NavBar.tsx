@@ -5,6 +5,7 @@ import { useEffect, useState, createContext } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
+import NavBarAnimatedBg from "./NavBarAnimatedBg"
 
 type ItemPositionType = {
     left: number,
@@ -41,7 +42,7 @@ const NavBar = () => {
     const [fixedMenu, setFixedMenu] = useState<boolean>(false)
     const [navBarItemPosition, setNavBarItemPosition] = useState<ItemPositionType>(
         {
-            left: 0,
+            left: 0 ,
             right: 0,
         })
     // check if window passed breakpoint while scrolling
@@ -49,10 +50,6 @@ const NavBar = () => {
         const scrolled = window.scrollY > 100 ? true : false
         setFixedMenu(scrolled)
     }
-
-    useEffect(() => {
-        console.log(navBarItemPosition.left)
-    }, [navBarItemPosition])
 
     useEffect(() => {
         window.addEventListener('scroll', scrolledWindow)
@@ -74,7 +71,7 @@ const NavBar = () => {
                 }
             }}>
             <nav className={
-                `${fixedMenu && navBarStyles.navchange + ' fixed'} bg-slate-400 navbar w-full py-6 px-4 overflow-hidden relative`}>
+                `${fixedMenu && navBarStyles.navchange + ' fixed'} bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto">
                     <div className="flex justify-between w-full items-center">
                         <a className="navbar__brand flex" href="#">
@@ -91,12 +88,9 @@ const NavBar = () => {
                     </div>
                     <NavBarList />
                 </span>
-                <div 
-                className={`bg-cyan-300 w-[400px] h-7 absolute top-0 `} 
-                style={{ left: `${navBarItemPosition.left + 100}px` }}> 
-                </div>
                 <MobileNavBar />
                 <BackDrop />
+                <NavBarAnimatedBg/>
             </nav>
         </NavBarContext.Provider>
 
