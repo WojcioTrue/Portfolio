@@ -52,6 +52,10 @@ const NavBar = () => {
     }
 
     useEffect(() => {
+        console.log(navBarItemPosition)
+    },[navBarItemPosition])
+
+    useEffect(() => {
         window.addEventListener('scroll', scrolledWindow)
         // cleanup
         return () => window.removeEventListener('scroll', scrolledWindow)
