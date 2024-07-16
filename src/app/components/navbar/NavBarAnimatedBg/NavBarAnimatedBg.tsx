@@ -8,11 +8,11 @@ const NavBarAnimatedBg = () => {
     return (
         <div className="nav-bar-animated-bg absolute h-full w-full top-0 left-0 overflow-hidden z-10">
             <span 
-            className={`right-element bg-cyan-300 w-[400px] h-full absolute top-0`} 
+            className={`right-element bg-cyan-300 w-full h-full absolute top-0`} 
             style={{ right: `${position.right}px` }}>
             </span>
             <span
-            className={`transition-all left-element bg-red-600 w-[400px] h-full absolute top-0`}
+            className={`transition-all left-element bg-red-600 w-full h-full absolute top-0`}
             style={{ left: `${position.left}px` }}>
             </span>
         </div>
