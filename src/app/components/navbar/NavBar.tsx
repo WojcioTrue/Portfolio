@@ -87,7 +87,7 @@ const NavBar = () => {
                 }
             }}>
             <nav className={
-                `${fixedMenu && navBarStyles.navchange + ' fixed'} relative bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
+                `relative ${fixedMenu && navBarStyles.navchange + ' !fixed'}  bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto">
                     <div className="flex justify-between w-full items-center">
                         <a className="navbar__brand flex z-20" href="#">
