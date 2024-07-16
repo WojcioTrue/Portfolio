@@ -42,7 +42,7 @@ const NavBar = () => {
     const [fixedMenu, setFixedMenu] = useState<boolean>(false)
     const [navBarItemPosition, setNavBarItemPosition] = useState<ItemPositionType>(
         {
-            left: 0 ,
+            left: 0,
             right: 0,
         })
     // check if window passed breakpoint while scrolling
@@ -50,10 +50,6 @@ const NavBar = () => {
         const scrolled = window.scrollY > 100 ? true : false
         setFixedMenu(scrolled)
     }
-
-    useEffect(() => {
-        console.log(navBarItemPosition)
-    },[navBarItemPosition])
 
     useEffect(() => {
         window.addEventListener('scroll', scrolledWindow)
@@ -64,6 +60,22 @@ const NavBar = () => {
     useEffect(() => {
         displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
     }, [displayMenu])
+
+
+    // default value for background Elements
+    useEffect(() => {
+        const navBarListElements = document.getElementsByClassName("desktop-nav-bar-element");
+        if (navBarListElements.length > 0) {
+            const firstLiElement = navBarListElements[0] as HTMLLIElement
+            const widthOfElement = firstLiElement.offsetWidth
+            const leftValue = Number(firstLiElement.getBoundingClientRect().left.toFixed(0)) + (widthOfElement / 2);
+            const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(0)) + (widthOfElement / 2);
+            setNavBarItemPosition({
+                left: leftValue,
+                right: rightValue
+            })
+        }
+    }, [])
 
     return (
         <NavBarContext.Provider value={
@@ -94,7 +106,7 @@ const NavBar = () => {
                 </span>
                 <MobileNavBar />
                 <BackDrop />
-                <NavBarAnimatedBg/>
+                <NavBarAnimatedBg />
             </nav>
         </NavBarContext.Provider>
 
