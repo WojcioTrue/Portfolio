@@ -27,7 +27,7 @@ const NavBarListElement = ({ text, image }: NavBarListElementType) => {
     }
 
     }
-      className="desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer">
+      className="desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20">
       <a className="flex items-center w-max">
         <Image
           priority={true}
