@@ -51,6 +51,15 @@ const NavBar = () => {
         setFixedMenu(scrolled)
     }
 
+    const resizeAnimatedBg = () => {
+        console.log(window.innerWidth)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', resizeAnimatedBg)
+        return () => window.removeEventListener('resize',resizeAnimatedBg)
+    },[])
+
     useEffect(() => {
         window.addEventListener('scroll', scrolledWindow)
         // cleanup

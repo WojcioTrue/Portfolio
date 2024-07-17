@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { NavBarContext } from './NavBar'
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 
 type NavBarListElementType = {
   text: string,
@@ -10,24 +10,29 @@ type NavBarListElementType = {
 const NavBarListElement = ({ text, image }: NavBarListElementType) => {
   const { navBarItemPosition } = useContext(NavBarContext)
   const { position, setPosition } = navBarItemPosition
-  
+
+  const changeCenter = (ev: React.MouseEvent) => {
+    ev.preventDefault();
+    // center of current target element
+    const centerOfElement = Number(((ev.currentTarget as HTMLLIElement).offsetWidth / 2).toFixed(0));
+    // offset left element with 'left' property
+    const leftValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + centerOfElement;
+    // offset element with 'right' property
+    const rightValue = (document.body.clientWidth - (Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - centerOfElement))
+
+    setPosition({
+      left: leftValue,
+      right: rightValue,
+    })
+  }
 
   return (
-    <li onClick={(e) => {
-      const centerOfElement = Number((e.currentTarget.offsetWidth / 2).toFixed(0));
-      // offset left element with 'left' property
-      const leftValue = Number((e.currentTarget as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + centerOfElement;
-      // offset element with 'right' property
-      const rightValue = (document.body.clientWidth - (Number((e.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - centerOfElement))
-
-      setPosition({
-        left: leftValue,
-        right: rightValue,
-      })
+    <li onClick={
+      (event : React.MouseEvent) => {
+        changeCenter(event);
+      }
     }
-
-    }
-      className="desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20">
+      className="desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20 active active:bg-green-500">
       <a className="flex items-center w-max">
         <Image
           priority={true}
