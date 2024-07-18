@@ -6,6 +6,7 @@ import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 import NavBarAnimatedBg from "./NavBarAnimatedBg/NavBarAnimatedBg"
+import { categories, ListElement } from "./navItems"
 
 type ItemPositionType = {
     left: number,
@@ -20,6 +21,9 @@ export const NavBarContext = createContext<{
     navBarItemPosition: {
         position: ItemPositionType
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
+    },
+    navBarItems: {
+        listItems: ListElement[]
     }
 }>({
     toogleMobileNav: {
@@ -32,6 +36,9 @@ export const NavBarContext = createContext<{
             right: 0,
         },
         setPosition: () => { }
+    },
+    navBarItems: {
+        listItems: []
     }
 })
 
@@ -84,7 +91,10 @@ const NavBar = () => {
                 navBarItemPosition: {
                     position: navBarItemPosition,
                     setPosition: setNavBarItemPosition,
-                }
+                },
+                navBarItems: {
+                    listItems: categories
+                },
             }}>
             <nav className={
                 `relative ${fixedMenu && navBarStyles.navchange + ' !fixed'}  bg-slate-400 navbar w-full py-6 px-4 overflow-hidden`}>
