@@ -10,6 +10,7 @@ type NavBarListElementType = {
 
 const NavBarListElement = ({ text, image, isActive }: NavBarListElementType) => {
   const { navBarItemPosition } = useContext(NavBarContext)
+  const { navBarItems } = useContext(NavBarContext)
   const { position, setPosition } = navBarItemPosition
 
   const changeCenter = (ev: React.MouseEvent) => {
@@ -31,7 +32,7 @@ const NavBarListElement = ({ text, image, isActive }: NavBarListElementType) => 
     <li onClick={
       (event : React.MouseEvent) => {
         changeCenter(event);
-        console.log(text, isActive)
+        // navBarItems.updateActiveItems()
       }
     }
       className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20 ${isActive && "bg-red-950"}`}>

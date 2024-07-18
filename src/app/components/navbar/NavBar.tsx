@@ -1,7 +1,7 @@
 "use client"
 import { SetStateAction, Dispatch } from "react"
 import NavBarList from "./NavBarList"
-import { useEffect, useState, createContext } from "react"
+import { useEffect, useState, createContext, useContext } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
@@ -23,7 +23,8 @@ export const NavBarContext = createContext<{
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
     },
     navBarItems: {
-        listItems: ListElement[]
+        listElements: ListElement[],
+        setListElements: Dispatch<SetStateAction<ListElement[]>>
     }
 }>({
     toogleMobileNav: {
@@ -38,7 +39,8 @@ export const NavBarContext = createContext<{
         setPosition: () => { }
     },
     navBarItems: {
-        listItems: []
+        listElements: categories,
+        setListElements: () => {}
     }
 })
 
@@ -46,12 +48,16 @@ const NavBar = () => {
     // state for context
     const [displayMenu, setDisplayMenu] = useState<boolean>(false)
     //state for changing menu to fixed
+     const { navBarItems } = useContext(NavBarContext)
     const [fixedMenu, setFixedMenu] = useState<boolean>(false)
     const [navBarItemPosition, setNavBarItemPosition] = useState<ItemPositionType>(
         {
             left: 0,
             right: 0,
         })
+    const [ listElements, setListElements ] = useState<ListElement[]>(categories)
+
+
     // check if window passed breakpoint while scrolling
     const scrolledWindow = () => {
         const scrolled = window.scrollY > 100 ? true : false
@@ -93,7 +99,8 @@ const NavBar = () => {
                     setPosition: setNavBarItemPosition,
                 },
                 navBarItems: {
-                    listItems: categories
+                    listElements: listElements,
+                    setListElements,
                 },
             }}>
             <nav className={
