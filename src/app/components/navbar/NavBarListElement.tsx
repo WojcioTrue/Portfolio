@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { NavBarContext } from './NavBar'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 type NavBarListElementType = {
   text: string,
@@ -31,9 +31,10 @@ const NavBarListElement = ({ text, image, isActive }: NavBarListElementType) => 
     <li onClick={
       (event : React.MouseEvent) => {
         changeCenter(event);
+        console.log(text, isActive)
       }
     }
-      className="desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20 active active:bg-green-500">
+      className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20 ${isActive && "bg-red-950"}`}>
       <a className="flex items-center w-max">
         <Image
           priority={true}
