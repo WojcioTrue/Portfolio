@@ -4,10 +4,11 @@ import { useContext } from 'react'
 
 type NavBarListElementType = {
   text: string,
-  image: string
+  image: string,
+  isActive: boolean,
 }
 
-const NavBarListElement = ({ text, image }: NavBarListElementType) => {
+const NavBarListElement = ({ text, image, isActive }: NavBarListElementType) => {
   const { navBarItemPosition } = useContext(NavBarContext)
   const { position, setPosition } = navBarItemPosition
 
