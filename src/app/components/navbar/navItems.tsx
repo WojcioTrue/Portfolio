@@ -3,14 +3,14 @@ export type ListElement = {
     active: boolean
 }
 
-export const categories: ListElement[] = [
+export const defaultCategories: ListElement[] = [
     {
         section: 'Welcome',
         active: false
     },
     {
         section: 'about',
-        active: true
+        active: false
     },
     {
         section: 'text',
@@ -18,6 +18,25 @@ export const categories: ListElement[] = [
     },
     {
         section: 'something',
-        active: true
+        active: false
+    }
+]
+
+export const categories: ListElement[] = [
+    {
+        section: 'Welcome',
+        active: false
+    },
+    {
+        section: 'about',
+        active: false
+    },
+    {
+        section: 'text',
+        active: false
+    },
+    {
+        section: 'something',
+        active: false
     }
 ]

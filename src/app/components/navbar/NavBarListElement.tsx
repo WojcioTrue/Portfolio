@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { NavBarContext } from './NavBar'
 import { useContext, useEffect } from 'react'
+import { defaultCategories } from './navItems'
 
 type NavBarListElementType = {
   text: string,
@@ -30,9 +31,9 @@ const NavBarListElement = ({ text, image, isActive }: NavBarListElementType) => 
 
   return (
     <li onClick={
-      (event : React.MouseEvent) => {
+      (event: React.MouseEvent) => {
         changeCenter(event);
-        // navBarItems.updateActiveItems()
+        navBarItems.setListElements(defaultCategories.map(x => x.section === text ? {...x, active: true} : x))
       }
     }
       className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20 ${isActive && "bg-red-950"}`}>
