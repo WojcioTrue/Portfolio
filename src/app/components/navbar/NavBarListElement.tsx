@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { NavBarContext } from './NavBar'
 import { useContext, useEffect } from 'react'
-import { defaultCategories } from './navItems'
+import { categories } from './navItems'
 
 type NavBarListElementType = {
   text: string,
