@@ -33,7 +33,7 @@ const NavBarListElement = ({ text, image, isActive }: NavBarListElementType) => 
     <li onClick={
       (event: React.MouseEvent) => {
         changeCenter(event);
-        navBarItems.setListElements(defaultCategories.map(x => x.section === text ? {...x, active: true} : x))
+        navBarItems.setListElements(categories.map(x => x.section === text ? {...x, active: true} : x))
       }
     }
       className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20 ${isActive && "bg-red-950"}`}>
