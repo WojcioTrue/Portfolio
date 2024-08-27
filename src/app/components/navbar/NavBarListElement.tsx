@@ -4,12 +4,13 @@ import { useContext } from 'react'
 import { categories } from './navItems'
 
 type NavBarListElementType = {
+  id: string,
   text: string,
   image: string,
   isActive: boolean,
 }
 
-const NavBarListElement = ({ text, image, isActive }: NavBarListElementType) => {
+const NavBarListElement = ({id, text, image, isActive }: NavBarListElementType) => {
   const { navBarItemPosition } = useContext(NavBarContext)
   const { navBarItems } = useContext(NavBarContext)
   const { position, setPosition } = navBarItemPosition
@@ -36,6 +37,7 @@ const NavBarListElement = ({ text, image, isActive }: NavBarListElementType) => 
         navBarItems.setListElements(categories.map(x => x.section === text ? {...x, active: true} : x))
       }
     }
+      id={id}
       className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20 ${isActive && "bg-red-950"}`}>
       <a className="flex items-center w-max">
         <Image

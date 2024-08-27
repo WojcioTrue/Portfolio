@@ -5,7 +5,7 @@ export type ListElement = {
 
 export const categories: ListElement[] = [
     {
-        section: 'Welcome',
+        section: 'welcome',
         active: false
     },
     {
