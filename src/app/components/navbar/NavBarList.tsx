@@ -7,16 +7,19 @@ import { list } from 'postcss';
 
 const NavBarList = () => {
   const { navBarItems } = useContext(NavBarContext)
-  const [activeElement, setActiveElement] = useState<[] | ListElement[]>([])
+  const [activeElement, setActiveElement] = useState<ListElement[]>([])
 
 
   useEffect(() => {
-    console.log(activeElement![0])
+    if(typeof activeElement !== undefined){
+      console.log(activeElement)
+    }
   }, [activeElement])
 
   useEffect(() => {
     const updateActiveLi = () => {
-      setActiveElement(navBarItems.listElements.filter(x => x.active === true))
+      const activeElement = () => navBarItems.listElements.filter(x => x.active === true);
+      setActiveElement(activeElement)
     }
     window.addEventListener('resize', updateActiveLi)
     return () => {

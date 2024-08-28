@@ -38,7 +38,7 @@ const NavBarListElement = ({id, text, image, isActive }: NavBarListElementType) 
       }
     }
       id={id}
-      className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20 ${isActive && "bg-red-950"}`}>
+      className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer z-20 ${isActive ? "bg-red-950" : ""}`}>
       <a className="flex items-center w-max">
         <Image
           priority={true}
