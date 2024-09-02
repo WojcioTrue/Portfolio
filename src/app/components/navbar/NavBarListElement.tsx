@@ -11,8 +11,7 @@ type NavBarListElementType = {
 }
 
 const NavBarListElement = ({id, text, image, isActive }: NavBarListElementType) => {
-  const { navBarItemPosition } = useContext(NavBarContext)
-  const { navBarItems } = useContext(NavBarContext)
+  const { navBarItemPosition, navBarItems } = useContext(NavBarContext)
   const { setPosition } = navBarItemPosition
 
   const changeCenter = (ev: React.MouseEvent) => {
