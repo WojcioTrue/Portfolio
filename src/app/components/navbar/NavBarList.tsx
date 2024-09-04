@@ -48,7 +48,6 @@ const NavBarList = () => {
 
   return (
     <ul className="hidden w-auto md:flex flex-row items-center">
-      {/* <h2 style={{zIndex: '100'}}>{activeElement[0] === undefined ? 'text' : activeElement[0].section}</h2> */}
       {navBarItems.listElements.map((listItem) => <NavBarListElement id={`navbar_li_${listItem.section}`} key={uuidv4()} text={listItem.section} isActive={listItem.active} image='/template_logo.svg' />)}
     </ul>
   );
