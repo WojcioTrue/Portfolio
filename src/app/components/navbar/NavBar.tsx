@@ -94,7 +94,7 @@ const NavBar = () => {
                 right: rightValue
             })
         }
-    }, [])
+    }, [navBarItems.listElements])
 
     return (
         <NavBarContext.Provider value={
