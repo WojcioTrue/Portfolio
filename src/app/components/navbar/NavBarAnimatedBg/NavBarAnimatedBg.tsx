@@ -8,15 +8,9 @@ const NavBarAnimatedBg = () => {
     const [isActive, setIsActive] = useState(false)
 
     useEffect(() => {
-        console.log(NavBarAnimatedStyles)
-    }, [])
-
-    useEffect(() => {
         const isActive = navBarItems.listElements.some((x) => Boolean(x.active) === true)
         setIsActive(isActive)
     }, [navBarItems.listElements])
-
-    // 
 
     return (
         <div className={`static h-full w-full left-0 overflow-hidden`}>
