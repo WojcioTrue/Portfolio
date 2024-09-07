@@ -40,7 +40,7 @@ export const NavBarContext = createContext<{
     },
     navBarItems: {
         listElements: categories,
-        setListElements: () => {}
+        setListElements: () => { }
     }
 })
 
@@ -48,14 +48,14 @@ const NavBar = () => {
     // state for context
     const [displayMenu, setDisplayMenu] = useState<boolean>(false)
     //state for changing menu to fixed
-     const { navBarItems } = useContext(NavBarContext)
+    const { navBarItems } = useContext(NavBarContext)
     const [fixedMenu, setFixedMenu] = useState<boolean>(false)
     const [navBarItemPosition, setNavBarItemPosition] = useState<ItemPositionType>(
         {
             left: 0,
             right: 0,
         })
-    const [ listElements, setListElements ] = useState<ListElement[]>(categories)
+    const [listElements, setListElements] = useState<ListElement[]>(categories)
 
 
     // check if window passed breakpoint while scrolling
@@ -78,12 +78,14 @@ const NavBar = () => {
         displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
     }, [displayMenu])
 
-
-    // default value for background Elements
+    // default value for background when page is loaded
     useEffect(() => {
         const navBarListElements = document.getElementsByClassName("desktop-nav-bar-element");
-        if (navBarListElements.length > 0) {
-            const firstLiElement = navBarListElements[0] as HTMLLIElement;
+        const isActive = navBarItems.listElements.some((x) => Boolean(x.active) === true)
+        if (navBarListElements.length > 0 && isActive) {
+            const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
+            const activeSectionName = `navbar_li_${getActiveSection[0].section}`
+            const firstLiElement = document.getElementById(activeSectionName)!;
             const widthOfElement = firstLiElement.offsetWidth
             const leftValue = Number(firstLiElement.getBoundingClientRect().left.toFixed(0)) + (widthOfElement / 2);
             const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(0)) + (widthOfElement / 2);
