@@ -65,9 +65,13 @@ const NavBar = () => {
     }
 
     useEffect(() => {
+        //get initial position after page is loaded/refreshed
+        scrolledWindow()
         window.addEventListener('scroll', scrolledWindow)
         // cleanup
-        return () => window.removeEventListener('scroll', scrolledWindow)
+        return () => {
+            window.removeEventListener('scroll', scrolledWindow)
+        }
     }, [])
 
     useEffect(() => {
