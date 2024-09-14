@@ -86,9 +86,14 @@ const NavBar = () => {
             const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
             const activeSectionName = `navbar_li_${getActiveSection[0].section}`
             const firstLiElement = document.getElementById(activeSectionName)!;
-            const widthOfElement = firstLiElement.offsetWidth
-            const leftValue = Number(firstLiElement.getBoundingClientRect().left.toFixed(2));
-            const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(2));
+            const elementWidth = firstLiElement.offsetWidth
+            const leftValue = Number(firstLiElement.getBoundingClientRect().left.toFixed(0)) + elementWidth;
+
+            const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(0)) + elementWidth;
+
+            console.log(elementWidth)
+            console.log(leftValue, rightValue)
+
             setNavBarItemPosition({
                 left: leftValue,
                 right: rightValue
