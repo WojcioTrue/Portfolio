@@ -60,7 +60,7 @@ const NavBar = () => {
 
     // check if window passed breakpoint while scrolling
     const scrolledWindow = () => {
-        const scrolled = window.scrollY > 80 ? true : false
+        const scrolled = window.scrollY > 100 ? true : false
         setFixedMenu(scrolled)
     }
 
