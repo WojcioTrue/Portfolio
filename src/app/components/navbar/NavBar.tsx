@@ -91,9 +91,6 @@ const NavBar = () => {
 
             const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(0)) + elementWidth;
 
-            console.log(elementWidth)
-            console.log(leftValue, rightValue)
-
             setNavBarItemPosition({
                 left: leftValue,
                 right: rightValue

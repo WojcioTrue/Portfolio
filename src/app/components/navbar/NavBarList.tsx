@@ -28,13 +28,13 @@ const NavBarList = () => {
       if (activeElement[0] !== undefined) {
         const activeLIElement = document.getElementById(`navbar_li_${activeElement[0].section}`)
 
-        const centerOfElement = Number((activeLIElement!.offsetWidth / 2).toFixed(0));
+        const elementWidth = Number((activeLIElement!.offsetWidth).toFixed(0));
         // offset left element with 'left' property
         
-        const leftValue = Number(activeLIElement!.getBoundingClientRect().left.toFixed(0)) + centerOfElement;
+        const leftValue = Number(activeLIElement!.getBoundingClientRect().left.toFixed(0)) + elementWidth;
         // offset element with 'right' property
         
-        const rightValue = document.body.clientWidth - Number(activeLIElement!.getBoundingClientRect().right.toFixed(0)) - centerOfElement
+        const rightValue = document.body.clientWidth - Number(activeLIElement!.getBoundingClientRect().right.toFixed(0)) + elementWidth
 
         setPosition({
           left: leftValue,
