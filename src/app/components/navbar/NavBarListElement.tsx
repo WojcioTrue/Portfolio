@@ -23,8 +23,6 @@ const NavBarListElement = ({id, text, image, isActive }: NavBarListElementType) 
     // offset element with 'right' property
     const rightValue = (document.body.clientWidth - (Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
 
-    console.log(`element width: ${elementWidth}`)
-
     setPosition({
       left: leftValue,
       right: rightValue,
@@ -39,7 +37,7 @@ const NavBarListElement = ({id, text, image, isActive }: NavBarListElementType) 
       }
     }
       id={id}
-      className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer ${isActive ? "bg-red-950" : ""}`}>
+      className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer`}>
       <a className="flex items-center w-max">
         <Image
           priority={true}
