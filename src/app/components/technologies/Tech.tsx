@@ -1,9 +1,9 @@
 import React from 'react'
 
-const tech = () => {
+const Tech = () => {
   return (
-    <div className="relative h-full bg-cyan-800">tech</div>
+    <div className="relative h-full bg-cyan-400">Tech</div>
   )
 }
 
-export default tech
+export default Tech
