@@ -5,7 +5,7 @@ import { useEffect, useState, createContext, useContext } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
-import NavBarAnimatedBg from "./NavBarAnimatedBg/NavBarAnimatedBg"
+import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
 import { categories, ListElement } from "./navItems"
 
 type ItemPositionType = {
@@ -60,7 +60,7 @@ const NavBar = () => {
 
     // check if window passed breakpoint while scrolling
     const scrolledWindow = () => {
-        const scrolled = window.scrollY > 100 ? true : false
+        const scrolled = window.scrollY > 80 ? true : false
         setFixedMenu(scrolled)
     }
 
@@ -110,7 +110,7 @@ const NavBar = () => {
                 },
             }}>
             <nav className={
-                `${!fixedMenu ? 'absolute' : '!fixed'} navbar w-full py-6 px-4 overflow-hidden z-10`}>
+                `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange}`} navbar w-full py-6 px-4 overflow-hidden z-10`}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
                     <div className="flex justify-between w-full items-center">
                         <a className="navbar__brand flex" href="#">
