@@ -19,7 +19,7 @@ const NavBarAnimatedBg = () => {
                     ${NavBarAnimatedStyles.right_animation}
                     ${isActive ? NavBarAnimatedStyles.top_animation : NavBarAnimatedStyles.click}
                 `}
-                style={{ right: `${position.right - 1}px` }}>
+                style={{ right: `${position.right}px` }}>
             </span>
             <span
                 className={`bg-red-600 w-[200%] h-full absolute ${NavBarAnimatedStyles.left_animation}
