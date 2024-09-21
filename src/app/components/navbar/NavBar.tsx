@@ -91,7 +91,7 @@ const NavBar = () => {
         // check if there are active elements
         if (navBarListElements.length > 0 && isActive) {
             const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
-            const activeSectionName = `navbar_li_${getActiveSection[0].section}`
+            const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
             const firstLiElement = document.getElementById(activeSectionName)!;
 
             const elementWidth = firstLiElement.offsetWidth
