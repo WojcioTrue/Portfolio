@@ -26,7 +26,7 @@ const NavBarList = () => {
   useEffect(() => {
     function handleResize() {
       if (activeElement[0] !== undefined) {
-        const activeLIElement = document.getElementById(`navbar_li_${activeElement[0].section}`)
+        const activeLIElement = document.getElementById(`desktop_navbar_li_${activeElement[0].section}`)
 
         const elementWidth = Number((activeLIElement!.offsetWidth).toFixed(0));
         // offset left element with 'left' property
