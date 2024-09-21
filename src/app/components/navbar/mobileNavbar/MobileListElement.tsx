@@ -14,25 +14,20 @@ type NavBarListElementType = {
 
 const MobileListElement = ({ text, image, id, isActive }: NavBarListElementType) => {
   const { navBarItemPosition, navBarItems } = useContext(NavBarContext)
-  const { setPosition } = navBarItemPosition
+  const { position, setPosition } = navBarItemPosition
 
   const changeCenter = (ev: React.MouseEvent) => {
     ev.preventDefault();
-    // center of current target element
-    const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetWidth)));
+    // height of current clicked element
+    const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetHeight)));
     // offset left element with 'left' property
-    const leftValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
+    const topValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().top.toFixed(0));
     // offset element with 'right' property
-    const rightValue = (document.body.clientWidth - (Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
+    const bottomValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().bottom.toFixed(0))
 
-    console.log(navBarItemPosition)
-    
-    setPosition({
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0
-    })
+    const newPosition = {...position, top: topValue, bottom: bottomValue}
+
+    setPosition(newPosition)
   }
 
   return (
