@@ -10,7 +10,7 @@ export const categories: ListElement[] = [
     },
     {
         section: 'about',
-        active: false
+        active: true
     },
     {
         section: 'text',
