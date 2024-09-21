@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useContext } from 'react'
 import MobileNavBarList from './MobileNavBarList'
 import './mobieNavBar.scss'
 import { NavBarContext } from '../NavBar'
+import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
 
 const MobileNavBar = () => {
     // reference to mobile navbar
@@ -40,6 +41,7 @@ const MobileNavBar = () => {
                 >X</button>
             </div>
             <MobileNavBarList />
+            <MobileAnimatedBg/>
         </div>
     )
 }

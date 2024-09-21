@@ -2,7 +2,7 @@ import React from 'react'
 
 const Top = () => {
   return (
-    <div>Top</div>
+    <div className='bg-slate-300'>Top</div>
   )
 }
 

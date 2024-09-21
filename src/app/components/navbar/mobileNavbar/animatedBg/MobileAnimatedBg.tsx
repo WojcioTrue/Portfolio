@@ -1,8 +1,13 @@
 import React from 'react'
+import Bottom from './Bottom'
+import Top from './Top'
 
 const MobileAnimatedBg = () => {
   return (
-    <div>Cum</div>
+    <div className='absolute top-0'>
+        <Top/>
+        <Bottom/>
+    </div>
   )
 }
 
