@@ -10,7 +10,7 @@ type NavBarListElementType = {
   isActive: boolean,
 }
 
-const NavBarListElement = ({id, text, image, isActive }: NavBarListElementType) => {
+const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType) => {
   const { navBarItemPosition, navBarItems } = useContext(NavBarContext)
   const { setPosition } = navBarItemPosition
 
@@ -33,7 +33,7 @@ const NavBarListElement = ({id, text, image, isActive }: NavBarListElementType) 
     <li onClick={
       (event: React.MouseEvent) => {
         changeCenter(event);
-        navBarItems.setListElements(categories.map(x => x.section === text ? {...x, active: true} : x))
+        navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : x))
       }
     }
       id={id}
