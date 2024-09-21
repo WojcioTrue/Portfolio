@@ -11,6 +11,8 @@ import { categories, ListElement } from "./navItems"
 type ItemPositionType = {
     left: number,
     right: number,
+    top: number,
+    bottom: number
 }
 
 export const NavBarContext = createContext<{
@@ -35,6 +37,8 @@ export const NavBarContext = createContext<{
         position: {
             left: 0,
             right: 0,
+            top: 0,
+            bottom: 0
         },
         setPosition: () => { }
     },
@@ -54,6 +58,8 @@ const NavBar = () => {
         {
             left: 0,
             right: 0,
+            top: 0,
+            bottom: 0
         })
     const [listElements, setListElements] = useState<ListElement[]>(categories)
 
@@ -93,7 +99,9 @@ const NavBar = () => {
 
             setNavBarItemPosition({
                 left: leftValue,
-                right: rightValue
+                right: rightValue,
+                top: 0,
+                bottom: 0
             })
         }
     }, [navBarItems.listElements])
