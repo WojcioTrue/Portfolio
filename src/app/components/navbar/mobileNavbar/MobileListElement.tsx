@@ -25,6 +25,8 @@ const MobileListElement = ({ text, image, id, isActive }: NavBarListElementType)
     // offset element with 'right' property
     const rightValue = (document.body.clientWidth - (Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
 
+    console.log(ev.currentTarget)
+
     setPosition({
       left: leftValue,
       right: rightValue,
@@ -34,7 +36,6 @@ const MobileListElement = ({ text, image, id, isActive }: NavBarListElementType)
   return (
     <li onClick={
       (event: React.MouseEvent) => {
-        console.log('x')
         changeCenter(event);
         navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : x))
       }

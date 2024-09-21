@@ -48,7 +48,7 @@ const NavBarList = () => {
 
   return (
     <ul className="hidden w-auto md:flex flex-row items-center">
-      {navBarItems.listElements.map((listItem) => <NavBarListElement id={`navbar_li_${listItem.section}`} key={uuidv4()} text={listItem.section} isActive={listItem.active} image='/template_logo.svg' />)}
+      {navBarItems.listElements.map((listItem) => <NavBarListElement id={`desktop_navbar_li_${listItem.section}`} key={uuidv4()} text={listItem.section} isActive={listItem.active} image='/template_logo.svg' />)}
     </ul>
   );
 };
