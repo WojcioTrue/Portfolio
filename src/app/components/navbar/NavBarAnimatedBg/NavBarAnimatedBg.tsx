@@ -17,13 +17,13 @@ const NavBarAnimatedBg = () => {
             <span
                 className={` bg-cyan-300 w-[200%] h-full absolute 
                     ${NavBarAnimatedStyles.right_animation}
-                    ${isActive ? NavBarAnimatedStyles.top_animation : NavBarAnimatedStyles.click}
+                    ${isActive ? NavBarAnimatedStyles.top_animation_on : NavBarAnimatedStyles.top_animation_off}
                 `}
                 style={{ right: `${position.right}px` }}>
             </span>
             <span
                 className={`bg-red-600 w-[200%] h-full absolute ${NavBarAnimatedStyles.left_animation}
-                ${isActive ? NavBarAnimatedStyles.top_animation : NavBarAnimatedStyles.click}
+                ${isActive ? NavBarAnimatedStyles.top_animation_on : NavBarAnimatedStyles.top_animation_off}
                 `}
                 style={{ left: `${position.left}px` }}>
             </span>
