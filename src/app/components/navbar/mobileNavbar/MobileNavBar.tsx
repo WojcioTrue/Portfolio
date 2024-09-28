@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react'
+import React, { useEffect, useRef, useContext, useState } from 'react'
 import MobileNavBarList from './MobileNavBarList'
 import './mobieNavBar.scss'
 import { NavBarContext } from '../NavBar'

@@ -1,16 +1,23 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Bottom from './Bottom'
 import Top from './Top'
 import { NavBarContext } from '../../NavBar'
-
+import animatedBg from './animatedBg.module.scss'
 
 const MobileAnimatedBg = () => {
   const { toogleMobileNav, navBarItemPosition } = useContext(NavBarContext)
   const { displayMenu, setDisplayMenu } = toogleMobileNav
   const { navBarItems } = useContext(NavBarContext)
   const {position,setPosition} = navBarItemPosition
+  const [active, isActive] = useState(false)
 
-  console.log(position)
+  useEffect(() => {
+    isActive(navBarItems.listElements.some(x => x.active === true))
+  },[navBarItems])
+
+  useEffect(() => {
+    console.log(active)
+  },[active])
 
   useEffect(() => {
     const navBarListElements = document.getElementsByClassName("mobile-nav-bar-element");
@@ -27,8 +34,6 @@ const MobileAnimatedBg = () => {
         const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(0)) + elementWidth;
         const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
         const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
-
-        console.log('displayed')
         const newPosition = {...position, top: topValue, bottom: bottomValue}
 
         setPosition(newPosition)
@@ -36,9 +41,7 @@ const MobileAnimatedBg = () => {
 }, [displayMenu, navBarItems.listElements])
 
   return (
-    <div className='absolute top-0 h-[100%] w-full z-[-10]'
-      style={{ left: `95%` }}
-    >
+    <div className={`absolute top-0 h-[100%] w-full z-[-10] ${animatedBg.initial_animation} ${active ? animatedBg.active : animatedBg.not_active}`}>
       <Top />
       <Bottom />
     </div>

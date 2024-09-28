@@ -1,0 +1,17 @@
+$left: left 0.3s 0.1s;
+
+.not_active {
+    left: 100%;
+}
+
+.active {
+    left: 0%;
+}
+
+.initial_animation {
+    -webkit-transition: $left;
+    -moz-transition: $left;
+    -o-transition: $left;
+    transition: $left;
+}
+
