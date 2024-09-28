@@ -8,7 +8,7 @@ const Top = () => {
   return (
     <div
       className='relative bg-green-300 h-[100%] z-[-10]'
-      style={{ top: `${549 + position.top}px` }}>
+      style={{ bottom: `${window.innerHeight - position.top}px` }}>
     </div>
   )
 }
