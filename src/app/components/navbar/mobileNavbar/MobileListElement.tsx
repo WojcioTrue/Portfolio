@@ -14,26 +14,25 @@ type NavBarListElementType = {
 
 const MobileListElement = ({ text, image, id, isActive }: NavBarListElementType) => {
   const { navBarItemPosition, navBarItems } = useContext(NavBarContext)
-  const { position, setPosition } = navBarItemPosition
+  // const { position, setPosition } = navBarItemPosition
 
-  const changeCenter = (ev: React.MouseEvent) => {
-    ev.preventDefault();
-    // height of current clicked element
-    const elementHeight = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetHeight)));
-    // offset element with 'top' property
-    const topValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().top.toFixed(0));
-    // offset element with 'bottom' property
-    const bottomValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().bottom.toFixed(0))
+  // const changeCenter = (ev: React.MouseEvent) => {
+  //   ev.preventDefault();
+  //   // height of current clicked element
+  //   const elementHeight = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetHeight)));
+  //   // offset element with 'top' property
+  //   const topValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().top.toFixed(0));
+  //   // offset element with 'bottom' property
+  //   const bottomValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().bottom.toFixed(0))
 
-    const newPosition = {...position, top: topValue, bottom: bottomValue}
+  //   const newPosition = {...position, top: topValue, bottom: bottomValue}
 
-    setPosition(newPosition)
-  }
+  //   setPosition(newPosition)
+  // }
 
   return (
     <li onClick={
       (event: React.MouseEvent) => {
-        changeCenter(event);
         navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : x))
       }
     } id={id} className={`mobile-nav-bar-element px-2 py-2 border-t last:border-b ${isActive ? 'bg-red-500' : ''}`}>

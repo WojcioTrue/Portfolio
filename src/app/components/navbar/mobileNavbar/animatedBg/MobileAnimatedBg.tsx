@@ -33,7 +33,7 @@ const MobileAnimatedBg = () => {
 
         setPosition(newPosition)
     }
-}, [displayMenu])
+}, [displayMenu, navBarItems.listElements])
 
   return (
     <div className='absolute top-0 h-[100%] w-full z-[-10]'
