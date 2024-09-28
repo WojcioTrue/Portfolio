@@ -2,7 +2,7 @@ import React from 'react'
 
 const Bottom = () => {
   return (
-    <div className='relative bg-slate-300 opacity-50 z-[-10]'>Bottom</div>
+    <div className='relative bg-blue-300 h-[100px] z-[-10]'></div>
   )
 }
 
