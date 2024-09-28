@@ -2,7 +2,7 @@ import React from 'react'
 
 const Top = () => {
   return (
-    <div className='bg-slate-300 opacity-60 w-full'>Top</div>
+    <div className='relative bg-slate-300 opacity-50 z-[-10]'>Top</div>
   )
 }
 

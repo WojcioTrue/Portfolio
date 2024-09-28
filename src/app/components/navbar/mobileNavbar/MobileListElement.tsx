@@ -36,7 +36,7 @@ const MobileListElement = ({ text, image, id, isActive }: NavBarListElementType)
         changeCenter(event);
         navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : x))
       }
-    } id={id} className={`mobile-nav-bar-element px-2 py-2 border-t last:border-b ${isActive ? 'bg-red-400' : ''}`}>
+    } id={id} className={`mobile-nav-bar-element z-10 px-2 py-2 border-t last:border-b ${isActive ? 'bg-red-400' : ''}`}>
       <a className="flex items-center justify-start">
 
         {text.toUpperCase()}
