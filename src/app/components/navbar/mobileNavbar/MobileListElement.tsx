@@ -19,10 +19,10 @@ const MobileListElement = ({ text, image, id, isActive }: NavBarListElementType)
   const changeCenter = (ev: React.MouseEvent) => {
     ev.preventDefault();
     // height of current clicked element
-    const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetHeight)));
-    // offset left element with 'left' property
+    const elementHeight = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetHeight)));
+    // offset element with 'top' property
     const topValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().top.toFixed(0));
-    // offset element with 'right' property
+    // offset element with 'bottom' property
     const bottomValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().bottom.toFixed(0))
 
     const newPosition = {...position, top: topValue, bottom: bottomValue}

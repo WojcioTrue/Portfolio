@@ -7,7 +7,7 @@ const Bottom = () => {
   const { position } = navBarItemPosition
 
   return (
-    <div className='relative bg-blue-300 h-[100px] z-[-10]'>
+    <div className={`absolute top-[200px] bg-blue-300 h-[100px] w-full z-[-10]`}>
       {`postion top: ${position.bottom}`}
     </div>
   )

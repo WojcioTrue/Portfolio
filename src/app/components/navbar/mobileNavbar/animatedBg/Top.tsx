@@ -6,8 +6,9 @@ const Top = () => {
   const { position } = navBarItemPosition
 
   return (
-    <div className='relative bg-green-300 h-[100px] z-[-10]'>
-      {`postion top: ${position.top}`}
+    <div
+      className='relative bg-green-300 h-[100%] z-[-10]'
+      style={{ top: `${position.top}px` }}>
     </div>
   )
 }

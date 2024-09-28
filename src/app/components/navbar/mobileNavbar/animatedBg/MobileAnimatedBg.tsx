@@ -4,7 +4,7 @@ import Top from './Top'
 
 const MobileAnimatedBg = () => {
   return (
-    <div className='absolute h-full top-[100px] w-full z-[-10]'>
+    <div className='absolute top-0 h-[100%] w-full z-[-10]'>
         <Top/>
         <Bottom/>
     </div>
