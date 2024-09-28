@@ -18,6 +18,6 @@ export const categories: ListElement[] = [
     },
     {
         section: 'something',
-        active: true
+        active: false
     }
 ]
