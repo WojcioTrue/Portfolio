@@ -29,12 +29,10 @@ const MobileAnimatedBg = () => {
         const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
         const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
         const newPosition = { ...position, top: topValue, bottom: bottomValue }
-        console.log(labelElement)
         setPosition(newPosition)
       } else {
         const topValue = Number(labelElement.getBoundingClientRect().top.toFixed(0))
         const bottomValue = Number(labelElement.getBoundingClientRect().bottom.toFixed(0))
-        console.log(topValue, bottomValue)
         const newPosition = { ...position, top: topValue, bottom: bottomValue }
         setPosition(newPosition)
       }

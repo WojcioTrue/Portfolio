@@ -1,17 +1,17 @@
-$left: left 0.3s 0.1s;
+$top: top 0.3s;
 
-.not_active {
-    left: 100%;
+$bottom: bottom 0.3s;
+
+.bg_animation_top {
+    -webkit-transition: $top;
+    -moz-transition: $top;
+    -o-transition: $top;
+    transition: $top;
 }
 
-.active {
-    left: 0%;
+.bg_animation_bottom {
+    -webkit-transition: $bottom;
+    -moz-transition: $bottom;
+    -o-transition: $bottom;
+    transition: $bottom;
 }
-
-.initial_animation {
-    -webkit-transition: $left;
-    -moz-transition: $left;
-    -o-transition: $left;
-    transition: $left;
-}
-
