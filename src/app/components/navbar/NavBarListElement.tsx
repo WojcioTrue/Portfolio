@@ -12,7 +12,7 @@ type NavBarListElementType = {
 
 const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType) => {
   const { navBarItemPosition, navBarItems } = useContext(NavBarContext)
-  const { setPosition } = navBarItemPosition
+  const { position,setPosition } = navBarItemPosition
 
   const changeCenter = (ev: React.MouseEvent) => {
     ev.preventDefault();
@@ -23,10 +23,9 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
     // offset element with 'right' property
     const rightValue = (document.body.clientWidth - (Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
 
-    setPosition({
-      left: leftValue,
-      right: rightValue,
-    })
+    const newPosition = {...position, left: leftValue, right: rightValue}
+
+    setPosition(newPosition)
   }
 
   return (
