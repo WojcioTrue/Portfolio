@@ -1,13 +1,43 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Bottom from './Bottom'
 import Top from './Top'
 import { NavBarContext } from '../../NavBar'
 
-const MobileAnimatedBg = () => {
-  const { toogleMobileNav } = useContext(NavBarContext)
-  const { displayMenu, setDisplayMenu } = toogleMobileNav
 
-  
+const MobileAnimatedBg = () => {
+  const { toogleMobileNav, navBarItemPosition } = useContext(NavBarContext)
+  const { displayMenu, setDisplayMenu } = toogleMobileNav
+  const { navBarItems } = useContext(NavBarContext)
+  const {setPosition} = navBarItemPosition
+
+  useEffect(() => {
+    console.log(navBarItems.listElements)
+  },[navBarItems])
+
+  useEffect(() => {
+    const navBarListElements = document.getElementsByClassName("mobile-nav-bar-element");
+    const isActive = navBarItems.listElements.some((x) => Boolean(x.active) === true)
+    // check if there are active elements
+    if (displayMenu && isActive) {
+        const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
+        const activeSectionName = `mobile_navbar_li_${getActiveSection[0].section}`
+        const firstLiElement = document.getElementById(activeSectionName)!;
+        console.log(firstLiElement)
+        const elementWidth = firstLiElement.offsetWidth
+        // positions for background borders
+        const leftValue = Number(firstLiElement.getBoundingClientRect().left.toFixed(0)) + elementWidth;
+        const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(0)) + elementWidth;
+        const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
+        const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
+
+        setPosition({
+            left: leftValue,
+            right: rightValue,
+            top: topValue,
+            bottom: bottomValue
+        })
+    }
+}, [])
 
   return (
     <div className='absolute top-0 h-[100%] w-full z-[-10]'

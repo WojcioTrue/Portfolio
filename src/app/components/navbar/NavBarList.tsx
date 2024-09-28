@@ -7,7 +7,7 @@ import { ListElement } from './navItems';
 const NavBarList = () => {
   const { navBarItems, navBarItemPosition } = useContext(NavBarContext)
   const [activeElement, setActiveElement] = useState<ListElement[]>([])
-  const { setPosition } = navBarItemPosition
+  const { position ,setPosition } = navBarItemPosition
 
 
   useEffect(() => {
@@ -36,10 +36,9 @@ const NavBarList = () => {
         
         const rightValue = document.body.clientWidth - Number(activeLIElement!.getBoundingClientRect().right.toFixed(0)) + elementWidth
 
-        setPosition({
-          left: leftValue,
-          right: rightValue,
-        })
+        const newPosition = {...position, left: leftValue, right: rightValue}
+
+        setPosition(newPosition)
       }
     }
     handleResize()
