@@ -8,7 +8,7 @@ const MobileUnList = () => {
   const { navBarItems, navBarItemPosition } = useContext(NavBarContext)
   return (
     <div className='h-full w-full flex flex-col'>
-      <label htmlFor="mobile-navbar-list" className="w-full text-left pl-2 py-2 text-xl">Menu Items</label>
+      <label id="mobile-navbar-list" htmlFor="mobile-navbar-list" className="w-full text-left pl-2 py-2 text-xl">Menu Items</label>
       <ul className='w-full' id="mobile-navbar-list">
         {navBarItems.listElements.map((listItem) => 
         <MobileListElement 

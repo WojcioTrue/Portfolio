@@ -8,40 +8,43 @@ const MobileAnimatedBg = () => {
   const { toogleMobileNav, navBarItemPosition } = useContext(NavBarContext)
   const { displayMenu, setDisplayMenu } = toogleMobileNav
   const { navBarItems } = useContext(NavBarContext)
-  const {position,setPosition} = navBarItemPosition
+  const { position, setPosition } = navBarItemPosition
   const [active, isActive] = useState(false)
 
   useEffect(() => {
     isActive(navBarItems.listElements.some(x => x.active === true))
-  },[navBarItems])
+  }, [navBarItems])
 
   useEffect(() => {
-    console.log(active)
-  },[active])
-
-  useEffect(() => {
+    const labelElement = document.getElementById('mobile-navbar-list')!
     const navBarListElements = document.getElementsByClassName("mobile-nav-bar-element");
     const isActive = navBarItems.listElements.some((x) => Boolean(x.active) === true)
     // check if there are active elements
-     if (displayMenu && (navBarListElements.length > 0 && isActive)) {
+    if (displayMenu) {
+      if (navBarListElements.length > 0 && isActive) {
         const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
         const activeSectionName = `mobile_navbar_li_${getActiveSection[0].section}`
         const firstLiElement = document.getElementById(activeSectionName)!;
 
-        const elementWidth = firstLiElement.offsetWidth
-        // positions for background borders
-        const leftValue = Number(firstLiElement.getBoundingClientRect().left.toFixed(0)) + elementWidth;
-        const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(0)) + elementWidth;
         const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
         const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
-        const newPosition = {...position, top: topValue, bottom: bottomValue}
-
+        const newPosition = { ...position, top: topValue, bottom: bottomValue }
+        console.log(labelElement)
         setPosition(newPosition)
+      } else {
+        const topValue = Number(labelElement.getBoundingClientRect().top.toFixed(0))
+        const bottomValue = Number(labelElement.getBoundingClientRect().bottom.toFixed(0))
+        console.log(topValue, bottomValue)
+        const newPosition = { ...position, top: topValue, bottom: bottomValue }
+        setPosition(newPosition)
+      }
+
     }
-}, [displayMenu, navBarItems.listElements])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [displayMenu, navBarItems.listElements, setPosition])
 
   return (
-    <div className={`absolute top-0 h-[100%] w-full z-[-10] ${animatedBg.initial_animation} ${active ? animatedBg.active : animatedBg.not_active}`}>
+    <div className={`absolute top-0 h-[100%] w-full z-[-10]`}>
       <Top />
       <Bottom />
     </div>
