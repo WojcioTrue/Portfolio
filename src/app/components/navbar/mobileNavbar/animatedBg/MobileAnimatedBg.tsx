@@ -5,10 +5,10 @@ import { NavBarContext } from '../../NavBar'
 import animatedBg from './animatedBg.module.scss'
 
 const MobileAnimatedBg = () => {
-  const { toogleMobileNav, navBarItemPosition } = useContext(NavBarContext)
+  const { toogleMobileNav, navBarDesktopPosition } = useContext(NavBarContext)
   const { displayMenu, setDisplayMenu } = toogleMobileNav
   const { navBarItems } = useContext(NavBarContext)
-  const { position, setPosition } = navBarItemPosition
+  const { position, setPosition } = navBarDesktopPosition
   const [active, isActive] = useState(false)
 
   useEffect(() => {

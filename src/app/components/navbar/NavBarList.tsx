@@ -5,9 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { ListElement } from './navItems';
 
 const NavBarList = () => {
-  const { navBarItems, navBarItemPosition } = useContext(NavBarContext)
+  const { navBarItems, navBarDesktopPosition } = useContext(NavBarContext)
   const [activeElement, setActiveElement] = useState<ListElement[]>([])
-  const { position ,setPosition } = navBarItemPosition
+  const { position , setPosition } = navBarDesktopPosition
 
 
   useEffect(() => {

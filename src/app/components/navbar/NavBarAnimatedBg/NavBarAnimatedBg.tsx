@@ -3,8 +3,8 @@ import { NavBarContext } from "../NavBar"
 import NavBarAnimatedStyles from "./NavBarAnimatedBg.module.scss"
 
 const NavBarAnimatedBg = () => {
-    const { navBarItemPosition, navBarItems } = useContext(NavBarContext)
-    const { position } = navBarItemPosition
+    const { navBarDesktopPosition, navBarItems } = useContext(NavBarContext)
+    const { position } = navBarDesktopPosition
     const [isActive, setIsActive] = useState(false)
 
     useEffect(() => {

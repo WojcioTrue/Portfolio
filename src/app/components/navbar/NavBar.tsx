@@ -20,10 +20,14 @@ export const NavBarContext = createContext<{
         displayMenu: boolean,
         setDisplayMenu: Dispatch<SetStateAction<boolean>>
     },
-    navBarItemPosition: {
+    navBarDesktopPosition: {
         position: ItemPositionType
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
     },
+    navBarMobilePosition: {
+        position: ItemPositionType
+        setPosition: Dispatch<SetStateAction<ItemPositionType>>
+    }
     navBarItems: {
         listElements: ListElement[],
         setListElements: Dispatch<SetStateAction<ListElement[]>>
@@ -33,7 +37,16 @@ export const NavBarContext = createContext<{
         displayMenu: false,
         setDisplayMenu: () => { }
     },
-    navBarItemPosition: {
+    navBarDesktopPosition: {
+        position: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+        },
+        setPosition: () => { }
+    },
+    navBarMobilePosition: {
         position: {
             left: 0,
             right: 0,
@@ -54,13 +67,20 @@ const NavBar = () => {
     //state for changing menu to fixed
     const { navBarItems } = useContext(NavBarContext)
     const [fixedMenu, setFixedMenu] = useState<boolean>(false)
-    const [navBarItemPosition, setNavBarItemPosition] = useState<ItemPositionType>(
+    const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
         {
             left: 0,
             right: 0,
             top: 0,
             bottom: 0
         })
+        const [navBarMobilePosition, setNavBarMobilePosition] = useState<ItemPositionType>(
+            {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0
+            })
     const [listElements, setListElements] = useState<ListElement[]>(categories)
 
 
@@ -84,6 +104,11 @@ const NavBar = () => {
         displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
     }, [displayMenu])
 
+    useEffect(() => {
+        console.log(listElements)
+        console.log(navBarDesktopPosition)
+    },[listElements])
+
     // default value for background when page is loaded
     useEffect(() => {
         const navBarListElements = document.getElementsByClassName("desktop-nav-bar-element");
@@ -100,23 +125,23 @@ const NavBar = () => {
             const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(0)) + elementWidth;
             const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
             const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
-
-            setNavBarItemPosition({
+            
+            setNavBarDesktopPosition({
                 left: leftValue,
                 right: rightValue,
                 top: topValue,
                 bottom: bottomValue
             })
         }
-    }, [navBarItems.listElements])
+    }, [navBarItems.listElements,listElements])
 
     return (
         <NavBarContext.Provider value={
             {
                 toogleMobileNav: { displayMenu, setDisplayMenu },
-                navBarItemPosition: {
-                    position: navBarItemPosition,
-                    setPosition: setNavBarItemPosition,
+                navBarDesktopPosition: {
+                    position: navBarDesktopPosition,
+                    setPosition: setNavBarDesktopPosition,
                 },
                 navBarItems: {
                     listElements: listElements,
