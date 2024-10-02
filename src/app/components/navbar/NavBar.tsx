@@ -104,19 +104,15 @@ const NavBar = () => {
         displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
     }, [displayMenu])
 
-    useEffect(() => {
-        console.log(listElements)
-        console.log('Desktop:' , navBarDesktopPosition)
-        console.log(`Mobile: `, navBarMobilePosition)
-    },[listElements])
-
     // default value for background when page is loaded
     useEffect(() => {
         const navBarListElements = document.getElementsByClassName("desktop-nav-bar-element");
-        const isActive = navBarItems.listElements.some((x) => Boolean(x.active) === true)
+        const isActive = listElements.some((x) => Boolean(x.active) === true)
         // check if there are active elements
+        console.log()
         if (navBarListElements.length > 0 && isActive) {
-            const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
+            console.log("change")
+            const getActiveSection = listElements.filter(x => x.active === true)
             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
             const firstLiElement = document.getElementById(activeSectionName)!;
 
