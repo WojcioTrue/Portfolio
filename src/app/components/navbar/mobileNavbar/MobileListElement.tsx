@@ -13,7 +13,7 @@ type NavBarListElementType = {
 
 
 const MobileListElement = ({ text, image, id, isActive }: NavBarListElementType) => {
-  const { navBarItemPosition, navBarItems } = useContext(NavBarContext)
+  const { navBarItems } = useContext(NavBarContext)
   // const { position, setPosition } = navBarItemPosition
 
   // const changeCenter = (ev: React.MouseEvent) => {
