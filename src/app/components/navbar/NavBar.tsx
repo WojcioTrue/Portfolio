@@ -143,6 +143,10 @@ const NavBar = () => {
                     position: navBarDesktopPosition,
                     setPosition: setNavBarDesktopPosition,
                 },
+                navBarMobilePosition: {
+                    position: navBarMobilePosition,
+                    setPosition: setNavBarMobilePosition,
+                },
                 navBarItems: {
                     listElements: listElements,
                     setListElements,
