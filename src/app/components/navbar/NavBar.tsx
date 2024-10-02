@@ -109,9 +109,7 @@ const NavBar = () => {
         const navBarListElements = document.getElementsByClassName("desktop-nav-bar-element");
         const isActive = listElements.some((x) => Boolean(x.active) === true)
         // check if there are active elements
-        console.log()
         if (navBarListElements.length > 0 && isActive) {
-            console.log("change")
             const getActiveSection = listElements.filter(x => x.active === true)
             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
             const firstLiElement = document.getElementById(activeSectionName)!;
@@ -130,7 +128,7 @@ const NavBar = () => {
                 bottom: bottomValue
             })
         }
-    }, [navBarItems.listElements,listElements])
+    }, [navBarItems.listElements,listElements, displayMenu])
 
     return (
         <NavBarContext.Provider value={
