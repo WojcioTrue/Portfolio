@@ -106,7 +106,8 @@ const NavBar = () => {
 
     useEffect(() => {
         console.log(listElements)
-        console.log(navBarDesktopPosition)
+        console.log('Desktop:' , navBarDesktopPosition)
+        console.log(`Mobile: `, navBarMobilePosition)
     },[listElements])
 
     // default value for background when page is loaded

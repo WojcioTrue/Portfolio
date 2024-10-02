@@ -3,8 +3,8 @@ import { NavBarContext } from '../../NavBar'
 import animatedBackground from './animatedBg.module.scss'
 
 const Top = () => {
-  const { navBarDesktopPosition } = useContext(NavBarContext)
-  const { position } = navBarDesktopPosition
+  const { navBarMobilePosition } = useContext(NavBarContext)
+  const { position } = navBarMobilePosition
 
   return (
     <div
