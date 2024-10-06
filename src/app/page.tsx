@@ -1,6 +1,6 @@
-import NavBar from "./components/navbar/NavBar";
-import Banner from "./components/banner/Banner";
-import Tech from "./components/technologies/Tech";
+import NavBar from "./features/navbar/NavBar";
+import Banner from "./features/banner/Banner";
+import Tech from "./features/technologies/Tech";
 
 export default function Home() {
   return (
