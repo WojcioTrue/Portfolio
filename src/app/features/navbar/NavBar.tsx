@@ -9,7 +9,7 @@ import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
 import { categories, ListElement } from "./navItems"
 import localFont from "next/font/local"
 
-const font = localFont({src: '../../../../public/fonts/mabry_pro/MabryPro-bold.woff2'})
+const font = localFont({src: '../../assets/fonts/mabry_pro/MabryPro-Regular.woff2'})
 
 type ItemPositionType = {
     left: number,
