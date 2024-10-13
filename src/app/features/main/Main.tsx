@@ -15,8 +15,8 @@ const Main = () => {
       md:text-[60px] 
       xl:text-[68px] 
       2xl:text-[72px]
-      text-center mb-6`}>Wojcio_True</h1>
-          <p className="text-[16px] mb-6 sm:text-[24px] text-center ml:text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      text-center mb-4`}>Wojcio_True</h1>
+          <p className="text-[16px] text-my-gray mb-4 sm:text-[24px] text-center ml:text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
           <Button text={'Read more '} />
         </div>
       </div>

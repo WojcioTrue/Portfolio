@@ -11,6 +11,15 @@ const config: Config = {
       screens: {
         ml: '992px',
       },
+      colors: {
+        my: {
+          black: 'rgb(15, 5, 29)',
+          gray: 'rgb(123, 117, 131)',
+          purple: 'rgb(116, 31, 245)',
+          gradient1: 'rgb(38, 0, 252)',
+          gradient2: 'rgb(255, 0, 234)',
+        }
+      } ,
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
