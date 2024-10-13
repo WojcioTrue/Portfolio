@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { NavBarContext } from './NavBar'
 import { useContext } from 'react'
 import { categories } from './navItems'
+import { mabryProRegular } from "@/app/assets/fonts/mabry_pro/MabryPro"
 
 type NavBarListElementType = {
   id: string,
@@ -36,7 +37,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
       }
     }
       id={id}
-      className={`desktop-nav-bar-element px-4 text-md font-semibold cursor-pointer`}>
+      className={`desktop-nav-bar-element px-4 text-md cursor-pointer ${mabryProRegular.className}`}>
       <a className="flex items-center w-max">
         <Image
           priority={true}

@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useContext, useState } from 'react'
+import React, { useEffect, useRef, useContext} from 'react'
 import MobileNavBarList from './MobileNavBarList'
 import './mobieNavBar.scss'
 import { NavBarContext } from '../NavBar'
 import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
+import { mabryProRegular } from '@/app/assets/fonts/mabry_pro/MabryPro'
 
 const MobileNavBar = () => {
     // reference to mobile navbar
@@ -27,9 +28,9 @@ const MobileNavBar = () => {
 
     return (
         <div ref={navBarRef} className={`fixed z-20 overflow-hidden right-0 top-0 pt-[30px] pr-[3px] w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
-            <div className=' flex items-center p-3'>
+            <div className="flex items-center p-3">
                 <span className='mobile-logo w-full flex-1'>
-                    <h1 className='text-2xl font-semibold'>WOJCIO_TRUE</h1>
+                    <h1 className={`text-2xl font-semibold ${mabryProRegular.className}`}>WOJCIO_TRUE</h1>
                 </span>
                 <button
                     className="h-8 w-8 border-red-400 border-2"
