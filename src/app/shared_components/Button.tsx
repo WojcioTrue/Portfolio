@@ -6,7 +6,7 @@ type Button = {
 
 const Button = ({text}: Button) => {
   return (
-    <button>{text}</button>
+    <button className='text-[16px] bg-slate-400'>{text}</button>
   )
 }
 
