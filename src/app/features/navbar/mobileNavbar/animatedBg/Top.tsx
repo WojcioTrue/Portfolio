@@ -11,7 +11,7 @@ const Top = () => {
 
   useEffect(() => {
     setHeight(window.innerHeight)
-  },[])
+  },[navBarMobilePosition])
 
   return (
     <div
