@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { NavBarContext } from '../NavBar'
 import { useContext } from 'react'
 import { categories } from '../navItems'
-import { mabryProRegular } from '@/app/assets/fonts/mabry_pro/MabryPro'
+import { mabryProRegular } from "@/app/assets/fonts/mabry_pro/MabryPro"
 
 type NavBarListElementType = {
   text: string,
@@ -19,7 +19,7 @@ const MobileListElement = ({ text, image, id, isActive }: NavBarListElementType)
       (event: React.MouseEvent) => {
         navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : x))
       }
-    } id={id} className={`mobile-nav-bar-element px-2 py-2 border-t last:border-b`}>
+    } id={id} className={`mobile-nav-bar-element px-2 py-2 border-t last:border-b ${mabryProRegular.className}`}>
       <a className={`flex items-center justify-start`}>
 
         {text}
