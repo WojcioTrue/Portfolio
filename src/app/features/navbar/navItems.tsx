@@ -5,19 +5,19 @@ export type ListElement = {
 
 export const categories: ListElement[] = [
     {
-        section: 'welcome',
+        section: 'Welcome',
         active: false
     },
     {
-        section: 'about',
+        section: 'About',
         active: false
     },
     {
-        section: 'text',
+        section: 'Text',
         active: false
     },
     {
-        section: 'something',
+        section: 'Something',
         active: false
     }
 ]
