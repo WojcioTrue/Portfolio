@@ -1,8 +1,7 @@
 import React from 'react'
-import localFont from "next/font/local"
 import Button from '@/app/shared_components/Button'
 import { mabryProBold, mabryProRegular } from '@/app/assets/fonts/mabry_pro/MabryPro'
-
+import { FaArrowDown } from "react-icons/fa";
 
 const Main = () => {
   return (
@@ -17,7 +16,7 @@ const Main = () => {
       2xl:text-[72px]
       text-center mb-4`}>Wojcio_True</h1>
           <p className={`text-[16px] text-my-gray mb-4 sm:text-[24px] text-center ml:text-left ${mabryProRegular.className}`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-          <Button text={'Read more '} />
+          <Button icon={<FaArrowDown />} text={'Read more'} />
         </div>
       </div>
 
