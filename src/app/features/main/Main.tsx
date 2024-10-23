@@ -1,7 +1,8 @@
+"use client";
 import React from 'react'
-import Button from '@/app/shared_components/Button'
 import { mabryProBold, mabryProRegular } from '@/app/assets/fonts/mabry_pro/MabryPro'
 import { FaArrowDown } from "react-icons/fa";
+import { motion } from 'framer-motion';
 
 const Main = () => {
   return (
@@ -16,7 +17,49 @@ const Main = () => {
       2xl:text-[72px]
       text-center mb-4`}>Wojcio_True</h1>
           <p className={`text-[16px] text-my-gray mb-4 sm:text-[24px] text-center ml:text-left ${mabryProRegular.className}`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-          <Button icon={<FaArrowDown />} text={'Read more'} />
+          <motion.button
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.2 },
+            }}
+            whileTap={{
+              scale: 1.15,
+              transition: { duration: 0.2 },
+            }}
+            className='flex items-center text-[16px] py-[12px] px-[24px] rounded-[50px] text-white bg-gradient-to-tr from-my-gradient1 to-my-gradient2'>
+            Read more
+            <span className='relative h-[25px] w-[25px]'>
+              <motion.div
+                className='absolute right-[0px] top-[50%] z-20'
+                animate={{
+                  scale: [1, 1.3, 1],
+                  translateY: ['-50%'],
+                }}
+                transition={{
+                  duration: 2,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+              >
+                <FaArrowDown />
+              </motion.div>
+              <motion.div
+                className='absolute right-[0px] top-[50%] z-10'
+                animate={{
+                  scale: [1, 2, 2],
+                  opacity: [0,0.5, 0],
+                  translateY: ['-50%'],
+                }}
+                transition={{
+                  duration: 2,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+              >
+                <FaArrowDown />
+              </motion.div>
+            </span>
+          </motion.button>
         </div>
       </div>
 
