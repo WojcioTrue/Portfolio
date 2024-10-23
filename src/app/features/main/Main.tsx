@@ -46,7 +46,7 @@ const Main = () => {
               <motion.div
                 className='absolute right-[0px] top-[50%]'
                 animate={{
-                  scale: [1, 2, 2],
+                  scale: [1, 2, 3],
                   opacity: [0,0.4, 0],
                   translateY: ['-50%'],
                 }}
