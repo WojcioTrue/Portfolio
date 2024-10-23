@@ -8,7 +8,7 @@ const Main = () => {
   return (
     <div className="relative h-full">
       <div className='h-full w-full max-w-[1200px] px-8 flex justify-center items-center ml:justify-start m-auto'>
-        <div className='max-w-[600px] flex flex-col flex-nowrap items-center ml:items-start'>
+        <div className='max-w-[600px] flex flex-col flex-nowrap items-center ml:items-start bg-slate-200 bg-opacity-10 px-10 py-8 shadow-myshadow rounded-xl'>
           <h1 className={`${mabryProBold.className} 
       text-[42px] 
       sm:text-[50px] 
@@ -30,7 +30,7 @@ const Main = () => {
             Read more
             <span className='relative h-[25px] w-[25px]'>
               <motion.div
-                className='absolute right-[0px] top-[50%] z-20'
+                className='absolute right-[0px] top-[50%]'
                 animate={{
                   scale: [1, 1.3, 1],
                   translateY: ['-50%'],
@@ -44,10 +44,10 @@ const Main = () => {
                 <FaArrowDown />
               </motion.div>
               <motion.div
-                className='absolute right-[0px] top-[50%] z-10'
+                className='absolute right-[0px] top-[50%]'
                 animate={{
                   scale: [1, 2, 2],
-                  opacity: [0,0.5, 0],
+                  opacity: [0,0.4, 0],
                   translateY: ['-50%'],
                 }}
                 transition={{
