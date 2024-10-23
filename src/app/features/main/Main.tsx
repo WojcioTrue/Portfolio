@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Main = () => {
   return (
-    <div className="relative h-full">
+    <div className="relative h-full bg-gradient-to-br from-my-lightBackground from-10% via-white">
       <div className='h-full w-full max-w-[1200px] px-8 flex justify-center items-center ml:justify-start m-auto'>
         <div className='max-w-[600px] flex flex-col flex-nowrap items-center ml:items-start bg-slate-200 bg-opacity-10 px-10 py-8 shadow-myshadow rounded-xl'>
           <h1 className={`${mabryProBold.className} 

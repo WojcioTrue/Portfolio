@@ -16,9 +16,10 @@ const config: Config = {
       },
       colors: {
         my: {
+          lightBackground: 'rgb(211 203 255)',
           black: 'rgb(15, 5, 29)',
           gray: 'rgb(123, 117, 131)',
-          purple: 'rgb(116, 31, 245)',
+          purple: 'rgba(116, 31, 245)',
           gradient1: 'rgb(38, 0, 252)',
           gradient2: 'rgb(255, 0, 234)',
         }
