@@ -13,7 +13,7 @@ const Main = () => {
           layout
           initial={{
             opacity: 0,
-            translateX: '-10px'
+            translateX: '-20px'
           }}
           animate={{
             opacity: 1,
