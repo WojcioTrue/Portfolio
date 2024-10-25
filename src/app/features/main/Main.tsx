@@ -1,8 +1,10 @@
 "use client";
 import React from 'react'
-import { mabryProBold, mabryProRegular } from '@/app/assets/fonts/mabry_pro/MabryPro'
+import { mabryProRegular } from '@/app/assets/fonts/mabry_pro/MabryPro'
 import { FaArrowDown } from "react-icons/fa";
 import { motion } from 'framer-motion';
+import Header from './Header';
+import Description from './Description';
 
 const Main = () => {
   return (
@@ -23,42 +25,8 @@ const Main = () => {
             type: "Tween"
           }}
           className='max-w-[600px] flex flex-col flex-nowrap items-center ml:items-start bg-white bg-opacity-20 px-10 py-8 shadow-myshadow rounded-xl'>
-          <motion.h1
-            initial={{
-              opacity: 0,
-              translateX: '-10px'
-            }}
-            animate={{
-              opacity: 1,
-              translateX: '0px'
-            }}
-            transition={{
-              duration: 0.3,
-              delay: 0.2,
-              type: "Tween"
-            }}
-            className={`${mabryProBold.className} 
-      text-[42px] 
-      sm:text-[50px] 
-      md:text-[60px] 
-      xl:text-[68px] 
-      2xl:text-[72px]
-      text-center mb-4`}>Wojcio_True</motion.h1>
-          <motion.p
-            initial={{
-              opacity: 0,
-              translateX: '-10px'
-            }}
-            animate={{
-              opacity: 1,
-              translateX: '0px'
-            }}
-            transition={{
-              duration: 0.3,
-              delay: 0.25,
-              type: "Tween"
-            }} className={`text-[16px] text-my-gray mb-4 sm:text-[24px] text-center ml:text-left ${mabryProRegular.className}`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</motion.p>
-
+          <Header/>
+          <Description/>
           <motion.button
             initial={{
               opacity: 0,
