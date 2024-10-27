@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { NavBarContext } from './NavBar'
 import { useContext } from 'react'
 import { categories } from './navItems'
-import { mabryProRegular } from "@/app/assets/fonts/mabry_pro/MabryPro"
+import { mabryProMedium } from "@/app/assets/fonts/mabry_pro/MabryPro"
 
 type NavBarListElementType = {
   id: string,
@@ -37,8 +37,8 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
       }
     }
       id={id}
-      className={`desktop-nav-bar-element px-4 text-md cursor-pointer ${mabryProRegular.className}`}>
-      <a className="flex items-center w-max">
+      className={`desktop-nav-bar-element px-4 text-md cursor-pointer ${mabryProMedium.className}`}>
+      <a className={`flex items-center w-max  ${isActive ? "text-my-purple" : "text-my-black"}`}>
         <Image
           priority={true}
           src={image}
@@ -46,6 +46,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
           width="20"
           height="20"
           className='mr-1'
+          style={{filter: isActive ? "invert(25%) sepia(95%) saturate(7107%) hue-rotate(264deg) brightness(95%) contrast(103%)" : ""}}
         />
         {text}
       </a>

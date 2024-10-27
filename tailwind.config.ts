@@ -16,11 +16,11 @@ const config: Config = {
       },
       colors: {
         my: {
-          navbarBackground: 'rgba(0,0,0,.08)',
+          navbarBackground: 'rgba(0,0,0,.16)',
           lightBackground: 'rgb(226 221 255)',
           black: 'rgb(15, 5, 29)',
           gray: 'rgb(123, 117, 131)',
-          purple: 'rgba(116, 31, 245)',
+          purple: 'rgb(116, 31, 245)',
           gradient1: 'rgb(38, 0, 252)',
           gradient2: 'rgb(255, 0, 234)',
         }
