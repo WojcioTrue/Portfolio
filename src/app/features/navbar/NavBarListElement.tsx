@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import { NavBarContext } from './NavBar'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { categories } from './navItems'
 import { mabryProMedium } from "@/app/assets/fonts/mabry_pro/MabryPro"
+import NavBarIndicator from './NavBarIndicator'
 
 type NavBarListElementType = {
   id: string,
@@ -39,7 +40,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
       id={id}
       className={`desktop-nav-bar-element px-4 text-md cursor-pointer ${mabryProMedium.className}`}>
       <a className={`flex items-center w-max  ${isActive ? "text-my-purple" : "text-my-black"}`}>
-        <Image
+        {/* <Image
           priority={true}
           src={image}
           alt="Logo"
@@ -47,7 +48,8 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
           height="20"
           className='mr-1'
           style={{filter: isActive ? "invert(25%) sepia(95%) saturate(7107%) hue-rotate(264deg) brightness(95%) contrast(103%)" : ""}}
-        />
+        /> */}
+        <NavBarIndicator isActive={isActive}/>
         {text}
       </a>
     </li>
