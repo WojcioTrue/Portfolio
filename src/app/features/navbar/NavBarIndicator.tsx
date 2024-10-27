@@ -7,7 +7,7 @@ type NavBarIndicator = {
 
 const NavBarIndicator = ({isActive} : NavBarIndicator) => {
   return (
-    <span className='h-[30px] w-[30px] flex items-center justify-center'>
+    <span className='relative h-[30px] flex items-center justify-start'>
         <h2 className={`text-red-700 ${!isActive ? 'opacity-0' : 'opacity-55'}`}>X</h2>
     </span>
 )

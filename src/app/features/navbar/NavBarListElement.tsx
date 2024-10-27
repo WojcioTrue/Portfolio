@@ -39,7 +39,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
     }
       id={id}
       className={`desktop-nav-bar-element px-4 text-md cursor-pointer ${mabryProMedium.className}`}>
-      <a className={`flex items-center w-max  ${isActive ? "text-my-purple" : "text-my-black"}`}>
+      <a className={`flex items-center w-max gap-2 ${isActive ? "text-my-purple" : "text-my-black"}`}>
         {/* <Image
           priority={true}
           src={image}
