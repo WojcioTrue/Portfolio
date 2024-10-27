@@ -16,6 +16,7 @@ const config: Config = {
       },
       colors: {
         my: {
+          navbarBackground: 'rgba(0,0,0,.08)',
           lightBackground: 'rgb(226 221 255)',
           black: 'rgb(15, 5, 29)',
           gray: 'rgb(123, 117, 131)',
