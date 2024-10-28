@@ -3,7 +3,7 @@ import { NavBarContext } from './NavBar'
 import { useContext, useEffect } from 'react'
 import { categories } from './navItems'
 import { mabryProMedium } from "@/app/assets/fonts/mabry_pro/MabryPro"
-import NavBarIndicator from './NavBarIndicator'
+import NavBarIndicatorField from './NavBarIndicatorField'
 
 type NavBarListElementType = {
   id: string,
@@ -49,7 +49,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
           className='mr-1'
           style={{filter: isActive ? "invert(25%) sepia(95%) saturate(7107%) hue-rotate(264deg) brightness(95%) contrast(103%)" : ""}}
         /> */}
-        <NavBarIndicator text={text}/>
+        <NavBarIndicatorField text={text}/>
         {text}
       </a>
     </li>
