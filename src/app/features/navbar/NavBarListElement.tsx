@@ -13,8 +13,26 @@ type NavBarListElementType = {
 }
 
 const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType) => {
-  const { navBarDesktopPosition, navBarItems } = useContext(NavBarContext)
+  const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { position,setPosition } = navBarDesktopPosition
+  const { setIDesktopPosition } = indicatorDesktop
+
+
+    const changeIndicatorPos = (ev: React.MouseEvent) => {
+      const activeIndicator = navBarItems.listElements.filter(x => x.active === true)
+      if (activeIndicator.length === 1 ) {
+          const indicatorPosition = document.getElementById(`desktop_indicator_${activeIndicator[0].section}`)!.getBoundingClientRect()
+
+          const horizontalMidPosition = Number((indicatorPosition.left + indicatorPosition.width / 2).toFixed(0))
+
+          const verticalMidPosition = Number((indicatorPosition.top + indicatorPosition.height / 2).toFixed(0))
+
+          setIDesktopPosition({
+              horizontalMid: horizontalMidPosition,
+              verticalMid: verticalMidPosition,
+          })
+      }
+    }
 
   const changeCenter = (ev: React.MouseEvent) => {
     ev.preventDefault();
@@ -34,6 +52,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
     <li onClick={
       (event: React.MouseEvent) => {
         changeCenter(event);
+        changeIndicatorPos(event);
         navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : x))
       }
     }
