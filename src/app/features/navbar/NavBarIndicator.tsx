@@ -14,14 +14,11 @@ const NavBarIndicator = ({text} : navBarIndicatorType) => {
         if (activeIndicator.length === 1) {
             const indicatorPosition = document.getElementById(`desktop_indicator_${activeIndicator[0].section}`)!.getBoundingClientRect()
 
-            console.log(indicatorPosition)
+            const verticalMidPosition = (indicatorPosition.top + indicatorPosition.height / 2).toFixed(0)
 
-            // const verticalMidPosition = (indicatorPosition.top + indicatorPosition.height / 2).toFixed(0)
-
-            // const horizontalMidPosition = (indicatorPosition.left + indicatorPosition.width / 2).toFixed(0)
+            const horizontalMidPosition = (indicatorPosition.left + indicatorPosition.width / 2).toFixed(0)
+        
         }
-
-
     }, [navBarItems.listElements])
 
     return (
