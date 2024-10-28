@@ -2,7 +2,7 @@ import React from 'react'
 
 const NavBarIndicatorIcon = () => {
   return (
-    <h2>X</h2>
+    <div className='h-[20px] w-[20px] bg-red-700'></div>
   )
 }
 
