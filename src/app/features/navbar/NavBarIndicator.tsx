@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavBarStyles from './NavBar.module.scss'
+import { textPath } from 'framer-motion/m'
 
 type NavBarIndicator = {
     text: string,
@@ -16,9 +17,10 @@ const NavBarIndicator = ({isActive, text} : NavBarIndicator) => {
         const verticalMidPosition = (indicatorPosition.top + indicatorPosition.height/2).toFixed(0)
 
         const horizontalMidPosition = (indicatorPosition.left + indicatorPosition.width/2).toFixed(0)
+        
+        
 
-
-    },[text])
+    },[isActive])
 
   return (
     <span id={`desktop_indicator_${text}`} className='relative h-[30px] w-[30px]'>
