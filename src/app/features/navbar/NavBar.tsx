@@ -16,7 +16,7 @@ type ItemPositionType = {
     bottom: number
 }
 
-type IndicatorDesktopPosition = {
+type IndicatorDesktopType = {
     horizontalMid: number,
     verticalMid: number,
 }
@@ -30,7 +30,10 @@ export const NavBarContext = createContext<{
         position: ItemPositionType
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
     },
-    indicatorDesktopPosition: IndicatorDesktopPosition,
+    indicatorDesktop: {
+        desktopIPosition : IndicatorDesktopType,
+        setIDesktopPosition: Dispatch<SetStateAction<IndicatorDesktopType>>
+    },
     navBarMobilePosition: {
         position: ItemPositionType
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
@@ -53,9 +56,12 @@ export const NavBarContext = createContext<{
         },
         setPosition: () => { }
     },
-    indicatorDesktopPosition: {
-        horizontalMid: 0,
-        verticalMid: 0,
+    indicatorDesktop: {
+        desktopIPosition : {
+            horizontalMid: 0,
+            verticalMid: 0,
+        },
+        setIDesktopPosition: () => {}
     },
     navBarMobilePosition: {
         position: {
@@ -93,7 +99,7 @@ const NavBar = () => {
             bottom: 0
         })
     const [listElements, setListElements] = useState<ListElement[]>(categories)
-    const [indicatorDesktopPosition, setIndicatorDesktopPosition] = useState<IndicatorDesktopPosition>({
+    const [iDesktopPosition, setIDesktopPosition] = useState<IndicatorDesktopType>({
         horizontalMid: 0,
         verticalMid: 0,
     })
@@ -153,7 +159,10 @@ const NavBar = () => {
                     position: navBarDesktopPosition,
                     setPosition: setNavBarDesktopPosition,
                 },
-                indicatorDesktopPosition,
+                indicatorDesktop: {
+                    desktopIPosition: iDesktopPosition,
+                    setIDesktopPosition: setIDesktopPosition,
+                },
                 navBarMobilePosition: {
                     position: navBarMobilePosition,
                     setPosition: setNavBarMobilePosition,
