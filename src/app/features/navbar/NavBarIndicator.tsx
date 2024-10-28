@@ -17,7 +17,8 @@ const NavBarIndicator = ({text} : navBarIndicatorType) => {
             const verticalMidPosition = (indicatorPosition.top + indicatorPosition.height / 2).toFixed(0)
 
             const horizontalMidPosition = (indicatorPosition.left + indicatorPosition.width / 2).toFixed(0)
-        
+            
+            console.log(verticalMidPosition, horizontalMidPosition)
         }
     }, [navBarItems.listElements])
 

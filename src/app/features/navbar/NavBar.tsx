@@ -16,6 +16,11 @@ type ItemPositionType = {
     bottom: number
 }
 
+type IndicatorDesktopPosition = {
+    horizontalMid: number,
+    verticalMid: number,
+}
+
 export const NavBarContext = createContext<{
     toogleMobileNav: {
         displayMenu: boolean,
@@ -25,6 +30,7 @@ export const NavBarContext = createContext<{
         position: ItemPositionType
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
     },
+    indicatorDesktopPosition: IndicatorDesktopPosition,
     navBarMobilePosition: {
         position: ItemPositionType
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
@@ -46,6 +52,10 @@ export const NavBarContext = createContext<{
             bottom: 0
         },
         setPosition: () => { }
+    },
+    indicatorDesktopPosition: {
+        horizontalMid: 0,
+        verticalMid: 0,
     },
     navBarMobilePosition: {
         position: {
@@ -75,14 +85,18 @@ const NavBar = () => {
             top: 0,
             bottom: 0
         })
-        const [navBarMobilePosition, setNavBarMobilePosition] = useState<ItemPositionType>(
-            {
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0
-            })
+    const [navBarMobilePosition, setNavBarMobilePosition] = useState<ItemPositionType>(
+        {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+        })
     const [listElements, setListElements] = useState<ListElement[]>(categories)
+    const [indicatorDesktopPosition, setIndicatorDesktopPosition] = useState<IndicatorDesktopPosition>({
+        horizontalMid: 0,
+        verticalMid: 0,
+    })
 
 
     // check if window passed breakpoint while scrolling
@@ -121,7 +135,7 @@ const NavBar = () => {
             const rightValue = document.body.clientWidth - Number(firstLiElement.getBoundingClientRect().right.toFixed(0)) + elementWidth;
             const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
             const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
-            
+
             setNavBarDesktopPosition({
                 left: leftValue,
                 right: rightValue,
@@ -129,7 +143,7 @@ const NavBar = () => {
                 bottom: bottomValue
             })
         }
-    }, [navBarItems.listElements,listElements, displayMenu])
+    }, [navBarItems.listElements, listElements, displayMenu])
 
     return (
         <NavBarContext.Provider value={
@@ -139,6 +153,7 @@ const NavBar = () => {
                     position: navBarDesktopPosition,
                     setPosition: setNavBarDesktopPosition,
                 },
+                indicatorDesktopPosition,
                 navBarMobilePosition: {
                     position: navBarMobilePosition,
                     setPosition: setNavBarMobilePosition,
