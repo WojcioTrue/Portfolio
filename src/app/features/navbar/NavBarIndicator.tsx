@@ -1,32 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import NavBarStyles from './NavBar.module.scss'
-import { textPath } from 'framer-motion/m'
+import { NavBarContext } from './NavBar'
 
-type NavBarIndicator = {
-    text: string,
-    isActive: boolean
+type navBarIndicatorType = {
+    text: string
 }
 
-const NavBarIndicator = ({isActive, text} : NavBarIndicator) => {
-    const [position, setPosition] = useState([0,0])
+const NavBarIndicator = ({text} : navBarIndicatorType) => {
+    const { navBarItems } = useContext(NavBarContext)
 
     useEffect(() => {
-        const indicatorPosition = document.getElementById(`desktop_indicator_${text}`)!.getBoundingClientRect()
+        const activeIndicator = navBarItems.listElements.filter(x => x.active === true)
+        if (activeIndicator.length === 1) {
+            const indicatorPosition = document.getElementById(`desktop_indicator_${activeIndicator[0].section}`)!.getBoundingClientRect()
+
+            console.log(indicatorPosition)
+
+            // const verticalMidPosition = (indicatorPosition.top + indicatorPosition.height / 2).toFixed(0)
+
+            // const horizontalMidPosition = (indicatorPosition.left + indicatorPosition.width / 2).toFixed(0)
+        }
 
 
-        const verticalMidPosition = (indicatorPosition.top + indicatorPosition.height/2).toFixed(0)
+    }, [navBarItems.listElements])
 
-        const horizontalMidPosition = (indicatorPosition.left + indicatorPosition.width/2).toFixed(0)
-        
-        
+    return (
+        <span id={`desktop_indicator_${text}`} className='relative h-[30px] w-[30px]'>
 
-    },[isActive])
-
-  return (
-    <span id={`desktop_indicator_${text}`} className='relative h-[30px] w-[30px]'>
-        
-    </span>
-)
+        </span>
+    )
 }
 
 export default NavBarIndicator

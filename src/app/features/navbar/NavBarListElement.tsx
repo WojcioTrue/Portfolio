@@ -49,7 +49,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
           className='mr-1'
           style={{filter: isActive ? "invert(25%) sepia(95%) saturate(7107%) hue-rotate(264deg) brightness(95%) contrast(103%)" : ""}}
         /> */}
-        <NavBarIndicator isActive={isActive} text={text}/>
+        <NavBarIndicator text={text}/>
         {text}
       </a>
     </li>
