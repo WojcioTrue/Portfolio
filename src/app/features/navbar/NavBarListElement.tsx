@@ -13,25 +13,28 @@ type NavBarListElementType = {
 
 const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
-  const { position,setPosition } = navBarDesktopPosition
+  const { position, setPosition } = navBarDesktopPosition
   const { setIDesktopPosition } = indicatorDesktop
 
 
-    const changeIndicatorPos = (ev: React.MouseEvent) => {
-      const activeIndicator = navBarItems.listElements.filter(x => x.active === true)
-      if (activeIndicator.length === 1 ) {
-          const indicatorPosition = document.getElementById(`desktop_indicator_${activeIndicator[0].section}`)!.getBoundingClientRect()
+  const changeIndicatorPos = (ev: React.MouseEvent) => {
+    ev.preventDefault()
+      console.log(text)
 
-          const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0) )
+      const indicatorPosition = document.getElementById(`desktop_indicator_${text}`)!.getBoundingClientRect()
 
-          const verticalMidPosition = Number((indicatorPosition.top ).toFixed(0))
+      const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
 
-          setIDesktopPosition({
-              horizontalMid: horizontalMidPosition,
-              verticalMid: verticalMidPosition,
-          })
-      }
-    }
+      const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
+      console.log(horizontalMidPosition)
+      console.log(verticalMidPosition)
+      setIDesktopPosition({
+        horizontalMid: horizontalMidPosition,
+        verticalMid: verticalMidPosition,
+      })
+    
+  }
+
 
   const changeCenter = (ev: React.MouseEvent) => {
     ev.preventDefault();
@@ -42,8 +45,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
     // offset element with 'right' property
     const rightValue = (document.body.clientWidth - (Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
 
-    const newPosition = {...position, left: leftValue, right: rightValue}
-
+    const newPosition = { ...position, left: leftValue, right: rightValue }
     setPosition(newPosition)
   }
 
@@ -58,7 +60,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
       id={id}
       className={`desktop-nav-bar-element px-4 text-md cursor-pointer ${mabryProMedium.className}`}>
       <a className={`flex items-center w-max gap-2 ${isActive ? "text-my-purple" : "text-my-black"}`}>
-        <NavBarIndicatorField text={text}/>
+        <NavBarIndicatorField text={text} />
         {text}
       </a>
     </li>
