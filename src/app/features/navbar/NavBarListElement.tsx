@@ -11,7 +11,7 @@ type NavBarListElementType = {
   isActive: boolean,
 }
 
-const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType) => {
+const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { position, setPosition } = navBarDesktopPosition
   const { setIDesktopPosition } = indicatorDesktop
@@ -54,7 +54,7 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
       }
     }
       id={id}
-      className={`desktop-nav-bar-element px-4 text-md cursor-pointer ${mabryProMedium.className}`}>
+      className={`desktop-nav-bar-element px-4 text-md cursor-pointer transition-all duration-500 ${mabryProMedium.className}`}>
       <a className={`flex items-center w-max gap-2 ${isActive ? "text-my-purple" : "text-my-black"}`}>
         <NavBarIndicatorField text={text} />
         {text}
