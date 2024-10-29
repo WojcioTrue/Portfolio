@@ -19,22 +19,18 @@ const NavBarListElement = ({ id, text, image, isActive }: NavBarListElementType)
 
   const changeIndicatorPos = (ev: React.MouseEvent) => {
     ev.preventDefault()
-      console.log(text)
+    const indicatorPosition = document.getElementById(`desktop_indicator_${text}`)!.getBoundingClientRect()
 
-      const indicatorPosition = document.getElementById(`desktop_indicator_${text}`)!.getBoundingClientRect()
+    const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
 
-      const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
-
-      const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
-      console.log(horizontalMidPosition)
-      console.log(verticalMidPosition)
-      setIDesktopPosition({
-        horizontalMid: horizontalMidPosition,
-        verticalMid: verticalMidPosition,
-      })
-    
+    const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
+    console.log(horizontalMidPosition)
+    console.log(verticalMidPosition)
+    setIDesktopPosition({
+      horizontalMid: horizontalMidPosition,
+      verticalMid: verticalMidPosition,
+    })
   }
-
 
   const changeCenter = (ev: React.MouseEvent) => {
     ev.preventDefault();
