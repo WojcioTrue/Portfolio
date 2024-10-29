@@ -2,15 +2,19 @@ import React, { useContext, useEffect } from 'react'
 import { NavBarContext } from './NavBar'
 
 const NavBarIndicatorIcon = () => {
-  const { navBarDesktopPosition } = useContext(NavBarContext)
-  const {position} = navBarDesktopPosition
+  const { indicatorDesktop } = useContext(NavBarContext)
+  const { desktopIPosition } = indicatorDesktop
 
   useEffect(() => {
-    console.log(position)
-  },[position])
+    console.log(desktopIPosition)
+  }, [desktopIPosition])
 
   return (
-    <div className='h-[20px] w-[20px] bg-red-700'></div>
+    <div className={`h-[15px] w-[15px] bg-red-700 absolute translate-x-1/2 translate-y-1/2 transition-all`} 
+    style={{
+      top: `${desktopIPosition.verticalMid}px`,
+      left: `${desktopIPosition.horizontalMid + 5}px`
+    }}></div>
   )
 }
 

@@ -1,6 +1,3 @@
-import React, { useEffect, useContext } from 'react'
-import { NavBarContext } from './NavBar'
-
 type NavBarIndicatorField = {
     text: string
 }

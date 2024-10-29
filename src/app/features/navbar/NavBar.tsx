@@ -8,6 +8,7 @@ import navBarStyles from "./NavBar.module.scss"
 import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
 import { categories, ListElement } from "./navItems"
 import { mabryProBold } from "@/app/assets/fonts/mabry_pro/MabryPro"
+import NavBarIndicatorIcon from "./NavBarIndicatorIcon"
 
 type ItemPositionType = {
     left: number,
@@ -193,6 +194,7 @@ const NavBar = () => {
                 <MobileNavBar />
                 <BackDrop />
                 <NavBarAnimatedBg />
+                <NavBarIndicatorIcon/>
             </nav>
         </NavBarContext.Provider>
 
