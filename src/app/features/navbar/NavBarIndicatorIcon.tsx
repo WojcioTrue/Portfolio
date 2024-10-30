@@ -7,11 +7,18 @@ const NavBarIndicatorIcon = () => {
   const { desktopIPosition } = indicatorDesktop
 
   return (
-    <div className={`h-[30px] w-[30px] absolute`}
+    <motion.div
+    layout
+    className={`h-[30px] w-[30px] absolute`}
       style={{
         top: `${desktopIPosition.verticalMid}px`,
-        left: `${desktopIPosition.horizontalMid}px`
-      }}>
+        left: `${desktopIPosition.horizontalMid}px`,
+      }}
+      transition={{
+        type: 'spring',
+        duration: 0.6
+      }}
+      >
       <motion.span
         className='absolute w-[25px] h-[25px] rounded-2xl bg-my-purple top-[50%] left-[50%]'
         initial={{
@@ -59,7 +66,7 @@ const NavBarIndicatorIcon = () => {
           times: [0, 0.5, 1],
           repeat: Infinity,
         }}></motion.span>
-    </div>
+    </motion.div>
   )
 }
 
