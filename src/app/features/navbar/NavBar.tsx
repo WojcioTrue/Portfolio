@@ -9,6 +9,7 @@ import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
 import { categories, ListElement } from "./navItems"
 import { mabryProBold } from "@/app/assets/fonts/mabry_pro/MabryPro"
 import NavBarIndicatorIcon from "./NavBarIndicatorIcon"
+import NavBarIndicatorField from "./NavBarIndicatorField"
 
 type ItemPositionType = {
     left: number,
@@ -32,7 +33,7 @@ export const NavBarContext = createContext<{
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
     },
     indicatorDesktop: {
-        desktopIPosition : IndicatorDesktopType,
+        desktopIPosition: IndicatorDesktopType,
         setIDesktopPosition: Dispatch<SetStateAction<IndicatorDesktopType>>
     },
     navBarMobilePosition: {
@@ -58,11 +59,11 @@ export const NavBarContext = createContext<{
         setPosition: () => { }
     },
     indicatorDesktop: {
-        desktopIPosition : {
+        desktopIPosition: {
             horizontalMid: 0,
             verticalMid: 0,
         },
-        setIDesktopPosition: () => {}
+        setIDesktopPosition: () => { }
     },
     navBarMobilePosition: {
         position: {
@@ -111,6 +112,21 @@ const NavBar = () => {
         const scrolled = window.scrollY > 100 ? true : false
         setFixedMenu(scrolled)
     }
+
+    useEffect(() => {
+        const isActive = navBarItems.listElements.some(x => x.active === true)
+        if (!isActive) {
+            const indicatorPosition = document.getElementById(`desktop_indicator_default`)!.getBoundingClientRect()
+            const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
+
+            const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
+
+            setIDesktopPosition({
+                horizontalMid: horizontalMidPosition,
+                verticalMid: verticalMidPosition,
+            })
+        }
+    }, [])
 
     useEffect(() => {
         //get initial position after page is loaded/refreshed
@@ -177,8 +193,9 @@ const NavBar = () => {
                 `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange}`} navbar w-full py-3 px-6 overflow-hidden z-10 bg-my-navbarBackground shadow-myshadow`}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
                     <div className="flex justify-between w-full items-center">
-                        <a className="navbar__brand flex" href="#">
-                            <p className={`px-2 py-3 inline my-auto text-3xl font-medium ${mabryProBold.className}`}>Wojcio_True</p>
+                        <a className="navbar__brand flex items-center" href="#">
+                            <NavBarIndicatorField text={'default'} />
+                            <p className={`pl-3.5 py-3 inline my-auto text-3xl font-medium ${mabryProBold.className}`}>Wojcio_True</p>
                         </a>
                         <button
                             className="float-right md:hidden px-2 border-red-400 border-2"
@@ -194,7 +211,7 @@ const NavBar = () => {
                 <MobileNavBar />
                 <BackDrop />
                 <NavBarAnimatedBg />
-                <NavBarIndicatorIcon/>
+                <NavBarIndicatorIcon />
             </nav>
         </NavBarContext.Provider>
 

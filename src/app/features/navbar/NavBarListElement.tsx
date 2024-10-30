@@ -1,9 +1,8 @@
 import { NavBarContext } from './NavBar'
-import { useContext } from 'react'
+import { useContext, useEffect, useCallback } from 'react'
 import { categories } from './navItems'
 import { mabryProMedium } from "@/app/assets/fonts/mabry_pro/MabryPro"
 import NavBarIndicatorField from './NavBarIndicatorField'
-import { motion } from 'framer-motion'
 
 type NavBarListElementType = {
   id: string,
@@ -15,9 +14,13 @@ type NavBarListElementType = {
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { position, setPosition } = navBarDesktopPosition
-  const { setIDesktopPosition } = indicatorDesktop
+  const { desktopIPosition,setIDesktopPosition } = indicatorDesktop
 
 
+  // default indicator position
+
+
+  // change position of indicator when clicked
   const changeIndicatorPos = (ev: React.MouseEvent) => {
     ev.preventDefault()
     const indicatorPosition = document.getElementById(`desktop_indicator_${text}`)!.getBoundingClientRect()
