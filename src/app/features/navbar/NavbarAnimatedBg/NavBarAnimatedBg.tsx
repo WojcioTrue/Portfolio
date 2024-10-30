@@ -17,13 +17,14 @@ const NavBarAnimatedBg = () => {
             <span
                 className={`bg-white opacity-85 rounded-br-xl w-[200%] h-[calc(100%_-_5px)] absolute 
                     ${NavBarAnimatedStyles.right_animation}
-                    ${isActive ? NavBarAnimatedStyles.top_animation_on : NavBarAnimatedStyles.top_animation_off}
+                    ${NavBarAnimatedStyles.top_animation_on}
                 `}
                 style={{ right: `${position.right}px` }}>
             </span>
             <span
-                className={`bg-white opacity-85 rounded-bl-xl w-[200%] h-[calc(100%_-_5px)] absolute ${NavBarAnimatedStyles.left_animation}
-                ${isActive ? NavBarAnimatedStyles.top_animation_on : NavBarAnimatedStyles.top_animation_off}
+                className={`bg-white opacity-85 rounded-bl-xl w-[200%] h-[calc(100%_-_5px)] absolute 
+                ${NavBarAnimatedStyles.left_animation}
+                ${NavBarAnimatedStyles.top_animation_on}
                 `}
                 style={{ left: `${position.left}px` }}>
             </span>

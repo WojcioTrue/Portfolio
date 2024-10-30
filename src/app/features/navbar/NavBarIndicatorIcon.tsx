@@ -8,12 +8,12 @@ const NavBarIndicatorIcon = () => {
 
   return (
     <motion.div
-    layout
     className={`h-[30px] w-[30px] absolute`}
       style={{
         top: `${desktopIPosition.verticalMid}px`,
         left: `${desktopIPosition.horizontalMid}px`,
       }}
+      layout
       transition={{
         type: 'spring',
         duration: 0.6
