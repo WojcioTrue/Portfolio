@@ -124,8 +124,8 @@ const NavBar = () => {
                 horizontalMid: horizontalMidPosition,
                 verticalMid: verticalMidPosition,
             })
-            console.log('chubby chick banger')
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
