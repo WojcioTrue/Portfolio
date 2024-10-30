@@ -1,10 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavBarContext } from './NavBar'
 import { motion } from 'framer-motion'
 
 const NavBarIndicatorIcon = () => {
   const { indicatorDesktop } = useContext(NavBarContext)
   const { desktopIPosition } = indicatorDesktop
+
+  useEffect(() => {
+    console.log(desktopIPosition)
+  },[desktopIPosition])
 
   return (
     <motion.div
