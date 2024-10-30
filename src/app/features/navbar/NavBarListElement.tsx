@@ -25,8 +25,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
     const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
 
     const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
-    console.log(horizontalMidPosition)
-    console.log(verticalMidPosition)
+
     setIDesktopPosition({
       horizontalMid: horizontalMidPosition,
       verticalMid: verticalMidPosition,
