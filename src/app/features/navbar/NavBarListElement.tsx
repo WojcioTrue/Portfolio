@@ -1,8 +1,9 @@
 import { NavBarContext } from './NavBar'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { categories } from './navItems'
 import { mabryProMedium } from "@/app/assets/fonts/mabry_pro/MabryPro"
 import NavBarIndicatorField from './NavBarIndicatorField'
+import { motion } from 'framer-motion'
 
 type NavBarListElementType = {
   id: string,
@@ -54,8 +55,8 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
       }
     }
       id={id}
-      className={`desktop-nav-bar-element px-4 text-md cursor-pointer transition-all duration-500 ${mabryProMedium.className}`}>
-      <a className={`flex items-center w-max gap-2 ${isActive ? "text-my-purple" : "text-my-black"}`}>
+      className={`desktop-nav-bar-element px-4 text-md cursor-pointer ${mabryProMedium.className}`}>
+      <a className={`flex items-center w-max gap-2 transition-colors ${isActive ? "text-my-purple" : "text-my-black"}`}>
         <NavBarIndicatorField text={text} />
         {text}
       </a>
