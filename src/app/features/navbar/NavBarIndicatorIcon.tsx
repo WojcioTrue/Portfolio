@@ -6,10 +6,6 @@ const NavBarIndicatorIcon = () => {
   const { indicatorDesktop } = useContext(NavBarContext)
   const { desktopIPosition } = indicatorDesktop
 
-  useEffect(() => {
-    console.log(desktopIPosition)
-  },[desktopIPosition])
-
   return (
     <motion.div
     className={`h-[30px] w-[30px] absolute`}

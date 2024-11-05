@@ -125,7 +125,7 @@ const NavBar = () => {
                 verticalMid: verticalMidPosition,
             })
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -147,7 +147,21 @@ const NavBar = () => {
         const navBarListElements = document.getElementsByClassName("desktop-nav-bar-element");
         const isActive = listElements.some((x) => Boolean(x.active) === true)
         // check if there are active elements
-        if (navBarListElements.length > 0 && isActive) {
+        if (!isActive) {
+            const firstLiElement = document.getElementsByClassName(`navbar__brand`);
+            const el = firstLiElement[0]
+            const elWidth = Math.round(Number(((el as HTMLLIElement).clientWidth)));
+            console.log(elWidth)
+            // offset left element with 'left' property
+            const leftValue = Number((el as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elWidth;
+            // offset element with 'right' property
+            const rightValue = (document.body.clientWidth - (Number((el as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elWidth))
+
+            const newPosition = { ...navBarDesktopPosition, left: leftValue, right: rightValue }
+
+            setNavBarDesktopPosition(newPosition)
+        }
+        else {
             const getActiveSection = listElements.filter(x => x.active === true)
             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
             const firstLiElement = document.getElementById(activeSectionName)!;
@@ -192,7 +206,7 @@ const NavBar = () => {
             <nav className={
                 `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange}`} navbar w-full py-3 px-6 overflow-hidden z-10 bg-my-navbarBackground shadow-myshadow`}>
                 <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
-                    <NavBarTitle/>
+                    <NavBarTitle />
                     <NavBarList />
                 </span>
                 <MobileNavBar />

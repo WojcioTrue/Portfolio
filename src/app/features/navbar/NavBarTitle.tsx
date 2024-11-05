@@ -12,8 +12,7 @@ const NavBarTitle = () => {
     const changeCenter = (ev: React.MouseEvent) => {
         ev.preventDefault();
         // center of current target element
-
-        const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetWidth)));
+        const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).clientWidth)));
         // offset left element with 'left' property
         const leftValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
         // offset element with 'right' property
@@ -45,8 +44,8 @@ const NavBarTitle = () => {
                     changeCenter(event);
                     changeIndicatorPos(event)
                 }}
-            className="flex justify-between items-center w-auto gap-[10px] pr-3 pl-5">
-            <a className="navbar__brand flex items-center" href="#">
+            className="navbar__brand flex justify-between items-center w-auto gap-[10px] pr-3 pl-5">
+            <a className="flex items-center" href="#">
                 <NavBarIndicatorField text={'default'} />
                 <p className={`py-3 inline my-auto text-3xl font-medium ${mabryProBold.className}`}>Wojcio_True</p>
             </a>
