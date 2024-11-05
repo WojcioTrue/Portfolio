@@ -114,11 +114,7 @@ const NavBar = () => {
         setActive(isActive)
     }, [listElements, active])
 
-    // check if window passed breakpoint while scrolling
-
-
     useEffect(() => {
-
         if (!active) {
             const indicatorPosition = document.getElementById(`desktop_indicator_default`)!.getBoundingClientRect()
             const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))

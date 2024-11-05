@@ -6,8 +6,6 @@ const NavBarIndicatorIcon = () => {
   const { indicatorDesktop, navBarItems } = useContext(NavBarContext)
   const { desktopIPosition, setIDesktopPosition } = indicatorDesktop
 
-
-
   useEffect(() => {
     const iDesktopPosition = (id: string) => {
       const indicatorId = document.getElementById(id)!.getBoundingClientRect()
@@ -42,7 +40,7 @@ const NavBarIndicatorIcon = () => {
 
   return (
     <motion.div
-      className={`h-[30px] w-[30px] absolute`}
+      className={`h-[30px] w-[30px] absolute hidden md:block`}
       style={{
         top: `${desktopIPosition.verticalMid}px`,
         left: `${desktopIPosition.horizontalMid}px`,

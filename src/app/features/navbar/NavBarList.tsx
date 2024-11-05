@@ -13,7 +13,7 @@ const NavBarList = () => {
   useEffect(() => {
     const updateActiveLi = () => {
       const activeElement = () => navBarItems.listElements.filter(x => x.active === true);
-      setActiveElement(activeElement)
+      setActiveElement(activeElement())
     }
 
     window.addEventListener('resize', updateActiveLi)
@@ -27,6 +27,21 @@ const NavBarList = () => {
     function handleResize() {
       if (activeElement[0] !== undefined) {
         const activeLIElement = document.getElementById(`desktop_navbar_li_${activeElement[0].section}`)
+
+        const elementWidth = Number((activeLIElement!.offsetWidth).toFixed(0));
+        // offset left element with 'left' property
+        
+        const leftValue = Number(activeLIElement!.getBoundingClientRect().left.toFixed(0)) + elementWidth;
+        // offset element with 'right' property
+        
+        const rightValue = document.body.clientWidth - Number(activeLIElement!.getBoundingClientRect().right.toFixed(0)) + elementWidth
+
+        const newPosition = {...position, left: leftValue, right: rightValue}
+
+        setPosition(newPosition)
+      } 
+      else {
+        const activeLIElement = (document.getElementsByClassName(`navbar__brand`)[0]) as HTMLElement
 
         const elementWidth = Number((activeLIElement!.offsetWidth).toFixed(0));
         // offset left element with 'left' property
