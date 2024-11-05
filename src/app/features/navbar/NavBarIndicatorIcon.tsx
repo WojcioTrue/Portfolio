@@ -34,7 +34,7 @@ const NavBarIndicatorIcon = () => {
         window.removeEventListener('resize', () => setNewPosition())
       }
 
-  }, [navBarItems.active, setIDesktopPosition])
+  }, [navBarItems.active, navBarItems.listElements, setIDesktopPosition])
 
 
   return (
