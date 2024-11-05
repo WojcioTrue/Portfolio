@@ -7,32 +7,35 @@ const NavBarIndicatorIcon = () => {
   const { desktopIPosition, setIDesktopPosition } = indicatorDesktop
 
 
+
   useEffect(() => {
+    const iDesktopPosition = (id: string) => {
+      const indicatorId = document.getElementById(id)!.getBoundingClientRect()
+      const horizontalMidPosition = Number((indicatorId.left).toFixed(0))
+      const verticalMidPosition = Number((indicatorId.top).toFixed(0))
+      setIDesktopPosition({
+        horizontalMid: horizontalMidPosition,
+        verticalMid: verticalMidPosition,
+      })
+    }
     const setNewPosition = () => {
       if (navBarItems.active === false) {
-
-        const indicatorId = document.getElementById(`desktop_indicator_default`)
+        iDesktopPosition(`desktop_indicator_default`)
       } else {
-
         const activeIndicator = navBarItems.listElements.filter((x) => x.active === true)
         if (activeIndicator.length === 1) {
-          const indicatorId = document.getElementById(`desktop_indicator_${activeIndicator[0].section}`)!.getBoundingClientRect()
-
-          const horizontalMidPosition = Number((indicatorId.left).toFixed(0))
-          const verticalMidPosition = Number((indicatorId.top).toFixed(0))
-          setIDesktopPosition({
-            horizontalMid: horizontalMidPosition,
-            verticalMid: verticalMidPosition,
-          })
+          const indicatorName = `desktop_indicator_${activeIndicator[0].section}`
+          iDesktopPosition(indicatorName)
         }
       }
-      }
-      window.addEventListener('resize', () =>
-        setNewPosition()
-      )
-      return () => {
-        window.removeEventListener('resize', () => setNewPosition())
-      }
+    }
+
+    window.addEventListener('resize', () =>
+      setNewPosition()
+    )
+    return () => {
+      window.removeEventListener('resize', () => setNewPosition())
+    }
 
   }, [navBarItems.active, navBarItems.listElements, setIDesktopPosition])
 
