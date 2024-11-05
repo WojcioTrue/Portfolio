@@ -153,8 +153,9 @@ const NavBar = () => {
 
     // default value for background when page is loaded
     useEffect(() => {
+        const getActiveSection = listElements.filter(x => x.active === true)
         // check if there are active elements
-        if (!active) {
+        if (getActiveSection.length === 0) {
             const firstLiElement = document.getElementsByClassName(`navbar__brand`);
             const el = firstLiElement[0]
             const elWidth = Math.round(Number(((el as HTMLLIElement).clientWidth)));
@@ -168,7 +169,6 @@ const NavBar = () => {
             setNavBarDesktopPosition(newPosition)
         }
         else {
-            const getActiveSection = listElements.filter(x => x.active === true)
             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
             const firstLiElement = document.getElementById(activeSectionName)!;
 
@@ -185,6 +185,7 @@ const NavBar = () => {
                 top: topValue,
                 bottom: bottomValue
             })
+
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [listElements, active])

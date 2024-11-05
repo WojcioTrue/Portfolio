@@ -1,7 +1,7 @@
 import { mabryProBold } from "@/app/assets/fonts/mabry_pro/MabryPro"
 import NavBarIndicatorField from "./NavBarIndicatorField"
 import NavBarButton from "./NavBarButton"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { NavBarContext } from "./NavBar"
 
 const NavBarTitle = () => {
@@ -36,22 +36,28 @@ const NavBarTitle = () => {
         })
     }
 
-    return (
+    const resetActive = () => {
+        const liElements = navBarItems.listElements.map(x => ({...x, active: false}))
+        navBarItems.setListElements(liElements)
+    }
 
-        <div
-            onClick={
-                (event: React.MouseEvent) => {
-                    changeCenter(event);
-                    changeIndicatorPos(event)
-                }}
-            className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
-            <a className="flex items-center gap-2" href="#">
-                <NavBarIndicatorField text={'default'} />
-                <p className={`py-3 inline my-auto text-2xl font-medium ${mabryProBold.className} ${active ? 'text-my-black' : 'text-my-purple'}`}>Wojcio_True</p>
-            </a>
-            <NavBarButton />
-        </div>
-    )
+return (
+
+    <div
+        onClick={
+            (event: React.MouseEvent) => {
+                changeCenter(event);
+                changeIndicatorPos(event)
+                resetActive()
+            }}
+        className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
+        <a className="flex items-center gap-2" href="#">
+            <NavBarIndicatorField text={'default'} />
+            <p className={`py-3 inline my-auto text-2xl font-medium ${mabryProBold.className} ${active ? 'text-my-black' : 'text-my-purple'}`}>Wojcio_True</p>
+        </a>
+        <NavBarButton />
+    </div>
+)
 }
 
 export default NavBarTitle
