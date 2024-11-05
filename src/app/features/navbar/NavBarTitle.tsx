@@ -44,10 +44,10 @@ const NavBarTitle = () => {
                     changeCenter(event);
                     changeIndicatorPos(event)
                 }}
-            className="navbar__brand flex justify-between items-center w-auto gap-[10px] pr-3 pl-5">
-            <a className="flex items-center" href="#">
+            className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
+            <a className="flex items-center gap-2" href="#">
                 <NavBarIndicatorField text={'default'} />
-                <p className={`py-3 inline my-auto text-3xl font-medium ${mabryProBold.className}`}>Wojcio_True</p>
+                <p className={`py-3 inline my-auto text-2xl font-medium ${mabryProBold.className}`}>Wojcio_True</p>
             </a>
             <NavBarButton />
         </div>

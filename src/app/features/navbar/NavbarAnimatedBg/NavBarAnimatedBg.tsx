@@ -17,7 +17,7 @@ const NavBarAnimatedBg = () => {
                 style={{ right: `${position.right}px` }}>
             </span>
             <span
-                className={`bg-white opacity-85 rounded-bl-xl w-[200%] h-[calc(100%_-_5px)] absolute 
+                className={`bg-white opacity-85  md:rounded-bl-xl w-[200%] h-[calc(100%_-_5px)] absolute 
                 ${NavBarAnimatedStyles.left_animation}
                 ${NavBarAnimatedStyles.top_animation_on}
                 `}
