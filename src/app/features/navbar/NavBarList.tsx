@@ -41,7 +41,7 @@ const NavBarList = () => {
         setPosition(newPosition)
       } 
       else {
-        const activeLIElement = (document.getElementsByClassName(`navbar__brand`)[0]) as HTMLElement
+        const activeLIElement = document.getElementById(`desktop_navbar_default`)
 
         const elementWidth = Number((activeLIElement!.offsetWidth).toFixed(0));
         // offset left element with 'left' property
