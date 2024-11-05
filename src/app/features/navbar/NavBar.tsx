@@ -41,7 +41,9 @@ export const NavBarContext = createContext<{
     }
     navBarItems: {
         listElements: ListElement[],
-        setListElements: Dispatch<SetStateAction<ListElement[]>>
+        setListElements: Dispatch<SetStateAction<ListElement[]>>,
+        active: boolean,
+        setActive: Dispatch<SetStateAction<boolean>>
     }
 }>({
     toogleMobileNav: {
@@ -75,7 +77,9 @@ export const NavBarContext = createContext<{
     },
     navBarItems: {
         listElements: categories,
-        setListElements: () => { }
+        setListElements: () => { },
+        active: false,
+        setActive: () => {}
     }
 })
 
@@ -104,6 +108,7 @@ const NavBar = () => {
         horizontalMid: 0,
         verticalMid: 0,
     })
+    const [active, setActive] = useState(false)
 
 
     // check if window passed breakpoint while scrolling
@@ -201,6 +206,8 @@ const NavBar = () => {
                 navBarItems: {
                     listElements: listElements,
                     setListElements,
+                    active: active,
+                    setActive,
                 },
             }}>
             <nav className={
