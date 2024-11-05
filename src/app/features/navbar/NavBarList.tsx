@@ -24,36 +24,28 @@ const NavBarList = () => {
   }, [navBarItems.listElements])
 
   useEffect(() => {
+    const positionResize = (id : string) => {
+      const activeLIElement = document.getElementById(id)!
+
+        const elementWidth = Number((activeLIElement!.offsetWidth).toFixed(0));
+        // offset left element with 'left' property
+        
+        const leftValue = Number(activeLIElement!.getBoundingClientRect().left.toFixed(0)) + elementWidth;
+        // offset element with 'right' property
+        
+        const rightValue = document.body.clientWidth - Number(activeLIElement!.getBoundingClientRect().right.toFixed(0)) + elementWidth
+
+        const newPosition = {...position, left: leftValue, right: rightValue}
+
+        setPosition(newPosition)
+    }
+
     function handleResize() {
       if (activeElement[0] !== undefined) {
-        const activeLIElement = document.getElementById(`desktop_navbar_li_${activeElement[0].section}`)
-
-        const elementWidth = Number((activeLIElement!.offsetWidth).toFixed(0));
-        // offset left element with 'left' property
-        
-        const leftValue = Number(activeLIElement!.getBoundingClientRect().left.toFixed(0)) + elementWidth;
-        // offset element with 'right' property
-        
-        const rightValue = document.body.clientWidth - Number(activeLIElement!.getBoundingClientRect().right.toFixed(0)) + elementWidth
-
-        const newPosition = {...position, left: leftValue, right: rightValue}
-
-        setPosition(newPosition)
+        positionResize(`desktop_navbar_li_${activeElement[0].section}`)
       } 
       else {
-        const activeLIElement = document.getElementById(`desktop_navbar_default`)
-
-        const elementWidth = Number((activeLIElement!.offsetWidth).toFixed(0));
-        // offset left element with 'left' property
-        
-        const leftValue = Number(activeLIElement!.getBoundingClientRect().left.toFixed(0)) + elementWidth;
-        // offset element with 'right' property
-        
-        const rightValue = document.body.clientWidth - Number(activeLIElement!.getBoundingClientRect().right.toFixed(0)) + elementWidth
-
-        const newPosition = {...position, left: leftValue, right: rightValue}
-
-        setPosition(newPosition)
+        positionResize(`desktop_navbar_default`)
       }
     }
     handleResize()
