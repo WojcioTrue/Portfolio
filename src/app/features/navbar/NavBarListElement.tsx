@@ -14,11 +14,7 @@ type NavBarListElementType = {
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { position, setPosition } = navBarDesktopPosition
-  const { desktopIPosition,setIDesktopPosition } = indicatorDesktop
-
-
-  // default indicator position
-
+  const { setIDesktopPosition } = indicatorDesktop
 
   // change position of indicator when clicked
   const changeIndicatorPos = (ev: React.MouseEvent) => {

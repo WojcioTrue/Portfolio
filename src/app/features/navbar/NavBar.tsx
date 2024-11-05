@@ -150,7 +150,7 @@ const NavBar = () => {
     useEffect(() => {
         displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
     }, [displayMenu])
-
+    
     // default value for background when page is loaded
     useEffect(() => {
         const getActiveSection = listElements.filter(x => x.active === true)

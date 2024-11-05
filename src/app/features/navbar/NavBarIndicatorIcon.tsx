@@ -3,12 +3,43 @@ import { NavBarContext } from './NavBar'
 import { motion } from 'framer-motion'
 
 const NavBarIndicatorIcon = () => {
-  const { indicatorDesktop } = useContext(NavBarContext)
-  const { desktopIPosition } = indicatorDesktop
+  const { indicatorDesktop, navBarItems } = useContext(NavBarContext)
+  const { desktopIPosition, setIDesktopPosition } = indicatorDesktop
+
+
+  useEffect(() => {
+    const setNewPosition = () => {
+      if (navBarItems.active === false) {
+
+        const indicatorId = document.getElementById(`desktop_indicator_default`)
+      } else {
+
+        const activeIndicator = navBarItems.listElements.filter((x) => x.active === true)
+        if (activeIndicator.length === 1) {
+          const indicatorId = document.getElementById(`desktop_indicator_${activeIndicator[0].section}`)!.getBoundingClientRect()
+
+          const horizontalMidPosition = Number((indicatorId.left).toFixed(0))
+          const verticalMidPosition = Number((indicatorId.top).toFixed(0))
+          setIDesktopPosition({
+            horizontalMid: horizontalMidPosition,
+            verticalMid: verticalMidPosition,
+          })
+        }
+      }
+      }
+      window.addEventListener('resize', () =>
+        setNewPosition()
+      )
+      return () => {
+        window.removeEventListener('resize', () => setNewPosition())
+      }
+
+  }, [navBarItems.active, setIDesktopPosition])
+
 
   return (
     <motion.div
-    className={`h-[30px] w-[30px] absolute`}
+      className={`h-[30px] w-[30px] absolute`}
       style={{
         top: `${desktopIPosition.verticalMid}px`,
         left: `${desktopIPosition.horizontalMid}px`,
@@ -18,7 +49,7 @@ const NavBarIndicatorIcon = () => {
         type: 'spring',
         duration: 0.6
       }}
-      >
+    >
       <motion.span
         className='absolute w-[25px] h-[25px] rounded-2xl bg-my-purple top-[50%] left-[50%]'
         initial={{
@@ -27,7 +58,7 @@ const NavBarIndicatorIcon = () => {
           opacity: 0
         }}
         animate={{
-          scale: [1,1.3,1.6],
+          scale: [1, 1.3, 1.6],
           opacity: [0, 0.3, 0]
         }}
         transition={{
@@ -36,12 +67,12 @@ const NavBarIndicatorIcon = () => {
           repeat: Infinity,
         }}
       ></motion.span>
-      <motion.span className='absolute w-[20px] h-[20px] rounded-2xl bg-my-purple top-[50%] left-[50%]' 
-      initial={{
-        translateY: '-50%',
-        translateX: '-50%',
-        opacity: '40%'
-      }}
+      <motion.span className='absolute w-[20px] h-[20px] rounded-2xl bg-my-purple top-[50%] left-[50%]'
+        initial={{
+          translateY: '-50%',
+          translateX: '-50%',
+          opacity: '40%'
+        }}
         animate={{
           scale: [1.2, 0.7, 1.2],
         }}
@@ -51,12 +82,12 @@ const NavBarIndicatorIcon = () => {
           times: [0, 0.5, 1],
           repeat: Infinity,
         }}></motion.span>
-      <motion.span className='absolute w-[10px] h-[10px] rounded-2xl bg-my-purple opacity-55 top-[50%] left-[50%]' 
-      initial={{
-        translateY: '-50%',
-        translateX: '-50%',
-        opacity: '70%'
-      }}
+      <motion.span className='absolute w-[10px] h-[10px] rounded-2xl bg-my-purple opacity-55 top-[50%] left-[50%]'
+        initial={{
+          translateY: '-50%',
+          translateX: '-50%',
+          opacity: '70%'
+        }}
         animate={{
           scale: [1.2, 0.7, 1.2],
         }}
