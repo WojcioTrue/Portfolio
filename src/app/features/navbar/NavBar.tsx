@@ -79,7 +79,7 @@ export const NavBarContext = createContext<{
         listElements: categories,
         setListElements: () => { },
         active: false,
-        setActive: () => {}
+        setActive: () => { }
     }
 })
 
@@ -87,7 +87,6 @@ const NavBar = () => {
     // state for context
     const [displayMenu, setDisplayMenu] = useState<boolean>(false)
     //state for changing menu to fixed
-    const { navBarItems } = useContext(NavBarContext)
     const [fixedMenu, setFixedMenu] = useState<boolean>(false)
     const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
         {
@@ -113,17 +112,13 @@ const NavBar = () => {
     useEffect(() => {
         const isActive = listElements.some(x => x.active === true)
         setActive(isActive)
-        console.log(active)
-    },[listElements, active])
+    }, [listElements, active])
 
     // check if window passed breakpoint while scrolling
-    const scrolledWindow = () => {
-        const scrolled = window.scrollY > 100 ? true : false
-        setFixedMenu(scrolled)
-    }
+
 
     useEffect(() => {
-        
+
         if (!active) {
             const indicatorPosition = document.getElementById(`desktop_indicator_default`)!.getBoundingClientRect()
             const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
@@ -139,6 +134,10 @@ const NavBar = () => {
     }, [])
 
     useEffect(() => {
+        const scrolledWindow = () => {
+            const scrolled = window.scrollY > 100 ? true : false
+            setFixedMenu(scrolled)
+        }
         //get initial position after page is loaded/refreshed
         scrolledWindow()
         window.addEventListener('scroll', scrolledWindow)
@@ -187,6 +186,7 @@ const NavBar = () => {
                 bottom: bottomValue
             })
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [listElements, active])
 
     return (
