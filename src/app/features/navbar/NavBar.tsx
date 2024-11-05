@@ -110,6 +110,11 @@ const NavBar = () => {
     })
     const [active, setActive] = useState(false)
 
+    useEffect(() => {
+        const isActive = listElements.some(x => x.active === true)
+        setActive(isActive)
+        console.log(active)
+    },[listElements, active])
 
     // check if window passed breakpoint while scrolling
     const scrolledWindow = () => {
@@ -118,8 +123,8 @@ const NavBar = () => {
     }
 
     useEffect(() => {
-        const isActive = navBarItems.listElements.some(x => x.active === true)
-        if (!isActive) {
+        
+        if (!active) {
             const indicatorPosition = document.getElementById(`desktop_indicator_default`)!.getBoundingClientRect()
             const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
 
@@ -149,14 +154,11 @@ const NavBar = () => {
 
     // default value for background when page is loaded
     useEffect(() => {
-        const navBarListElements = document.getElementsByClassName("desktop-nav-bar-element");
-        const isActive = listElements.some((x) => Boolean(x.active) === true)
         // check if there are active elements
-        if (!isActive) {
+        if (!active) {
             const firstLiElement = document.getElementsByClassName(`navbar__brand`);
             const el = firstLiElement[0]
             const elWidth = Math.round(Number(((el as HTMLLIElement).clientWidth)));
-            console.log(elWidth)
             // offset left element with 'left' property
             const leftValue = Number((el as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elWidth;
             // offset element with 'right' property
@@ -185,7 +187,7 @@ const NavBar = () => {
                 bottom: bottomValue
             })
         }
-    }, [navBarItems.listElements, listElements, displayMenu])
+    }, [listElements, active])
 
     return (
         <NavBarContext.Provider value={

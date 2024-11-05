@@ -17,7 +17,6 @@ const NavBarTitle = () => {
         const leftValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
         // offset element with 'right' property
         const rightValue = (document.body.clientWidth - (Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
-        console.log(elementWidth, leftValue, rightValue)
         const newPosition = { ...position, left: leftValue, right: rightValue }
         setPosition(newPosition)
     }
