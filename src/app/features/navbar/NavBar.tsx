@@ -9,7 +9,7 @@ import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
 import { categories, ListElement } from "./navItems"
 import NavBarIndicatorIcon from "./NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
-import UseDefaultBackground from "./navBarHooks.tsx/UseDefaultBackground"
+import UseDefaultBackground from "./navBarHooks/useDefaultBackground"
 
 
 type ItemPositionType = {
