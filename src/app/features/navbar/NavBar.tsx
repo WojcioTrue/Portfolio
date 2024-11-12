@@ -12,7 +12,7 @@ import NavBarTitle from "./NavBarTitle"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
 import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
 
-type ItemPositionType = {
+export type ItemPositionType = {
     left: number,
     right: number,
     top: number,
@@ -116,21 +116,6 @@ const NavBar = () => {
         setActive(isActive)
     }, [listElements, active])
 
-    // useEffect(() => {
-    //     if (!active) {
-    //         const indicatorPosition = document.getElementById(`desktop_indicator_default`)!.getBoundingClientRect()
-    //         const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
-
-    //         const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
-
-    //         setIDesktopPosition({
-    //             horizontalMid: horizontalMidPosition,
-    //             verticalMid: verticalMidPosition,
-    //         })
-    //     }
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [])
-
     useEffect(() => {
         const scrolledWindow = () => {
             const scrolled = window.scrollY > 100 ? true : false
@@ -150,7 +135,7 @@ const NavBar = () => {
     }, [displayMenu])
     useDefaultIndicator(active, setIDesktopPosition)
     // default value for background when page is loaded
-    useDefaultBackground()
+    useDefaultBackground({listElements, navBarDesktopPosition, setNavBarDesktopPosition})
 
 
 
