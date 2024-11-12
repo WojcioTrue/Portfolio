@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { NavBarContext } from "../NavBar";
 
-const UseDefaultBackground = () => {
+const useDefaultBackground = () => {
     const {navBarItems, navBarDesktopPosition} = useContext(NavBarContext)
     const {position, setPosition} = navBarDesktopPosition
     const active = navBarItems.active
@@ -9,6 +9,7 @@ const UseDefaultBackground = () => {
 
     useEffect(() => {
         const getActiveSection = listElements.filter(x => x.active === true)
+        console.log(getActiveSection)
         // check if there are active elements
         if (getActiveSection.length === 0) {
             const firstLiElement = document.getElementsByClassName(`navbar__brand`);
@@ -27,6 +28,7 @@ const UseDefaultBackground = () => {
             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
             const firstLiElement = document.getElementById(activeSectionName)!;
 
+            console.log(firstLiElement)
             const elementWidth = firstLiElement.offsetWidth
             // positions for background borders
             const leftValue = Number(firstLiElement.getBoundingClientRect().left.toFixed(0)) + elementWidth;
@@ -46,4 +48,4 @@ const UseDefaultBackground = () => {
     }, [listElements, active])
 }
 
-export default UseDefaultBackground
+export default useDefaultBackground

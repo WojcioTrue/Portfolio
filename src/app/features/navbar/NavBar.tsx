@@ -1,7 +1,7 @@
 "use client"
 import { SetStateAction, Dispatch } from "react"
 import NavBarList from "./NavBarList"
-import { useEffect, useState, createContext, useContext } from "react"
+import { useEffect, useState, createContext } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
@@ -9,8 +9,8 @@ import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
 import { categories, ListElement } from "./navItems"
 import NavBarIndicatorIcon from "./NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
-import UseDefaultBackground from "./navBarHooks/useDefaultBackground"
-
+import useDefaultBackground from "./navBarHooks/useDefaultBackground"
+import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
 
 type ItemPositionType = {
     left: number,
@@ -19,7 +19,7 @@ type ItemPositionType = {
     bottom: number
 }
 
-type IndicatorDesktopType = {
+export type IndicatorDesktopType = {
     horizontalMid: number,
     verticalMid: number,
 }
@@ -116,20 +116,20 @@ const NavBar = () => {
         setActive(isActive)
     }, [listElements, active])
 
-    useEffect(() => {
-        if (!active) {
-            const indicatorPosition = document.getElementById(`desktop_indicator_default`)!.getBoundingClientRect()
-            const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
+    // useEffect(() => {
+    //     if (!active) {
+    //         const indicatorPosition = document.getElementById(`desktop_indicator_default`)!.getBoundingClientRect()
+    //         const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
 
-            const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
+    //         const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
 
-            setIDesktopPosition({
-                horizontalMid: horizontalMidPosition,
-                verticalMid: verticalMidPosition,
-            })
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    //         setIDesktopPosition({
+    //             horizontalMid: horizontalMidPosition,
+    //             verticalMid: verticalMidPosition,
+    //         })
+    //     }
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [])
 
     useEffect(() => {
         const scrolledWindow = () => {
@@ -148,9 +148,11 @@ const NavBar = () => {
     useEffect(() => {
         displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
     }, [displayMenu])
-    
+    useDefaultIndicator(active, setIDesktopPosition)
     // default value for background when page is loaded
-    UseDefaultBackground()
+    useDefaultBackground()
+
+
 
     return (
         <NavBarContext.Provider value={
