@@ -9,10 +9,10 @@ type DefaultBackGroundType = {
     setNavBarDesktopPosition: Dispatch<SetStateAction<ItemPositionType>>
 }
 
-const useDefaultBackground = (arg : DefaultBackGroundType) => {
+const useDefaultBackground = ({listElements, navBarDesktopPosition, setNavBarDesktopPosition} : DefaultBackGroundType) => {
 
     useEffect(() => {
-        const getActiveSection = arg.listElements.filter(x => x.active === true)
+        const getActiveSection = listElements.filter(x => x.active === true)
         // check if there are active elements
         if (getActiveSection.length === 0) {
             const el = document.getElementById(`desktop_navbar_default`);
@@ -22,9 +22,9 @@ const useDefaultBackground = (arg : DefaultBackGroundType) => {
             // offset element with 'right' property
             const rightValue = (document.body.clientWidth - (Number((el as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elWidth))
 
-            const newPosition = { ...arg.navBarDesktopPosition, left: leftValue, right: rightValue }
+            const newPosition = { ...navBarDesktopPosition, left: leftValue, right: rightValue }
 
-            arg.setNavBarDesktopPosition(newPosition)
+            setNavBarDesktopPosition(newPosition)
         }
         else {
             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
@@ -37,7 +37,7 @@ const useDefaultBackground = (arg : DefaultBackGroundType) => {
             const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
             const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
 
-            arg.setNavBarDesktopPosition({
+            setNavBarDesktopPosition({
                 left: leftValue,
                 right: rightValue,
                 top: topValue,
@@ -46,7 +46,7 @@ const useDefaultBackground = (arg : DefaultBackGroundType) => {
 
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [arg.listElements])
+    }, [listElements])
 }
 
 export default useDefaultBackground

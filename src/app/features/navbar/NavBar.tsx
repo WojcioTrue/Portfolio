@@ -133,7 +133,7 @@ const NavBar = () => {
     useEffect(() => {
         displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
     }, [displayMenu])
-    useDefaultIndicator(active, setIDesktopPosition)
+    useDefaultIndicator({active, setIDesktopPosition, listElements})
     // default value for background when page is loaded
     useDefaultBackground({listElements, navBarDesktopPosition, setNavBarDesktopPosition})
 
