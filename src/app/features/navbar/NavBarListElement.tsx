@@ -9,7 +9,7 @@ import { getIndicatorPosition } from './navBarHooks/useDefaultIndicator'
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { position, setPosition } = navBarDesktopPosition
-  const { setIDesktopPosition } = indicatorDesktop
+  const { setIndicatorPosition } = indicatorDesktop
 
   
   // change position of indicator when clicked
@@ -17,7 +17,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
     ev.preventDefault()
     const newIndicatorPosition = getIndicatorPosition(text)
 
-    setIDesktopPosition(newIndicatorPosition)
+    setIndicatorPosition(newIndicatorPosition)
   }
 
   const changeCenter = (ev: React.MouseEvent) => {

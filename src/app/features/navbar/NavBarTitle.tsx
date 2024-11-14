@@ -1,13 +1,13 @@
 import { mabryProBold } from "@/app/assets/fonts/mabry_pro/MabryPro"
 import NavBarIndicatorField from "./NavBarIndicatorField"
 import NavBarButton from "./NavBarButton"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { NavBarContext } from "./NavBar"
 
 const NavBarTitle = () => {
     const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
     const { position, setPosition } = navBarDesktopPosition
-    const { setIDesktopPosition } = indicatorDesktop
+    const { setIndicatorPosition } = indicatorDesktop
     const active = navBarItems.active
 
     const changeCenter = (ev: React.MouseEvent) => {
@@ -30,7 +30,7 @@ const NavBarTitle = () => {
 
         const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
 
-        setIDesktopPosition({
+        setIndicatorPosition({
             horizontalMid: horizontalMidPosition,
             verticalMid: verticalMidPosition,
         })

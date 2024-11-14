@@ -4,14 +4,14 @@ import { motion } from 'framer-motion'
 
 const NavBarIndicatorIcon = () => {
   const { indicatorDesktop, navBarItems } = useContext(NavBarContext)
-  const { desktopIPosition, setIDesktopPosition } = indicatorDesktop
+  const { indicatorPosition, setIndicatorPosition } = indicatorDesktop
 
   useEffect(() => {
     const iDesktopPosition = (id: string) => {
       const indicatorId = document.getElementById(id)!.getBoundingClientRect()
       const horizontalMidPosition = Number((indicatorId.left).toFixed(0))
       const verticalMidPosition = Number((indicatorId.top).toFixed(0))
-      setIDesktopPosition({
+      setIndicatorPosition({
         horizontalMid: horizontalMidPosition,
         verticalMid: verticalMidPosition,
       })
@@ -35,15 +35,15 @@ const NavBarIndicatorIcon = () => {
       window.removeEventListener('resize', () => setNewPosition())
     }
 
-  }, [navBarItems.active, navBarItems.listElements, setIDesktopPosition])
+  }, [navBarItems.active, navBarItems.listElements, setIndicatorPosition])
 
 
   return (
     <motion.div
       className={`h-[30px] w-[30px] absolute hidden md:block`}
       style={{
-        top: `${desktopIPosition.verticalMid}px`,
-        left: `${desktopIPosition.horizontalMid}px`,
+        top: `${indicatorPosition.verticalMid}px`,
+        left: `${indicatorPosition.horizontalMid}px`,
       }}
       layout
       transition={{

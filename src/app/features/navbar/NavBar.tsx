@@ -24,8 +24,8 @@ export const NavBarContext = createContext<{
         setPosition: Dispatch<SetStateAction<ItemPositionType>>
     },
     indicatorDesktop: {
-        desktopIPosition: IndicatorDesktopType,
-        setIDesktopPosition: Dispatch<SetStateAction<IndicatorDesktopType>>
+        indicatorPosition: IndicatorDesktopType,
+        setIndicatorPosition: Dispatch<SetStateAction<IndicatorDesktopType>>
     },
     navBarMobilePosition: {
         position: ItemPositionType
@@ -52,11 +52,11 @@ export const NavBarContext = createContext<{
         setPosition: () => { }
     },
     indicatorDesktop: {
-        desktopIPosition: {
+        indicatorPosition: {
             horizontalMid: 0,
             verticalMid: 0,
         },
-        setIDesktopPosition: () => { }
+        setIndicatorPosition: () => { }
     },
     navBarMobilePosition: {
         position: {
@@ -138,8 +138,8 @@ const NavBar = () => {
                     setPosition: setNavBarDesktopPosition,
                 },
                 indicatorDesktop: {
-                    desktopIPosition: iDesktopPosition,
-                    setIDesktopPosition: setIDesktopPosition,
+                    indicatorPosition: iDesktopPosition,
+                    setIndicatorPosition: setIDesktopPosition,
                 },
                 navBarMobilePosition: {
                     position: navBarMobilePosition,
