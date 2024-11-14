@@ -10,6 +10,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { position, setPosition } = navBarDesktopPosition
   const { setIDesktopPosition } = indicatorDesktop
 
+  
   // change position of indicator when clicked
   const changeIndicatorPos = (ev: React.MouseEvent) => {
     ev.preventDefault()
@@ -26,6 +27,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   }
 
   const changeCenter = (ev: React.MouseEvent) => {
+    console.log(ev.currentTarget)
     ev.preventDefault();
     // center of current target element
     const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetWidth)));
@@ -43,7 +45,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
       (event: React.MouseEvent) => {
         changeCenter(event);
         changeIndicatorPos(event);
-        navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : x))
+        navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
       }
     }
       id={id}
