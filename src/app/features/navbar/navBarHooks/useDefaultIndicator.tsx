@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { SetStateAction, Dispatch } from "react"
-import { IndicatorDesktopType } from "../NavBar"
-import { ListElement } from "../navItems"
+import { IndicatorDesktopType } from "../navBarTypes"
+import { ListElement } from "../navBarTypes"
 
 type TypeUseDefaultIndicator = {
     active: boolean,
@@ -9,26 +9,30 @@ type TypeUseDefaultIndicator = {
     listElements: ListElement[]
 }
 
-const useDefaultIndicator = ({active, setIDesktopPosition, listElements} : TypeUseDefaultIndicator) => {
+export const getIndicatorPosition = (section: string) => {
+    const indicatorPosition = document.getElementById(`desktop_indicator_${section}`)!.getBoundingClientRect()
+    const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
+
+    const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
+
+    return {
+        horizontalMid: horizontalMidPosition,
+        verticalMid: verticalMidPosition,
+    }
+}
+
+const useDefaultIndicator = ({ active, setIDesktopPosition, listElements }: TypeUseDefaultIndicator) => {
 
     useEffect(() => {
-        const changeIndicatorPosition = (section: string) => {
-            const indicatorPosition = document.getElementById(`desktop_indicator_${section}`)!.getBoundingClientRect()
-            const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
-
-            const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
-
-            setIDesktopPosition({
-                horizontalMid: horizontalMidPosition,
-                verticalMid: verticalMidPosition,
-            })
-        }
+        
         if (!active) {
-            changeIndicatorPosition('default')
+            const defaultPosition = getIndicatorPosition('default')
+            setIDesktopPosition(defaultPosition)
         }
         else {
             const getActiveSection = listElements.filter(x => x.active === true)
-            changeIndicatorPosition(`${getActiveSection[0].section}`)
+            const listElementPosition = getIndicatorPosition(`${getActiveSection[0].section}`)
+            setIDesktopPosition(listElementPosition)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [active, setIDesktopPosition])

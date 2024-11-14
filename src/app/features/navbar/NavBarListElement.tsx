@@ -27,7 +27,6 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   }
 
   const changeCenter = (ev: React.MouseEvent) => {
-    console.log(ev.currentTarget)
     ev.preventDefault();
     // center of current target element
     const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetWidth)));
