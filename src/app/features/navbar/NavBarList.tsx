@@ -2,7 +2,7 @@ import { NavBarContext } from './NavBar'
 import { useContext, useEffect, useState } from 'react'
 import NavBarListElement from "./NavBarListElement";
 import { v4 as uuidv4 } from 'uuid';
-import { ListElement } from './navItems';
+import { ListElement } from './navBarTypes';
 
 const NavBarList = () => {
   const { navBarItems, navBarDesktopPosition } = useContext(NavBarContext)

@@ -6,12 +6,12 @@ import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
-import { categories, ListElement } from "./navItems"
+import { categories } from "./navItems"
 import NavBarIndicatorIcon from "./NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
 import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
-import { ItemPositionType, IndicatorDesktopType } from "./navBarTypes"
+import { ItemPositionType, IndicatorDesktopType, ListElement } from "./navBarTypes"
 
 
 export const NavBarContext = createContext<{
