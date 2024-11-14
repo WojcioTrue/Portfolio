@@ -114,7 +114,7 @@ const NavBar = () => {
     useEffect(() => {
         const isActive = listElements.some(x => x.active === true)
         setActive(isActive)
-    }, [listElements, active])
+    }, [listElements])
 
     useEffect(() => {
         const scrolledWindow = () => {
