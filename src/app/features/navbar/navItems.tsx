@@ -1,7 +1,4 @@
-export type ListElement = {
-    section: string,
-    active: boolean
-}
+import { ListElement } from "./navBarTypes"
 
 export const categories: ListElement[] = [
     {

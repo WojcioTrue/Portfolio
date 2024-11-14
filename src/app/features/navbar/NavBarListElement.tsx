@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { categories } from './navItems'
 import { mabryProMedium } from "@/app/assets/fonts/mabry_pro/MabryPro"
 import NavBarIndicatorField from './NavBarIndicatorField'
-import { NavBarListElementType } from './desktopTypes'
+import { NavBarListElementType } from './navBarTypes'
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)

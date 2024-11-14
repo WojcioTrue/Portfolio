@@ -11,18 +11,8 @@ import NavBarIndicatorIcon from "./NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
 import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
+import { ItemPositionType, IndicatorDesktopType } from "./navBarTypes"
 
-export type ItemPositionType = {
-    left: number,
-    right: number,
-    top: number,
-    bottom: number
-}
-
-export type IndicatorDesktopType = {
-    horizontalMid: number,
-    verticalMid: number,
-}
 
 export const NavBarContext = createContext<{
     toogleMobileNav: {

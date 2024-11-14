@@ -3,7 +3,7 @@ import { NavBarContext } from '../NavBar'
 import { useContext } from 'react'
 import { categories } from '../navItems'
 import { mabryProRegular } from "@/app/assets/fonts/mabry_pro/MabryPro"
-import { NavBarListElementType } from '../desktopTypes'
+import { NavBarListElementType } from '../navBarTypes'
 
 const MobileListElement = ({ text, image, id, isActive }: NavBarListElementType) => {
   const { navBarItems } = useContext(NavBarContext)
