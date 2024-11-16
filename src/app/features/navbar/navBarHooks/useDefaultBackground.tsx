@@ -48,8 +48,6 @@ export const getInitialPosition = ({ id, desktopPosition }: GetInitialPositionTy
 
 const useDefaultBackground = ({ listElements, navBarDesktopPosition, setNavBarDesktopPosition }: DefaultBackGroundType) => {
 
-
-
     useEffect(() => {
         const getActiveSection = listElements.filter(x => x.active === true)
         // check if there are active elements
