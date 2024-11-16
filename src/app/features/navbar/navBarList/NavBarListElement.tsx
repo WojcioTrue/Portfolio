@@ -21,19 +21,6 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
     setIndicatorPosition(newIndicatorPosition)
   }
 
-  const changeCenter = (ev: React.MouseEvent) => {
-    ev.preventDefault();
-    // center of current target element
-    const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).offsetWidth)));
-    // offset left element with 'left' property
-    const leftValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
-    // offset element with 'right' property
-    const rightValue = (document.body.clientWidth - (Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
-
-    const newPosition = { ...position, left: leftValue, right: rightValue }
-    setPosition(newPosition)
-  }
-
   return (
     <li onClick={
       (event: React.MouseEvent) => {

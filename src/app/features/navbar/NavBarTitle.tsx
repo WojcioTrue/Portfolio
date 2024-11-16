@@ -15,7 +15,6 @@ const NavBarTitle = () => {
     const changeIndicatorPos = (ev: React.MouseEvent) => {
         ev.preventDefault()
         const newIndicatorPosition = getIndicatorPosition('default')
-
         setIndicatorPosition(newIndicatorPosition)
     }
 

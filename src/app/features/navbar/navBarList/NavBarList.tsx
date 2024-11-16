@@ -26,7 +26,6 @@ const NavBarList = () => {
   useEffect(() => {
     const positionResize = (id: string) => {
       const activeLIElement = document.getElementById(id)!
-
       const elementWidth = Number((activeLIElement!.offsetWidth).toFixed(0));
       // offset left element with 'left' property
 
