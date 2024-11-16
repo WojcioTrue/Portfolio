@@ -5,13 +5,14 @@ import { mabryProMedium } from "@/app/assets/fonts/mabry_pro/MabryPro"
 import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
 import { getIndicatorPosition } from '../navBarHooks/useDefaultIndicator'
+import { clickChangeCenter } from "../navBarHooks/useDefaultBackground"
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { position, setPosition } = navBarDesktopPosition
   const { setIndicatorPosition } = indicatorDesktop
 
-  
+
   // change position of indicator when clicked
   const changeIndicatorPos = (ev: React.MouseEvent) => {
     ev.preventDefault()
@@ -36,7 +37,11 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   return (
     <li onClick={
       (event: React.MouseEvent) => {
-        changeCenter(event);
+        clickChangeCenter({
+          event,
+          position,
+          setPosition
+        });;
         changeIndicatorPos(event);
         navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
       }

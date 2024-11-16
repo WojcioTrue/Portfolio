@@ -4,25 +4,13 @@ import NavBarButton from "./NavBarButton"
 import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { getIndicatorPosition } from "./navBarHooks/useDefaultIndicator"
+import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 
 const NavBarTitle = () => {
     const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
     const { position, setPosition } = navBarDesktopPosition
     const { setIndicatorPosition } = indicatorDesktop
     const active = navBarItems.active
-
-    const changeCenter = (ev: React.MouseEvent) => {
-        console.log(ev.currentTarget)
-        ev.preventDefault();
-        // center of current target element
-        const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).clientWidth)));
-        // offset left element with 'left' property
-        const leftValue = Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
-        // offset element with 'right' property
-        const rightValue = (document.body.clientWidth - (Number((ev.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
-        const newPosition = { ...position, left: leftValue, right: rightValue }
-        setPosition(newPosition)
-    }
 
     const changeIndicatorPos = (ev: React.MouseEvent) => {
         ev.preventDefault()
@@ -41,7 +29,11 @@ const NavBarTitle = () => {
         <div
             onClick={
                 (event: React.MouseEvent) => {
-                    changeCenter(event);
+                    clickChangeCenter({
+                        event,
+                        position, 
+                        setPosition
+                    });
                     changeIndicatorPos(event)
                     resetActive()
                 }}

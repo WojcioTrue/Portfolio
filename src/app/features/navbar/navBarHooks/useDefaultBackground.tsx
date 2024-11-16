@@ -9,6 +9,25 @@ type DefaultBackGroundType = {
     setNavBarDesktopPosition: Dispatch<SetStateAction<ItemPositionType>>
 }
 
+type ClickChangeType = {
+    event: React.MouseEvent,
+    position: ItemPositionType,
+    setPosition: Dispatch<SetStateAction<ItemPositionType>>,
+}
+
+export const clickChangeCenter = ({event, position, setPosition} : ClickChangeType) => {
+    event.preventDefault();
+    // center of current target element
+    const elementWidth = Math.round(Number(((event.currentTarget as HTMLLIElement).offsetWidth)));
+    // offset left element with 'left' property
+    const leftValue = Number((event.currentTarget as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
+    // offset element with 'right' property
+    const rightValue = (document.body.clientWidth - (Number((event.currentTarget as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
+
+    const newPosition = { ...position, left: leftValue, right: rightValue }
+    setPosition(newPosition)
+  }
+
 const useDefaultBackground = ({listElements, navBarDesktopPosition, setNavBarDesktopPosition} : DefaultBackGroundType) => {
 
     useEffect(() => {
