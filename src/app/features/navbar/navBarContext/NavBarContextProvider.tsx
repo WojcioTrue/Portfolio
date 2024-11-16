@@ -1,8 +1,7 @@
 "use client"
 import { SetStateAction, Dispatch } from "react"
-import { useEffect, useState, createContext } from "react"
+import { useState, createContext } from "react"
 import { categories } from "../navItems"
-import useDefaultIndicator from "../navBarHooks/useDefaultIndicator"
 import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTypes"
 
 const NavBarContext = createContext<{
@@ -94,12 +93,6 @@ const NavBarContextProvider = ({children} : ChildrenType) => {
     verticalMid: 0,
   })
   const [active, setActive] = useState(false)
-
-  useDefaultIndicator({ active, setIDesktopPosition, listElements })
-  // default value for background when page is loaded
-
-
-
 
   return (
     <NavBarContext.Provider value={

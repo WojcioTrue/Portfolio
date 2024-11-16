@@ -9,9 +9,10 @@ import NavBarIndicatorIcon from "./navBarList/NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
+import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
 
 const NavBar = () => {
-  const { navBarItems, navBarDesktopPosition, toogleMobileNav } = useContext(NavBarContext)
+  const { navBarItems, navBarDesktopPosition, toogleMobileNav, indicatorDesktop } = useContext(NavBarContext)
   const [fixedMenu, setFixedMenu] = useState<boolean>(false)
   const displayMenu = toogleMobileNav.displayMenu
 
@@ -37,6 +38,12 @@ const NavBar = () => {
     const isActive = navBarItems.listElements.some(x => x.active === true)
     navBarItems.setActive(isActive)
   }, [navBarItems])
+
+  useDefaultIndicator({ 
+    active : navBarItems.active, 
+    setIDesktopPosition : indicatorDesktop.setIndicatorPosition, 
+    listElements: navBarItems.listElements })
+  // default value for background when page is loaded
 
   useDefaultBackground({
     listElements: navBarItems.listElements,
