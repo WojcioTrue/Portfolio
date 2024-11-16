@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 
-const NavBarButton = () => {
+const NavBarToogleButton = () => {
      const {toogleMobileNav} = useContext(NavBarContext)
      const {setDisplayMenu} = toogleMobileNav
     return (
@@ -16,4 +16,4 @@ const NavBarButton = () => {
     )
 }
 
-export default NavBarButton
+export default NavBarToogleButton
