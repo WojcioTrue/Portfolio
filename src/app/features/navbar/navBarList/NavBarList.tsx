@@ -26,8 +26,6 @@ const NavBarList = () => {
   }, [navBarItems.listElements])
 
   useEffect(() => {
-
-
     function handleResize() {
       if (activeElement[0] !== undefined) {
         const activeSectionName = `desktop_navbar_li_${activeElement[0].section}`
