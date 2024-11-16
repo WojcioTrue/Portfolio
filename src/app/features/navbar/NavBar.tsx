@@ -39,12 +39,13 @@ const NavBar = () => {
     navBarItems.setActive(isActive)
   }, [navBarItems])
 
+  // indicator position
   useDefaultIndicator({ 
     active : navBarItems.active, 
     setIDesktopPosition : indicatorDesktop.setIndicatorPosition, 
     listElements: navBarItems.listElements })
-  // default value for background when page is loaded
 
+  // default value for background when page is loaded
   useDefaultBackground({
     listElements: navBarItems.listElements,
     navBarDesktopPosition: navBarDesktopPosition.position, setNavBarDesktopPosition: navBarDesktopPosition.setPosition

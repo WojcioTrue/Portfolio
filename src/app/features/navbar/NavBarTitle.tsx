@@ -3,6 +3,7 @@ import NavBarIndicatorField from "./navBarList/NavBarIndicatorField"
 import NavBarButton from "./NavBarButton"
 import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
+import { getIndicatorPosition } from "./navBarHooks/useDefaultIndicator"
 
 const NavBarTitle = () => {
     const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
@@ -11,6 +12,7 @@ const NavBarTitle = () => {
     const active = navBarItems.active
 
     const changeCenter = (ev: React.MouseEvent) => {
+        console.log(ev.currentTarget)
         ev.preventDefault();
         // center of current target element
         const elementWidth = Math.round(Number(((ev.currentTarget as HTMLLIElement).clientWidth)));
@@ -24,41 +26,34 @@ const NavBarTitle = () => {
 
     const changeIndicatorPos = (ev: React.MouseEvent) => {
         ev.preventDefault()
-        const indicatorPosition = document.getElementById(`desktop_indicator_default`)!.getBoundingClientRect()
+        const newIndicatorPosition = getIndicatorPosition('default')
 
-        const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
-
-        const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
-
-        setIndicatorPosition({
-            horizontalMid: horizontalMidPosition,
-            verticalMid: verticalMidPosition,
-        })
+        setIndicatorPosition(newIndicatorPosition)
     }
 
     const resetActive = () => {
-        const liElements = navBarItems.listElements.map(x => ({...x, active: false}))
+        const liElements = navBarItems.listElements.map(x => ({ ...x, active: false }))
         navBarItems.setListElements(liElements)
     }
 
-return (
+    return (
 
-    <div
-        onClick={
-            (event: React.MouseEvent) => {
-                changeCenter(event);
-                changeIndicatorPos(event)
-                resetActive()
-            }}
-        id="desktop_navbar_default"
-        className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
-        <a className="flex items-center gap-2" href="#">
-            <NavBarIndicatorField text={'default'} />
-            <p className={`py-3 inline my-auto text-2xl font-medium ${mabryProBold.className} ${active ? 'text-my-black' : 'text-my-purple'}`}>Wojcio_True</p>
-        </a>
-        <NavBarButton />
-    </div>
-)
+        <div
+            onClick={
+                (event: React.MouseEvent) => {
+                    changeCenter(event);
+                    changeIndicatorPos(event)
+                    resetActive()
+                }}
+            id="desktop_navbar_default"
+            className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
+            <a className="flex items-center gap-2" href="#">
+                <NavBarIndicatorField text={'default'} />
+                <p className={`py-3 inline my-auto text-2xl font-medium ${mabryProBold.className} ${active ? 'text-my-black' : 'text-my-purple'}`}>Wojcio_True</p>
+            </a>
+            <NavBarButton />
+        </div>
+    )
 }
 
 export default NavBarTitle
