@@ -1,17 +1,13 @@
 "use client"
-import { SetStateAction, Dispatch } from "react"
 import NavBarList from "./NavBarList"
-import { useEffect, useState, createContext } from "react"
+import { useEffect, useState } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
-import { categories } from "./navItems"
 import NavBarIndicatorIcon from "./NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
-import useDefaultBackground from "./navBarHooks/useDefaultBackground"
-import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
-import { ItemPositionType, IndicatorDesktopType, ListElement } from "./navBarTypes"
+
 import { NavBarContextProvider } from "./navBarContext/NavBarContextProvider"
 
 const NavBar = () => {
