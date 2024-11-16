@@ -1,11 +1,11 @@
-import NavBar from "./features/navbar/NavBar";
 import Banner from "./features/main/Main";
 import Tech from "./features/technologies/Tech";
+import NavBarContextWrapper from "./features/navbar/NavBarContextWrapper";
 
 export default function Home() {
   return (
     <>
-      <NavBar />
+      <NavBarContextWrapper />
       <Banner />
       <Tech />
     </>
