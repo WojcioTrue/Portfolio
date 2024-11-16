@@ -1,76 +1,149 @@
-import React, { createContext } from 'react'
+"use client"
 import { SetStateAction, Dispatch } from "react"
+import NavBarList from "../NavBarList"
+import { useEffect, useState, createContext } from "react"
+import MobileNavBar from "../mobileNavbar/MobileNavBar"
+import BackDrop from "../mobileNavbar/backdrop/BackDrop"
+import navBarStyles from "../NavBar.module.scss"
+import NavBarAnimatedBg from "../NavbarAnimatedBg/NavBarAnimatedBg"
 import { categories } from "../navItems"
+import NavBarIndicatorIcon from "../NavBarIndicatorIcon"
+import NavBarTitle from "../NavBarTitle"
+import useDefaultBackground from "../navBarHooks/useDefaultBackground"
+import useDefaultIndicator from "../navBarHooks/useDefaultIndicator"
 import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTypes"
 
-
-
-export const NavBarContext = createContext<{
+const NavBarContext = createContext<{
   toogleMobileNav: {
-      displayMenu: boolean,
-      setDisplayMenu: Dispatch<SetStateAction<boolean>>
+    displayMenu: boolean,
+    setDisplayMenu: Dispatch<SetStateAction<boolean>>
   },
   navBarDesktopPosition: {
-      position: ItemPositionType
-      setPosition: Dispatch<SetStateAction<ItemPositionType>>
+    position: ItemPositionType
+    setPosition: Dispatch<SetStateAction<ItemPositionType>>
   },
   indicatorDesktop: {
-      indicatorPosition: IndicatorDesktopType,
-      setIndicatorPosition: Dispatch<SetStateAction<IndicatorDesktopType>>
+    indicatorPosition: IndicatorDesktopType,
+    setIndicatorPosition: Dispatch<SetStateAction<IndicatorDesktopType>>
   },
   navBarMobilePosition: {
-      position: ItemPositionType
-      setPosition: Dispatch<SetStateAction<ItemPositionType>>
+    position: ItemPositionType
+    setPosition: Dispatch<SetStateAction<ItemPositionType>>
   }
   navBarItems: {
-      listElements: ListElement[],
-      setListElements: Dispatch<SetStateAction<ListElement[]>>,
-      active: boolean,
-      setActive: Dispatch<SetStateAction<boolean>>
+    listElements: ListElement[],
+    setListElements: Dispatch<SetStateAction<ListElement[]>>,
+    active: boolean,
+    setActive: Dispatch<SetStateAction<boolean>>
   }
 }>({
   toogleMobileNav: {
-      displayMenu: false,
-      setDisplayMenu: () => { }
+    displayMenu: false,
+    setDisplayMenu: () => { }
   },
   navBarDesktopPosition: {
-      position: {
-          left: 0,
-          right: 0,
-          top: 0,
-          bottom: 0
-      },
-      setPosition: () => { }
+    position: {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0
+    },
+    setPosition: () => { }
   },
   indicatorDesktop: {
-      indicatorPosition: {
-          horizontalMid: 0,
-          verticalMid: 0,
-      },
-      setIndicatorPosition: () => { }
+    indicatorPosition: {
+      horizontalMid: 0,
+      verticalMid: 0,
+    },
+    setIndicatorPosition: () => { }
   },
   navBarMobilePosition: {
-      position: {
-          left: 0,
-          right: 0,
-          top: 0,
-          bottom: 0
-      },
-      setPosition: () => { }
+    position: {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0
+    },
+    setPosition: () => { }
   },
   navBarItems: {
-      listElements: categories,
-      setListElements: () => { },
-      active: false,
-      setActive: () => { }
+    listElements: categories,
+    setListElements: () => { },
+    active: false,
+    setActive: () => { }
   }
 })
 
+type ChildrenType = {
+  children : React.ReactNode
+}
 
-const NavBarContextProvider = () => {
+const NavBarContextProvider = ({children} : ChildrenType) => {
+  // state for context
+  const [displayMenu, setDisplayMenu] = useState<boolean>(false)
+  //state for changing menu to fixed
+  const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
+    {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0
+    })
+  const [navBarMobilePosition, setNavBarMobilePosition] = useState<ItemPositionType>(
+    {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0
+    })
+  const [listElements, setListElements] = useState<ListElement[]>(categories)
+  const [iDesktopPosition, setIDesktopPosition] = useState<IndicatorDesktopType>({
+    horizontalMid: 0,
+    verticalMid: 0,
+  })
+  const [active, setActive] = useState(false)
+
+  useEffect(() => {
+    const isActive = listElements.some(x => x.active === true)
+    setActive(isActive)
+  }, [listElements])
+
+  useEffect(() => {
+    displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
+  }, [displayMenu])
+  useDefaultIndicator({ active, setIDesktopPosition, listElements })
+  // default value for background when page is loaded
+  useDefaultBackground({ listElements, navBarDesktopPosition, setNavBarDesktopPosition })
+
+
+
   return (
-    <div>NavBarContextProvider</div>
+    <NavBarContext.Provider value={
+      {
+        toogleMobileNav: { displayMenu, setDisplayMenu },
+        navBarDesktopPosition: {
+          position: navBarDesktopPosition,
+          setPosition: setNavBarDesktopPosition,
+        },
+        indicatorDesktop: {
+          indicatorPosition: iDesktopPosition,
+          setIndicatorPosition: setIDesktopPosition,
+        },
+        navBarMobilePosition: {
+          position: navBarMobilePosition,
+          setPosition: setNavBarMobilePosition,
+        },
+        navBarItems: {
+          listElements: listElements,
+          setListElements,
+          active: active,
+          setActive,
+        },
+      }}>
+      {children}
+    </NavBarContext.Provider>
+
   )
 }
 
-export default NavBarContextProvider
+export {NavBarContext, NavBarContextProvider}

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { NavBarContext } from '../NavBar'
+import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { useContext } from 'react'
 import { categories } from '../navItems'
 import { mabryProRegular } from "@/app/assets/fonts/mabry_pro/MabryPro"

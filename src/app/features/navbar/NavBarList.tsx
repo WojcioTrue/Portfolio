@@ -1,4 +1,4 @@
-import { NavBarContext } from './NavBar'
+import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { useContext, useEffect, useState } from 'react'
 import NavBarListElement from "./NavBarListElement";
 import { v4 as uuidv4 } from 'uuid';

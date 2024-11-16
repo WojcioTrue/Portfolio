@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext} from 'react'
 import MobileNavBarList from './MobileNavBarList'
 import './mobieNavBar.scss'
-import { NavBarContext } from '../NavBar'
+import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
 import { mabryProBold } from '@/app/assets/fonts/mabry_pro/MabryPro'
 

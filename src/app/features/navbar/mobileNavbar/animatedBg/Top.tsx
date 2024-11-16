@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { NavBarContext } from '../../NavBar'
+import { NavBarContext } from "./../../navBarContext/NavBarContextProvider"
 import animatedBackground from './animatedBg.module.scss'
 
 

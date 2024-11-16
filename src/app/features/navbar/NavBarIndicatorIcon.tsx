@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { NavBarContext } from './NavBar'
+import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { motion } from 'framer-motion'
 
 const NavBarIndicatorIcon = () => {

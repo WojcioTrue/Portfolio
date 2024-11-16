@@ -2,7 +2,7 @@ import { mabryProBold } from "@/app/assets/fonts/mabry_pro/MabryPro"
 import NavBarIndicatorField from "./NavBarIndicatorField"
 import NavBarButton from "./NavBarButton"
 import { useContext } from "react"
-import { NavBarContext } from "./NavBar"
+import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 
 const NavBarTitle = () => {
     const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)

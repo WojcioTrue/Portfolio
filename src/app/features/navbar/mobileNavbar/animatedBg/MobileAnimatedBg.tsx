@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Bottom from './Bottom'
 import Top from './Top'
-import { NavBarContext } from '../../NavBar'
+import { NavBarContext } from "./../../navBarContext/NavBarContextProvider"
 import animatedBg from './animatedBg.module.scss'
 
 const MobileAnimatedBg = () => {

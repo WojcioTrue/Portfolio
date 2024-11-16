@@ -1,6 +1,6 @@
 useContext
 import { useContext } from 'react'
-import { NavBarContext } from '../../NavBar'
+import { NavBarContext } from "./../../navBarContext/NavBarContextProvider"
 
 const BackDrop = () => {
   const {toogleMobileNav} = useContext(NavBarContext)

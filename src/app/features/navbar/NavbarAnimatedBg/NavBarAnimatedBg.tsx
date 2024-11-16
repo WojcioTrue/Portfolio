@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { NavBarContext } from "../NavBar"
+import { NavBarContext } from "./../navBarContext/NavBarContextProvider"
 import NavBarAnimatedStyles from "./NavBarAnimatedBg.module.scss"
 
 const NavBarAnimatedBg = () => {

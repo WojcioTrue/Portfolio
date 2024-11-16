@@ -12,159 +12,40 @@ import NavBarTitle from "./NavBarTitle"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
 import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
 import { ItemPositionType, IndicatorDesktopType, ListElement } from "./navBarTypes"
-
-
-export const NavBarContext = createContext<{
-    toogleMobileNav: {
-        displayMenu: boolean,
-        setDisplayMenu: Dispatch<SetStateAction<boolean>>
-    },
-    navBarDesktopPosition: {
-        position: ItemPositionType
-        setPosition: Dispatch<SetStateAction<ItemPositionType>>
-    },
-    indicatorDesktop: {
-        indicatorPosition: IndicatorDesktopType,
-        setIndicatorPosition: Dispatch<SetStateAction<IndicatorDesktopType>>
-    },
-    navBarMobilePosition: {
-        position: ItemPositionType
-        setPosition: Dispatch<SetStateAction<ItemPositionType>>
-    }
-    navBarItems: {
-        listElements: ListElement[],
-        setListElements: Dispatch<SetStateAction<ListElement[]>>,
-        active: boolean,
-        setActive: Dispatch<SetStateAction<boolean>>
-    }
-}>({
-    toogleMobileNav: {
-        displayMenu: false,
-        setDisplayMenu: () => { }
-    },
-    navBarDesktopPosition: {
-        position: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0
-        },
-        setPosition: () => { }
-    },
-    indicatorDesktop: {
-        indicatorPosition: {
-            horizontalMid: 0,
-            verticalMid: 0,
-        },
-        setIndicatorPosition: () => { }
-    },
-    navBarMobilePosition: {
-        position: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0
-        },
-        setPosition: () => { }
-    },
-    navBarItems: {
-        listElements: categories,
-        setListElements: () => { },
-        active: false,
-        setActive: () => { }
-    }
-})
+import { NavBarContextProvider } from "./navBarContext/NavBarContextProvider"
 
 const NavBar = () => {
-    // state for context
-    const [displayMenu, setDisplayMenu] = useState<boolean>(false)
-    //state for changing menu to fixed
     const [fixedMenu, setFixedMenu] = useState<boolean>(false)
-    const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
-        {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0
-        })
-    const [navBarMobilePosition, setNavBarMobilePosition] = useState<ItemPositionType>(
-        {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0
-        })
-    const [listElements, setListElements] = useState<ListElement[]>(categories)
-    const [iDesktopPosition, setIDesktopPosition] = useState<IndicatorDesktopType>({
-        horizontalMid: 0,
-        verticalMid: 0,
-    })
-    const [active, setActive] = useState(false)
-
-    useEffect(() => {
-        const isActive = listElements.some(x => x.active === true)
-        setActive(isActive)
-    }, [listElements])
 
     useEffect(() => {
         const scrolledWindow = () => {
-            const scrolled = window.scrollY > 100 ? true : false
-            setFixedMenu(scrolled)
+          const scrolled = window.scrollY > 100 ? true : false
+          setFixedMenu(scrolled)
         }
         //get initial position after page is loaded/refreshed
         scrolledWindow()
         window.addEventListener('scroll', scrolledWindow)
         // cleanup
         return () => {
-            window.removeEventListener('scroll', scrolledWindow)
+          window.removeEventListener('scroll', scrolledWindow)
         }
-    }, [])
-
-    useEffect(() => {
-        displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
-    }, [displayMenu])
-    useDefaultIndicator({active, setIDesktopPosition, listElements})
-    // default value for background when page is loaded
-    useDefaultBackground({listElements, navBarDesktopPosition, setNavBarDesktopPosition})
-
-
+      }, [])
 
     return (
-        <NavBarContext.Provider value={
-            {
-                toogleMobileNav: { displayMenu, setDisplayMenu },
-                navBarDesktopPosition: {
-                    position: navBarDesktopPosition,
-                    setPosition: setNavBarDesktopPosition,
-                },
-                indicatorDesktop: {
-                    indicatorPosition: iDesktopPosition,
-                    setIndicatorPosition: setIDesktopPosition,
-                },
-                navBarMobilePosition: {
-                    position: navBarMobilePosition,
-                    setPosition: setNavBarMobilePosition,
-                },
-                navBarItems: {
-                    listElements: listElements,
-                    setListElements,
-                    active: active,
-                    setActive,
-                },
-            }}>
+        <NavBarContextProvider>
             <nav className={
-                `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange}`} navbar w-full py-3 px-6 overflow-hidden z-10 bg-my-navbarBackground shadow-myshadow`}>
-                <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
-                    <NavBarTitle />
-                    <NavBarList />
-                </span>
-                <MobileNavBar />
-                <BackDrop />
-                <NavBarAnimatedBg />
-                <NavBarIndicatorIcon />
-            </nav>
-        </NavBarContext.Provider>
-
+            `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange}`} navbar w-full py-3 px-6 overflow-hidden z-10 bg-my-navbarBackground shadow-myshadow`}>
+            <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
+                <NavBarTitle />
+                <NavBarList />
+            </span>
+            <MobileNavBar />
+            <BackDrop />
+            <NavBarAnimatedBg />
+            <NavBarIndicatorIcon />
+        </nav>
+        </NavBarContextProvider>
+        
     )
 }
 

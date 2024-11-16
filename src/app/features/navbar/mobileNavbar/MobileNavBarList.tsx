@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import MobileListElement from './MobileListElement'
 import { v4 as uuidv4 } from 'uuid';
-import { NavBarContext } from '../NavBar';
+import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { mabryProMedium } from '@/app/assets/fonts/mabry_pro/MabryPro';
 
 const MobileUnList = () => {
