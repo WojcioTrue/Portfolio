@@ -1,11 +1,11 @@
 "use client"
-import NavBarList from "./NavBarList"
+import NavBarList from "./navBarList/NavBarList"
 import { useEffect, useState } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
-import NavBarIndicatorIcon from "./NavBarIndicatorIcon"
+import NavBarIndicatorIcon from "./navBarList/NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
 
 const NavBar = () => {

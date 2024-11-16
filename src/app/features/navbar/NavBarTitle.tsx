@@ -1,5 +1,5 @@
 import { mabryProBold } from "@/app/assets/fonts/mabry_pro/MabryPro"
-import NavBarIndicatorField from "./NavBarIndicatorField"
+import NavBarIndicatorField from "./navBarList/NavBarIndicatorField"
 import NavBarButton from "./NavBarButton"
 import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"

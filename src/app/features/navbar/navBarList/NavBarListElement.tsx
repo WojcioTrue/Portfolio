@@ -1,10 +1,10 @@
-import { NavBarContext } from "./navBarContext/NavBarContextProvider"
+import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { useContext } from 'react'
-import { categories } from './navItems'
+import { categories } from '../navItems'
 import { mabryProMedium } from "@/app/assets/fonts/mabry_pro/MabryPro"
 import NavBarIndicatorField from './NavBarIndicatorField'
-import { NavBarListElementType } from './navBarTypes'
-import { getIndicatorPosition } from './navBarHooks/useDefaultIndicator'
+import { NavBarListElementType } from '../navBarTypes'
+import { getIndicatorPosition } from '../navBarHooks/useDefaultIndicator'
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
