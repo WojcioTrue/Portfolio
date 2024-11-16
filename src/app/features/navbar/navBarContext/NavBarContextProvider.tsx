@@ -2,7 +2,6 @@
 import { SetStateAction, Dispatch } from "react"
 import { useEffect, useState, createContext } from "react"
 import { categories } from "../navItems"
-import useDefaultBackground from "../navBarHooks/useDefaultBackground"
 import useDefaultIndicator from "../navBarHooks/useDefaultIndicator"
 import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTypes"
 
@@ -106,7 +105,7 @@ const NavBarContextProvider = ({children} : ChildrenType) => {
   }, [displayMenu])
   useDefaultIndicator({ active, setIDesktopPosition, listElements })
   // default value for background when page is loaded
-  useDefaultBackground({ listElements, navBarDesktopPosition, setNavBarDesktopPosition })
+
 
 
 

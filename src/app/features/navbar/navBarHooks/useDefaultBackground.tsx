@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { ListElement } from "../navItems";
-import { ItemPositionType } from "../NavBar";
+import { ListElement } from "../navBarTypes";
+import { ItemPositionType } from "../navBarTypes";
 import { SetStateAction, Dispatch } from "react"
 
 type DefaultBackGroundType = {

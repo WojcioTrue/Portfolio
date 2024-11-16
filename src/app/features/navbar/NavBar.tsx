@@ -1,15 +1,19 @@
 "use client"
 import NavBarList from "./navBarList/NavBarList"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
 import NavBarIndicatorIcon from "./navBarList/NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
+import { NavBarContext } from "./navBarContext/NavBarContextProvider"
+import useDefaultBackground from "./navBarHooks/useDefaultBackground"
 
 const NavBar = () => {
+  const {navBarItems, navBarDesktopPosition} = useContext(NavBarContext)
   const [fixedMenu, setFixedMenu] = useState<boolean>(false)
+
 
   useEffect(() => {
     const scrolledWindow = () => {
@@ -24,6 +28,10 @@ const NavBar = () => {
       window.removeEventListener('scroll', scrolledWindow)
     }
   }, [])
+
+  useDefaultBackground({ 
+    listElements : navBarItems.listElements, 
+    navBarDesktopPosition: navBarDesktopPosition.position, setNavBarDesktopPosition: navBarDesktopPosition.setPosition})
 
   return (
 
