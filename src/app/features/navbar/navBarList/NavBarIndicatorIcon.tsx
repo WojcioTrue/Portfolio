@@ -1,29 +1,22 @@
 import React, { useContext, useEffect } from 'react'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { motion } from 'framer-motion'
+import { getIndicatorPosition } from '../navBarHooks/useDefaultIndicator'
 
 const NavBarIndicatorIcon = () => {
   const { indicatorDesktop, navBarItems } = useContext(NavBarContext)
   const { indicatorPosition, setIndicatorPosition } = indicatorDesktop
 
   useEffect(() => {
-    const iDesktopPosition = (id: string) => {
-      const indicatorId = document.getElementById(id)!.getBoundingClientRect()
-      const horizontalMidPosition = Number((indicatorId.left).toFixed(0))
-      const verticalMidPosition = Number((indicatorId.top).toFixed(0))
-      setIndicatorPosition({
-        horizontalMid: horizontalMidPosition,
-        verticalMid: verticalMidPosition,
-      })
-    }
     const setNewPosition = () => {
       if (navBarItems.active === false) {
-        iDesktopPosition(`desktop_indicator_default`)
+        const defaultPosition = getIndicatorPosition('default')
+        setIndicatorPosition(defaultPosition)
       } else {
         const activeIndicator = navBarItems.listElements.filter((x) => x.active === true)
         if (activeIndicator.length === 1) {
-          const indicatorName = `desktop_indicator_${activeIndicator[0].section}`
-          iDesktopPosition(indicatorName)
+          const activePosition = getIndicatorPosition(activeIndicator[0].section)
+          setIndicatorPosition(activePosition)
         }
       }
     }

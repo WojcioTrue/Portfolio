@@ -9,6 +9,7 @@ type TypeUseDefaultIndicator = {
     listElements: ListElement[]
 }
 
+// indicator position when clicked
 export const getIndicatorPosition = (section: string) => {
     const indicatorPosition = document.getElementById(`desktop_indicator_${section}`)!.getBoundingClientRect()
     const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
@@ -21,6 +22,7 @@ export const getIndicatorPosition = (section: string) => {
     }
 }
 
+// indicator position when page is loaded 
 const useDefaultIndicator = ({ active, setIDesktopPosition, listElements }: TypeUseDefaultIndicator) => {
 
     useEffect(() => {
