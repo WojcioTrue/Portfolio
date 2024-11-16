@@ -33,7 +33,7 @@ export const clickChangeCenter = ({ event, position, setPosition }: ClickChangeT
     setPosition(newPosition)
 }
 
-export const getInitialPosition = ({ id, desktopPosition }: GetInitialPositionType) => {
+export const getPosition = ({ id, desktopPosition }: GetInitialPositionType) => {
     
     const element = document.getElementById(id)!;
     const elementWidth = Math.round(Number(((element as HTMLLIElement).clientWidth)));
@@ -55,7 +55,7 @@ const useDefaultBackground = ({ listElements, navBarDesktopPosition, setNavBarDe
         const getActiveSection = listElements.filter(x => x.active === true)
         // check if there are active elements
         if (getActiveSection.length === 0) {
-            const defaultSectionPosition = getInitialPosition({
+            const defaultSectionPosition = getPosition({
                 id: 'desktop_navbar_default', 
                 desktopPosition: navBarDesktopPosition
             })
@@ -63,7 +63,7 @@ const useDefaultBackground = ({ listElements, navBarDesktopPosition, setNavBarDe
         }
         else {
             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
-            const activeSectionPosition = getInitialPosition({
+            const activeSectionPosition = getPosition({
                 id: activeSectionName, 
                 desktopPosition: navBarDesktopPosition
             })
