@@ -11,9 +11,13 @@ import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
 
 const NavBar = () => {
-  const {navBarItems, navBarDesktopPosition} = useContext(NavBarContext)
+  const { navBarItems, navBarDesktopPosition, toogleMobileNav } = useContext(NavBarContext)
   const [fixedMenu, setFixedMenu] = useState<boolean>(false)
+  const displayMenu = toogleMobileNav.displayMenu
 
+  useEffect(() => {
+    displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
+  }, [displayMenu])
 
   useEffect(() => {
     const scrolledWindow = () => {
@@ -29,9 +33,15 @@ const NavBar = () => {
     }
   }, [])
 
-  useDefaultBackground({ 
-    listElements : navBarItems.listElements, 
-    navBarDesktopPosition: navBarDesktopPosition.position, setNavBarDesktopPosition: navBarDesktopPosition.setPosition})
+  useEffect(() => {
+    const isActive = navBarItems.listElements.some(x => x.active === true)
+    navBarItems.setActive(isActive)
+  }, [navBarItems])
+
+  useDefaultBackground({
+    listElements: navBarItems.listElements,
+    navBarDesktopPosition: navBarDesktopPosition.position, setNavBarDesktopPosition: navBarDesktopPosition.setPosition
+  })
 
   return (
 

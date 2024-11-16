@@ -95,14 +95,6 @@ const NavBarContextProvider = ({children} : ChildrenType) => {
   })
   const [active, setActive] = useState(false)
 
-  useEffect(() => {
-    const isActive = listElements.some(x => x.active === true)
-    setActive(isActive)
-  }, [listElements])
-
-  useEffect(() => {
-    displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
-  }, [displayMenu])
   useDefaultIndicator({ active, setIDesktopPosition, listElements })
   // default value for background when page is loaded
 
