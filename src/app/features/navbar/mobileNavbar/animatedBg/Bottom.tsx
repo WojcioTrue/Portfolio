@@ -7,7 +7,7 @@ const Bottom = () => {
   const { position } = navBarMobilePosition
 
   return (
-    <div className={`absolute bg-white h-[100%] w-full z-[-10] ${animatedBackground.bg_animation_top}`}
+    <div className={`absolute bg-white h-[100%] w-full z-[-10] rounded-tl-lg ${animatedBackground.bg_animation_top}`}
     style={{ top: `${position.bottom}px` }}>
 
     </div>
