@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext} from 'react'
-import MobileNavBarList from './MobileNavBarList'
+import MobileNavBarList from './mobileNavList/MobileNavBarList'
 import './mobieNavBar.scss'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'

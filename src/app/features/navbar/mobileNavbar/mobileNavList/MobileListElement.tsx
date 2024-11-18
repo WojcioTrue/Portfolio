@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import { NavBarContext } from "../navBarContext/NavBarContextProvider"
+import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
 import { useContext } from 'react'
-import { categories } from '../navItems'
+import { categories } from '../../navItems'
 import { mabryProRegular } from "@/app/assets/fonts/mabry_pro/MabryPro"
-import { NavBarListElementType } from '../navBarTypes'
+import { NavBarListElementType } from '../../navBarTypes'
 
 const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { navBarItems } = useContext(NavBarContext)
