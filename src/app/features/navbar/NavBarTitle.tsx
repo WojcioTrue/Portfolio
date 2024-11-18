@@ -3,20 +3,12 @@ import NavBarIndicatorField from "./navBarList/NavBarIndicatorField"
 import NavBarButton from "./NavBarToogleButton"
 import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
-import { getIndicatorPosition } from "./navBarHooks/useDefaultIndicator"
 import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 
 const NavBarTitle = () => {
     const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
     const { position, setPosition } = navBarDesktopPosition
-    const { setIndicatorPosition } = indicatorDesktop
     const active = navBarItems.active
-
-    const changeIndicatorPos = (ev: React.MouseEvent) => {
-        ev.preventDefault()
-        const newIndicatorPosition = getIndicatorPosition('default')
-        setIndicatorPosition(newIndicatorPosition)
-    }
 
     const resetActive = () => {
         const liElements = navBarItems.listElements.map(x => ({ ...x, active: false }))
@@ -24,7 +16,6 @@ const NavBarTitle = () => {
     }
 
     return (
-
         <div
             onClick={
                 (event: React.MouseEvent) => {
@@ -33,7 +24,6 @@ const NavBarTitle = () => {
                         position, 
                         setPosition
                     });
-                    changeIndicatorPos(event)
                     resetActive()
                 }}
             id="desktop_navbar_default"
