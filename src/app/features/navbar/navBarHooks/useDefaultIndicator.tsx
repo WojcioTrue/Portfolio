@@ -29,7 +29,6 @@ const useDefaultIndicator = ({ active, setIDesktopPosition, listElements }: Type
         if (!active) {
             const defaultPosition = getIndicatorPosition('default')
             setIDesktopPosition(defaultPosition)
-            console.log('affected')
         }
         else {
             const getActiveSection = listElements.filter(x => x.active === true)
