@@ -3,7 +3,7 @@ import MobileNavBarList from './mobileNavList/MobileNavBarList'
 import './mobieNavBar.scss'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
-import { mabryProBold } from '@/app/assets/fonts/mabry_pro/MabryPro'
+import { mabryProBold } from '../../../../../public/fonts/mabry_pro/MabryPro'
 import { HiOutlineXMark } from "react-icons/hi2";
 
 const MobileNavBar = () => {

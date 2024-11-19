@@ -1,4 +1,4 @@
-import { mabryProBold } from "@/app/assets/fonts/mabry_pro/MabryPro"
+import { mabryProBold } from '../../../../public/fonts/mabry_pro/MabryPro'
 import NavBarIndicatorField from "./navBarList/NavBarIndicatorField"
 import NavBarButton from "./NavBarToogleButton"
 import { useContext } from "react"

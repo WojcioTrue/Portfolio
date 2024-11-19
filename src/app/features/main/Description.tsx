@@ -1,4 +1,4 @@
-import { mabryProRegular } from '@/app/assets/fonts/mabry_pro/MabryPro'
+import { mabryProRegular } from '../../../../public/fonts/mabry_pro/MabryPro'
 import { motion } from 'framer-motion';
 
 
