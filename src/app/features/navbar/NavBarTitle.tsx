@@ -1,4 +1,3 @@
-
 import NavBarIndicatorField from "./navBarList/NavBarIndicatorField"
 import NavBarButton from "./NavBarToogleButton"
 import { useContext } from "react"
