@@ -9,8 +9,7 @@ const mabryProLight = localFont({ src: '../../../../public/fonts/mabry_pro/Mabry
 const mabryProBlackItalic = localFont({ src: '../../../../public/fonts/mabry_pro/MabryPro-BlackItalic.woff2' })
 const mabryProMediumItalic = localFont({ src: '../../../../public/fonts/mabry_pro/MabryPro-MediumItalic.woff2' })
 const mabryProItalic = localFont({ src: '../../../../public/fonts/mabry_pro/MabryPro-Italic.woff2' })
-// const mabryProRegular = localFont({ src: '../../../../public/fonts/mabry_pro/MabryPro-regular.woff2' })
+const mabryProRegular = localFont({ src: '../../../../public/fonts/mabry_pro/MabryPro-Regular.woff2' })
 
-export {  mabryProBlack }
 
-// export { mabryProBold, mabryProMedium, mabryProBlack, mabryProLightItalic, mabryProBoldItalic, mabryProLight, mabryProBlackItalic, mabryProMediumItalic, mabryProItalic, mabryProRegular }
+export { mabryProBold, mabryProMedium, mabryProBlack, mabryProLightItalic, mabryProBoldItalic, mabryProLight, mabryProBlackItalic, mabryProMediumItalic, mabryProItalic, mabryProRegular }
