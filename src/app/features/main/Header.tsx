@@ -1,5 +1,4 @@
 import React from 'react'
-// import { mabryProBold } from './../../../../public/fonts/mabry_pro/MabryPro'
 import { motion } from 'framer-motion';
 
 const Header = () => {

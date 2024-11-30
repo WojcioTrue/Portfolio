@@ -1,4 +1,3 @@
-// import { mabryProRegular } from '../../../../public/fonts/mabry_pro/MabryPro'
 import { motion } from 'framer-motion';
 
 

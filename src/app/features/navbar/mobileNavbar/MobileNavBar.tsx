@@ -3,7 +3,6 @@ import MobileNavBarList from './mobileNavList/MobileNavBarList'
 import './mobieNavBar.scss'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
-import { mabryProBold } from '../../../../../public/fonts/mabry_pro/MabryPro'
 import { HiOutlineXMark } from "react-icons/hi2";
 
 const MobileNavBar = () => {
@@ -31,7 +30,7 @@ const MobileNavBar = () => {
         <div ref={navBarRef} className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 pt-[30px] w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
             <div className="flex items-center px-3">
                 <span className='mobile-logo w-full flex-1'>
-                    <h1 className={`text-2xl text-my-purple ${mabryProBold.className}`}>Wojcio_True</h1>
+                    <h1 className={`text-2xl text-my-purple`}>Wojcio_True</h1>
                 </span>
                 <button
                     className="h-12 w-12"
