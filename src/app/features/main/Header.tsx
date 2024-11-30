@@ -1,5 +1,5 @@
 import React from 'react'
-import { mabryProBold } from './../../../../public/fonts/mabry_pro/MabryPro'
+// import { mabryProBold } from './../../../../public/fonts/mabry_pro/MabryPro'
 import { motion } from 'framer-motion';
 
 const Header = () => {
@@ -18,7 +18,7 @@ const Header = () => {
               delay: 0.2,
               type: "Tween"
             }}
-            className={`${mabryProBold.className} 
+            className={` 
       text-[42px] 
       sm:text-[50px] 
       md:text-[60px] 
