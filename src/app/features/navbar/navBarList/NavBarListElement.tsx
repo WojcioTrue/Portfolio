@@ -5,6 +5,7 @@ import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
 import { getIndicatorPosition } from '../navBarHooks/useDefaultIndicator'
 import { clickChangeCenter } from "../navBarHooks/useDefaultBackground"
+import { mabryProLight } from "@/app/assets/fonts/MabryPro"
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)

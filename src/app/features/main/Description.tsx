@@ -1,3 +1,4 @@
+import { mabryProLight } from '@/app/assets/fonts/MabryPro';
 import { motion } from 'framer-motion';
 
 const Description = () => {
@@ -15,7 +16,7 @@ const Description = () => {
               duration: 0.3,
               delay: 0.25,
               type: "Tween"
-            }} className={`text-[16px] text-my-gray mb-4 sm:text-[24px] text-center ml:text-left `}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</motion.p>
+            }} className={`text-[16px] text-my-gray mb-4 sm:text-[24px] text-center ml:text-left ${mabryProLight.className}`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</motion.p>
   )
 }
 
