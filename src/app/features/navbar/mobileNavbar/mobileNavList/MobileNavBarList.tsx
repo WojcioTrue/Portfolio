@@ -6,10 +6,14 @@ import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
 
 const MobileUnList = () => {
   const { navBarItems } = useContext(NavBarContext)
+  const { active } = navBarItems
+
+
   return (
     <div className='h-full w-full flex flex-col pl-3 mt-3'>
-      <label id="mobile-navbar-list" htmlFor="mobile-navbar-list" className={`w-full text-left pl-2 py-2 text-xl`}>Menu Items</label>
-      <ul className='w-full' id="mobile-navbar-list">
+      <hr/>
+      <label id="mobile-navbar-list" htmlFor="mobile-navbar-list" className={`w-full text-left pl-2 py-2 text-xl ${active ? 'text-my-black' : 'text-white'}`}>Menu Items</label>
+      <ul className='w-full pl-2' id="mobile-navbar-list">
         {navBarItems.listElements.map((listItem) => 
         <MobileListElement 
         key={uuidv4()} 
@@ -18,6 +22,7 @@ const MobileUnList = () => {
         isActive={listItem.active}
  />)}
       </ul>
+          <hr/>
     </div>
 
   )
