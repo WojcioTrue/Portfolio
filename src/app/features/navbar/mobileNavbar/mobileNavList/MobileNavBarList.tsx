@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import MobileListElement from './MobileListElement'
-import { v4 as uuidv4 } from 'uuid';
 import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
 
 
@@ -8,6 +7,9 @@ const MobileUnList = () => {
   const { navBarItems } = useContext(NavBarContext)
   const { active } = navBarItems
 
+  useEffect(() => {
+    console.log(navBarItems.listElements)
+  },[navBarItems.listElements])
 
   return (
     <div className='h-full w-full flex flex-col pl-3 mt-3'>
@@ -16,7 +18,7 @@ const MobileUnList = () => {
       <ul className='w-full pl-2' id="mobile-navbar-list">
         {navBarItems.listElements.map((listItem) => 
         <MobileListElement 
-        key={uuidv4()} 
+        key={`${listItem.section}`} 
         id={`mobile_navbar_li_${listItem.section}`} 
         text={listItem.section} 
         isActive={listItem.active}

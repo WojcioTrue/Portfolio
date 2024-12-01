@@ -111,9 +111,9 @@ const NavBarContextProvider = ({children} : ChildrenType) => {
           setPosition: setNavBarMobilePosition,
         },
         navBarItems: {
-          listElements: listElements,
+          listElements,
           setListElements,
-          active: active,
+          active,
           setActive,
         },
       }}>

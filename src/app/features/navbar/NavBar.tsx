@@ -14,7 +14,7 @@ import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
 const NavBar = () => {
   const { navBarItems, navBarDesktopPosition, toogleMobileNav, indicatorDesktop } = useContext(NavBarContext)
   const [fixedMenu, setFixedMenu] = useState<boolean>(false)
-  const displayMenu = toogleMobileNav.displayMenu
+  const { displayMenu } = toogleMobileNav
 
   useEffect(() => {
     displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
@@ -40,11 +40,11 @@ const NavBar = () => {
   }, [navBarItems])
 
   // indicator position
-  useDefaultIndicator({ 
-    active : navBarItems.active, 
-    setIDesktopPosition : 
-    indicatorDesktop.setIndicatorPosition, 
-    listElements: navBarItems.listElements 
+  useDefaultIndicator({
+    active: navBarItems.active,
+    setIDesktopPosition:
+      indicatorDesktop.setIndicatorPosition,
+    listElements: navBarItems.listElements
   })
 
   // default value for background when page is loaded
