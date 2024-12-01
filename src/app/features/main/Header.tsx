@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-
+import { mabryProBold } from '@/app/assets/fonts/MabryPro';
 const Header = () => {
   return (
     <motion.h1
@@ -23,7 +23,8 @@ const Header = () => {
       md:text-[60px] 
       xl:text-[68px] 
       2xl:text-[72px]
-      text-center mb-4`}>Wojcio_True</motion.h1>
+      text-center mb-4
+      ${mabryProBold.className}`}>Wojcio_True</motion.h1>
   )
 }
 
