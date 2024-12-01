@@ -5,14 +5,14 @@ import NavBarAnimatedStyles from "./NavBarAnimatedBg.module.scss"
 const NavBarAnimatedBg = () => {
     const { navBarDesktopPosition } = useContext(NavBarContext)
     const { position } = navBarDesktopPosition
-    const [isMobile, setIsMobile] = useState(true)
+    const [isDesktop, setIsDesktop] = useState(true)
 
     useEffect(() => {  
         const innerWidth = window.innerWidth
         if(innerWidth > 767){
-            setIsMobile(true)
+            setIsDesktop(true)
         } else {
-            setIsMobile(false)
+            setIsDesktop(false)
         }
         // position state works like event listener while resize
     },[position])
@@ -24,14 +24,14 @@ const NavBarAnimatedBg = () => {
                     ${NavBarAnimatedStyles.right_animation}
                     ${NavBarAnimatedStyles.top_animation_on}
                 `}
-                style={{ right: `${isMobile ? position.right : -20}px` }}>
+                style={{ right: `${isDesktop ? position.right : -20}px` }}>
             </span>
             <span
                 className={`bg-white md:rounded-bl-xl w-[200%] h-[calc(100%_-_5px)] absolute 
                 ${NavBarAnimatedStyles.left_animation}
                 ${NavBarAnimatedStyles.top_animation_on}
                 `}
-                style={{ left: `${isMobile ? position.left : -20}px` }}>
+                style={{ left: `${isDesktop ? position.left : -20}px` }}>
             </span>
         </div>
     )
