@@ -7,14 +7,15 @@ const NavBarAnimatedBg = () => {
     const { position } = navBarDesktopPosition
     const [isMobile, setIsMobile] = useState(true)
 
-    useEffect(() => {
+    useEffect(() => {  
         const innerWidth = window.innerWidth
         if(innerWidth > 767){
             setIsMobile(true)
         } else {
             setIsMobile(false)
         }
-    },[])
+        // position state works like event listener while resize
+    },[position])
 
     return (
         <div className={`static h-full w-full left-0 overflow-hidden`}>
