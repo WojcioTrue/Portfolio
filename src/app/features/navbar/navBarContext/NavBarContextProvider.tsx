@@ -71,7 +71,7 @@ type ChildrenType = {
 
 const NavBarContextProvider = ({children} : ChildrenType) => {
   // state for context
-  const [displayMenu, setDisplayMenu] = useState<boolean>(true)
+  const [displayMenu, setDisplayMenu] = useState<boolean>(false)
   //state for changing menu to fixed
   const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
     {
