@@ -22,7 +22,7 @@ const MobileListElement = ({text, id, isActive }: NavBarListElementType) => {
     } 
     id={id} 
     className={`mobile-nav-bar-element px-2 py-2 pl-3`}>
-      <NavBarIndicatorIcon/>
+      {/* <NavBarIndicatorIcon height="30" width="30"/> */}
       <a className={`flex items-center justify-start ${isActive ? `text-white` : `text-my-black`}`}>
         {text}
       </a>
