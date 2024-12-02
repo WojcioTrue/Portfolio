@@ -1,39 +1,10 @@
-import React, { useContext, useEffect } from 'react'
-import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
 import { motion } from 'framer-motion'
-import { getIndicatorPosition } from '../../navBarHooks/useDefaultIndicator'
 
-const NavBarIndicatorIcon = () => {
-  const { indicatorDesktop, navBarItems } = useContext(NavBarContext)
-  const { indicatorPosition, setIndicatorPosition } = indicatorDesktop
-
-  useEffect(() => {
-    const setNewPosition = () => {
-      if (navBarItems.active === false) {
-        const defaultPosition = getIndicatorPosition('default')
-        setIndicatorPosition(defaultPosition)
-      } else {
-        const activeIndicator = navBarItems.listElements.filter((x) => x.active === true)
-        if (activeIndicator.length === 1) {
-          const activePosition = getIndicatorPosition(activeIndicator[0].section)
-          setIndicatorPosition(activePosition)
-        }
-      }
-    }
-
-    window.addEventListener('resize', () =>
-      setNewPosition()
-    )
-    return () => {
-      window.removeEventListener('resize', () => setNewPosition())
-    }
-
-  }, [navBarItems.active, navBarItems.listElements, setIndicatorPosition])
-
+const MobileIndicatorIcon = () => {
 
   return (
     <motion.div
-      className={`h-[30px] w-[30px] block`}
+      className={`h-[30px] w-[30px] relative`}
       layout
       transition={{
         type: 'spring',
@@ -91,4 +62,4 @@ const NavBarIndicatorIcon = () => {
   )
 }
 
-export default NavBarIndicatorIcon
+export default MobileIndicatorIcon

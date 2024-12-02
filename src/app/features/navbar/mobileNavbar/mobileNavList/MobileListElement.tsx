@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { categories } from '../../navItems'
 import { NavBarListElementType } from '../../navBarTypes'
 import { getIndicatorPosition } from "../../navBarHooks/useDefaultIndicator"
-import NavBarIndicatorIcon from "../../navBarList/NavBarIndicatorIcon"
+import MobileIndicatorIcon from "./MobileIndicatorIcon"
 
 const MobileListElement = ({text, id, isActive }: NavBarListElementType) => {
   const { navBarItems, indicatorDesktop } = useContext(NavBarContext)
@@ -21,9 +21,9 @@ const MobileListElement = ({text, id, isActive }: NavBarListElementType) => {
       }
     } 
     id={id} 
-    className={`mobile-nav-bar-element px-2 py-2 pl-3`}>
-      {/* <NavBarIndicatorIcon height="30" width="30"/> */}
-      <a className={`flex items-center justify-start ${isActive ? `text-white` : `text-my-black`}`}>
+    className={`mobile-nav-bar-element py-2 pl-1 flex`}>
+      <MobileIndicatorIcon/>
+      <a className={`flex items-center justify-start ${isActive ? `text-my-purple` : `text-my-black`}`}>
         {text}
       </a>
     </li>
