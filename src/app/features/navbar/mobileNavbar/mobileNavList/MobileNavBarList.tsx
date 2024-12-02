@@ -7,10 +7,6 @@ const MobileUnList = () => {
   const { navBarItems } = useContext(NavBarContext)
   const { active } = navBarItems
 
-  useEffect(() => {
-    console.log(navBarItems.listElements)
-  },[navBarItems.listElements])
-
   return (
     <div className='h-full w-full flex flex-col pl-3 mt-3'>
       <hr/>
