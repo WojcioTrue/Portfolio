@@ -30,7 +30,7 @@ const NavBarTitle = () => {
                 <NavBarIndicatorField text={'default'} />
                 <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple ${mabryProBold.className}`}>Wojcio_True</p>
             </a>
-            <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu}/>
+            <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} onlyMobile={true}/>
         </div>
     )
 }

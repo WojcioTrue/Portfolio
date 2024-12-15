@@ -4,10 +4,11 @@ import { SetStateAction, Dispatch } from "react"
 
 type ToggleMenuButtonType = {
     displayMenu: boolean,
+    onlyMobile?: boolean,
     setDisplayMenu: Dispatch<SetStateAction<boolean>>
 }
 
-const ToggleMenuButton = ({displayMenu, setDisplayMenu} : ToggleMenuButtonType) => {
+const ToggleMenuButton = ({displayMenu, onlyMobile, setDisplayMenu} : ToggleMenuButtonType) => {
     return (
         <motion.button
             animate={{
@@ -16,7 +17,7 @@ const ToggleMenuButton = ({displayMenu, setDisplayMenu} : ToggleMenuButtonType) 
             transition={{
                 delay: 0.2
             }}
-            className="h-12 w-12 md:hidden flex justify-center items-center"
+            className={`h-12 w-12 ${onlyMobile ? "md:hidden " : ""}flex justify-center items-center`}
             type="button"
             aria-controls="dropdown__navbar"
             aria-expanded="false"
