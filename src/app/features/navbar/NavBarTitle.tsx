@@ -1,13 +1,14 @@
 import NavBarIndicatorField from "./navBarList/NavBarIndicatorField"
-import NavBarButton from "./NavBarToogleButton"
 import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 import { mabryProBold } from "@/app/assets/fonts/MabryPro"
+import ToggleMenuButton from "@/app/shared_components/ToggleMenuButton"
 
 const NavBarTitle = () => {
-    const { navBarDesktopPosition, navBarItems } = useContext(NavBarContext)
+    const { navBarDesktopPosition, navBarItems, toogleMobileNav } = useContext(NavBarContext)
     const { position, setPosition } = navBarDesktopPosition
+    const {displayMenu, setDisplayMenu} = toogleMobileNav
 
     const resetActive = () => {
         const liElements = navBarItems.listElements.map(x => ({ ...x, active: false }))
@@ -29,7 +30,7 @@ const NavBarTitle = () => {
                 <NavBarIndicatorField text={'default'} />
                 <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple ${mabryProBold.className}`}>Wojcio_True</p>
             </a>
-            <NavBarButton />
+            <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu}/>
         </div>
     )
 }

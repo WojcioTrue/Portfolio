@@ -3,9 +3,8 @@ import MobileNavBarList from './mobileNavList/MobileNavBarList'
 import './mobieNavBar.scss'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
-import { HiOutlineXMark } from "react-icons/hi2";
 import { mabryProBold } from '@/app/assets/fonts/MabryPro'
-import { motion } from 'framer-motion'
+import ToggleMenuButton from '@/app/shared_components/ToggleMenuButton'
 
 const MobileNavBar = () => {
     // reference to mobile navbar
@@ -34,23 +33,7 @@ const MobileNavBar = () => {
                 <span className='mobile-logo w-full flex-1'>
                     <h1 className={`text-2xl text-my-purple ${mabryProBold.className}`}>Wojcio_True</h1>
                 </span>
-                <motion.button
-                    animate={{
-                        rotate: displayMenu ? 90 : 0,
-                    }}
-                    transition={{
-                        delay: 0.2
-                    }}
-                    className="h-12 w-12 flex justify-center items-center"
-                    type="button"
-                    aria-controls="dropdown__navbar"
-                    aria-expanded="false"
-                    aria-label="Toggle navbar"
-                    onClick={() => setDisplayMenu(prev => !prev)}
-                >   
-                    <HiOutlineXMark size={'25px'} />
-                </motion.button>
-
+                <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu}/>
             </div>
             <MobileNavBarList />
             <MobileAnimatedBg />
