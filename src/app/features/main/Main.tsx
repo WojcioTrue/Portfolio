@@ -28,6 +28,11 @@ const Main = () => {
           <Description/>
           <Button/>
         </motion.div>
+        <div className='max-h-[300px] h-full w-full relative'>
+          <div className='absolute left-11 top-12 bg-slate-500 w-[100px] h-[100px] rounded-md'>
+            
+          </div>
+        </div>
       </div>
 
     </div>
