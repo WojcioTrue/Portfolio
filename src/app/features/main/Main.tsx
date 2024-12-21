@@ -1,6 +1,6 @@
 "use client";
 import React from 'react'
-import MainText from './mainText/MainText';
+import MainText from './text/MainText';
 
 
 const Main = () => {
