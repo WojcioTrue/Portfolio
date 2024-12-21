@@ -23,16 +23,11 @@ const Main = () => {
             duration: 0.3,
             type: "Tween"
           }}
-          className='max-w-[600px] flex flex-col flex-nowrap items-center ml:items-start bg-white bg-opacity-20 px-10 py-8 shadow-myshadow rounded-xl'>
-          <Header/>
-          <Description/>
-          <Button/>
+          className='max-w-[600px] flex flex-col flex-nowrap items-center ml:items-start bg-white bg-opacity-70 px-10 py-8 shadow-myshadow rounded-xl'>
+          <Header />
+          <Description />
+          <Button />
         </motion.div>
-        <div className='max-h-[300px] h-full w-full relative'>
-          <div className='absolute left-11 top-12 bg-slate-500 w-[100px] h-[100px] rounded-md'>
-            
-          </div>
-        </div>
       </div>
 
     </div>
