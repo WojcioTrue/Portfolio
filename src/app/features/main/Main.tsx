@@ -1,7 +1,7 @@
 "use client";
 import React from 'react'
 import MainText from './text/MainText';
-import MainIcons from './mainIcons/MainIcons';
+import MainIcons from './Icons/MainIcons';
 
 const Main = () => {
   return (
