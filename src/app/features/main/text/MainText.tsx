@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Header from './Header';
 import Description from './Description';
 import Button from './Button';
+
 const MainText = () => {
   return (
     <div className='h-full w-full max-w-[1200px] px-8 flex justify-center items-center ml:justify-start m-auto'>
