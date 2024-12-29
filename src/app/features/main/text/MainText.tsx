@@ -6,7 +6,7 @@ import Button from './Button';
 
 const MainText = () => {
   return (
-    <div className='h-full flex justify-center items-center ml:justify-start m-auto'>
+    <div className='flex justify-center items-center ml:justify-start m-auto'>
         <motion.div
           layout
           initial={{
