@@ -1,8 +1,12 @@
 import React from 'react'
+import IconsElement from '../IconsElement'
 
 const RowFirst = () => {
   return (
-    <div>RowFirst</div>
+    <div className='border-b-2 border-red-600'>
+      
+      <IconsElement/>
+      </div>
   )
 }
 
