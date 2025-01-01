@@ -3,10 +3,12 @@ import IconsElement from '../IconsElement'
 
 const RowFirst = () => {
   return (
-    <div className='border-b-2 border-red-600'>
-      
-      <IconsElement/>
-      </div>
+    <div className='border-b-[1px] border-dashed border-gray-300 flex'>
+
+      <IconsElement />
+      <IconsElement />
+      <IconsElement />
+    </div>
   )
 }
 
