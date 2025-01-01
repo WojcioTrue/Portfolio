@@ -3,11 +3,18 @@ import Image from 'next/image'
 
 const IconsElement = () => {
   return (
-    <div className='w-[60px] h-[60px]'>
+    <div className='
+    w-[60px] h-[60px] 
+    py-2 px-2 
+    border-b-[1px]
+    border-r-[1px] 
+    border-dashed border-gray-400
+    '>
         <Image
             src="/images/broken_glass.png"
-            width={70}
-            height={70}
+            width={60}
+            height={60}
+            priority={true}
             alt="#"
             className='p-1'
         />

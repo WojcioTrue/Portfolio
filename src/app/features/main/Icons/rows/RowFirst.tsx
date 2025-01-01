@@ -3,8 +3,8 @@ import IconsElement from '../IconsElement'
 
 const RowFirst = () => {
   return (
-    <div className='border-b-[1px] border-dashed border-gray-300 flex'>
-
+    <div className='flex'>
+      <IconsElement />
       <IconsElement />
       <IconsElement />
       <IconsElement />
