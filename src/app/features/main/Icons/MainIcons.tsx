@@ -1,12 +1,9 @@
-import RowFirst from "./rows/RowFirst"
+
 
 const MainIcons = () => {
   return (
     <div className="w-full flex justify-center wrap flex-col items-center">
-        <RowFirst/>
-        <RowFirst/>
-        <RowFirst/>
-        <RowFirst/>
+        <h2>X</h2>
       </div>
   )
 }
