@@ -1,16 +1,30 @@
+import { motion } from "framer-motion"
 import Image from "next/image"
-
 
 const IconTemplate = () => {
     return (
-        <div className="bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-55 w-[40px] h-[40px] shadow-myshadow rounded-md p-[7px]">
+        <motion.div 
+        className="bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px]"
+        initial={{
+            opacity: 55
+          }}
+          animate={{
+            scale: [1, 1.02, 1],
+            opacity: [0.8, 0.4, 0.8]
+          }}
+          transition={{
+            duration: 4,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+        >
             <Image
                 alt="#"
                 width={50}
                 height={50}
                 src="/images/icon_html.png"
             />
-        </div>
+        </motion.div>
     )
 }
 
