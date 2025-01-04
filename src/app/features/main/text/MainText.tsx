@@ -20,7 +20,7 @@ const MainText = () => {
             duration: 0.3,
             type: "Tween"
           }}
-          className='max-w-[600px] flex flex-col flex-nowrap items-center ml:items-start bg-white bg-opacity-70 px-10 py-8 shadow-myshadow rounded-xl'>
+          className='max-w-[900px] flex flex-col flex-nowrap items-center bg-opacity-70 px-10 py-8 rounded-xl'>
           <Header />
           <Description />
           <Button />
