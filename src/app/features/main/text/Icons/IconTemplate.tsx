@@ -1,7 +1,11 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 
-const IconTemplate = () => {
+type IconTemplateType = {
+    name: string
+}
+
+const IconTemplate = ({name} : IconTemplateType) => {
     return (
         <motion.div 
         className="bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px]"
@@ -22,7 +26,7 @@ const IconTemplate = () => {
                 alt="#"
                 width={50}
                 height={50}
-                src="/images/icon_html.png"
+                src={`/images/${name}.png`}
             />
         </motion.div>
     )
