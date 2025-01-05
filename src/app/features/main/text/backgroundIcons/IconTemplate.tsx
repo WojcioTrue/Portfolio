@@ -8,7 +8,7 @@ type IconTemplateType = {
 const IconTemplate = ({name} : IconTemplateType) => {
     return (
         <motion.div 
-        className="bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px]"
+        className="absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px]"
         initial={{
             opacity: 55
           }}
