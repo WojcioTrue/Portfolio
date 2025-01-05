@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Header from './Header';
 import Description from './Description';
 import Button from './Button';
+import IconsWrapper from './backgroundIcons/IconsWrapper';
 
 const MainText = () => {
   return (
@@ -24,6 +25,7 @@ const MainText = () => {
           <Header />
           <Description />
           <Button />
+          <IconsWrapper />
         </motion.div>
   )
 }

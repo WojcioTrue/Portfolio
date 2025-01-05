@@ -3,19 +3,20 @@ import Image from "next/image"
 
 type IconTemplateType = {
     name: string,
-    left: string | number
+    left: string | number,
+    top: string | number 
 }
 
-const IconTemplate = ({name, left} : IconTemplateType) => {
+const IconTemplate = ({name, left, top} : IconTemplateType) => {
     return (
         <motion.div 
-        className={`absolute left-${left} bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px]`}
+        className={`absolute left-${left} bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px] -z-10`}
         initial={{
             opacity: 55
           }}
           animate={{
             scale: [1, 1.02, 1],
-            opacity: [0.8, 0.4, 0.8]
+            opacity: [0.6, 0.2, 0.6]
           }}
           transition={{
             duration: 4,
