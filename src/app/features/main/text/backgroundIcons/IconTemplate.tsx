@@ -2,13 +2,14 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 type IconTemplateType = {
-    name: string
+    name: string,
+    left: string | number
 }
 
-const IconTemplate = ({name} : IconTemplateType) => {
+const IconTemplate = ({name, left} : IconTemplateType) => {
     return (
         <motion.div 
-        className="absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px]"
+        className={`absolute left-${left} bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px]`}
         initial={{
             opacity: 55
           }}

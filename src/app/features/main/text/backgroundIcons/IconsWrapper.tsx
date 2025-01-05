@@ -5,16 +5,16 @@ IconTemplate
 const IconsWrapper = () => {
     return (
         <>
-            <IconTemplate name={'css'} />
-            <IconTemplate name={'eslint'} />
-            <IconTemplate name={'html'} />
-            <IconTemplate name={'js'} />
-            <IconTemplate name={'next'} />
-            <IconTemplate name={'prettier'} />
-            <IconTemplate name={'react'} />
-            <IconTemplate name={'redux'} />
-            <IconTemplate name={'sass'} />
-            <IconTemplate name={'ts'} />
+            <IconTemplate name={'css'} left={10}/>
+            <IconTemplate name={'eslint'} left={10}/>
+            <IconTemplate name={'html'} left={10}/>
+            <IconTemplate name={'js'} left={10}/>
+            <IconTemplate name={'next'} left={10}/>
+            <IconTemplate name={'prettier'} left={10}/>
+            <IconTemplate name={'react'} left={10}/>
+            <IconTemplate name={'redux'} left={10}/>
+            <IconTemplate name={'sass'} left={10}/>
+            <IconTemplate name={'ts'} left={10}/>
         </>
     )
 }
