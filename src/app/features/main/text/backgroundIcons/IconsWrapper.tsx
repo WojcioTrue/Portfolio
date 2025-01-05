@@ -72,7 +72,7 @@ const IconsWrapper = () => {
     ]
     return (
         <>
-            {arrOfIcons.map(x => <IconTemplate key={x.id} name={x.name} left={x.left} top={x.top} />)}
+            {arrOfIcons.map(x => <IconTemplate key={x.id} name={x.name} left={x.left} top={x.top} id={x.id}/>)}
         </>
     )
 }

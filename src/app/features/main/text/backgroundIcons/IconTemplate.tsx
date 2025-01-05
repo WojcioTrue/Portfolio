@@ -3,12 +3,13 @@ import Image from "next/image"
 
 type IconTemplateType = {
     name: string,
-    left: string | number,
-    top: string | number 
+    left: number,
+    top:  number,
+    id: number
 }
 
-const IconTemplate = ({name, left, top} : IconTemplateType) => {
-    console.log(left, top)
+const IconTemplate = ({name, left, top, id} : IconTemplateType) => {
+    let delayValue = ((id/10) * 2)
     return (
         <motion.div 
         className={`absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px] -z-10`}
@@ -27,6 +28,7 @@ const IconTemplate = ({name, left, top} : IconTemplateType) => {
             duration: 4,
             ease: "linear",
             repeat: Infinity,
+            delay: delayValue
           }}
         >
             <Image
