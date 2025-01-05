@@ -21,7 +21,7 @@ const IconTemplate = ({name, left, top, id} : IconTemplateType) => {
             opacity: 55
           }}
           animate={{
-            scale: [1, 1.02, 1],
+            scale: [1, 1.05, 1],
             opacity: [0.45, 0.12, 0.45],
             y: [0,5,-5,0]
           }}

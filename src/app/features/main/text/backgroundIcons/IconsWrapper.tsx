@@ -1,10 +1,5 @@
 import React from 'react'
 import IconTemplate from './IconTemplate'
-IconTemplate
-
-
-
-
 
 const IconsWrapper = () => {
     const arrOfIcons = [
