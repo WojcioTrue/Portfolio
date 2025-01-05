@@ -17,14 +17,14 @@ const IconsWrapper = () => {
         {
             id: 1,
             name: 'eslint',
-            left: 15,
-            top: 72,
+            left: 19,
+            top: 95,
         },
         {
             id: 2,
             name: 'html',
-            left: 23,
-            top: 8,
+            left: 21,
+            top: 6,
         },
         {
             id: 3,
@@ -41,8 +41,8 @@ const IconsWrapper = () => {
         {
             id: 5,
             name: 'prettier',
-            left: 80,
-            top: 5,
+            left: 8,
+            top: 75,
         },
         {
             id: 6,
@@ -59,8 +59,8 @@ const IconsWrapper = () => {
         {
             id: 8,
             name: 'sass',
-            left: 5,
-            top: 95,
+            left: 80,
+            top: 5,
         },
         {
             id: 9,
