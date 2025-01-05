@@ -8,15 +8,20 @@ type IconTemplateType = {
 }
 
 const IconTemplate = ({name, left, top} : IconTemplateType) => {
+    console.log(left, top)
     return (
         <motion.div 
-        className={`absolute left-${left} bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px] -z-10`}
+        className={`absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px] -z-10`}
+        style={{
+          left: `${left}%`,
+          top: `${top}%`
+        }}
         initial={{
             opacity: 55
           }}
           animate={{
             scale: [1, 1.02, 1],
-            opacity: [0.6, 0.2, 0.6]
+            opacity: [0.45, 0.12, 0.45]
           }}
           transition={{
             duration: 4,
