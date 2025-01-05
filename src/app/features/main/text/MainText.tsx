@@ -18,10 +18,6 @@ export const HoverContext = createContext<{
 const MainText = () => {
   const [hover, setHover] = useState(false)
 
-  useEffect(() => {
-    console.log(hover)
-  },[hover])
-
   return (
     <HoverContext.Provider value={{
       hover,
