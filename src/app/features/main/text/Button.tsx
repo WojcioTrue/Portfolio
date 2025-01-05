@@ -1,8 +1,10 @@
 import { FaArrowDown } from "react-icons/fa";
 import { motion } from 'framer-motion';
-
+import { useContext } from "react";
+import { HoverContext } from "./MainText";
 
 const Button = () => {
+  const {hover, setHover} = useContext(HoverContext)
   return (
     <motion.button
     initial={{
@@ -26,8 +28,8 @@ const Button = () => {
       transition: { duration: 0.2 },
     }}
     className='flex items-center text-[16px] py-[12px] px-[24px] rounded-[50px] text-white bg-gradient-to-tr from-my-gradient1 to-my-gradient2'
-    // onMouseEnter={() => console.log('banger')}
-    // onMouseLeave={() => console.log('x')}
+    onMouseEnter={() => setHover(true)}
+    onMouseLeave={() => setHover(false)}
     >
     Read more
     <span className='relative h-[25px] w-[25px]'>
