@@ -22,12 +22,12 @@ const IconTemplate = ({name, left, top, id} : IconTemplateType) => {
           }}
           animate={{
             scale: [1, 1.05, 1],
-            opacity: [0.45, 0.12, 0.45],
+            opacity: [0.35, 0.05, 0.35],
             y: [0,5,-5,0]
           }}
           transition={{
             duration: 4,
-            ease: "linear",
+            ease: "circOut",
             repeat: Infinity,
             delay: delayValue
           }}
