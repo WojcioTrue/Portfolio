@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { HoverContext } from "./MainText";
 
 const Button = () => {
-  const {hover, setHover} = useContext(HoverContext)
+  const {setHover} = useContext(HoverContext)
   return (
     <motion.button
     initial={{
