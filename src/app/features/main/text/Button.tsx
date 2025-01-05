@@ -15,7 +15,6 @@ const Button = () => {
     }}
     transition={{
       duration: 0.3,
-      delay: 0.40,
       type: "Tween"
     }}
     whileHover={{
@@ -26,10 +25,13 @@ const Button = () => {
       scale: 0.9,
       transition: { duration: 0.2 },
     }}
-    className='flex items-center text-[16px] py-[12px] px-[24px] rounded-[50px] text-white bg-gradient-to-tr from-my-gradient1 to-my-gradient2'>
+    className='flex items-center text-[16px] py-[12px] px-[24px] rounded-[50px] text-white bg-gradient-to-tr from-my-gradient1 to-my-gradient2'
+    // onMouseEnter={() => console.log('banger')}
+    // onMouseLeave={() => console.log('x')}
+    >
     Read more
     <span className='relative h-[25px] w-[25px]'>
-      <motion.div
+      <motion.span
         className='absolute right-[0px] top-[50%]'
         initial={{
           translateY: '-50%',
@@ -44,8 +46,8 @@ const Button = () => {
         }}
       >
         <FaArrowDown />
-      </motion.div>
-      <motion.div
+      </motion.span>
+      <motion.span
         className='absolute right-[0px] top-[50%]'
         initial={{
           translateY: '-50%',
@@ -61,7 +63,7 @@ const Button = () => {
         }}
       >
         <FaArrowDown />
-      </motion.div>
+      </motion.span>
     </span>
   </motion.button>
   )

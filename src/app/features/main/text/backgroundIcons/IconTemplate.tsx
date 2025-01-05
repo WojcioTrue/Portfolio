@@ -26,7 +26,7 @@ const IconTemplate = ({name, left, top, id} : IconTemplateType) => {
             y: [0,5,-5,0]
           }}
           transition={{
-            duration: 4,
+            duration: 3,
             ease: "circOut",
             repeat: Infinity,
             delay: delayValue
