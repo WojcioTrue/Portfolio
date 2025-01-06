@@ -1,4 +1,11 @@
-export const arrOfIcons = [
+type ArrOfIconsType = {
+    id: number,
+    name: string,
+    left: number,
+    top: number
+}
+
+export const arrOfIcons:ArrOfIconsType[] = [
     {
         id: 0,
         name: 'html',
