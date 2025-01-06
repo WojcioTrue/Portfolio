@@ -45,7 +45,7 @@ const NavBarIndicatorIcon = () => {
       }}
     >
       <motion.span
-        className='absolute w-[25px] h-[25px] rounded-2xl bg-my-purple top-[50%] left-[50%]'
+        className='absolute w-[25px] h-[25px] rounded-2xl bg-gradient-to-tr from-my-gradient1 to-my-gradient2 top-[50%] left-[50%]'
         initial={{
           translateY: '-50%',
           translateX: '-50%',
@@ -61,7 +61,7 @@ const NavBarIndicatorIcon = () => {
           repeat: Infinity,
         }}
       ></motion.span>
-      <motion.span className='absolute w-[20px] h-[20px] rounded-2xl bg-my-purple top-[50%] left-[50%]'
+      <motion.span className='absolute w-[20px] h-[20px] rounded-2xl bg-gradient-to-tr from-my-gradient1 to-my-gradient2 top-[50%] left-[50%]'
         initial={{
           translateY: '-50%',
           translateX: '-50%',
@@ -76,7 +76,7 @@ const NavBarIndicatorIcon = () => {
           times: [0, 0.5, 1],
           repeat: Infinity,
         }}></motion.span>
-      <motion.span className='absolute w-[10px] h-[10px] rounded-2xl bg-my-purple opacity-55 top-[50%] left-[50%]'
+      <motion.span className='absolute w-[10px] h-[10px] rounded-2xl bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-55 top-[50%] left-[50%]'
         initial={{
           translateY: '-50%',
           translateX: '-50%',
