@@ -6,8 +6,10 @@ export default function Home() {
   return (
     <>
       <NavBarContextWrapper />
-      <Banner />
-      <Tech />
+      <span className="blur-sm">
+        <Banner />
+        <Tech />
+      </span>
     </>
   );
 }
