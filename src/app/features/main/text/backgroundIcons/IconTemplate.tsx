@@ -17,10 +17,6 @@ const IconTemplate = ({ name, left, top, id }: IconTemplateType) => {
   const leftValue = id === 9 ? `calc(50% - 85px)` : id === 8 ? `calc(50% + 45px)` : `calc(50% - 20px)`
   const topValue = (id === 9 || id === 8) ? `${(7 * 60) - 60}px` : `${(id * 60)}px`
 
-  useEffect(() => {
-    console.log((name === 'next') && id)
-  },[])
-
   return (
     <motion.div
       layout
