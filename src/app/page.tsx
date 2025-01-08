@@ -1,19 +1,41 @@
+"use client"
 import Banner from "./features/main/Main";
 import Tech from "./features/technologies/Tech";
 import NavBarContextWrapper from "./features/navbar/NavBarContextWrapper";
 import { createContext, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-export const blurPage = createContext(false)
+type BlurPageType = {
+  blurPage: {
+    isBlur: boolean,
+    setIsBlur: Dispatch<SetStateAction<boolean>>
+  }
+}
+
+export const BlurPage = createContext<BlurPageType>({
+  blurPage: {
+    isBlur: false,
+    setIsBlur: () => { }
+  }
+})
 
 export default function Home() {
-  const [blurPage, setBlurPage] = useState<boolean>(false)
+  const [isBlur, setIsBlur] = useState<boolean>(false)
   return (
     <>
-      <NavBarContextWrapper />
-      <span className={blurPage ? "blur-sm" : ""}>
-        <Banner />
-        <Tech />
-      </span>
+      <BlurPage.Provider value={{
+        blurPage: {
+          isBlur,
+          setIsBlur,
+        }
+      }}>
+        <NavBarContextWrapper />
+        <span className={isBlur ? "blur-sm" : ""}>
+          <Banner />
+          <Tech />
+        </span>
+      </BlurPage.Provider>
+
     </>
   );
 }
