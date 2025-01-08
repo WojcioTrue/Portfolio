@@ -1,6 +1,6 @@
 import React from 'react'
 import IconTemplate from './IconTemplate'
-import { arrOfIcons } from './IconsArray'
+import { arrOfIcons } from './iconsArray'
 
 const IconsWrapper = () => {
 
