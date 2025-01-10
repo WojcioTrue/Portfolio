@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 import { mabryProBold } from "@/app/assets/fonts/MabryPro"
-import ToggleMenuButton from "@/app/shared_components/ToggleMenuButton"
+import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
 
 const NavBarTitle = () => {
     const { navBarDesktopPosition, navBarItems, toogleMobileNav } = useContext(NavBarContext)

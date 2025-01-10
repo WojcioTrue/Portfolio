@@ -2,6 +2,9 @@ import { HiOutlineXMark } from "react-icons/hi2";
 import { motion } from 'framer-motion'
 import { SetStateAction, Dispatch } from "react"
 
+// const {blurPage} = useContext(BlurPage)
+// const setIsBlur = blurPage.setIsBlur
+
 type ToggleMenuButtonType = {
     displayMenu: boolean,
     onlyMobile?: boolean,
