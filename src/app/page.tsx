@@ -1,18 +1,16 @@
 "use client"
-import Banner from "./features/main/Main";
-import Tech from "./features/technologies/Tech";
+import MainLayoutWrapper from "./features/MainLayoutWrapper";
 import NavBarContextWrapper from "./features/navbar/NavBarContextWrapper";
-
+import BackDropContext from "./features/navbar/mobileNavbar/backdrop/BackDropContext";
 
 export default function Home() {
-  
+
   return (
     <>
+      <BackDropContext>
         <NavBarContextWrapper />
-        <span className={/**${isBlur ? "blur-sm" : "" */`} scale-150 transition-all duration-500`}>
-          <Banner />
-          <Tech />
-        </span>
+        <MainLayoutWrapper/>
+      </BackDropContext>
     </>
   );
 }
