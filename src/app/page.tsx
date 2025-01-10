@@ -30,7 +30,7 @@ export default function Home() {
         }
       }}>
         <NavBarContextWrapper />
-        <span className={isBlur ? "blur-sm" : ""}>
+        <span className={`${isBlur ? "blur-sm" : ""} scale-150 transition-all duration-500`}>
           <Banner />
           <Tech />
         </span>
