@@ -32,7 +32,7 @@ const ToggleMenuButton = ({ displayMenu, onlyMobile, setDisplayMenu }: ToggleMen
                 setIsBlur(prev => !prev)
             }}
         >
-            <HiOutlineXMark size={'25px'} />
+            <HiOutlineXMark size={'25px'} color="rgb(116, 31, 245)"/>
         </motion.button>
     )
 }

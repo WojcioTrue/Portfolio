@@ -29,7 +29,7 @@ const MobileNavBar = () => {
     return (
         <div ref={navBarRef} className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 pt-[21px] w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
             <div className="relative flex items-center px-3">
-            <span className='absolute top-[-21px] left-0 bg-slate-500 w-full h-[5px]'></span>
+            <span className='absolute top-[-21px] left-0 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-full h-[5px]'></span>
                 <span className='mobile-logo w-full flex-1'>
                     <h1 className={`text-3xl text-my-purple`}>Wojcio_True</h1>
                 </span>
