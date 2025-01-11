@@ -4,17 +4,23 @@ import './mobieNavBar.scss'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
 import ToggleMenuButton from '@/app/features/navbar/ToggleMenuButton'
+import { BlurPage } from './backdrop/BackDropContext'
+
+
+BlurPage
 
 const MobileNavBar = () => {
     // reference to mobile navbar
     const navBarRef = useRef<HTMLDivElement | null>(null);
     const { toogleMobileNav } = useContext(NavBarContext)
+    const { blurPage } = useContext(BlurPage)
+    const { setIsBlur } = blurPage
     const { displayMenu, setDisplayMenu } = toogleMobileNav
 
     useEffect(() => {
         // event listener checking if click occured inside navBar with current method
         const handleClickOutside = (event: MouseEvent) => {
-            (navBarRef.current && !navBarRef.current.contains(event.target as Node)) && setDisplayMenu(false)
+            (navBarRef.current && !navBarRef.current.contains(event.target as Node)) && (setDisplayMenu(false), setIsBlur(false))
         };
         // added event listener to body
         document.body.addEventListener('click', handleClickOutside);
@@ -29,11 +35,11 @@ const MobileNavBar = () => {
     return (
         <div ref={navBarRef} className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 pt-[21px] w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
             <div className="relative flex items-center px-3">
-            <span className='absolute top-[-21px] left-0 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-full h-[5px]'></span>
+                <span className='absolute top-[-21px] left-0 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-full h-[5px]'></span>
                 <span className='mobile-logo w-full flex-1'>
                     <h1 className={`text-3xl text-my-purple`}>Wojcio_True</h1>
                 </span>
-                <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu}/>
+                <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} />
             </div>
             <MobileNavBarList />
             <MobileAnimatedBg />
