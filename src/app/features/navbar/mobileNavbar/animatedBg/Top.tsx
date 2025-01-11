@@ -11,13 +11,12 @@ const Top = () => {
 
   useEffect(() => {
     setHeight(window.innerHeight)
-  },[navBarMobilePosition])
+  }, [navBarMobilePosition])
 
   return (
     <div
       className={`relative bg-white h-[100%] z-[-10] rounded-bl-lg ${animatedBackground.bg_animation_bottom}`}
       style={{ bottom: `${height - position.top}px` }}>
-        <p>x</p>
     </div>
   )
 }
