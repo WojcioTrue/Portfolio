@@ -20,7 +20,7 @@ const IconTemplate = ({ name, left, top, id }: IconTemplateType) => {
   return (
     <motion.div
       layout
-      className={`absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[40px] h-[40px] shadow-myshadow rounded-lg p-[7px] -z-10`}
+      className={`absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[30px] h-[30px] md:w-[40px] md:h-[40px] shadow-myshadow rounded-lg p-[7px] -z-10`}
       style={{
         left: hover ? leftValue : `${left}%`,
         top: hover ? topValue : `${top}%`
