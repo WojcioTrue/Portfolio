@@ -2,7 +2,6 @@ import NavBarIndicatorField from "./navBarList/NavBarIndicatorField"
 import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
-import { mabryProBold, mabryProLight, mabryProRegular } from "@/app/assets/fonts/MabryPro"
 import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
 
 const NavBarTitle = () => {

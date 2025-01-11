@@ -3,7 +3,6 @@ import MobileNavBarList from './mobileNavList/MobileNavBarList'
 import './mobieNavBar.scss'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
-import { mabryProBold } from '@/app/assets/fonts/MabryPro'
 import ToggleMenuButton from '@/app/features/navbar/ToggleMenuButton'
 
 const MobileNavBar = () => {

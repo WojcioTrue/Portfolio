@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { HoverContext } from "../MainText"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 
 type IconTemplateType = {
   name: string,
