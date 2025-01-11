@@ -28,7 +28,7 @@ const MobileNavBar = () => {
 
 
     return (
-        <div ref={navBarRef} className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 pt-4 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
+        <div ref={navBarRef} className={`fixed z-20 pl-2 overflow-hidden landscape:overflow-y-scroll right-0 top-0 pt-4 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
             <div className="flex items-center px-3">
                 <span className='mobile-logo w-full flex-1'>
                     <h1 className={`text-2xl text-my-purple ${mabryProBold.className}`}>Wojcio_True</h1>
