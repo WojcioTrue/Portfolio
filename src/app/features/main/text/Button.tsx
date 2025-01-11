@@ -1,3 +1,4 @@
+'use client'
 import { FaArrowDown } from "react-icons/fa";
 import { motion } from 'framer-motion';
 import { useContext } from "react";
@@ -28,7 +29,7 @@ const Button = () => {
       transition: { duration: 0.2 },
     }}
     className='flex items-center text-[16px] py-[12px] px-[24px] rounded-[50px] text-white bg-gradient-to-tr from-my-gradient1 to-my-gradient2'
-    onMouseEnter={() => setHover(true)}
+    onMouseEnter={() => window.innerWidth > 992 ? setHover(true) : null}
     onMouseLeave={() => setHover(false)}
     >
     Read more
