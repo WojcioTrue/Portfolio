@@ -14,13 +14,13 @@ const IconTemplate = ({ name, left, top, id }: IconTemplateType) => {
   const { hover } = useContext(HoverContext)
 
   const delayValue = ((name ==='sass') ? ((7 / 10) * 2) : (name === 'eslint') ? ((7 / 10) * 2) : (id / 10) * 2)
-  const leftValue = id === 9 ? `calc(50% - 85px)` : id === 8 ? `calc(50% + 45px)` : `calc(50% - 20px)`
-  const topValue = (id === 9 || id === 8) ? `${(7 * 60) - 60}px` : `${(id * 60)}px`
+  const leftValue = id === 9 ? `calc(50% - 75px)` : id === 8 ? `calc(50% + 35px)` : `calc(50% - 20px)`
+  const topValue = (id === 9 || id === 8) ? `${(7 * 50) - 50}px` : `${(id * 50)}px`
 
   return (
     <motion.div
       layout
-      className={`absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[30px] h-[30px] md:w-[40px] md:h-[40px] shadow-myshadow rounded-lg p-[7px] -z-10`}
+      className={`absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[30px] h-[30px] md:w-[35px] md:h-[35px] shadow-myshadow rounded-lg p-[7px] -z-10`}
       style={{
         left: hover ? leftValue : `${left}%`,
         top: hover ? topValue : `${top}%`
