@@ -16,7 +16,7 @@ const Description = () => {
               duration: 0.3,
               delay: 0.25,
               type: "Tween"
-            }} className={`text-[16px] w-full text-my-gray mb-4 sm:text-[24px] text-center ${mabryProLight.className}`}>Work in progress... be patient :)</motion.p>
+            }} className={`text-[16px] w-full text-my-gray pb-6 sm:text-[24px] text-center ${mabryProLight.className}`}>Work in progress... be patient :)</motion.p>
   )
 }
 
