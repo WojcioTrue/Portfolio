@@ -56,7 +56,7 @@ const NavBar = () => {
   return (
 
     <nav className={
-      `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange}`} navbar w-full py-3 px-6 overflow-hidden z-10 bg-my-navbarBackground shadow-myshadow`}>
+      `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange}`} navbar w-full py-3 px-0 md:px-6 overflow-hidden z-10 bg-my-navbarBackground shadow-myshadow`}>
       <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
         <NavBarTitle />
         <NavBarList />
