@@ -42,9 +42,9 @@ export const getPosition = ({ id, desktopPosition }: GetInitialPositionType) => 
 
     const rightValue = (document.body.clientWidth - (Number((element as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
 
-    const topValue = Number(element.getBoundingClientRect().top.toFixed(0))
+    // const topValue = Number(element.getBoundingClientRect().top.toFixed(0))
 
-    const bottomValue = Number(element.getBoundingClientRect().bottom.toFixed(0))
+    // const bottomValue = Number(element.getBoundingClientRect().bottom.toFixed(0))
 
     return { ...desktopPosition, left: leftValue, right: rightValue }
 }
