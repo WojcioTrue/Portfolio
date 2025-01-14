@@ -18,7 +18,7 @@ const MobileNavBar = () => {
     const { displayMenu, setDisplayMenu } = toogleMobileNav
 
     useEffect(() => {
-        // event listener checking if click occured inside navBar with current method
+        // event listener checking if click occured inside navBar 
         const handleClickOutside = (event: MouseEvent) => {
             (navBarRef.current && !navBarRef.current.contains(event.target as Node)) && (setDisplayMenu(false), setIsBlur(false))
         };
@@ -31,13 +31,19 @@ const MobileNavBar = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [setDisplayMenu]);
 
+    useEffect(() => {
+        document.getElementById("mobile-menu-scroll")!.addEventListener('scroll', () => {
+            console.log('working')
+        })
+    },[])
+
 
     return (
-        <div ref={navBarRef} className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 pt-[21px] w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
+        <div ref={navBarRef} className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
 
-            <div className='overflow-y-auto h-full'>
+            <div id="mobile-menu-scroll" className='overflow-y-auto h-full'>
                 <span className='absolute top-0 left-2 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-full h-[5px]'></span>
-                <div className="relative flex items-center px-3">
+                <div className="relative flex items-center px-3 pt-[21px]">
 
                     <span className='mobile-logo w-full flex-1'>
                         <h1 className={`text-3xl text-my-purple`}>Wojcio_True</h1>
