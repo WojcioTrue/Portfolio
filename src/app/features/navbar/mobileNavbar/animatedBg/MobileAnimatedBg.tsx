@@ -17,12 +17,12 @@ const MobileAnimatedBg = () => {
   useEffect(() => {
     const labelElement = document.getElementById('mobile-navbar-list')!
     const navBarListElements = document.getElementsByClassName("mobile-nav-bar-element");
-    const isActive = navBarItems.listElements.some((x) => Boolean(x.active) === true)
+    const isActive = navBarItems.listElements.filter(x => x.active === true)
+    console.log(isActive)
     // check if there are active elements
     if (displayMenu) {
-      if (navBarListElements.length > 0 && isActive) {
-        const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
-        const activeSectionName = `mobile_navbar_li_${getActiveSection[0].section}`
+      if (isActive.length > 0) {
+        const activeSectionName = `mobile_navbar_li_${isActive[0].section}`
         const firstLiElement = document.getElementById(activeSectionName)!;
 
         const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))

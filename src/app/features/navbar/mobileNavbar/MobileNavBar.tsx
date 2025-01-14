@@ -12,11 +12,12 @@ BlurPage
 const MobileNavBar = () => {
     // reference to mobile navbar
     const navBarRef = useRef<HTMLDivElement | null>(null);
-    const { toogleMobileNav } = useContext(NavBarContext)
+    const { toogleMobileNav, navBarItems, navBarMobilePosition } = useContext(NavBarContext)
     const { blurPage } = useContext(BlurPage)
     const { setIsBlur } = blurPage
     const { displayMenu, setDisplayMenu } = toogleMobileNav
-
+    const { position, setPosition } = navBarMobilePosition
+    const { listElements } = navBarItems
     useEffect(() => {
         // event listener checking if click occured inside navBar 
         const handleClickOutside = (event: MouseEvent) => {
@@ -31,11 +32,43 @@ const MobileNavBar = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [setDisplayMenu]);
 
+
+
     useEffect(() => {
-        document.getElementById("mobile-menu-scroll")!.addEventListener('scroll', () => {
-            console.log('working')
-        })
-    },[])
+        const scrollPosition = () => {
+            const labelElement = document.getElementById('mobile-navbar-list')!
+            const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
+            if (getActiveSection.length > 0) {
+                const activeSectionName = `mobile_navbar_li_${getActiveSection[0].section}`
+                const firstLiElement = document.getElementById(activeSectionName)!;
+
+                const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
+                const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
+                const newPosition = { ...position, top: topValue, bottom: bottomValue }
+                console.log(newPosition)
+                setPosition(newPosition)
+            } else {
+                const topValue = Number(labelElement.getBoundingClientRect().top.toFixed(0))
+                const bottomValue = Number(labelElement.getBoundingClientRect().bottom.toFixed(0))
+                const newPosition = { ...position, top: topValue, bottom: bottomValue }
+                setPosition(newPosition)
+            }
+        }
+
+        const mobileScrollDiv = document.getElementById('mobile-menu-scroll');
+        mobileScrollDiv!.addEventListener('scroll', scrollPosition)
+
+        return () => {
+            mobileScrollDiv!.removeEventListener('scroll', scrollPosition)
+        }
+
+    }, [navBarItems.listElements])
+
+    // useEffect(() => {
+    //     const getActiveSection = listElements.filter(x => x.active === true)
+    //     console.log(getActiveSection)
+
+    // }, [listElements])
 
 
     return (
