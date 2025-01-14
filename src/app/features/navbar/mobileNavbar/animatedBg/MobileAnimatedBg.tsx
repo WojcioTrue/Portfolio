@@ -11,10 +11,10 @@ const MobileAnimatedBg = () => {
 
   useEffect(() => {
     const labelElement = document.getElementById('mobile-navbar-list')!
-    const isActive = navBarItems.listElements.filter(x => x.active === true)
+    const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
     if (displayMenu) {
-      if (isActive.length > 0) {
-        const activeSectionName = `mobile_navbar_li_${isActive[0].section}`
+      if (getActiveSection.length > 0) {
+        const activeSectionName = `mobile_navbar_li_${getActiveSection[0].section}`
         const firstLiElement = document.getElementById(activeSectionName)!;
 
         const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
