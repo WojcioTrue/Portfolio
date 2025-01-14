@@ -45,7 +45,6 @@ const MobileNavBar = () => {
                 const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
                 const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
                 const newPosition = { ...position, top: topValue, bottom: bottomValue }
-                console.log(newPosition)
                 setPosition(newPosition)
             } else {
                 const topValue = Number(labelElement.getBoundingClientRect().top.toFixed(0))

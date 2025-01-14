@@ -12,8 +12,6 @@ const MobileAnimatedBg = () => {
   useEffect(() => {
     const labelElement = document.getElementById('mobile-navbar-list')!
     const isActive = navBarItems.listElements.filter(x => x.active === true)
-    console.log(isActive)
-    // check if there are active elements
     if (displayMenu) {
       if (isActive.length > 0) {
         const activeSectionName = `mobile_navbar_li_${isActive[0].section}`
