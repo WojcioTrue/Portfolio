@@ -17,7 +17,7 @@ const MobileNavBar = () => {
     const { setIsBlur } = blurPage
     const { displayMenu, setDisplayMenu } = toogleMobileNav
     const { position, setPosition } = navBarMobilePosition
-    const { listElements } = navBarItems
+
     useEffect(() => {
         // event listener checking if click occured inside navBar 
         const handleClickOutside = (event: MouseEvent) => {

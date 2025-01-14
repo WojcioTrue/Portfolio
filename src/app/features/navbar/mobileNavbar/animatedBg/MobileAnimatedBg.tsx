@@ -5,18 +5,12 @@ import { NavBarContext } from "./../../navBarContext/NavBarContextProvider"
 
 const MobileAnimatedBg = () => {
   const { toogleMobileNav, navBarMobilePosition } = useContext(NavBarContext)
-  const { displayMenu, setDisplayMenu } = toogleMobileNav
+  const { displayMenu } = toogleMobileNav
   const { navBarItems } = useContext(NavBarContext)
   const { position, setPosition } = navBarMobilePosition
-  const [active, isActive] = useState(false)
-
-  useEffect(() => {
-    isActive(navBarItems.listElements.some(x => x.active === true))
-  }, [navBarItems])
 
   useEffect(() => {
     const labelElement = document.getElementById('mobile-navbar-list')!
-    const navBarListElements = document.getElementsByClassName("mobile-nav-bar-element");
     const isActive = navBarItems.listElements.filter(x => x.active === true)
     console.log(isActive)
     // check if there are active elements
