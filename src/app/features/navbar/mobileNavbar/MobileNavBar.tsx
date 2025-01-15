@@ -35,7 +35,6 @@ const MobileNavBar = () => {
 
 
     useEffect(() => {
-
         const scrollPosition = () => {
             const labelElement = document.getElementById('mobile-navbar-list')!
             const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
