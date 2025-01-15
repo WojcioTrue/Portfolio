@@ -1,6 +1,5 @@
 import Bottom from './Bottom'
 import Top from './Top'
-
 import useDefaultBackground from '../mobieNavBarHooks/useDefaultBackground'
 
 const MobileAnimatedBg = () => {
