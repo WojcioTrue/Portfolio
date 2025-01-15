@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { NavBarContext } from '../../navBarContext/NavBarContextProvider'
 
 const useScrollBackground = () => {
