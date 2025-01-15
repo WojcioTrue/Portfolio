@@ -35,6 +35,7 @@ const MobileNavBar = () => {
 
 
     useEffect(() => {
+
         const scrollPosition = () => {
             const labelElement = document.getElementById('mobile-navbar-list')!
             const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
@@ -47,15 +48,16 @@ const MobileNavBar = () => {
                   const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
                   const newPosition = { ...position, top: topValue, bottom: bottomValue }
                   setPosition(newPosition)
+                  console.log('changed')
+
                 } else {
                   const topValue = Number(labelElement.getBoundingClientRect().top.toFixed(0))
                   const bottomValue = Number(labelElement.getBoundingClientRect().bottom.toFixed(0))
                   const newPosition = { ...position, top: topValue, bottom: bottomValue }
                   setPosition(newPosition)
                 }
-          
               }
-        }
+            }
         const mobileScrollDiv = document.getElementById('mobile-menu-scroll');
         mobileScrollDiv!.addEventListener('scroll', scrollPosition)
 
@@ -63,14 +65,7 @@ const MobileNavBar = () => {
             mobileScrollDiv!.removeEventListener('scroll', scrollPosition)
         }
 
-    }, [navBarItems.listElements])
-
-    // useEffect(() => {
-    //     const getActiveSection = listElements.filter(x => x.active === true)
-    //     console.log(getActiveSection)
-
-    // }, [listElements])
-
+    }, [navBarItems.listElements, displayMenu, position, setPosition])
 
     return (
         <div ref={navBarRef} className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>

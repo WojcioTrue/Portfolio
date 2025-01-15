@@ -27,9 +27,7 @@ const MobileAnimatedBg = () => {
         const newPosition = { ...position, top: topValue, bottom: bottomValue }
         setPosition(newPosition)
       }
-
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [displayMenu, navBarItems.listElements, setPosition])
 
   return (
