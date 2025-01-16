@@ -8,7 +8,7 @@
     transform: translateX(100%);
 }
 
-.backdrop {
+#backdrop {
     opacity: 0;
     visibility: hidden;
     transition-property: opacity, visibility;

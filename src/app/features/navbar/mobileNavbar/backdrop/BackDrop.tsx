@@ -6,7 +6,7 @@ const BackDrop = () => {
   const {toogleMobileNav} = useContext(NavBarContext)
   const {displayMenu} = toogleMobileNav
   return (
-   <div className={`backdrop h-screen w-screen bg-gray-200 ${displayMenu && 'backdrop-open'} fixed z-10 top-0 left-0`}></div>
+   <div id="backdrop" className={` h-screen w-screen bg-gray-200 ${displayMenu && 'backdrop-open'} fixed z-10 top-0 left-0`}></div>
   )
 }
 
