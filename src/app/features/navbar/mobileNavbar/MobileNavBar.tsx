@@ -19,7 +19,7 @@ const MobileNavBar = () => {
         const handleClickOutside = (event: MouseEvent) => {
             (backdropId && backdropId.contains(event.target as Node)) && (setDisplayMenu(false), setIsBlur(false))
         };
-        // added event listener to body
+
         document.body.addEventListener('click', handleClickOutside);
         // cleanup
         return () => {
