@@ -33,7 +33,7 @@ const MobileNavBar = () => {
     return (
         <div className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
             <div id="mobile-menu-scroll" className='overflow-y-auto h-full'>
-                <span className='absolute top-0 left-2 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-full h-[5px]'></span>
+                <span className='absolute top-0 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-full h-[5px]'></span>
                 <div className="relative flex items-center px-3 pt-[21px]">
                     <span className='mobile-logo w-full flex-1'>
                         <h1 className={`text-3xl text-my-purple`}>Wojcio_True</h1>
