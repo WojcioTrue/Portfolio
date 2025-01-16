@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import MobileNavBarList from './mobileNavList/MobileNavBarList'
 import './mobieNavBar.scss'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
@@ -8,17 +8,16 @@ import { BlurPage } from './backdrop/BackDropContext'
 import useScrollBackground from './mobieNavBarHooks/useScrollBackground'
 
 const MobileNavBar = () => {
-    // reference to mobile navbar
-    const navBarRef = useRef<HTMLDivElement | null>(null);
     const { toogleMobileNav } = useContext(NavBarContext)
     const { blurPage } = useContext(BlurPage)
     const { setIsBlur } = blurPage
     const { displayMenu, setDisplayMenu } = toogleMobileNav
 
     useEffect(() => {
-        // event listener checking if click occured inside navBar 
+        const backdropId = document.getElementById('backdrop')
+
         const handleClickOutside = (event: MouseEvent) => {
-            (navBarRef.current && !navBarRef.current.contains(event.target as Node)) && (setDisplayMenu(false), setIsBlur(false))
+            (backdropId && backdropId.contains(event.target as Node)) && (setDisplayMenu(false), setIsBlur(false))
         };
         // added event listener to body
         document.body.addEventListener('click', handleClickOutside);
@@ -32,7 +31,7 @@ const MobileNavBar = () => {
     useScrollBackground()
 
     return (
-        <div ref={navBarRef} className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
+        <div className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
             <div id="mobile-menu-scroll" className='overflow-y-auto h-full'>
                 <span className='absolute top-0 left-2 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-full h-[5px]'></span>
                 <div className="relative flex items-center px-3 pt-[21px]">

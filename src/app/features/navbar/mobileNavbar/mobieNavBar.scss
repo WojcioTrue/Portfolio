@@ -17,7 +17,7 @@
 }
 
 .backdrop-open {
-    visibility: visible;
+    visibility: visible!important;
     opacity: 0.5;
     transition-property: visibility, opacity;
     transition-duration: 0s, .25s;
