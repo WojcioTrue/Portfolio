@@ -43,7 +43,7 @@ const MainLayoutWrapper = () => {
                 scrollEv()
             ])
         }
-    }, [])
+    }, [listElements, sectionsArr, setActive, setListElements])
 
     return (
         <span className={`${isBlur ? "blur-sm" : ""} transition-all duration-500`}>
