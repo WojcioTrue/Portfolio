@@ -9,10 +9,6 @@ const NavBarIndicatorIcon = () => {
   const { indicatorPosition, setIndicatorPosition } = indicatorDesktop
 
   useEffect(() => {
-
-  },[])
-
-  useEffect(() => {
     const setNewPosition = () => {
       if (active === false) {
         const defaultPosition = getIndicatorPosition('default')
@@ -20,7 +16,6 @@ const NavBarIndicatorIcon = () => {
       } else {
         const activeIndicator = listElements.filter((x) => x.active === true)
         if (activeIndicator.length === 1) {
-          console.log(indicatorPosition)
           const activePosition = getIndicatorPosition(activeIndicator[0].section)
           setIndicatorPosition(activePosition)
         }
@@ -33,7 +28,7 @@ const NavBarIndicatorIcon = () => {
       window.removeEventListener('resize', () => setNewPosition())
     }
 
-  }, [listElements])
+  }, [listElements,active, setIndicatorPosition])
 
 
   return (
