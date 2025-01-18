@@ -11,8 +11,6 @@ const MainLayoutWrapper = () => {
     const { isBlur } = blurPage
     const { listElements, setListElements, setActive } = navBarItems
 
-
-
     useEffect(() => {
         const sectionsArr = ['default', 'Welcome', 'About','Text','Something']
         let activeElement = 'default'
@@ -28,7 +26,6 @@ const MainLayoutWrapper = () => {
                             setActive(false)
                             setListElements(listElements.map(x => { return { ...x, active: false } }))
                         } else {
-                            console.log(section)
                             setListElements(listElements.map(x => x.section === section ? { ...x, active: true } : { ...x, active: false }))
                         }
                     }
