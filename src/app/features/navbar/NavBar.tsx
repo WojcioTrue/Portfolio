@@ -4,12 +4,12 @@ import { useContext, useEffect, useState } from "react"
 import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
-import NavBarAnimatedBg from "./NavbarAnimatedBg/NavBarAnimatedBg"
 import NavBarIndicatorIcon from "./navBarList/NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
 import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
+import NavBarAnimatedBg from "./navbarAnimatedBg/NavBarAnimatedBg"
 
 const NavBar = () => {
   const { navBarItems, navBarDesktopPosition, toogleMobileNav, indicatorDesktop } = useContext(NavBarContext)
@@ -64,7 +64,7 @@ const NavBar = () => {
       <MobileNavBar />
       <BackDrop />
       <NavBarAnimatedBg />
-      <NavBarIndicatorIcon/>
+      <NavBarIndicatorIcon />
 
     </nav>
 

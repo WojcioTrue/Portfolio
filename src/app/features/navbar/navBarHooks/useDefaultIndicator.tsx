@@ -13,7 +13,6 @@ type TypeUseDefaultIndicator = {
 export const getIndicatorPosition = (section: string) => {
     const indicatorPosition = document.getElementById(`desktop_indicator_${section}`)!.getBoundingClientRect()
     const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
-    const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
     return {
         horizontalMid: horizontalMidPosition,
         verticalMid: 25,
