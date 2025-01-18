@@ -18,7 +18,7 @@ const MainLayoutWrapper = () => {
             for (const section of sectionsArr) {
                 const sectionById = document.getElementById(section)!
                 const changedDistance = window.scrollY - sectionById.offsetTop
-                const triggerChange = (changedDistance <= 40) && (changedDistance >= -40)
+                const triggerChange = (changedDistance <= 100) && (changedDistance >= -100)
                 if (triggerChange) {
                     if (section !== activeElement) {
                         activeElement = section;
