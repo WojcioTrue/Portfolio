@@ -11,10 +11,10 @@ const MainLayoutWrapper = () => {
     const { isBlur } = blurPage
     const { listElements, setListElements, setActive } = navBarItems
 
-    const sectionsArr = ['default', 'Welcome', 'About']
 
 
     useEffect(() => {
+        const sectionsArr = ['default', 'Welcome', 'About']
         let activeElement = 'default'
         const scrollEv = () => {
             for (const section of sectionsArr) {
@@ -43,7 +43,7 @@ const MainLayoutWrapper = () => {
                 scrollEv()
             ])
         }
-    }, [listElements, sectionsArr, setActive, setListElements])
+    }, [listElements, setActive, setListElements])
 
     return (
         <span className={`${isBlur ? "blur-sm" : ""} transition-all duration-500`}>
