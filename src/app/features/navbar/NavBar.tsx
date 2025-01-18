@@ -8,7 +8,7 @@ import NavBarIndicatorIcon from "./navBarList/NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
-import NavBarAnimatedBg from "./navbarAnimatedBg/NavBarAnimatedBackground"
+import NavBarAnimatedBackground from "./navbarAnimatedBg/NavBarAnimatedBackground"
 import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
 
 
@@ -64,7 +64,7 @@ const NavBar = () => {
       </span>
       <MobileNavBar />
       <BackDrop />
-      <NavBarAnimatedBg />
+      <NavBarAnimatedBackground/>
       <NavBarIndicatorIcon />
 
     </nav>
