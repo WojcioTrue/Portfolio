@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import NavBarAnimatedStyles from "./NavBarAnimatedBg.module.scss"
 
-const NavBarAnimatedBackground = () => {
+const AnimatedBackground = () => {
     const { navBarDesktopPosition } = useContext(NavBarContext)
     const { position } = navBarDesktopPosition
     const [isDesktop, setIsDesktop] = useState(true)
@@ -37,4 +37,4 @@ const NavBarAnimatedBackground = () => {
     )
 }
 
-export default NavBarAnimatedBackground
+export default AnimatedBackground
