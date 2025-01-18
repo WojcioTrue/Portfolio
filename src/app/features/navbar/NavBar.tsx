@@ -8,8 +8,9 @@ import NavBarIndicatorIcon from "./navBarList/NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
-import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
 import NavBarAnimatedBg from "./navbarAnimatedBg/NavBarAnimatedBg"
+import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
+
 
 const NavBar = () => {
   const { navBarItems, navBarDesktopPosition, toogleMobileNav, indicatorDesktop } = useContext(NavBarContext)
