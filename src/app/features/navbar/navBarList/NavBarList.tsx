@@ -32,7 +32,7 @@ const NavBarList = () => {
         const activeSectionName = `desktop_navbar_li_${activeElement[0].section}`
         const activeSectionPosition = getPosition({
           id: activeSectionName,
-          desktopPosition: position
+          desktopPosition: {...position}
         })
 
         setPosition(activeSectionPosition)
@@ -40,7 +40,7 @@ const NavBarList = () => {
       else {
         const defaultSectionPosition = getPosition({
           id: 'desktop_navbar_default',
-          desktopPosition: position
+          desktopPosition: {...position}
         })
         setPosition(defaultSectionPosition)
       }

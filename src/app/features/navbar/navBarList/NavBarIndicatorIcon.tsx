@@ -1,12 +1,32 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { motion } from 'framer-motion'
+import { act } from 'react-dom/test-utils'
 
 const NavBarIndicatorIcon = () => {
-  const { indicatorDesktop } = useContext(NavBarContext)
+  const { indicatorDesktop, navBarItems } = useContext(NavBarContext)
+  const { indicatorPosition, setIndicatorPosition } = indicatorDesktop
+  const { listElements, active } = navBarItems
 
-  const { indicatorPosition } = indicatorDesktop
-
+  useEffect(() => {
+    const indicatorResize = () => {
+      if (active) {
+        const activeLi = listElements.filter(x => x.active === true)[0].section
+        const activeNode = document.getElementById(`desktop_indicator_${activeLi}`)?.getBoundingClientRect()
+        setIndicatorPosition({
+          horizontalMid: activeNode!.left,
+          verticalMid: 25,
+        })
+      } else {
+        const defaultNode = document.getElementById(`desktop_indicator_default`)?.getBoundingClientRect()
+        setIndicatorPosition({
+          horizontalMid: defaultNode!.left,
+          verticalMid: 25,
+        })
+      }
+    }
+    window.addEventListener('resize',() => indicatorResize())
+  }, [listElements, active, setIndicatorPosition])
 
   return (
     <motion.div

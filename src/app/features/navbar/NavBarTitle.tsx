@@ -8,10 +8,12 @@ const NavBarTitle = () => {
     const { navBarDesktopPosition, navBarItems, toogleMobileNav } = useContext(NavBarContext)
     const { position, setPosition } = navBarDesktopPosition
     const {displayMenu, setDisplayMenu} = toogleMobileNav
+    const {listElements, setActive} = navBarItems
 
     const resetActive = () => {
-        const liElements = navBarItems.listElements.map(x => ({ ...x, active: false }))
-        navBarItems.setListElements(liElements)
+        const liElements = listElements.map(x => ({ ...x, active: false }))
+        navBarItems.setListElements(liElements),
+        setActive(false)
     }
 
     return (
