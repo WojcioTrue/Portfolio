@@ -90,7 +90,7 @@ const NavBarContextProvider = ({children} : ChildrenType) => {
   const [listElements, setListElements] = useState<ListElement[]>(categories)
   const [iDesktopPosition, setIDesktopPosition] = useState<IndicatorDesktopType>({
     horizontalMid: 0,
-    verticalMid: 0,
+    verticalMid: 23,
   })
   const [active, setActive] = useState(false)
 

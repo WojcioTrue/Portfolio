@@ -9,6 +9,7 @@ import { getPosition } from "../navBarHooks/useDefaultBackground";
 const NavBarList = () => {
   const { navBarItems, navBarDesktopPosition } = useContext(NavBarContext)
   const [activeElement, setActiveElement] = useState<ListElement[]>([])
+  const { listElements } = navBarItems
   const { position, setPosition } = navBarDesktopPosition
 
 
@@ -51,7 +52,7 @@ const NavBarList = () => {
 
   return (
     <ul className="hidden w-auto md:flex flex-row items-center">
-      {navBarItems.listElements.map((listItem) => <NavBarListElement id={`desktop_navbar_li_${listItem.section}`} key={uuidv4()} text={listItem.section} isActive={listItem.active} image='/template_logo.svg' />)}
+      {listElements.map((listItem) => <NavBarListElement id={`desktop_navbar_li_${listItem.section}`} key={uuidv4()} text={listItem.section} isActive={listItem.active} />)}
     </ul>
   );
 };

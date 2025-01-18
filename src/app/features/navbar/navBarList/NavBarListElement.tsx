@@ -27,7 +27,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
           event,
           position,
           setPosition
-        });;
+        });
         changeIndicatorPos(event);
         navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
       }

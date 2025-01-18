@@ -5,22 +5,27 @@ import { getIndicatorPosition } from '../navBarHooks/useDefaultIndicator'
 
 const NavBarIndicatorIcon = () => {
   const { indicatorDesktop, navBarItems } = useContext(NavBarContext)
+  const {listElements, active} = navBarItems
   const { indicatorPosition, setIndicatorPosition } = indicatorDesktop
 
   useEffect(() => {
+
+  },[])
+
+  useEffect(() => {
     const setNewPosition = () => {
-      if (navBarItems.active === false) {
+      if (active === false) {
         const defaultPosition = getIndicatorPosition('default')
         setIndicatorPosition(defaultPosition)
       } else {
-        const activeIndicator = navBarItems.listElements.filter((x) => x.active === true)
+        const activeIndicator = listElements.filter((x) => x.active === true)
         if (activeIndicator.length === 1) {
+          console.log(indicatorPosition)
           const activePosition = getIndicatorPosition(activeIndicator[0].section)
           setIndicatorPosition(activePosition)
         }
       }
     }
-
     window.addEventListener('resize', () =>
       setNewPosition()
     )
@@ -28,7 +33,7 @@ const NavBarIndicatorIcon = () => {
       window.removeEventListener('resize', () => setNewPosition())
     }
 
-  }, [navBarItems.active, navBarItems.listElements, setIndicatorPosition])
+  }, [listElements])
 
 
   return (

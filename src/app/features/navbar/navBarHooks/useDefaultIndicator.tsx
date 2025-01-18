@@ -13,12 +13,10 @@ type TypeUseDefaultIndicator = {
 export const getIndicatorPosition = (section: string) => {
     const indicatorPosition = document.getElementById(`desktop_indicator_${section}`)!.getBoundingClientRect()
     const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
-
     const verticalMidPosition = Number((indicatorPosition.top).toFixed(0))
-
     return {
         horizontalMid: horizontalMidPosition,
-        verticalMid: verticalMidPosition,
+        verticalMid: 25,
     }
 }
 
@@ -32,8 +30,8 @@ const useDefaultIndicator = ({ active, setIDesktopPosition, listElements }: Type
         }
         else {
             const getActiveSection = listElements.filter(x => x.active === true)
-            const listElementPosition = getIndicatorPosition(`${getActiveSection[0].section}`)
-            setIDesktopPosition(listElementPosition)
+            const activeLi = getIndicatorPosition(`${getActiveSection[0].section}`)
+            setIDesktopPosition(activeLi)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [active, setIDesktopPosition])
