@@ -1,12 +1,20 @@
+import React, { useContext } from 'react'
+import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { motion } from 'framer-motion'
 
-
 const NavBarIndicatorIcon = () => {
+  const { indicatorDesktop } = useContext(NavBarContext)
+
+  const { indicatorPosition } = indicatorDesktop
 
 
   return (
     <motion.div
       className={`h-[30px] w-[30px] absolute hidden md:block`}
+      style={{
+        top: `${indicatorPosition.verticalMid}px`,
+        left: `${indicatorPosition.horizontalMid}px`,
+      }}
       layout
       transition={{
         type: 'spring',
