@@ -24,18 +24,17 @@ const MainLayoutWrapper = () => {
                 if (triggerChange) {
                     if (section !== activeElement) {
                         activeElement = section;
-                        if(section === 'default'){
+                        if (section === 'default') {
                             setActive(false)
-                            setListElements(listElements.map(x => {return {...x, active: false}}))
+                            setListElements(listElements.map(x => { return { ...x, active: false } }))
                         } else {
                             setListElements(listElements.map(x => x.section === section ? { ...x, active: true } : { ...x, active: false }))
                         }
                     }
                 }
-
             }
         }
-
+        scrollEv()
         window.addEventListener('scroll', () => {
             scrollEv()
         })
