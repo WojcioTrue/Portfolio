@@ -64,6 +64,7 @@ const NavBar = () => {
       </span>
       <MobileNavBar />
       <BackDrop />
+      <AnimatedBackground/>
       <NavBarIndicatorIcon />
 
     </nav>
