@@ -11,8 +11,8 @@ const NavBarIndicatorIcon = () => {
   useEffect(() => {
     const indicatorResize = () => {
       if (active) {
-        const activeLi = listElements.filter(x => x.active === true)[0].section
-        const activeNode = document.getElementById(`desktop_indicator_${activeLi}`)?.getBoundingClientRect()
+        const activeLi = listElements.filter(x => x.active === true)
+        const activeNode = document.getElementById(`desktop_indicator_${activeLi[0].section}`)?.getBoundingClientRect()
         setIndicatorPosition({
           horizontalMid: activeNode!.left,
           verticalMid: 25,

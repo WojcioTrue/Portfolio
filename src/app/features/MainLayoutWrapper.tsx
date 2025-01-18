@@ -9,7 +9,7 @@ const MainLayoutWrapper = () => {
     const { navBarItems } = useContext(NavBarContext)
     const { blurPage } = useContext(BlurPage)
     const { isBlur } = blurPage
-    const { listElements, setListElements } = navBarItems
+    const { listElements, setListElements, setActive } = navBarItems
 
     const sectionsArr = ['default', 'Welcome', 'About']
 
@@ -19,11 +19,17 @@ const MainLayoutWrapper = () => {
         const scrollEv = () => {
             for (const section of sectionsArr) {
                 const sectionById = document.getElementById(section)!
-                const changeRange = window.scrollY - sectionById.offsetTop
-                if ((changeRange <= 40) && (changeRange >= -40)) {
+                const changedDistance = window.scrollY - sectionById.offsetTop
+                const triggerChange = (changedDistance <= 40) && (changedDistance >= -40)
+                if (triggerChange) {
                     if (section !== activeElement) {
-                        activeElement = section
-                        setListElements(listElements.map(x => x.section === section ? { ...x, active: true } : { ...x, active: false }))
+                        activeElement = section;
+                        if(section === 'default'){
+                            setActive(false)
+                            setListElements(listElements.map(x => {return {...x, active: false}}))
+                        } else {
+                            setListElements(listElements.map(x => x.section === section ? { ...x, active: true } : { ...x, active: false }))
+                        }
                     }
                 }
 
