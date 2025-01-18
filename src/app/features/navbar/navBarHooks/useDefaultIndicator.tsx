@@ -33,7 +33,7 @@ const useDefaultIndicator = ({ active, setIDesktopPosition, listElements }: Type
             setIDesktopPosition(activeLi)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [active, setIDesktopPosition])
+    }, [active, setIDesktopPosition, listElements])
 }
 
 export default useDefaultIndicator

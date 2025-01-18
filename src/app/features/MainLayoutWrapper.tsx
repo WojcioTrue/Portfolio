@@ -14,7 +14,7 @@ const MainLayoutWrapper = () => {
 
 
     useEffect(() => {
-        const sectionsArr = ['default', 'Welcome', 'About']
+        const sectionsArr = ['default', 'Welcome', 'About','Text','Something']
         let activeElement = 'default'
         const scrollEv = () => {
             for (const section of sectionsArr) {
@@ -28,6 +28,7 @@ const MainLayoutWrapper = () => {
                             setActive(false)
                             setListElements(listElements.map(x => { return { ...x, active: false } }))
                         } else {
+                            console.log(section)
                             setListElements(listElements.map(x => x.section === section ? { ...x, active: true } : { ...x, active: false }))
                         }
                     }
