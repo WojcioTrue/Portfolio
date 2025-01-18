@@ -3,24 +3,35 @@ import { useContext, useEffect } from "react";
 import Banner from "./main/Main";
 import Tech from "./technologies/Tech";
 import { BlurPage } from "./navbar/mobileNavbar/backdrop/BackDropContext";
-import NavBarContext from "./navbar/NavBarContextWrapper";
+import { NavBarContext } from "./navbar/navBarContext/NavBarContextProvider";
+import { categories } from "./navbar/navItems";
 
 const MainLayoutWrapper = () => {
+    const { navBarItems } = useContext(NavBarContext)
     const { blurPage } = useContext(BlurPage)
+    const { setListElements, listElements, setActive, active } = navBarItems
     const { isBlur } = blurPage
 
     useEffect(() => {
-        const checkId = () => {
-            const arrOfId = ['default', 'tech', 'tech2']
+        console.log(listElements)
+    }, [listElements])
 
-            arrOfId.forEach((x) => {
-                const idTestTop = document.getElementById(x)?.getBoundingClientRect().top
-                if (idTestTop !== undefined) {
-                    console.log(((idTestTop >= -100) && (idTestTop < 100)) && console.log(true, x))
-                }
-            })
+    useEffect(() => {
+        const checkId = () => {
+            // const arrOfId = ['default', 'Welcome', 'About']
+            // for (const arg of arrOfId) {
+            //     const id = document.getElementById(arg)?.getBoundingClientRect().top
+            //     if (id !== undefined) {
+            //         const triggerChange = ((id >= -100) && (id < 100));
+            //         if (triggerChange) {
+            //             console.log(arg)
+                        
+            //         }
+            //     }
+            // }
         }
 
+        checkId()
         document.addEventListener('scroll', () => {
             checkId()
         }); return () => {
