@@ -9,7 +9,6 @@ export default function Home() {
     <>
       <BackDropContext>
         <NavBarContextWrapper />
-        
       </BackDropContext>
     </>
   );
