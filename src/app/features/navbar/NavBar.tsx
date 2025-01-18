@@ -8,7 +8,7 @@ import NavBarIndicatorIcon from "./navBarList/NavBarIndicatorIcon"
 import NavBarTitle from "./NavBarTitle"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
-import NavBarAnimatedBackground from "./navbarAnimatedBg/NavBarAnimatedBackground"
+
 import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
 
 
