@@ -56,11 +56,8 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
       <MobileIndicatorIcon active={isActive} />
       <motion.a
         layout
-        initial={{
-          translateX: '15px',
-        }}
         animate={{
-          translateX: isActive ? '15px' : '0px',
+          translateX: isActive ? '10px' : '0px',
         }}
         className={`flex items-center justify-start 
       ${isActive ? `text-my-purple` : `text-my-black`} 
