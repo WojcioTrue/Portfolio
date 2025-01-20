@@ -24,19 +24,18 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
     setIndicatorPosition(getIndicatorPosition(arg))
   }
 
-  const scrollDown = () => {
+  const closeMenu = () => {
     setTimeout(() => {
       setDisplayMenu(false)
       setIsBlur(false)
     }, 300)
-
   }
 
   return (
     <li onClick={() => {
       changeActiveLi();
       changeIndicator(text);
-      scrollDown();
+      closeMenu();
     }
     }
       id={id}
