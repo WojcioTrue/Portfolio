@@ -6,12 +6,15 @@ import { NavBarListElementType } from '../../navBarTypes'
 import { getIndicatorPosition } from "../../navBarHooks/useDefaultIndicator"
 import MobileIndicatorIcon from "./MobileIndicatorIcon"
 import { motion } from "framer-motion"
-
+import { BlurPage } from "../backdrop/BackDropContext"
 
 const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
-  const { navBarItems, indicatorDesktop } = useContext(NavBarContext)
+  const { blurPage } = useContext(BlurPage)
+  const { navBarItems, indicatorDesktop, toogleMobileNav } = useContext(NavBarContext)
   const { setIndicatorPosition } = indicatorDesktop
   const { setListElements } = navBarItems
+  const { setDisplayMenu } = toogleMobileNav
+  const { setIsBlur } = blurPage
 
   const changeActiveLi = () => {
     setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
@@ -21,10 +24,19 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
     setIndicatorPosition(getIndicatorPosition(arg))
   }
 
+  const scrollDown = () => {
+    setTimeout(() => {
+      setDisplayMenu(false)
+      setIsBlur(false)
+    }, 300)
+
+  }
+
   return (
     <li onClick={() => {
       changeActiveLi();
       changeIndicator(text);
+      scrollDown();
     }
     }
       id={id}
