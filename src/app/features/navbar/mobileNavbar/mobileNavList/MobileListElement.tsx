@@ -11,6 +11,11 @@ import { motion } from "framer-motion"
 const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { setIndicatorPosition } = indicatorDesktop
+  const { setListElements } = navBarItems
+
+  const changeActiveLi = () => {
+    setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
+  }
 
   const changeIndicator = (arg: string) => {
     setIndicatorPosition(getIndicatorPosition(arg))
@@ -18,8 +23,8 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
 
   return (
     <li onClick={() => {
-      navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
-      changeIndicator(text)
+      changeActiveLi();
+      changeIndicator(text);
     }
     }
       id={id}
