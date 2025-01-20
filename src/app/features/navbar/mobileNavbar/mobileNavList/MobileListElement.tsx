@@ -1,6 +1,5 @@
-// import Image from 'next/image'
 import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { categories } from '../../navItems'
 import { NavBarListElementType } from '../../navBarTypes'
 import { getIndicatorPosition } from "../../navBarHooks/useDefaultIndicator"
@@ -15,6 +14,7 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { setListElements } = navBarItems
   const { setDisplayMenu } = toogleMobileNav
   const { setIsBlur } = blurPage
+  const [disableLi, setDisableLi] = useState(false)
 
   const changeActiveLi = () => {
     setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
@@ -24,6 +24,18 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
     setIndicatorPosition(getIndicatorPosition(arg))
   }
 
+  // const scrollDown = () => {
+  //   setDisableLi(true)
+  //   setTimeout(() => {
+  //     setDisplayMenu(false)
+  //     console.log('cock')
+  //   }, 300)
+  // }
+
+  // useEffect(() => {
+  //   console.log(disableLi)
+  // },[disableLi])
+
   const closeMenu = () => {
     setTimeout(() => {
       setDisplayMenu(false)
@@ -32,11 +44,12 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   }
 
   return (
-    <li onClick={() => {
+    <li onClick={disableLi ? () => null : () => {
       changeActiveLi();
       changeIndicator(text);
-      closeMenu();
-    }
+      // scrollDown();
+      // closeMenu();
+      }
     }
       id={id}
       className={`mobile-nav-bar-element py-2 pl-1 flex`}>
@@ -44,10 +57,10 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
       <motion.a
         layout
         initial={{
-          translateX: '-15px',
+          translateX: '15px',
         }}
         animate={{
-          translateX: isActive ? '0px' : '-15px',
+          translateX: isActive ? '15px' : '0px',
         }}
         className={`flex items-center justify-start 
       ${isActive ? `text-my-purple` : `text-my-black`} 
