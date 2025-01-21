@@ -14,7 +14,6 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { setListElements } = navBarItems
   const { setDisplayMenu } = toogleMobileNav
   const { setIsBlur } = blurPage
-  const [disableLi, setDisableLi] = useState(false)
 
   const changeActiveLi = () => {
     setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
@@ -24,18 +23,6 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
     setIndicatorPosition(getIndicatorPosition(arg))
   }
 
-  // const scrollDown = () => {
-  //   setDisableLi(true)
-  //   setTimeout(() => {
-  //     setDisplayMenu(false)
-  //     console.log('cock')
-  //   }, 300)
-  // }
-
-  // useEffect(() => {
-  //   console.log(disableLi)
-  // },[disableLi])
-
   const closeMenu = () => {
     setTimeout(() => {
       setDisplayMenu(false)
@@ -44,12 +31,11 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   }
 
   return (
-    <li onClick={disableLi ? () => null : () => {
+    <li onClick={() => {
       changeActiveLi();
       changeIndicator(text);
-      // scrollDown();
-      // closeMenu();
-      }
+      closeMenu();
+    }
     }
       id={id}
       className={`mobile-nav-bar-element py-2 pl-1 flex`}>
