@@ -32,10 +32,10 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
 
   return (
     <li onClick={() => {
-      changeActiveLi();
-      changeIndicator(text);
-      closeMenu();
-    }
+        changeActiveLi();
+        changeIndicator(text);
+        closeMenu();
+      }
     }
       id={id}
       className={`mobile-nav-bar-element py-2 pl-1 flex`}>
