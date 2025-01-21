@@ -23,6 +23,16 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
     setIndicatorPosition(getIndicatorPosition(arg))
   }
 
+  const scrollTo = (text: string) => {
+    const scrollTo = document.getElementById(text)
+    scrollTo?.scrollIntoView(
+      {
+        behavior: 'smooth',
+        block: 'nearest'
+      }
+    )
+  }
+
   const closeMenu = () => {
     setTimeout(() => {
       setDisplayMenu(false)
@@ -32,10 +42,11 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
 
   return (
     <li onClick={() => {
-        changeActiveLi();
-        changeIndicator(text);
-        closeMenu();
-      }
+      changeActiveLi();
+      changeIndicator(text);
+      scrollTo(text);
+      closeMenu();
+    }
     }
       id={id}
       className={`mobile-nav-bar-element py-2 pl-1 flex`}>
