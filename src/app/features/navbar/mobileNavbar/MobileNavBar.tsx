@@ -6,6 +6,7 @@ import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
 import ToggleMenuButton from '@/app/features/navbar/ToggleMenuButton'
 import { BlurPage } from './backdrop/BackDropContext'
 import useScrollBackground from './mobieNavBarHooks/useScrollBackground'
+import { scrollToElement } from '../navBarHooks/useScrollTo'
 
 const MobileNavBar = () => {
     const { toogleMobileNav } = useContext(NavBarContext)
@@ -35,8 +36,15 @@ const MobileNavBar = () => {
             <div id="mobile-menu-scroll" className='overflow-y-auto h-full'>
                 <span className='absolute top-0 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-full h-[5px]'></span>
                 <div className="relative flex items-center px-3 pt-[21px]">
-                    <span className='mobile-logo w-full flex-1'>
-                        <h1 className={`text-3xl text-my-purple`}>Wojcio_True</h1>
+                    <span onClick={
+                        () => {
+                            scrollToElement('default'),
+                            setDisplayMenu(false),
+                            setIsBlur(false)
+                        }
+                    }
+                    className='mobile-logo w-full flex-1'>
+                    <h1 className={`text-3xl text-my-purple`}>Wojcio_True</h1>
                     </span>
                     <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} />
                 </div>

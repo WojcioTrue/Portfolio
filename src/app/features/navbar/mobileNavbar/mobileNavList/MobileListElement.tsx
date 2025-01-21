@@ -1,11 +1,12 @@
 import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
-import { useContext, useEffect, useState } from 'react'
+import { useContext} from 'react'
 import { categories } from '../../navItems'
 import { NavBarListElementType } from '../../navBarTypes'
 import { getIndicatorPosition } from "../../navBarHooks/useDefaultIndicator"
 import MobileIndicatorIcon from "./MobileIndicatorIcon"
 import { motion } from "framer-motion"
 import { BlurPage } from "../backdrop/BackDropContext"
+import { scrollToElement } from "../../navBarHooks/useScrollTo"
 
 const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { blurPage } = useContext(BlurPage)
@@ -23,16 +24,6 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
     setIndicatorPosition(getIndicatorPosition(arg))
   }
 
-  const scrollTo = (text: string) => {
-    const scrollTo = document.getElementById(text)
-    scrollTo?.scrollIntoView(
-      {
-        behavior: 'smooth',
-        block: 'nearest'
-      }
-    )
-  }
-
   const closeMenu = () => {
     setTimeout(() => {
       setDisplayMenu(false)
@@ -44,7 +35,7 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
     <li onClick={() => {
       changeActiveLi();
       changeIndicator(text);
-      scrollTo(text);
+      scrollToElement(text);
       closeMenu();
     }
     }

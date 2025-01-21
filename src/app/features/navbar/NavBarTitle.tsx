@@ -3,6 +3,7 @@ import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
+import { scrollToElement } from "./navBarHooks/useScrollTo"
 
 const NavBarTitle = () => {
     const { navBarDesktopPosition, navBarItems, toogleMobileNav } = useContext(NavBarContext)
@@ -29,7 +30,7 @@ const NavBarTitle = () => {
             className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
             <a onClick={() => resetActive()} className="flex items-center gap-2" href="#">
                 <NavBarIndicatorField text={'default'} />
-                <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple`}>Wojcio_True</p>
+                <p onClick={() => scrollToElement('default')} className={`py-3 inline my-auto text-2xl font-medium text-my-purple`}>Wojcio_True</p>
             </a>
             <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} onlyMobile={true}/>
         </div>

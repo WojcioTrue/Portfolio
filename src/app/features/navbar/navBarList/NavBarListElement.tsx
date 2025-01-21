@@ -5,6 +5,7 @@ import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
 import { getIndicatorPosition } from '../navBarHooks/useDefaultIndicator'
 import { clickChangeCenter } from "../navBarHooks/useDefaultBackground"
+import { scrollToElement } from "../navBarHooks/useScrollTo"
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
@@ -22,6 +23,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   return (
     <li onClick={
       (event: React.MouseEvent) => {
+        scrollToElement(text)
         clickChangeCenter({
           event,
           position,
@@ -29,6 +31,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
         });
         changeIndicatorPos(event);
         navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
+        
       }
     }
       id={id}
