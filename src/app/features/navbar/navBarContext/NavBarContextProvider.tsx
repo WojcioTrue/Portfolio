@@ -27,6 +27,10 @@ const NavBarContext = createContext<{
     active: boolean,
     setActive: Dispatch<SetStateAction<boolean>>
   }
+  disableBg: {
+    disable: boolean,
+    setDisable: Dispatch<SetStateAction<boolean>>
+  }
 }>({
   toogleMobileNav: {
     displayMenu: false,
@@ -62,14 +66,18 @@ const NavBarContext = createContext<{
     setListElements: () => { },
     active: false,
     setActive: () => { }
+  },
+  disableBg: {
+    disable: false,
+    setDisable: () => { }
   }
 })
 
 type ChildrenType = {
-  children : React.ReactNode
+  children: React.ReactNode
 }
 
-const NavBarContextProvider = ({children} : ChildrenType) => {
+const NavBarContextProvider = ({ children }: ChildrenType) => {
   // state for context
   const [displayMenu, setDisplayMenu] = useState<boolean>(false)
   //state for changing menu to fixed
@@ -93,6 +101,7 @@ const NavBarContextProvider = ({children} : ChildrenType) => {
     verticalMid: 23,
   })
   const [active, setActive] = useState(false)
+  const [disable, setDisable] = useState(false)
 
   return (
     <NavBarContext.Provider value={
@@ -116,6 +125,10 @@ const NavBarContextProvider = ({children} : ChildrenType) => {
           active,
           setActive,
         },
+        disableBg: {
+          disable,
+          setDisable
+        }
       }}>
       {children}
     </NavBarContext.Provider>
@@ -123,4 +136,4 @@ const NavBarContextProvider = ({children} : ChildrenType) => {
   )
 }
 
-export {NavBarContext, NavBarContextProvider}
+export { NavBarContext, NavBarContextProvider }

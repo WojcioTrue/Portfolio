@@ -21,7 +21,6 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   }
 
   const listElementClick = (event: React.MouseEvent) => {
-    setTimeout(() => {
       clickChangeCenter({
         event,
         position,
@@ -29,7 +28,13 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
       });
       changeIndicatorPos(event);
       navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
-    }, 350)
+  }
+
+  const setDefaultBg = () => {
+    console.log(true)
+    setTimeout(() => {
+      console.log(false)
+    }, 200)
   }
 
   return (
@@ -37,6 +42,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
       (event: React.MouseEvent) => {
         scrollToElement(text)
         listElementClick(event)
+        setDefaultBg()
       }
     }
       id={id}
