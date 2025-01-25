@@ -1,5 +1,5 @@
 "use client"
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Banner from "./main/Main";
 import Tech from "./technologies/Tech";
 import { BlurPage } from "./navbar/mobileNavbar/backdrop/BackDropContext";
@@ -11,6 +11,16 @@ const MainLayoutWrapper = () => {
     const { isBlur } = blurPage
     const { listElements, setListElements, setActive } = navBarItems
     const { disable, setDisable } = disableBg
+
+    useEffect(() => {
+        console.log('disable statement')
+        if (disable) {
+            setTimeout(() => {
+                setDisable(false)
+                console.log('triggered')
+            }, 500)
+        }
+    }, [disable, setDisable])
 
     useEffect(() => {
         const sectionsArr = ['default', 'Welcome', 'About', 'Text', 'Something']
@@ -33,7 +43,6 @@ const MainLayoutWrapper = () => {
                     }
                 }
             }
-            console.log(activeElement)
         }
 
         scrollEvent()
@@ -43,12 +52,11 @@ const MainLayoutWrapper = () => {
         return () => {
             window.removeEventListener('scroll', scrollEvent)
         }
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [disable])
 
     return (
-        <span className={`${isBlur ? "blur-sm" : ""} transition-all duration-500`}>
+        <span className={`${isBlur ? "blur-sm" : ""} transition-all duration-400`}>
             <Banner />
             <Tech />
         </span>

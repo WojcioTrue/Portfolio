@@ -12,8 +12,6 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { position, setPosition } = navBarDesktopPosition
   const { setIndicatorPosition } = indicatorDesktop
   const { disable, setDisable } = disableBg
-
-
   // change position of indicator when clicked
   const changeIndicatorPos = (ev: React.MouseEvent) => {
     ev.preventDefault()
@@ -33,18 +31,16 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
 
   const disableAfterClick = () => {
     setDisable(true)
-    setTimeout(() => {
-      setDisable(false)
-      console.log('triggered')
-    },450)
   }
 
   return (
     <li onClick={
       (event: React.MouseEvent) => {
-        scrollToElement(text)
-        listElementClick(event)
-        disableAfterClick()
+        if (!disable) {
+          scrollToElement(text)
+          listElementClick(event)
+          disableAfterClick()
+        }
       }
     }
       id={id}
