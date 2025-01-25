@@ -13,12 +13,11 @@ const MainLayoutWrapper = () => {
     const { disable, setDisable } = disableBg
 
     useEffect(() => {
-        console.log('disable statement')
         if (disable) {
             setTimeout(() => {
                 setDisable(false)
                 console.log('triggered')
-            }, 500)
+            }, 100)
         }
     }, [disable, setDisable])
 
@@ -30,7 +29,7 @@ const MainLayoutWrapper = () => {
             for (const section of sectionsArr) {
                 const sectionById = document.getElementById(section)!
                 const changedDistance = window.scrollY - sectionById.offsetTop
-                const triggerChange = (changedDistance <= 100) && (changedDistance >= -100)
+                const triggerChange = (changedDistance <= 200) && (changedDistance >= -200)
                 if (triggerChange) {
                     if (section !== activeElement) {
                         activeElement = section;
@@ -56,7 +55,7 @@ const MainLayoutWrapper = () => {
     }, [disable])
 
     return (
-        <span className={`${isBlur ? "blur-sm" : ""} transition-all duration-400`}>
+        <span className={`${isBlur ? "blur-sm" : ""} transition-all `}>
             <Banner />
             <Tech />
         </span>

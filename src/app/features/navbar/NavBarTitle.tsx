@@ -6,16 +6,21 @@ import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
 import { scrollToElement } from "./navBarHooks/useScrollTo"
 
 const NavBarTitle = () => {
-    const { navBarDesktopPosition, navBarItems, toogleMobileNav } = useContext(NavBarContext)
+    const { navBarDesktopPosition, navBarItems, toogleMobileNav, disableBg } = useContext(NavBarContext)
     const { position, setPosition } = navBarDesktopPosition
     const {displayMenu, setDisplayMenu} = toogleMobileNav
     const {listElements, setActive} = navBarItems
+    const { setDisable } = disableBg
 
     const resetActive = () => {
         const liElements = listElements.map(x => ({ ...x, active: false }))
         navBarItems.setListElements(liElements),
         setActive(false)
     }
+
+    const disableAfterClick = () => {
+        setDisable(true)
+      }
 
     return (
         <div
@@ -24,7 +29,8 @@ const NavBarTitle = () => {
                         event,
                         position, 
                         setPosition
-                    })
+                    }),
+                    disableAfterClick()
                 }}
             id="desktop_navbar_default"
             className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
