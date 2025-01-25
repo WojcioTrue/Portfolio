@@ -1,11 +1,11 @@
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { categories } from '../navItems'
 import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
 import { getIndicatorPosition } from '../navBarHooks/useDefaultIndicator'
 import { clickChangeCenter } from "../navBarHooks/useDefaultBackground"
-import { scrollToElement } from "../navBarHooks/useScrollTo"
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop, disableBg } = useContext(NavBarContext)
@@ -34,22 +34,31 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   }
 
   return (
-    <li onClick={
-      (event: React.MouseEvent) => {
-        if (!disable) {
-          scrollToElement(text)
-          listElementClick(event)
-          disableAfterClick()
+    <Link
+      activeClass="active"
+      to={`About`}
+      spy={true}
+      smooth={true}
+      duration={200}
+      >
+      <li onClick={
+        (event: React.MouseEvent) => {
+          if (!disable) {
+            listElementClick(event)
+            // scrollToElement(text)
+            disableAfterClick()
+          }
         }
       }
-    }
-      id={id}
-      className={`desktop-nav-bar-element px-4 text-md cursor-pointer`}>
-      <a className={`flex items-center w-max gap-2 transition-colors ${isActive ? "text-my-purple" : "text-my-black"}`}>
-        <NavBarIndicatorField text={text} />
-        {text}
-      </a>
-    </li>
+        id={id}
+        className={`desktop-nav-bar-element px-4 text-md cursor-pointer`}>
+        <p className={`flex items-center w-max gap-2 transition-colors ${isActive ? "text-my-purple" : "text-my-black"}`}>
+          <NavBarIndicatorField text={text} />
+          {text}
+        </p>
+      </li>
+    </Link>
+
   )
 }
 

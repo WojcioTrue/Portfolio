@@ -6,7 +6,6 @@ import { getIndicatorPosition } from "../../navBarHooks/useDefaultIndicator"
 import MobileIndicatorIcon from "./MobileIndicatorIcon"
 import { motion } from "framer-motion"
 import { BlurPage } from "../backdrop/BackDropContext"
-import { scrollToElement } from "../../navBarHooks/useScrollTo"
 
 const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { blurPage } = useContext(BlurPage)
@@ -35,7 +34,6 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
     <li onClick={() => {
       changeActiveLi();
       changeIndicator(text);
-      scrollToElement(text);
       closeMenu();
     }
     }

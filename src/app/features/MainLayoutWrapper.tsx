@@ -17,7 +17,7 @@ const MainLayoutWrapper = () => {
             setTimeout(() => {
                 setDisable(false)
                 console.log('triggered')
-            }, 100)
+            }, 250)
         }
     }, [disable, setDisable])
 

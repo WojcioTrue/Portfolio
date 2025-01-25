@@ -6,7 +6,6 @@ import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
 import ToggleMenuButton from '@/app/features/navbar/ToggleMenuButton'
 import { BlurPage } from './backdrop/BackDropContext'
 import useScrollBackground from './mobieNavBarHooks/useScrollBackground'
-import { scrollToElement } from '../navBarHooks/useScrollTo'
 
 const MobileNavBar = () => {
     const { toogleMobileNav } = useContext(NavBarContext)
@@ -38,7 +37,6 @@ const MobileNavBar = () => {
                 <div className="relative flex items-center px-3 pt-[21px]">
                     <span onClick={
                         () => {
-                            scrollToElement('default'),
                             setDisplayMenu(false),
                             setIsBlur(false)
                         }
