@@ -6,15 +6,17 @@ import { BlurPage } from "./navbar/mobileNavbar/backdrop/BackDropContext";
 import { NavBarContext } from "./navbar/navBarContext/NavBarContextProvider";
 
 const MainLayoutWrapper = () => {
-    const { navBarItems } = useContext(NavBarContext)
+    const { navBarItems, disableBg } = useContext(NavBarContext)
     const { blurPage } = useContext(BlurPage)
     const { isBlur } = blurPage
     const { listElements, setListElements, setActive } = navBarItems
+    const { disable, setDisable } = disableBg
 
     useEffect(() => {
-        const sectionsArr = ['default', 'Welcome', 'About','Text','Something']
+        const sectionsArr = ['default', 'Welcome', 'About', 'Text', 'Something']
         let activeElement = 'default'
-        const scrollEv = () => {
+        const scrollEvent = () => {
+            if (disable) return;
             for (const section of sectionsArr) {
                 const sectionById = document.getElementById(section)!
                 const changedDistance = window.scrollY - sectionById.offsetTop
@@ -31,18 +33,19 @@ const MainLayoutWrapper = () => {
                     }
                 }
             }
+            console.log(activeElement)
         }
-        scrollEv()
-        window.addEventListener('scroll', () => {
-            scrollEv()
-        })
+
+        scrollEvent()
+        if (!disable) {
+            window.addEventListener('scroll', scrollEvent)
+        }
         return () => {
-            window.removeEventListener('scroll', () => [
-                scrollEv()
-            ])
+            window.removeEventListener('scroll', scrollEvent)
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [disable])
 
     return (
         <span className={`${isBlur ? "blur-sm" : ""} transition-all duration-500`}>

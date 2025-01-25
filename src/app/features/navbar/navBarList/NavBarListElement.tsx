@@ -1,5 +1,5 @@
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { categories } from '../navItems'
 import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
@@ -8,9 +8,10 @@ import { clickChangeCenter } from "../navBarHooks/useDefaultBackground"
 import { scrollToElement } from "../navBarHooks/useScrollTo"
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
-  const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
+  const { navBarDesktopPosition, navBarItems, indicatorDesktop, disableBg } = useContext(NavBarContext)
   const { position, setPosition } = navBarDesktopPosition
   const { setIndicatorPosition } = indicatorDesktop
+  const { disable, setDisable } = disableBg
 
 
   // change position of indicator when clicked
@@ -21,20 +22,21 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   }
 
   const listElementClick = (event: React.MouseEvent) => {
-      clickChangeCenter({
-        event,
-        position,
-        setPosition
-      });
-      changeIndicatorPos(event);
-      navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
+    clickChangeCenter({
+      event,
+      position,
+      setPosition
+    });
+    changeIndicatorPos(event);
+    navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
   }
 
-  const setDefaultBg = () => {
-    console.log(true)
+  const disableAfterClick = () => {
+    setDisable(true)
     setTimeout(() => {
-      console.log(false)
-    }, 200)
+      setDisable(false)
+      console.log('triggered')
+    },450)
   }
 
   return (
@@ -42,7 +44,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
       (event: React.MouseEvent) => {
         scrollToElement(text)
         listElementClick(event)
-        setDefaultBg()
+        disableAfterClick()
       }
     }
       id={id}
