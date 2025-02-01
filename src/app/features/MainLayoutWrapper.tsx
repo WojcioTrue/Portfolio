@@ -1,5 +1,5 @@
 "use client"
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect } from "react";
 import Banner from "./main/Main";
 import Tech from "./technologies/Tech";
 import { BlurPage } from "./navbar/mobileNavbar/backdrop/BackDropContext";
