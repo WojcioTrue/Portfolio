@@ -42,12 +42,13 @@ const NavBarTitle = () => {
                 spy={true}
                 smooth={true}
                 duration={200}
+                onClick={() => resetActive()} 
             >
-                <p onClick={() => resetActive()} className="flex items-center gap-2 cursor-pointer">
+                <span className="flex items-center gap-2 cursor-pointer">
                     <NavBarIndicatorField text={'default'} />
                     <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple`}>Wojcio_True</p>
-                </p>
                 <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} onlyMobile={true} />
+                </span>
             </Link>
 
         </div>
