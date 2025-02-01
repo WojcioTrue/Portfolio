@@ -6,6 +6,7 @@ import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
 import ToggleMenuButton from '@/app/features/navbar/ToggleMenuButton'
 import { BlurPage } from './backdrop/BackDropContext'
 import useScrollBackground from './mobieNavBarHooks/useScrollBackground'
+import { Link } from 'react-scroll';
 
 const MobileNavBar = () => {
     const { toogleMobileNav } = useContext(NavBarContext)
@@ -38,11 +39,19 @@ const MobileNavBar = () => {
                     <span onClick={
                         () => {
                             setDisplayMenu(false),
-                            setIsBlur(false)
+                                setIsBlur(false)
                         }
                     }
-                    className='mobile-logo w-full flex-1'>
+                        className='mobile-logo w-full flex-1'>
+                        <Link
+                            activeClass="active"
+                            to={'default'}
+                            spy={true}
+                            smooth={true}
+                            duration={200}
+                        >
                     <h1 className={`text-3xl text-my-purple`}>Wojcio_True</h1>
+                        </Link>
                     </span>
                     <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} />
                 </div>
