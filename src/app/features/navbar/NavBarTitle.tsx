@@ -37,6 +37,7 @@ const NavBarTitle = () => {
             className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
 
             <Link
+                className="flex items-center gap-2 cursor-pointer"
                 activeClass="active"
                 to={'default'}
                 spy={true}
@@ -45,15 +46,12 @@ const NavBarTitle = () => {
                 onClick={() => {
                     resetActive()
                     disableAfterClick()
-                }} 
+                }}
             >
-                <span className="flex items-center gap-2 cursor-pointer">
-                    <NavBarIndicatorField text={'default'} />
-                    <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple`}>Wojcio_True</p>
-                <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} onlyMobile={true} />
-                </span>
+                <NavBarIndicatorField text={'default'} />
+                <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple`}>Wojcio_True</p>
             </Link>
-
+            <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} onlyMobile={true} />
         </div>
     )
 }
