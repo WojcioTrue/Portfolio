@@ -1,9 +1,17 @@
-import React from 'react'
+import { useContext } from 'react'
+import { NavBarContext } from '../navBarContext/NavBarContextProvider'
+
 
 const useDisableScrollEv = () => {
-  return (
-    <div>useDisableScrollEv</div>
-  )
+    const { disableBg } = useContext(NavBarContext)
+    const { disable, setDisable } = disableBg
+    const disableAfterClick = () => {
+        setDisable(true)
+    }
+    return [
+        disable,
+        disableAfterClick
+    ] as const
 }
 
 export default useDisableScrollEv
