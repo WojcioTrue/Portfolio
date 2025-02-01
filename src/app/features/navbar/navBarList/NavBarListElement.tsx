@@ -5,7 +5,7 @@ import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
 import { getIndicatorPosition } from '../navBarHooks/useDefaultIndicator'
 import { clickChangeCenter } from "../navBarHooks/useDefaultBackground"
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop, disableBg } = useContext(NavBarContext)
