@@ -36,16 +36,15 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   return (
     <Link
       activeClass="active"
-      to={`About`}
+      to={text}
       spy={true}
       smooth={true}
       duration={200}
-      >
+    >
       <li onClick={
         (event: React.MouseEvent) => {
           if (!disable) {
             listElementClick(event)
-            // scrollToElement(text)
             disableAfterClick()
           }
         }
