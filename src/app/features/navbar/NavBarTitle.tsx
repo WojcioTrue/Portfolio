@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 
 const NavBarTitle = () => {
@@ -43,7 +43,7 @@ const NavBarTitle = () => {
                 smooth={true}
                 duration={200}
             >
-                <p onClick={() => resetActive()} className="flex items-center gap-2">
+                <p onClick={() => resetActive()} className="flex items-center gap-2 cursor-pointer">
                     <NavBarIndicatorField text={'default'} />
                     <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple`}>Wojcio_True</p>
                 </p>
