@@ -20,6 +20,7 @@ const NavBarTitle = () => {
     }
 
     const disableAfterClick = () => {
+        console.log('click')
         setDisable(true)
     }
 
@@ -30,8 +31,7 @@ const NavBarTitle = () => {
                     event,
                     position,
                     setPosition
-                }),
-                    disableAfterClick()
+                })
             }}
             id="desktop_navbar_default"
             className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
@@ -42,7 +42,10 @@ const NavBarTitle = () => {
                 spy={true}
                 smooth={true}
                 duration={200}
-                onClick={() => resetActive()} 
+                onClick={() => {
+                    resetActive()
+                    disableAfterClick()
+                }} 
             >
                 <span className="flex items-center gap-2 cursor-pointer">
                     <NavBarIndicatorField text={'default'} />
