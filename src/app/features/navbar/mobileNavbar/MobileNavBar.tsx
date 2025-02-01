@@ -7,12 +7,16 @@ import ToggleMenuButton from '@/app/features/navbar/ToggleMenuButton'
 import { BlurPage } from './backdrop/BackDropContext'
 import useScrollBackground from './mobieNavBarHooks/useScrollBackground'
 import { Link } from 'react-scroll';
+import useDisableScrollEv from '../navBarHooks/useDisableScrollEv'
 
 const MobileNavBar = () => {
-    const { toogleMobileNav } = useContext(NavBarContext)
+    const { toogleMobileNav, navBarItems } = useContext(NavBarContext)
     const { blurPage } = useContext(BlurPage)
     const { setIsBlur } = blurPage
     const { displayMenu, setDisplayMenu } = toogleMobileNav
+    const { listElements, setActive } = navBarItems
+    const [disable, disableAfterClick] = useDisableScrollEv()
+
 
     useEffect(() => {
         const backdropId = document.getElementById('backdrop')
@@ -38,6 +42,12 @@ const MobileNavBar = () => {
         }, 300)
     }
 
+    const resetActive = () => {
+        const liElements = listElements.map(x => ({ ...x, active: false }))
+        navBarItems.setListElements(liElements),
+            setActive(false)
+    }
+
     return (
         <div className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
             <div id="mobile-menu-scroll" className='overflow-y-auto h-full'>
@@ -45,13 +55,17 @@ const MobileNavBar = () => {
                 <div className="relative flex items-center px-3 pt-[21px]">
                     <span onClick={
                         () => {
-                            setDisplayMenu(false),
+                            setDisplayMenu(false)
                             setIsBlur(false)
                         }
                     }
                         className='mobile-logo w-full flex-1'>
                         <Link
-                            onClick={() => closeMenu()}
+                            onClick={() => {
+                                closeMenu()
+                                disableAfterClick()
+                                resetActive()
+                            }}
                             activeClass="active"
                             to={'default'}
                             spy={true}

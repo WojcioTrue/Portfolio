@@ -7,7 +7,8 @@ import MobileIndicatorIcon from "./MobileIndicatorIcon"
 import { motion } from "framer-motion"
 import { BlurPage } from "../backdrop/BackDropContext"
 import { Link } from 'react-scroll';
-
+import useDisableScrollEv from "../../navBarHooks/useDisableScrollEv"
+useDisableScrollEv
 
 const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { blurPage } = useContext(BlurPage)
@@ -16,6 +17,7 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { setListElements } = navBarItems
   const { setDisplayMenu } = toogleMobileNav
   const { setIsBlur } = blurPage
+  const [disable, disableAfterClick] = useDisableScrollEv()
 
   const changeActiveLi = () => {
     setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
@@ -44,6 +46,7 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
         changeActiveLi();
         changeIndicator(text);
         closeMenu();
+        disableAfterClick()
       }
       }
         id={id}
