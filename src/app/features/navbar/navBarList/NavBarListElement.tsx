@@ -1,5 +1,5 @@
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { categories } from '../navItems'
 import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
