@@ -30,8 +30,6 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
     navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
   }
 
-
-
   return (
     <Link
       activeClass="active"

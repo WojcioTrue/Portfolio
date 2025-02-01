@@ -46,7 +46,7 @@ const MobileNavBar = () => {
                     <span onClick={
                         () => {
                             setDisplayMenu(false),
-                                setIsBlur(false)
+                            setIsBlur(false)
                         }
                     }
                         className='mobile-logo w-full flex-1'>

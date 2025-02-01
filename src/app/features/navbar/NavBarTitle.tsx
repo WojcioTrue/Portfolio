@@ -4,24 +4,19 @@ import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
 import { Link } from 'react-scroll';
-
+import useDisableScrollEv from "./navBarHooks/useDisableScrollEv"
+useDisableScrollEv
 
 const NavBarTitle = () => {
-    const { navBarDesktopPosition, navBarItems, toogleMobileNav, disableBg } = useContext(NavBarContext)
+    const { navBarDesktopPosition, navBarItems } = useContext(NavBarContext)
     const { position, setPosition } = navBarDesktopPosition
-    const { displayMenu, setDisplayMenu } = toogleMobileNav
     const { listElements, setActive } = navBarItems
-    const { setDisable } = disableBg
+    const [disable, disableAfterClick] = useDisableScrollEv()
 
     const resetActive = () => {
         const liElements = listElements.map(x => ({ ...x, active: false }))
         navBarItems.setListElements(liElements),
             setActive(false)
-    }
-
-    const disableAfterClick = () => {
-        console.log('click')
-        setDisable(true)
     }
 
     return (
