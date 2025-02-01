@@ -1,19 +1,18 @@
 import { HiOutlineXMark } from "react-icons/hi2";
 import { motion } from 'framer-motion'
-import { SetStateAction, Dispatch } from "react"
 import { useContext } from "react";
 import { BlurPage } from "./mobileNavbar/backdrop/BackDropContext";
-
+import { NavBarContext } from "./navBarContext/NavBarContextProvider";
 
 type ToggleMenuButtonType = {
-    displayMenu: boolean,
     onlyMobile?: boolean,
-    setDisplayMenu: Dispatch<SetStateAction<boolean>>
 }
 
-const ToggleMenuButton = ({ displayMenu, onlyMobile, setDisplayMenu }: ToggleMenuButtonType) => {
+const ToggleMenuButton = ({ onlyMobile }: ToggleMenuButtonType) => {
+    const { toogleMobileNav } = useContext(NavBarContext)
+    const { displayMenu, setDisplayMenu } = toogleMobileNav
     const { blurPage } = useContext(BlurPage)
-    const {setIsBlur} = blurPage
+    const { setIsBlur } = blurPage
     return (
         <motion.button
             animate={{
@@ -32,7 +31,7 @@ const ToggleMenuButton = ({ displayMenu, onlyMobile, setDisplayMenu }: ToggleMen
                 setIsBlur(prev => !prev)
             }}
         >
-            <HiOutlineXMark size={'25px'} color="rgb(116, 31, 245)"/>
+            <HiOutlineXMark size={'25px'} color="rgb(116, 31, 245)" />
         </motion.button>
     )
 }

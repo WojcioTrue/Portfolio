@@ -31,6 +31,13 @@ const MobileNavBar = () => {
 
     useScrollBackground()
 
+    const closeMenu = () => {
+        setTimeout(() => {
+            setDisplayMenu(false)
+            setIsBlur(false)
+        }, 300)
+    }
+
     return (
         <div className={`fixed z-20 pl-2 overflow-hidden right-0 top-0 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
             <div id="mobile-menu-scroll" className='overflow-y-auto h-full'>
@@ -44,16 +51,17 @@ const MobileNavBar = () => {
                     }
                         className='mobile-logo w-full flex-1'>
                         <Link
+                            onClick={() => closeMenu()}
                             activeClass="active"
                             to={'default'}
                             spy={true}
                             smooth={true}
                             duration={200}
                         >
-                    <h1 className={`text-3xl text-my-purple`}>Wojcio_True</h1>
+                            <h1 className={`text-3xl text-my-purple`}>Wojcio_True</h1>
                         </Link>
                     </span>
-                    <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} />
+                    <ToggleMenuButton />
                 </div>
                 <MobileNavBarList />
             </div>

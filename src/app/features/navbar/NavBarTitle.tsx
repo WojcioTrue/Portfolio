@@ -51,7 +51,7 @@ const NavBarTitle = () => {
                 <NavBarIndicatorField text={'default'} />
                 <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple`}>Wojcio_True</p>
             </Link>
-            <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} onlyMobile={true} />
+            <ToggleMenuButton onlyMobile={true} />
         </div>
     )
 }
