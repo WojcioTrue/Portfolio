@@ -1,7 +1,6 @@
 "use client"
 import NavBarList from "./navBarList/NavBarList"
 import { useContext, useEffect, useState } from "react"
-import MobileNavBar from "./mobileNavbar/MobileNavBar"
 import BackDrop from "./mobileNavbar/backdrop/BackDrop"
 import navBarStyles from "./NavBar.module.scss"
 import NavBarIndicatorIcon from "./navBarList/NavBarIndicatorIcon"
@@ -10,10 +9,12 @@ import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import useDefaultBackground from "./navBarHooks/useDefaultBackground"
 import AnimatedBackground from "./animatedBackground/AnimatedBackground"
 import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
-
+import { BlurPage } from "./mobileNavbar/backdrop/BackDropContext"
 
 const NavBar = () => {
   const { navBarItems, navBarDesktopPosition, toogleMobileNav, indicatorDesktop } = useContext(NavBarContext)
+  const { blurPage } = useContext(BlurPage)
+  const { isBlur } = blurPage
   const [fixedMenu, setFixedMenu] = useState<boolean>(false)
   const { displayMenu } = toogleMobileNav
 
@@ -57,14 +58,13 @@ const NavBar = () => {
   return (
 
     <nav className={
-      `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange}`} navbar w-full py-3 px-0 md:px-6 overflow-hidden z-10 bg-my-navbarBackground shadow-myshadow`}>
+      `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange} `} ${`${isBlur ? "blur-sm" : ""} transition-all `} navbar w-full py-3 px-0 md:px-6 overflow-hidden z-10 bg-my-navbarBackground shadow-myshadow`}>
       <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
         <NavBarTitle />
         <NavBarList />
       </span>
-      {/* <MobileNavBar /> */}
       <BackDrop />
-      <AnimatedBackground/>
+      <AnimatedBackground />
       <NavBarIndicatorIcon />
 
     </nav>
