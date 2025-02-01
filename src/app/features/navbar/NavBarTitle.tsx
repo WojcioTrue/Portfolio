@@ -3,41 +3,53 @@ import { useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
+
 
 const NavBarTitle = () => {
     const { navBarDesktopPosition, navBarItems, toogleMobileNav, disableBg } = useContext(NavBarContext)
     const { position, setPosition } = navBarDesktopPosition
-    const {displayMenu, setDisplayMenu} = toogleMobileNav
-    const {listElements, setActive} = navBarItems
+    const { displayMenu, setDisplayMenu } = toogleMobileNav
+    const { listElements, setActive } = navBarItems
     const { setDisable } = disableBg
 
     const resetActive = () => {
         const liElements = listElements.map(x => ({ ...x, active: false }))
         navBarItems.setListElements(liElements),
-        setActive(false)
+            setActive(false)
     }
 
     const disableAfterClick = () => {
         setDisable(true)
-      }
+    }
 
     return (
         <div
             onClick={(event: React.MouseEvent) => {
-                    clickChangeCenter({
-                        event,
-                        position, 
-                        setPosition
-                    }),
+                clickChangeCenter({
+                    event,
+                    position,
+                    setPosition
+                }),
                     disableAfterClick()
-                }}
+            }}
             id="desktop_navbar_default"
             className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
-            <a onClick={() => resetActive()} className="flex items-center gap-2" href="#">
-                <NavBarIndicatorField text={'default'} />
-                <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple`}>Wojcio_True</p>
-            </a>
-            <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} onlyMobile={true}/>
+
+            <Link
+                activeClass="active"
+                to={'default'}
+                spy={true}
+                smooth={true}
+                duration={200}
+            >
+                <p onClick={() => resetActive()} className="flex items-center gap-2">
+                    <NavBarIndicatorField text={'default'} />
+                    <p className={`py-3 inline my-auto text-2xl font-medium text-my-purple`}>Wojcio_True</p>
+                </p>
+                <ToggleMenuButton displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} onlyMobile={true} />
+            </Link>
+
         </div>
     )
 }
