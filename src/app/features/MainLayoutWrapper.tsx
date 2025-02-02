@@ -1,9 +1,9 @@
 "use client"
 import { useContext, useEffect } from "react";
 import Main from "./main/Main";
-import Skills from "./skills/Skills";
 import { BlurPage } from "./navbar/mobileNavbar/backdrop/BackDropContext";
 import { NavBarContext } from "./navbar/navBarContext/NavBarContextProvider";
+import TechStack from "./techStack/TechStack";
 
 const MainLayoutWrapper = () => {
     const { navBarItems, disableBg } = useContext(NavBarContext)
@@ -56,7 +56,7 @@ const MainLayoutWrapper = () => {
     return (
         <span className={`${isBlur ? "blur-sm" : ""} transition-all `}>
             <Main />
-            <Skills />
+            <TechStack />
         </span>
     )
 }
