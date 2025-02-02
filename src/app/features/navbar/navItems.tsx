@@ -2,7 +2,7 @@ import { ListElement } from "./navBarTypes"
 
 export const categories: ListElement[] = [
     {
-        section: 'Welcome',
+        section: 'Skills',
         active: false
     },
     {

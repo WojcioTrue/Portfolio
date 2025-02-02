@@ -21,7 +21,7 @@ const MainLayoutWrapper = () => {
     }, [disable, setDisable])
 
     useEffect(() => {
-        const sectionsArr = ['default', 'Welcome', 'About', 'Text', 'Something']
+        const sectionsArr = ['default', 'Skills', 'About', 'Text', 'Something']
         let activeElement = 'default'
         const scrollEvent = () => {
             if (disable) return;
