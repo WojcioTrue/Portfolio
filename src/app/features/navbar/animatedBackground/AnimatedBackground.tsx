@@ -9,7 +9,7 @@ const AnimatedBackground = () => {
 
     useEffect(() => {  
         const innerWidth = window.innerWidth
-        if(innerWidth > 767){
+        if(innerWidth >= 768){
             setIsDesktop(true)
         } else {
             setIsDesktop(false)
