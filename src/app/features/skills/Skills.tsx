@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Tech = () => {
+const Skills
+ = () => {
   return (
     <>
       <div id="Welcome" className="relative h-full bg-cyan-400">Welcome</div>
@@ -11,4 +12,4 @@ const Tech = () => {
   )
 }
 
-export default Tech
+export default Skills
