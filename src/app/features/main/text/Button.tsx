@@ -28,7 +28,7 @@ const Button = () => {
       scale: 0.9,
       transition: { duration: 0.2 },
     }}
-    className='flex items-center text-[16px] py-[12px] px-[24px] rounded-[50px] text-white bg-gradient-to-tr from-my-gradient1 to-my-gradient2'
+    className='flex items-center text-[16px] py-[12px] px-[24px] rounded-[7px] text-white bg-gradient-to-tr from-my-gradient1 to-my-gradient2'
     onMouseEnter={() => window.innerWidth > 992 ? setHover(true) : null}
     onMouseLeave={() => setHover(false)}
     >
