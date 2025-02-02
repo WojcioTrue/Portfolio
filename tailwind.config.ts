@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       boxShadow: {
-        myshadow: '0 3px 8px -1px rgba(0,0,0,.08)',
+        myshadow: '0 2px 5px -1px rgba(0,0,0,.08)',
       },
       screens: {
         ml: '992px',
