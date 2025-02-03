@@ -37,6 +37,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
       spy={true}
       smooth={true}
       duration={200}
+      offset={-77}
     >
       <li onClick={
         (event: React.MouseEvent) => {
