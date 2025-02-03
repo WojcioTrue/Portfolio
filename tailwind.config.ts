@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       fontSize: {
-          "default": "42px",
-          "my-sm": "50px",
-          "my-md" : "60px",
-          "my-xl" : "68px",
-          "my-2xl" : "72px"
+          "header-my-default": "42px",
+          "header-my-sm": "50px",
+          "header-my-md" : "60px",
+          "header-my-xl" : "68px",
+          "header-my-2xl" : "72px"
       },
       boxShadow: {
         myshadow: '0 2px 5px -1px rgba(0,0,0,.08)',
