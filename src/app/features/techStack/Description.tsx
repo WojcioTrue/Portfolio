@@ -9,15 +9,21 @@ const Description = () => {
     <p className={`text-[16px] w-full text-my-gray pb-6 sm:text-[24px] text-center ${mabryProLight.className}`}>
       {description.map((x, i) =>
         <motion.span
+        className=''
           key={i}
           initial={{
             opacity: 0,
+            y: '100px'
           }}
-          animate={{
+          whileInView={{
             opacity: 1,
           }}
           transition={{
-            delay: 1 + i/20
+            delay: 1 + i/30
+          }}
+          viewport={{
+            once: true,
+            margin: '-100px'
           }}
           >{x}</motion.span>
       )}

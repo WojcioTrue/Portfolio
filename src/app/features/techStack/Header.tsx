@@ -8,10 +8,11 @@ const Header = () => {
     return (
         <div ref={ref}>
             <h1 className={`text-[42px] sm:text-[50px] md:text-[60px] xl:text-[68px] 2xl:text-[72px] text-center pt-10 ${mabryProBold.className}`}>
-                <motion.span initial={{
-                    opacity: 0,
-                    y: 20
-                }}
+                <motion.span
+                    initial={{
+                        opacity: 0,
+                        y: 20
+                    }}
                     whileInView={{
                         opacity: 1,
                         y: 0
@@ -22,9 +23,11 @@ const Header = () => {
                     }}
                     viewport={{
                         once: true,
-                        margin: '-250px',
-                        root: ref
-                    }}>Technology </motion.span>
+                        margin: '-100px'
+                    }}
+                >
+                    {"Technology "}
+                </motion.span>
                 <motion.span initial={{
                     opacity: 0,
                     y: 20
@@ -39,9 +42,11 @@ const Header = () => {
                     }}
                     viewport={{
                         once: true,
-                        margin: '-250px',
-                        root: ref
-                    }}>stack</motion.span>
+                        margin: '-100px'
+                    }}
+                >
+                    {"stack"}
+                </motion.span>
                 <motion.span initial={{
                     opacity: 0,
                     y: 20
@@ -56,9 +61,10 @@ const Header = () => {
                     }}
                     viewport={{
                         once: true,
-                        margin: '-250px',
-                        root: ref
-                    }}>{`.`}</motion.span></h1>
+                        margin: '-100px'
+                    }}>
+                    {"."}
+                </motion.span></h1>
         </div>
 
     )
