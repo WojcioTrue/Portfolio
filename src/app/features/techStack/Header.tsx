@@ -17,6 +17,7 @@ const Header = () => {
                         y: 0
                     }}
                     transition={{
+                        delay: 0.4,
                         duration: 0.4
                     }}
                     viewport={{
@@ -33,7 +34,7 @@ const Header = () => {
                         y: 0
                     }}
                     transition={{
-                        delay: 0.2,
+                        delay: 0.6,
                         duration: 0.4
                     }}
                     viewport={{
@@ -50,7 +51,7 @@ const Header = () => {
                         y: 0
                     }}
                     transition={{
-                        delay: 0.4,
+                        delay: 0.8,
                         duration: 2
                     }}
                     viewport={{
