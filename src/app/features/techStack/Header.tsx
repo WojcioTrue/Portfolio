@@ -29,7 +29,6 @@ const Header = () => {
                 {"Technology "}
             </motion.h1>
             <motion.h1
-                className='mr-1'
                 initial={{
                     opacity: 0,
                     y: 20
