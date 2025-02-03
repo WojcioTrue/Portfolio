@@ -6,7 +6,7 @@ const Description = () => {
   const description = ['My', 'set', 'of', 'technologies','used', 'to','build','web','apps', '.']
 
   return (
-    <p className={`flex justify-center gap-[6px] text-[16px] w-full text-my-gray pb-6 sm:text-[24px] text-center ${mabryProLight.className}`}>
+    <p className={`flex justify-center gap-[6px] text-[16px] w-full text-my-gray pb-6 sm:text-[24px] text-center tracking-description ${mabryProLight.className}`}>
       {description.map((x, i) =>
         <motion.span
         className='inline-block'

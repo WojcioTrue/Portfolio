@@ -32,6 +32,10 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      letterSpacing: {
+          header: '-4px',
+          description: '-1px'
+      }
     },
   },
   plugins: [],
