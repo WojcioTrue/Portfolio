@@ -27,7 +27,7 @@ const Description = () => {
             x: '0px'
           }}
           transition={{
-            delay: 1 + i/20
+            delay: 1 + i/15
           }}
           viewport={{
             once: true,
