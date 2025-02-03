@@ -8,6 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+          "default": "42px",
+          "my-sm": "50px",
+          "my-md" : "60px",
+          "my-xl" : "68px",
+          "my-2xl" : "72px"
+      },
       boxShadow: {
         myshadow: '0 2px 5px -1px rgba(0,0,0,.08)',
       },
@@ -33,8 +40,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       letterSpacing: {
-          header: '-4px',
-          description: '-1px'
+        header: '-4px',
+        description: '-1px'
       }
     },
   },

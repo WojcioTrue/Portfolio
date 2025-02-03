@@ -6,7 +6,7 @@ const Header = () => {
     const ref = useRef(null)
 
     return (
-        <div ref={ref} className={`flex justify-center text-[42px] sm:text-[50px] md:text-[60px] xl:text-[68px] 2xl:text-[72px] text-center pt-10 tracking-header ${mabryProBold.className}`}>
+        <div ref={ref} className={`flex justify-center text-default sm:text-my-sm md:text-my-md xl:text-my-xl 2xl:text-my-2xl text-center pt-10 tracking-header ${mabryProBold.className}`}>
             <motion.h1
                 className='mr-5'
                 initial={{
