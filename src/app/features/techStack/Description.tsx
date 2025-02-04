@@ -3,7 +3,7 @@ import { mabryProLight } from '@/app/assets/fonts/MabryPro'
 import { motion } from 'framer-motion'
 const Description = () => {
 
-  const description = ['My', 'set', 'of', 'technologies','used', 'to','build','web','apps', '.']
+  const description = ['My', 'set', 'of', 'technologies','used', 'to','build','web','apps.']
 
   return (
     <p className={`flex justify-center 
