@@ -1,39 +1,32 @@
 'use client'
-import { motion, useDragControls } from 'framer-motion'
+import { motion, useAnimationControls, useDragControls } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import detectElementOverflow from 'detect-element-overflow'
 
 const SkillsGrid = () => {
   const constraintDrag = useRef<HTMLDivElement>(null)
   const [isIn, setIsIn] = useState(false)
-  const [firstEnter, setFirstEnter] = useState(false)
+  const [dropped, setDropped] = useState(false)
   const controls = useDragControls()
-
-
-  useEffect(() => {
-    if (isIn) { setFirstEnter(true) }
-  }, [isIn])
-
-  // useEffect(() => {
-  //   console.log(isIn)
-  //   console.log(firstEnter)
-  // },[firstEnter])
+  const animationControls = useAnimationControls()
 
   const dragDrop = () => {
-    if(firstEnter) return ;
-    if (!isIn) {console.log('dragging'); return;}
     const parent = document.getElementById('drag-component')
     const element = document.getElementById('drag-element')!
     const target = document.getElementById('drag-target')!
     if (isIn) {
-      console.log('xxx')
-      const throwawayNode = parent?.removeChild(element)!
-      target.appendChild(throwawayNode)
-      return;
+      setDropped(true)
+      animationControls.set({
+        position: 'absolute',
+        x: 225,
+        y: 110
+      })
     }
+
   }
 
   const detectEnter = () => {
+    if (isIn) { return }
     const parent = document.getElementById('drag-component')
     const element = document.getElementById('drag-element')!
     const target = document.getElementById('drag-target')!
@@ -41,39 +34,40 @@ const SkillsGrid = () => {
     collisions.overflowLeft >= 15 ?
       setIsIn(false) :
       setIsIn(true)
-
   }
 
+  useEffect(() => {
+    console.log(isIn)
+  }, [isIn])
 
   return (
     <div id="drag-component" ref={constraintDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>
       <motion.div
+        layout
         id="drag-element"
         onDrag={() => {
           detectEnter()
-          dragDrop()
         }}
+        onDragEnd={() => dragDrop()}
         className={`
         bg-white 
         w-[30px] 
         h-[30px] 
         absolute 
         z-10`}
-        drag={!firstEnter}
+        drag={!dropped}
         dragConstraints={constraintDrag}
-        dragControls={controls}
-        dragElastic={0.03}
         whileDrag={{
           scale: 1.2,
         }}
+        animate={animationControls}
+        dragControls={controls}
       >
         X
       </motion.div>
       <p>{isIn.toString()}</p>
       <div id="drag-target"
-
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${isIn ? 'bg-slate-600' : 'bg-blue-900'}`}>
-
       </div>
     </div>
 
