@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import detectElementOverflow from 'detect-element-overflow'
 import Icon from './Icon'
 
@@ -30,6 +30,11 @@ const SkillsGrid = () => {
   const [overTarget, setOverTarget] = useState({ boolean: false, id: '' })
   const [testArr, setTestArr] = useState(Arr)
   const [clean, setClean] = useState(false)
+  const [inTarget, setInTarget] = useState(false)
+
+  useEffect(() => {
+    setInTarget(testArr.some((x) => x.dropped === true))
+  },[testArr])
 
   const cleanDrop = () => {
     const resetArr = testArr.map((x) => { return { ...x, dropped: false } })
@@ -74,7 +79,7 @@ const SkillsGrid = () => {
       <div id="drag-target"
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${overTarget.boolean ? 'bg-slate-600' : 'bg-blue-900'}`}>
       </div>
-      <button onClick={() => {cleanDrop()}} disabled={!overTarget.boolean} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clear</button>
+      <button onClick={() => {cleanDrop()}} disabled={!inTarget} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clear</button>
     </div>
 
   )
