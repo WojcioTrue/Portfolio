@@ -7,28 +7,25 @@ type IconType = {
     dragElement: string
     detectEnter: (el: string) => void
     isIn: boolean
+    top: number
+    left: number
 }
 
-const Icon = ({ constraintDrag, dragElement, detectEnter, isIn }: IconType) => {
+const Icon = ({ constraintDrag, dragElement, detectEnter, isIn, top, left }: IconType) => {
     const [dropped, setDropped] = useState(false)
     const controls = useDragControls()
     const animationControls = useAnimationControls()
 
     const dragDrop = (el: string, controls: AnimationControls) => {
-        const parent = document.getElementById('drag-component')
+        // const parent = document.getElementById('drag-component')
         const element = document.getElementById(el)!
-        const target = document.getElementById('drag-target')!
-        console.log(element.style.top)
+        // const target = document.getElementById('drag-target')!
         if (isIn) {
             setDropped(true)
-            console.log('triggered')
             controls.stop()
             controls.set({
-                x: 225 - 50,
-                y: 110 - 50,
-                transition: {
-                    duration: 0
-                }
+                x: 225 - left,
+                y: 110 - top,
             })
         }
     }
@@ -38,9 +35,9 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, isIn }: IconType) => {
             layout
             id={dragElement}
             onDrag={() => {
-                detectEnter(`drag-element-${1}`)
+                detectEnter(dragElement)
             }}
-            onDragEnd={() => dragDrop(`drag-element-${1}`, animationControls)}
+            onDragEnd={() => dragDrop(dragElement, animationControls)}
             className={`
                 bg-white 
                 w-[30px] 
@@ -55,8 +52,8 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, isIn }: IconType) => {
             animate={animationControls}
             dragControls={controls}
             style={{
-                top: '50px',
-                left: '50px'
+                top: top,
+                left: left
             }}
         >
             X

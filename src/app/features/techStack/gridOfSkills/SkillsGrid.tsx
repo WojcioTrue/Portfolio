@@ -8,11 +8,11 @@ const SkillsGrid = () => {
   const [isIn, setIsIn] = useState(false)
 
   const cleanDrop = () => {
-    console.log('clean drop')
+    setIsIn(false)
   }
 
   const detectEnter = (el: string) => {
-    const overflow = 15;
+    const overflow = 10;
     const parent = document.getElementById('drag-component')
     const element = document.getElementById(el)!
     const target = document.getElementById('drag-target')!
@@ -33,12 +33,22 @@ const SkillsGrid = () => {
         dragElement={`drag-element-${1}`}
         detectEnter={detectEnter}
         isIn={isIn}
+        top={50}
+        left={50}
+      />
+      <Icon
+        constraintDrag={constraintDrag}
+        dragElement={`drag-element-${2}`}
+        detectEnter={detectEnter}
+        isIn={isIn}
+        top={100}
+        left={50}
       />
       <p>{isIn.toString()}</p>
       <div id="drag-target"
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${isIn ? 'bg-slate-600' : 'bg-blue-900'}`}>
       </div>
-      <button onClick={() => cleanDrop()} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clean</button>
+      <button onClick={() => cleanDrop()} disabled={!isIn} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clean</button>
     </div>
 
   )
