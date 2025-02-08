@@ -3,6 +3,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import detectElementOverflow from 'detect-element-overflow'
 import Icon from './Icon'
 
+export type IconArrType = {
+  id: string
+  top: number
+  left: number
+  marker: string
+  dropped: boolean
+}
+
 const Arr = [
   {
     id: 'drag-element-1',
@@ -26,6 +34,7 @@ const SkillsGrid = () => {
   const [testArr, setTestArr] = useState(Arr)
 
   const cleanDrop = () => {
+    const elementToClean = isIn
     setIsIn({boolean: false, id: ''});
     const resetArr = testArr.map((x) => {return {...x, dropped : false}})
     setTestArr(resetArr)
@@ -62,12 +71,13 @@ const SkillsGrid = () => {
         marker={x.marker}
         dropped={x.dropped}
         droppedInField={droppedInField}
+        arr={testArr}
         /> )}
       <p>{isIn.boolean.toString()}</p>
       <div id="drag-target"
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${isIn.boolean ? 'bg-slate-600' : 'bg-blue-900'}`}>
       </div>
-      <button onClick={() => cleanDrop()} disabled={!isIn} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clean</button>
+      <button onClick={() => cleanDrop()} disabled={!isIn.boolean} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clean</button>
     </div>
 
   )
