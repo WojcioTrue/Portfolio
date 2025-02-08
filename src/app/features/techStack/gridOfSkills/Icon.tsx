@@ -1,27 +1,46 @@
-import { motion, useAnimationControls, useDragControls } from 'framer-motion'
+import { AnimationControls, motion, useAnimationControls, useDragControls } from 'framer-motion'
 import React, { useState } from 'react'
+
 
 type IconType = {
     constraintDrag: React.RefObject<HTMLDivElement>
+    dragElement: string
+    detectEnter: (el: string) => void
+    isIn: boolean
 }
 
-const Icon = ({ constraintDrag }: IconType) => {
-    const [isIn, setIsIn] = useState(false)
-    const [isIn2, setIsIn2] = useState(false)
+const Icon = ({ constraintDrag, dragElement, detectEnter, isIn }: IconType) => {
     const [dropped, setDropped] = useState(false)
-    const [dropped2, setDropped2] = useState(false)
-
     const controls = useDragControls()
     const animationControls = useAnimationControls()
+
+    const dragDrop = (el: string, controls: AnimationControls) => {
+        const parent = document.getElementById('drag-component')
+        const element = document.getElementById(el)!
+        const target = document.getElementById('drag-target')!
+        console.log(element.style.top)
+        if (isIn) {
+            setDropped(true)
+            console.log('triggered')
+            controls.stop()
+            controls.set({
+                x: 225 - 50,
+                y: 110 - 50,
+                transition: {
+                    duration: 0
+                }
+            })
+        }
+    }
 
     return (
         <motion.div
             layout
-            id="drag-element-1"
+            id={dragElement}
             onDrag={() => {
-                // detectEnter("drag-element-1")
+                detectEnter(`drag-element-${1}`)
             }}
-            // onDragEnd={() => dragDrop('drag-element-1', animationControls)}
+            onDragEnd={() => dragDrop(`drag-element-${1}`, animationControls)}
             className={`
                 bg-white 
                 w-[30px] 
