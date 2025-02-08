@@ -25,9 +25,10 @@ const SkillsGrid = () => {
   const [isIn, setIsIn] = useState({boolean: false, id: ''})
   const [testArr, setTestArr] = useState(Arr)
 
-
   const cleanDrop = () => {
-    setIsIn({boolean: false, id: ''})
+    setIsIn({boolean: false, id: ''});
+    const resetArr = testArr.map((x) => {return {...x, dropped : false}})
+    setTestArr(resetArr)
   }
   
   const droppedInField = (id : string) => {
