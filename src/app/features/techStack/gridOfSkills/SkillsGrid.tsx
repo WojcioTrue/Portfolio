@@ -7,6 +7,25 @@ const SkillsGrid = () => {
   const constraintDrag = useRef<HTMLDivElement>(null)
   const [isIn, setIsIn] = useState(false)
 
+  const testArr = [
+    {
+      id: 'drag-element-1',
+      top: 50,
+      left: 50,
+      active: false,
+      marker: 'X',
+      dropped: false
+    },
+    {
+      id: 'drag-element-2',
+      top: 100,
+      left: 50,
+      active: false,
+      marker: 'Y',
+      dropped: false
+    },
+  ]
+
   const cleanDrop = () => {
     setIsIn(false)
   }
@@ -28,22 +47,16 @@ const SkillsGrid = () => {
 
   return (
     <div id="drag-component" ref={constraintDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>
-      <Icon
-        constraintDrag={constraintDrag}
-        dragElement={`drag-element-${1}`}
+      {testArr.map((x) => <Icon 
+        key={x.id} constraintDrag={constraintDrag}
+        dragElement={x.id}
         detectEnter={detectEnter}
         isIn={isIn}
-        top={50}
-        left={50}
-      />
-      <Icon
-        constraintDrag={constraintDrag}
-        dragElement={`drag-element-${2}`}
-        detectEnter={detectEnter}
-        isIn={isIn}
-        top={100}
-        left={50}
-      />
+        top={x.top}
+        left={x.left}
+        marker={x.marker}
+        dropped={x.dropped}
+        /> )}
       <p>{isIn.toString()}</p>
       <div id="drag-target"
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${isIn ? 'bg-slate-600' : 'bg-blue-900'}`}>

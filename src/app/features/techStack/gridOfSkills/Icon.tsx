@@ -9,10 +9,12 @@ type IconType = {
     isIn: boolean
     top: number
     left: number
+    marker: string
+    dropped: boolean
 }
 
-const Icon = ({ constraintDrag, dragElement, detectEnter, isIn, top, left }: IconType) => {
-    const [dropped, setDropped] = useState(false)
+const Icon = ({ constraintDrag, dragElement, detectEnter, isIn, top, left, marker, dropped }: IconType) => {
+    
     const controls = useDragControls()
     const animationControls = useAnimationControls()
 
@@ -21,7 +23,6 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, isIn, top, left }: Ico
         const element = document.getElementById(el)!
         // const target = document.getElementById('drag-target')!
         if (isIn) {
-            setDropped(true)
             controls.stop()
             controls.set({
                 x: 225 - left,
@@ -56,7 +57,7 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, isIn, top, left }: Ico
                 left: left
             }}
         >
-            X
+            {marker}
         </motion.div>
     )
 }
