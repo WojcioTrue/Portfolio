@@ -6,7 +6,7 @@ type IconType = {
     constraintDrag: React.RefObject<HTMLDivElement>
     dragElement: string
     detectEnter: (el: string) => void
-    isIn: boolean
+    isIn: {boolean: boolean, id: string}
     top: number
     left: number
     marker: string
@@ -23,7 +23,8 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, isIn, top, left, marke
         // const parent = document.getElementById('drag-component')
         const element = document.getElementById(el)!
         // const target = document.getElementById('drag-target')!
-        if (isIn) {
+        console.log(isIn.boolean)
+        if (isIn.boolean) {
             controls.stop()
             droppedInField(el)
             controls.set({

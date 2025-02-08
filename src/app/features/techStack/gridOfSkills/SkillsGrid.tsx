@@ -22,12 +22,12 @@ const Arr = [
 
 const SkillsGrid = () => {
   const constraintDrag = useRef<HTMLDivElement>(null)
-  const [isIn, setIsIn] = useState(false)
+  const [isIn, setIsIn] = useState({boolean: false, id: ''})
   const [testArr, setTestArr] = useState(Arr)
 
 
   const cleanDrop = () => {
-    setIsIn(false)
+    setIsIn({boolean: false, id: ''})
   }
   
   const droppedInField = (id : string) => {
@@ -40,13 +40,14 @@ const SkillsGrid = () => {
     const element = document.getElementById(el)!
     const target = document.getElementById('drag-target')!
     const collisions = detectElementOverflow(element, target);
+    console.log(el);
     (!(collisions.overflowRight >= overflow) &&
       !(collisions.overflowLeft >= overflow) &&
       !(collisions.overflowTop >= overflow) &&
       !(collisions.overflowBottom >= overflow)
     ) ?
-      setIsIn(true) :
-      setIsIn(false)
+      setIsIn({boolean: true, id: el}) :
+      setIsIn({boolean: false, id: ''})
   }
 
   return (
