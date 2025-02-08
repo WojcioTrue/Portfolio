@@ -6,7 +6,7 @@ type IconType = {
     constraintDrag: React.RefObject<HTMLDivElement>
     dragElement: string
     detectEnter: (el: string) => void
-    isIn: { boolean: boolean, id: string }
+    overTarget: { boolean: boolean, id: string }
     top: number
     left: number
     marker: string
@@ -15,27 +15,29 @@ type IconType = {
     arr: IconArrType[]
 }
 
-const Icon = ({ constraintDrag, dragElement, detectEnter, isIn, top, left, marker, dropped, droppedInField, arr }: IconType) => {
+const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, marker, dropped, droppedInField }: IconType) => {
     const controls = useDragControls()
     const animationControls = useAnimationControls()
 
-    useEffect(() => {
-        const iconInside = arr.some((x) => x.dropped === true);
-        // if(!iconInside){
-        //     controls.set({
-        //         x: 225 - left,
-        //         y: 110 - top,
-        //     })
-        // }
-    }, [arr])
 
-    const dragDrop = (el: string, controls: AnimationControls) => {
-        if (isIn.boolean) {
-            controls.stop()
+    const fuckingClick = () => {
+        animationControls.start({
+            x: 0,
+            y: 0,
+        })
+    }
+
+    const dragDrop = (el: string) => {
+        if (overTarget.boolean) {
             droppedInField(el)
-            controls.set({
-                x: 225 - left,
-                y: 110 - top,
+            animationControls.start({
+                x: 225,
+                y: 110,
+            })
+        } else {
+            animationControls.start({
+                x: 0,
+                y: 0,
             })
         }
     }
@@ -47,7 +49,7 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, isIn, top, left, marke
             onDrag={() => {
                 detectEnter(dragElement)
             }}
-            onDragEnd={() => dragDrop(dragElement, animationControls)}
+            onDragEnd={() => dragDrop(dragElement)}
             className={`
                 bg-white 
                 w-[30px] 
@@ -61,12 +63,11 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, isIn, top, left, marke
             }}
             animate={animationControls}
             dragControls={controls}
-            style={{
-                top: top,
-                left: left
-            }}
         >
             {marker}
+            <div onClick={() => fuckingClick()} className='bg-green-800 w-[50px] h-[30px]'>
+                clear
+            </div>
         </motion.div>
     )
 }

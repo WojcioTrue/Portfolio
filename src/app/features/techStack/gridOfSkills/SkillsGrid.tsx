@@ -30,16 +30,15 @@ const Arr = [
 
 const SkillsGrid = () => {
   const constraintDrag = useRef<HTMLDivElement>(null)
-  const [isIn, setIsIn] = useState({boolean: false, id: ''})
+  const [overTarget, setOverTarget] = useState({boolean: false, id: ''})
   const [testArr, setTestArr] = useState(Arr)
 
   const cleanDrop = () => {
-    const elementToClean = isIn
-    setIsIn({boolean: false, id: ''});
     const resetArr = testArr.map((x) => {return {...x, dropped : false}})
     setTestArr(resetArr)
+    setOverTarget({boolean: false, id: ''});
   }
-  
+
   const droppedInField = (id : string) => {
     setTestArr(testArr.map((x) => x.id === id ? {...x, dropped : true} : x))
   }
@@ -55,8 +54,8 @@ const SkillsGrid = () => {
       !(collisions.overflowTop >= overflow) &&
       !(collisions.overflowBottom >= overflow)
     ) ?
-      setIsIn({boolean: true, id: el}) :
-      setIsIn({boolean: false, id: ''})
+    setOverTarget({boolean: true, id: el}) :
+    setOverTarget({boolean: false, id: ''})
   }
 
   return (
@@ -65,7 +64,7 @@ const SkillsGrid = () => {
         key={x.id} constraintDrag={constraintDrag}
         dragElement={x.id}
         detectEnter={detectEnter}
-        isIn={isIn}
+        overTarget={overTarget}
         top={x.top}
         left={x.left}
         marker={x.marker}
@@ -73,11 +72,11 @@ const SkillsGrid = () => {
         droppedInField={droppedInField}
         arr={testArr}
         /> )}
-      <p>{isIn.boolean.toString()}</p>
+      <p>{overTarget.boolean.toString()}</p>
       <div id="drag-target"
-        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${isIn.boolean ? 'bg-slate-600' : 'bg-blue-900'}`}>
+        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${overTarget.boolean ? 'bg-slate-600' : 'bg-blue-900'}`}>
       </div>
-      <button onClick={() => cleanDrop()} disabled={!isIn.boolean} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clean</button>
+      <button onClick={() => cleanDrop()} disabled={!overTarget.boolean} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clean</button>
     </div>
 
   )
