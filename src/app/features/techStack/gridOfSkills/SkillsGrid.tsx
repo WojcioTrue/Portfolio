@@ -40,7 +40,6 @@ const SkillsGrid = () => {
     const element = document.getElementById(el)!
     const target = document.getElementById('drag-target')!
     const collisions = detectElementOverflow(element, target);
-    console.log(el);
     (!(collisions.overflowRight >= overflow) &&
       !(collisions.overflowLeft >= overflow) &&
       !(collisions.overflowTop >= overflow) &&
@@ -63,9 +62,9 @@ const SkillsGrid = () => {
         dropped={x.dropped}
         droppedInField={droppedInField}
         /> )}
-      <p>{isIn.toString()}</p>
+      <p>{isIn.boolean.toString()}</p>
       <div id="drag-target"
-        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${isIn ? 'bg-slate-600' : 'bg-blue-900'}`}>
+        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${isIn.boolean ? 'bg-slate-600' : 'bg-blue-900'}`}>
       </div>
       <button onClick={() => cleanDrop()} disabled={!isIn} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clean</button>
     </div>
