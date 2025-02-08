@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import detectElementOverflow from 'detect-element-overflow'
 import Icon from './Icon'
 

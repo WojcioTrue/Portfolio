@@ -1,5 +1,5 @@
-import { AnimationControls, motion, useAnimationControls, useDragControls } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import { motion, useAnimationControls, useDragControls } from 'framer-motion'
+import React, { useEffect } from 'react'
 import { IconArrType } from './SkillsGrid'
 
 type IconType = {
@@ -29,7 +29,7 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
                 y: top,
             })
         }
-    }, [cleanTarget])
+    }, [cleanTarget, animationControls, left, top])
 
     const dragDrop = (el: string) => {
         if (overTarget.boolean) {
