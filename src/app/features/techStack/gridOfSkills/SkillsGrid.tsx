@@ -1,33 +1,37 @@
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import detectElementOverflow from 'detect-element-overflow'
 import Icon from './Icon'
+
+const Arr = [
+  {
+    id: 'drag-element-1',
+    top: 50,
+    left: 50,
+    marker: 'X',
+    dropped: false
+  },
+  {
+    id: 'drag-element-2',
+    top: 100,
+    left: 50,
+    marker: 'Y',
+    dropped: false
+  },
+]
 
 const SkillsGrid = () => {
   const constraintDrag = useRef<HTMLDivElement>(null)
   const [isIn, setIsIn] = useState(false)
+  const [testArr, setTestArr] = useState(Arr)
 
-  const testArr = [
-    {
-      id: 'drag-element-1',
-      top: 50,
-      left: 50,
-      active: false,
-      marker: 'X',
-      dropped: false
-    },
-    {
-      id: 'drag-element-2',
-      top: 100,
-      left: 50,
-      active: false,
-      marker: 'Y',
-      dropped: false
-    },
-  ]
 
   const cleanDrop = () => {
     setIsIn(false)
+  }
+  
+  const droppedInField = (id : string) => {
+    setTestArr(testArr.map((x) => x.id === id ? {...x, dropped : true} : x))
   }
 
   const detectEnter = (el: string) => {
@@ -56,6 +60,7 @@ const SkillsGrid = () => {
         left={x.left}
         marker={x.marker}
         dropped={x.dropped}
+        droppedInField={droppedInField}
         /> )}
       <p>{isIn.toString()}</p>
       <div id="drag-target"
