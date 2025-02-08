@@ -9,14 +9,13 @@ type IconType = {
     overTarget: { boolean: boolean, id: string }
     top: number
     left: number
-    marker: string
     dropped: boolean
     droppedInField: (id: string) => void
     arr: IconArrType[]
     cleanTarget: { boolean: boolean, set: React.Dispatch<React.SetStateAction<boolean>> }
 }
 
-const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, marker, dropped, droppedInField, cleanTarget }: IconType) => {
+const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, dropped, droppedInField, cleanTarget }: IconType) => {
     const controls = useDragControls()
     const animationControls = useAnimationControls()
 
@@ -71,10 +70,6 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
             animate={animationControls}
             dragControls={controls}
         >
-            {marker}
-            {/* <div onClick={() => fuckingClick()} className='bg-green-800 w-[50px] h-[30px]'>
-                clear
-            </div> */}
         </motion.div>
     )
 }

@@ -7,7 +7,6 @@ export type IconArrType = {
   id: string
   top: number
   left: number
-  marker: string
   dropped: boolean
 }
 
@@ -16,14 +15,12 @@ const Arr = [
     id: 'drag-element-1',
     top: 50,
     left: 50,
-    marker: 'X',
     dropped: false
   },
   {
     id: 'drag-element-2',
     top: 100,
     left: 50,
-    marker: 'Y',
     dropped: false
   },
 ]
@@ -69,7 +66,6 @@ const SkillsGrid = () => {
         overTarget={overTarget}
         top={x.top}
         left={x.left}
-        marker={x.marker}
         dropped={x.dropped}
         droppedInField={droppedInField}
         arr={testArr}
