@@ -22,7 +22,6 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
 
     useEffect(() => {
         if (cleanTarget.boolean) {
-            console.log("clicked")
             cleanTarget.set(false)
             animationControls.start({
                 x: left,
