@@ -44,7 +44,6 @@ const SkillsGrid = () => {
 
   const detectEnter = (el: string) => {
     const overflow = 10;
-    const parent = document.getElementById('drag-component')
     const element = document.getElementById(el)!
     const target = document.getElementById('drag-target')!
     const collisions = detectElementOverflow(element, target);
@@ -75,7 +74,7 @@ const SkillsGrid = () => {
       <div id="drag-target"
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${overTarget.boolean ? 'bg-slate-600' : 'bg-blue-900'}`}>
       </div>
-      <button onClick={() => {cleanDrop()}} disabled={!overTarget.boolean} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clean</button>
+      <button onClick={() => {cleanDrop()}} disabled={!overTarget.boolean} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clear</button>
     </div>
 
   )
