@@ -1,34 +1,38 @@
 'use client'
-import { motion, useAnimationControls, useDragControls } from 'framer-motion'
+import { AnimationControls, motion, useAnimationControls, useDragControls } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import detectElementOverflow from 'detect-element-overflow'
+import Icon from './Icon'
 
 const SkillsGrid = () => {
   const constraintDrag = useRef<HTMLDivElement>(null)
   const [isIn, setIsIn] = useState(false)
-  const [dropped, setDropped] = useState(false)
-  const controls = useDragControls()
-  const animationControls = useAnimationControls()
 
-  const dragDrop = () => {
-    const parent = document.getElementById('drag-component')
-    const element = document.getElementById('drag-element')!
-    const target = document.getElementById('drag-target')!
-    if (isIn) {
-      setDropped(true)
-      animationControls.set({
-        position: 'absolute',
-        x: 225,
-        y: 110
-      })
-    }
 
+
+
+  // const dragDrop = (el : string, controls : AnimationControls) => {
+  //   const parent = document.getElementById('drag-component')
+  //   const element = document.getElementById(el)!
+  //   const target = document.getElementById('drag-target')!
+  //   console.log(element.style.top)
+  //   if (isIn) {
+  //     setDropped(true)
+  //     controls.set({
+  //       x: 225 - 50,
+  //       y: 110 - 50
+  //     })
+  //   }
+  // }
+
+  const cleanDrop = () => {
+    console.log('clean drop')
   }
 
-  const detectEnter = () => {
+  const detectEnter = (el : string) => {
     if (isIn) { return }
     const parent = document.getElementById('drag-component')
-    const element = document.getElementById('drag-element')!
+    const element = document.getElementById(el)!
     const target = document.getElementById('drag-target')!
     const collisions = detectElementOverflow(element, target);
     collisions.overflowLeft >= 15 ?
@@ -42,33 +46,37 @@ const SkillsGrid = () => {
 
   return (
     <div id="drag-component" ref={constraintDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>
-      <motion.div
+      <Icon constraintDrag={constraintDrag}/>
+      {/* <motion.div
         layout
-        id="drag-element"
+        id="drag-element-2"
         onDrag={() => {
-          detectEnter()
+          detectEnter("drag-element-2")
         }}
-        onDragEnd={() => dragDrop()}
+        onDragEnd={() => dragDrop('drag-element-2', animationControls2)}
         className={`
         bg-white 
         w-[30px] 
         h-[30px] 
         absolute 
+        top-[100px]
+        left-[50px]
         z-10`}
-        drag={!dropped}
+        drag={!dropped2}
         dragConstraints={constraintDrag}
         whileDrag={{
           scale: 1.2,
         }}
-        animate={animationControls}
-        dragControls={controls}
+        animate={animationControls2}
+        dragControls={controls2}
       >
-        X
-      </motion.div>
+        Y
+      </motion.div> */}
       <p>{isIn.toString()}</p>
       <div id="drag-target"
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${isIn ? 'bg-slate-600' : 'bg-blue-900'}`}>
       </div>
+      <button onClick={() => cleanDrop()} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clean</button>
     </div>
 
   )
