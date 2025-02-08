@@ -13,19 +13,23 @@ type IconType = {
     dropped: boolean
     droppedInField: (id: string) => void
     arr: IconArrType[]
+    cleanTarget: { boolean: boolean, set: React.Dispatch<React.SetStateAction<boolean>> }
 }
 
-const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, marker, dropped, droppedInField }: IconType) => {
+const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, marker, dropped, droppedInField, cleanTarget }: IconType) => {
     const controls = useDragControls()
     const animationControls = useAnimationControls()
 
-
-    const fuckingClick = () => {
-        animationControls.start({
-            x: 0,
-            y: 0,
-        })
-    }
+    useEffect(() => {
+        if (cleanTarget.boolean) {
+            console.log("clicked")
+            cleanTarget.set(false)
+            animationControls.start({
+                x: left,
+                y: top,
+            })
+        }
+    }, [cleanTarget])
 
     const dragDrop = (el: string) => {
         if (overTarget.boolean) {
@@ -36,8 +40,8 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
             })
         } else {
             animationControls.start({
-                x: 0,
-                y: 0,
+                x: left,
+                y: top,
             })
         }
     }
@@ -46,6 +50,10 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
         <motion.div
             layout
             id={dragElement}
+            initial={{
+                y: top,
+                x: left
+            }}
             onDrag={() => {
                 detectEnter(dragElement)
             }}
@@ -65,9 +73,9 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
             dragControls={controls}
         >
             {marker}
-            <div onClick={() => fuckingClick()} className='bg-green-800 w-[50px] h-[30px]'>
+            {/* <div onClick={() => fuckingClick()} className='bg-green-800 w-[50px] h-[30px]'>
                 clear
-            </div>
+            </div> */}
         </motion.div>
     )
 }
