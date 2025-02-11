@@ -30,6 +30,15 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
         }
     }, [cleanTarget, animationControls, left, top])
 
+    useEffect(() => {
+        if(inTarget.id !== dragElement) {
+            animationControls.start({
+                x: left,
+                y: top,
+            })
+        }
+    },[animationControls, dragElement, inTarget, left, top])
+
     const dragDrop = (el: string) => {
         if (overTarget.boolean) {
             droppedInField(el)
@@ -56,7 +65,9 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
             onDrag={() => {
                 detectEnter(dragElement)
             }}
-            onDragEnd={() => dragDrop(dragElement)}
+            onDragEnd={() => {
+                dragDrop(dragElement)
+            }}
             className={`
                 bg-white 
                 w-[30px] 

@@ -71,7 +71,6 @@ const SkillsGrid = () => {
         cleanTarget={{ boolean: clean, set: setClean }}
         text={x.text}
       />)}
-      <p>{overTarget.boolean.toString()}</p>
       <div id="drag-target"
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${inTarget.boolean ? 'bg-slate-500' : 'bg-slate-50'} `}>
       </div>
