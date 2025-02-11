@@ -9,13 +9,14 @@ type IconType = {
     overTarget: { boolean: boolean, id: string }
     top: number
     left: number
-    dropped: boolean
+    inTarget: { boolean: boolean, id: string }
     droppedInField: (id: string) => void
     arr: IconArrType[]
     cleanTarget: { boolean: boolean, set: React.Dispatch<React.SetStateAction<boolean>> }
+    text: string
 }
 
-const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, dropped, droppedInField, cleanTarget }: IconType) => {
+const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, inTarget, droppedInField, cleanTarget, text }: IconType) => {
     const controls = useDragControls()
     const animationControls = useAnimationControls()
 
@@ -62,7 +63,7 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
                 h-[30px] 
                 absolute 
                 z-10`}
-            drag={!dropped}
+            drag={!(inTarget.id === dragElement)}
             dragConstraints={constraintDrag}
             whileDrag={{
                 scale: 1.2,
@@ -70,6 +71,7 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
             animate={animationControls}
             dragControls={controls}
         >
+            {text}
         </motion.div>
     )
 }
