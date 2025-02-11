@@ -1,6 +1,7 @@
 import Header from './Header'
 import Description from './Description'
 import SkillsGrid from './gridOfSkills/SkillsGrid'
+import TechStackContextProvider from './techStackContext/TechStackContext'
 
 const TechStack = () => {
     return (

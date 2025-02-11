@@ -6,22 +6,22 @@ import { ChildrenType } from "../../navbar/navBarContext/NavBarContextProvider"
 const TechStackContext = createContext<{
 
 }>({
-  isConstraintDrag: null,
+  constraintDrag: null,
   isTestArr: {
-    testArr: Arr,
-    setTestArr: () => {}
+    testArr: [],
+    setTestArr: () => { }
   },
   isClean: {
     clean: false,
-    setClean: () => {}
+    setClean: () => { }
   },
   isTarget: {
     inTarget: { boolean: false, id: '' },
-    setInTarget: () => {}
+    setInTarget: () => { }
   },
   isOverTarget: {
     overTarget: { boolean: false, id: '' },
-    setOverTarget: () => {}
+    setOverTarget: () => { }
   }
 })
 
@@ -32,7 +32,27 @@ const TechStackContextProvider = ({ children }: ChildrenType) => {
   const [inTarget, setInTarget] = useState({ boolean: false, id: '' })
   const [overTarget, setOverTarget] = useState({ boolean: false, id: '' })
   return (
-    { children }
+    <TechStackContext.Provider value={{
+      constraintDrag,
+      isTestArr: {
+        testArr,
+        setTestArr,
+      },
+      isClean: {
+        clean,
+        setClean,
+      },
+      isTarget: {
+        inTarget,
+        setInTarget
+      },
+      isOverTarget: {
+        overTarget,
+        setOverTarget
+      }
+    }}>
+      {children}
+    </TechStackContext.Provider>
   )
 }
 
