@@ -25,7 +25,6 @@ const Arr: IconArrType[] = [
     left: 50,
     text: 'y',
     src: `/images/ts.png`
-
   },
 ]
 
@@ -43,6 +42,7 @@ const SkillsGrid = () => {
 
   const droppedInField = (id: string) => {
     setInTarget({ boolean: true, id })
+    setOverTarget({ boolean: false, id: '' })
   }
 
   const detectEnter = (el: string) => {
@@ -77,7 +77,9 @@ const SkillsGrid = () => {
         imgSrc={x.src}
       />)}
       <div id="drag-target"
-        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${inTarget.boolean ? 'bg-slate-500' : 'bg-slate-50'} `}>
+        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] 
+        ${overTarget.boolean ? 'bg-green-300' : 'bg-slate-50'}
+        ${inTarget.boolean ? 'bg-green-600' : 'bg-slate-50'} `}>
       </div>
       <button onClick={() => { cleanDrop() }} disabled={!inTarget} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clear</button>
     </div>

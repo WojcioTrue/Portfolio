@@ -1,7 +1,6 @@
 import { motion, useAnimationControls, useDragControls } from 'framer-motion'
 import React, { useEffect } from 'react'
 import { IconArrType } from './SkillsGrid'
-import Image from 'next/image'
 
 type IconType = {
     constraintDrag: React.RefObject<HTMLDivElement>
@@ -18,7 +17,7 @@ type IconType = {
     imgSrc: string
 }
 
-const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, inTarget, droppedInField, cleanTarget, text, imgSrc }: IconType) => {
+const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, inTarget, droppedInField, cleanTarget, text }: IconType) => {
     const controls = useDragControls()
     const animationControls = useAnimationControls()
 
@@ -33,13 +32,13 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
     }, [cleanTarget, animationControls, left, top])
 
     useEffect(() => {
-        if(inTarget.id !== dragElement) {
+        if (inTarget.id !== dragElement) {
             animationControls.start({
                 x: left,
                 y: top,
             })
         }
-    },[animationControls, dragElement, inTarget, left, top])
+    }, [animationControls, dragElement, inTarget, left, top])
 
     const dragDrop = (el: string) => {
         if (overTarget.boolean) {
@@ -71,7 +70,7 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
                 dragDrop(dragElement)
             }}
             className={`
-                bg-white 
+                bg-slate-400
                 w-[30px] 
                 h-[30px] 
                 absolute 
