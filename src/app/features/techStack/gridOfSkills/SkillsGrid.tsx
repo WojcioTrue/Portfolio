@@ -7,7 +7,6 @@ export type IconArrType = {
   id: string
   top: number
   left: number
-  dropped: boolean
   text: string
 }
 
@@ -16,14 +15,12 @@ const Arr: IconArrType[] = [
     id: 'drag-element-1',
     top: 50,
     left: 50,
-    dropped: false,
     text: 'x'
   },
   {
     id: 'drag-element-2',
     top: 100,
     left: 50,
-    dropped: false,
     text: 'y'
   },
 ]
