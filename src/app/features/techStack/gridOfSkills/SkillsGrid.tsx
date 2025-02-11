@@ -8,6 +8,7 @@ export type IconArrType = {
   top: number
   left: number
   text: string
+  src: string
 }
 
 const Arr: IconArrType[] = [
@@ -15,13 +16,16 @@ const Arr: IconArrType[] = [
     id: 'drag-element-1',
     top: 50,
     left: 50,
-    text: 'x'
+    text: 'x',
+    src: `/images/ts.png`
   },
   {
     id: 'drag-element-2',
     top: 100,
     left: 50,
-    text: 'y'
+    text: 'y',
+    src: `/images/ts.png`
+
   },
 ]
 
@@ -38,7 +42,7 @@ const SkillsGrid = () => {
   }
 
   const droppedInField = (id: string) => {
-      setInTarget({boolean: true, id})
+    setInTarget({ boolean: true, id })
   }
 
   const detectEnter = (el: string) => {
@@ -70,6 +74,7 @@ const SkillsGrid = () => {
         arr={testArr}
         cleanTarget={{ boolean: clean, set: setClean }}
         text={x.text}
+        imgSrc={x.src}
       />)}
       <div id="drag-target"
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] ${inTarget.boolean ? 'bg-slate-500' : 'bg-slate-50'} `}>

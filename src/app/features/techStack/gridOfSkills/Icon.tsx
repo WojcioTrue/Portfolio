@@ -1,6 +1,7 @@
 import { motion, useAnimationControls, useDragControls } from 'framer-motion'
 import React, { useEffect } from 'react'
 import { IconArrType } from './SkillsGrid'
+import Image from 'next/image'
 
 type IconType = {
     constraintDrag: React.RefObject<HTMLDivElement>
@@ -14,9 +15,10 @@ type IconType = {
     arr: IconArrType[]
     cleanTarget: { boolean: boolean, set: React.Dispatch<React.SetStateAction<boolean>> }
     text: string
+    imgSrc: string
 }
 
-const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, inTarget, droppedInField, cleanTarget, text }: IconType) => {
+const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, inTarget, droppedInField, cleanTarget, text, imgSrc }: IconType) => {
     const controls = useDragControls()
     const animationControls = useAnimationControls()
 
@@ -76,6 +78,7 @@ const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left,
                 z-10`}
             drag={!(inTarget.id === dragElement)}
             dragConstraints={constraintDrag}
+            dragElastic={0.02}
             whileDrag={{
                 scale: 1.2,
             }}
