@@ -5,11 +5,14 @@ import TechStackContextProvider from './techStackContext/TechStackContext'
 
 const TechStack = () => {
     return (
-        <div id="Skills" className="relative h-full bg-white border-t-[1px] border-my-lightGray overflow-hidden flex items-center flex-col " >
-            <Header/>
-            <Description/>
-            <SkillsGrid/>
-        </div>
+        <TechStackContextProvider>
+            <div id="Skills" className="relative h-full bg-white border-t-[1px] border-my-lightGray overflow-hidden flex items-center flex-col " >
+                <Header />
+                <Description />
+                <SkillsGrid />
+            </div>
+        </TechStackContextProvider>
+
     )
 }
 

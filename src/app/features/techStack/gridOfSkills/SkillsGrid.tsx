@@ -1,7 +1,9 @@
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import detectElementOverflow from 'detect-element-overflow'
 import Icon from './Icon'
+import TechStackContextProvider from '../techStackContext/TechStackContext'
+import { TechStackContext } from '../techStackContext/TechStackContext'
 
 export type IconArrType = {
   id: string
@@ -29,6 +31,8 @@ export const Arr: IconArrType[] = [
 ]
 
 const SkillsGrid = () => {
+  const {isTestArr} = useContext(TechStackContext)
+
   const constraintDrag = useRef<HTMLDivElement>(null)
   const [testArr, setTestArr] = useState(Arr)
   const [clean, setClean] = useState(false)
@@ -39,6 +43,10 @@ const SkillsGrid = () => {
     setInTarget({ boolean: false, id: '' })
     setClean(true)
   }
+
+  useEffect(() => {
+    console.log(isTestArr)
+  },[])
 
   const droppedInField = (id: string) => {
     setInTarget({ boolean: true, id })
