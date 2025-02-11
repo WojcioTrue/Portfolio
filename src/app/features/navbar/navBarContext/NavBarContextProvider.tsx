@@ -73,7 +73,7 @@ const NavBarContext = createContext<{
   }
 })
 
-type ChildrenType = {
+export type ChildrenType = {
   children: React.ReactNode
 }
 
