@@ -11,7 +11,7 @@ export type IconArrType = {
   src: string
 }
 
-const Arr: IconArrType[] = [
+export const Arr: IconArrType[] = [
   {
     id: 'drag-element-1',
     top: 50,
