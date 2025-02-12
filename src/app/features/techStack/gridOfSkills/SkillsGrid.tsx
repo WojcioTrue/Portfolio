@@ -1,5 +1,5 @@
 'use client'
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import detectElementOverflow from 'detect-element-overflow'
 import Icon from './Icon'
 import { TechStackContext } from '../techStackContext/TechStackContext'
@@ -32,8 +32,8 @@ export const Arr: IconArrType[] = [
 const SkillsGrid = () => {
   const { constraintDrag, isTestArr, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
   const constDrag = constraintDrag
-  const { testArr, setTestArr } = isTestArr
-  const { clean, setClean } = isClean
+  const { testArr } = isTestArr
+  const { setClean } = isClean
   const { inTarget, setInTarget } = isTarget
   const { overTarget, setOverTarget } = isOverTarget
 
@@ -65,23 +65,16 @@ const SkillsGrid = () => {
     <div id="drag-component" ref={constDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>
       {testArr.map((x) => <Icon
         key={x.id}
-        constraintDrag={constDrag}
         dragElement={x.id}
         detectEnter={detectEnter}
-        overTarget={overTarget}
         top={x.top}
         left={x.left}
-        inTarget={inTarget}
         droppedInField={droppedInField}
-        arr={testArr}
-        cleanTarget={{ boolean: clean, set: setClean }}
         text={x.text}
         imgSrc={x.src}
       />)}
       <div id="drag-target"
-        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] 
-        ${overTarget.boolean ? 'bg-green-300' : 'bg-slate-50'}
-        ${inTarget.boolean ? 'bg-green-600' : 'bg-slate-50'} `}>
+        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] bg-slate-500`}>
       </div>
       <button onClick={() => { cleanDrop() }} disabled={!inTarget} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clear</button>
     </div>

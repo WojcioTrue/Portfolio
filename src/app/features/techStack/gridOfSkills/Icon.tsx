@@ -1,35 +1,34 @@
 import { motion, useAnimationControls, useDragControls } from 'framer-motion'
-import React, { useEffect } from 'react'
-import { IconArrType } from './SkillsGrid'
+import React, { useContext, useEffect } from 'react'
+import { TechStackContext } from '../techStackContext/TechStackContext'
 
 type IconType = {
-    constraintDrag: React.RefObject<HTMLDivElement> | undefined
     dragElement: string
     detectEnter: (el: string) => void
-    overTarget: { boolean: boolean, id: string }
     top: number
     left: number
-    inTarget: { boolean: boolean, id: string }
     droppedInField: (id: string) => void
-    arr: IconArrType[]
-    cleanTarget: { boolean: boolean, set: React.Dispatch<React.SetStateAction<boolean>> }
     text: string
     imgSrc: string
 }
 
-const Icon = ({ constraintDrag, dragElement, detectEnter, overTarget, top, left, inTarget, droppedInField, cleanTarget, text }: IconType) => {
+const Icon = ({ dragElement, detectEnter, top, left, droppedInField, text }: IconType) => {
+    const { constraintDrag, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
+    const { clean, setClean } = isClean
+    const { inTarget } = isTarget
+    const { overTarget } = isOverTarget
     const controls = useDragControls()
     const animationControls = useAnimationControls()
 
     useEffect(() => {
-        if (cleanTarget.boolean) {
-            cleanTarget.set(false)
+        if (clean) {
+            setClean(false)
             animationControls.start({
                 x: left,
                 y: top,
             })
         }
-    }, [cleanTarget, animationControls, left, top])
+    }, [animationControls, clean, left, setClean, top])
 
     useEffect(() => {
         if (inTarget.id !== dragElement) {
