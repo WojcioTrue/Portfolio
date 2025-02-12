@@ -1,5 +1,5 @@
 'use client'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import Icon from './Icon'
 import { TechStackContext } from '../techStackContext/TechStackContext'
@@ -30,7 +30,7 @@ export const Arr: IconArrType[] = [
 ]
 
 const SkillsGrid = () => {
-  const { constraintDrag, isTestArr, isClean, isTarget } = useContext(TechStackContext)
+  const { constraintDrag, isTestArr, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
   const constDrag = constraintDrag
   const { testArr } = isTestArr
   const { setClean } = isClean
@@ -40,6 +40,10 @@ const SkillsGrid = () => {
     setInTarget({ boolean: false, id: '' })
     setClean(true)
   }
+
+  useEffect(() => {
+    console.log(isTarget.inTarget.boolean)
+  },[])
 
   return (
     <div id="drag-component" ref={constDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>
@@ -52,7 +56,7 @@ const SkillsGrid = () => {
         imgSrc={x.src}
       />)}
       <div id="drag-target"
-        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] bg-slate-500`}>
+        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] bg-blue-900`}>
       </div>
       <button onClick={() => { cleanDrop() }} disabled={!inTarget} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clear</button>
     </div>
