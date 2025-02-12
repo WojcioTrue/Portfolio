@@ -1,4 +1,4 @@
-import { createContext, RefObject, useRef, useState } from "react"
+import { createContext, useRef, useState } from "react"
 import { Arr } from "../gridOfSkills/SkillsGrid"
 import { ChildrenType } from "../../navbar/navBarContext/NavBarContextProvider"
 import { IconArrType } from "../gridOfSkills/SkillsGrid"

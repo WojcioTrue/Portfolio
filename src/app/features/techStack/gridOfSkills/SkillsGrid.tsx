@@ -1,6 +1,5 @@
 'use client'
-import React, { useContext, useEffect } from 'react'
-
+import React, { useContext } from 'react'
 import Icon from './Icon'
 import { TechStackContext } from '../techStackContext/TechStackContext'
 
@@ -40,10 +39,6 @@ const SkillsGrid = () => {
     setInTarget({ boolean: false, id: '' })
     setClean(true)
   }
-
-  useEffect(() => {
-    console.log(isTarget.inTarget.boolean)
-  },[])
 
   return (
     <div id="drag-component" ref={constDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>

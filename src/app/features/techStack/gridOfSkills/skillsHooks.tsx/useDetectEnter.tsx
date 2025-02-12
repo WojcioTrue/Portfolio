@@ -1,4 +1,3 @@
-
 import detectElementOverflow from 'detect-element-overflow'
 import { useContext } from 'react';
 import { TechStackContext } from '../../techStackContext/TechStackContext';
