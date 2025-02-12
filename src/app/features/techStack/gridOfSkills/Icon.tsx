@@ -2,19 +2,20 @@ import { motion, useAnimationControls, useDragControls } from 'framer-motion'
 import React, { useContext, useEffect } from 'react'
 import { TechStackContext } from '../techStackContext/TechStackContext'
 import useDetectEnter from './skillsHooks.tsx/useDetectEnter'
+import useDropped from './skillsHooks.tsx/useDropped'
 
 type IconType = {
     dragElement: string
     top: number
     left: number
-    droppedInField: (id: string) => void
     text: string
     imgSrc: string
 }
 
-const Icon = ({ dragElement, top, left, droppedInField, text }: IconType) => {
+const Icon = ({ dragElement, top, left, text }: IconType) => {
     const { constraintDrag, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
     const { detectEnter } = useDetectEnter()
+    const { droppedInField } = useDropped()
     const { clean, setClean } = isClean
     const { inTarget } = isTarget
     const { overTarget } = isOverTarget
