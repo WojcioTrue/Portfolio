@@ -35,7 +35,7 @@ const SkillsGrid = () => {
   const { testArr } = isTestArr
   const { setClean } = isClean
   const { inTarget, setInTarget } = isTarget
-  const { overTarget, setOverTarget } = isOverTarget
+  const {  setOverTarget } = isOverTarget
 
   const cleanDrop = () => {
     setInTarget({ boolean: false, id: '' })
