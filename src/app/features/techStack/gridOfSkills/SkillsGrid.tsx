@@ -30,19 +30,17 @@ export const Arr: IconArrType[] = [
 ]
 
 const SkillsGrid = () => {
-  const { constraintDrag } = useContext(TechStackContext)
+  const { constraintDrag, isTestArr, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
   const constDrag = constraintDrag
-  const [testArr, setTestArr] = useState(Arr)
-  const [clean, setClean] = useState(false)
-  const [inTarget, setInTarget] = useState({ boolean: false, id: '' })
-  const [overTarget, setOverTarget] = useState({ boolean: false, id: '' })
+  const { testArr, setTestArr } = isTestArr
+  const { clean, setClean } = isClean
+  const { inTarget, setInTarget } = isTarget
+  const { overTarget, setOverTarget } = isOverTarget
 
   const cleanDrop = () => {
     setInTarget({ boolean: false, id: '' })
     setClean(true)
   }
-
-
 
   const droppedInField = (id: string) => {
     setInTarget({ boolean: true, id })
