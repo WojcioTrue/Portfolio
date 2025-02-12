@@ -5,7 +5,7 @@ import { IconArrType } from "../gridOfSkills/SkillsGrid"
 import { SetStateAction, Dispatch } from "react"
 
 export const TechStackContext = createContext<{
-  constraintDrag: RefObject<HTMLDivElement> | null,
+  constraintDrag: React.RefObject<HTMLDivElement> | undefined,
   isTestArr: {
     testArr: IconArrType[],
     setTestArr: Dispatch<SetStateAction<IconArrType[]>>
@@ -23,7 +23,7 @@ export const TechStackContext = createContext<{
     setOverTarget: Dispatch<SetStateAction<{ boolean: boolean, id: string }>>
   }
 }>({
-  constraintDrag: null,
+  constraintDrag: undefined,
   isTestArr: {
     testArr: [],
     setTestArr: () => { }
@@ -43,7 +43,7 @@ export const TechStackContext = createContext<{
 })
 
 const TechStackContextProvider = ({ children }: ChildrenType) => {
-  const constraintDrag = useRef<HTMLDivElement>(null)
+  const constraintDrag = useRef<HTMLDivElement | null>(null)
   const [testArr, setTestArr] = useState(Arr)
   const [clean, setClean] = useState(false)
   const [inTarget, setInTarget] = useState({ boolean: false, id: '' })

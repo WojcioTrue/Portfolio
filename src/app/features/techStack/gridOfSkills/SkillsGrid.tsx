@@ -1,8 +1,7 @@
 'use client'
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import detectElementOverflow from 'detect-element-overflow'
 import Icon from './Icon'
-import TechStackContextProvider from '../techStackContext/TechStackContext'
 import { TechStackContext } from '../techStackContext/TechStackContext'
 
 export type IconArrType = {
@@ -31,9 +30,8 @@ export const Arr: IconArrType[] = [
 ]
 
 const SkillsGrid = () => {
-  const {isTestArr} = useContext(TechStackContext)
-
-  const constraintDrag = useRef<HTMLDivElement>(null)
+  const { constraintDrag } = useContext(TechStackContext)
+  const constDrag = constraintDrag
   const [testArr, setTestArr] = useState(Arr)
   const [clean, setClean] = useState(false)
   const [inTarget, setInTarget] = useState({ boolean: false, id: '' })
@@ -44,9 +42,7 @@ const SkillsGrid = () => {
     setClean(true)
   }
 
-  useEffect(() => {
-    console.log(isTestArr)
-  },[])
+
 
   const droppedInField = (id: string) => {
     setInTarget({ boolean: true, id })
@@ -68,10 +64,10 @@ const SkillsGrid = () => {
   }
 
   return (
-    <div id="drag-component" ref={constraintDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>
+    <div id="drag-component" ref={constDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>
       {testArr.map((x) => <Icon
         key={x.id}
-        constraintDrag={constraintDrag}
+        constraintDrag={constDrag}
         dragElement={x.id}
         detectEnter={detectEnter}
         overTarget={overTarget}

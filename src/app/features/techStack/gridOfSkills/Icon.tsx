@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { IconArrType } from './SkillsGrid'
 
 type IconType = {
-    constraintDrag: React.RefObject<HTMLDivElement>
+    constraintDrag: React.RefObject<HTMLDivElement> | undefined
     dragElement: string
     detectEnter: (el: string) => void
     overTarget: { boolean: boolean, id: string }
