@@ -1,18 +1,17 @@
 import { motion, useAnimationControls, useDragControls } from 'framer-motion'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { TechStackContext } from '../techStackContext/TechStackContext'
 import useDetectEnter from './skillsHooks.tsx/useDetectEnter'
 import useDropped from './skillsHooks.tsx/useDropped'
 
 type IconType = {
     dragElement: string
-    top: number
-    left: number
     text: string
     imgSrc: string
+    index: number
 }
 
-const Icon = ({ dragElement, top, left, text }: IconType) => {
+const Icon = ({ dragElement, text, index }: IconType) => {
     const { constraintDrag, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
     const { detectEnter } = useDetectEnter()
     const { droppedInField } = useDropped()
@@ -21,37 +20,51 @@ const Icon = ({ dragElement, top, left, text }: IconType) => {
     const { overTarget } = isOverTarget
     const controls = useDragControls()
     const animationControls = useAnimationControls()
+    const [elementPos, setElementPos] = useState({top: 0, left: 0})
+
+    useEffect(() => {
+        const element = document.getElementById(dragElement)
+        const offsetLeft = element!.offsetLeft
+        const offsetTop = element!.offsetTop
+        console.log(offsetLeft, offsetTop)
+            setElementPos({top: offsetTop, left: offsetLeft})
+    },[])
+
+    useEffect(() => {
+        console.log(dragElement, elementPos)
+    },[])
 
     useEffect(() => {
         if (clean) {
             setClean(false)
             animationControls.start({
-                x: left,
-                y: top,
+                x: 225,
+                y: 110,
             })
         }
-    }, [animationControls, clean, left, setClean, top])
+    }, [animationControls, clean, setClean])
 
     useEffect(() => {
         if (inTarget.id !== dragElement) {
             animationControls.start({
-                x: left,
-                y: top,
+                x: 0,
+                y: 0,
             })
         }
-    }, [animationControls, dragElement, inTarget, left, top])
+    }, [animationControls, dragElement, elementPos.left, elementPos.top, inTarget])
 
     const dragDrop = (el: string) => {
         if (overTarget.boolean) {
             droppedInField(el)
             animationControls.start({
-                x: 225,
-                y: 110,
+                x: 225 - elementPos.left,
+                y: 110 - elementPos.top,
             })
-        } else {
+        } 
+        else {
             animationControls.start({
-                x: left,
-                y: top,
+                x: 0,
+                y: 0,
             })
         }
     }
@@ -60,10 +73,6 @@ const Icon = ({ dragElement, top, left, text }: IconType) => {
         <motion.div
             layout
             id={dragElement}
-            initial={{
-                y: top,
-                x: left
-            }}
             onDrag={() => {
                 detectEnter(dragElement)
             }}
@@ -71,10 +80,10 @@ const Icon = ({ dragElement, top, left, text }: IconType) => {
                 dragDrop(dragElement)
             }}
             className={`
-                bg-slate-400
                 w-[30px] 
                 h-[30px] 
-                absolute 
+                bg-green-300 
+                relative
                 z-10`}
             drag={!(inTarget.id === dragElement)}
             dragConstraints={constraintDrag}
@@ -85,7 +94,7 @@ const Icon = ({ dragElement, top, left, text }: IconType) => {
             animate={animationControls}
             dragControls={controls}
         >
-            {text}
+            {index}
         </motion.div>
     )
 }

@@ -5,8 +5,6 @@ import { TechStackContext } from '../techStackContext/TechStackContext'
 
 export type IconArrType = {
   id: string
-  top: number
-  left: number
   text: string
   src: string
 }
@@ -14,15 +12,46 @@ export type IconArrType = {
 export const Arr: IconArrType[] = [
   {
     id: 'drag-element-1',
-    top: 50,
-    left: 50,
     text: 'x',
     src: `/images/ts.png`
   },
   {
     id: 'drag-element-2',
-    top: 100,
-    left: 50,
+    text: 'y',
+    src: `/images/ts.png`
+  },
+  {
+    id: 'drag-element-3',
+    text: 'y',
+    src: `/images/ts.png`
+  },
+  {
+    id: 'drag-element-4',
+    text: 'x',
+    src: `/images/ts.png`
+  },
+  {
+    id: 'drag-element-5',
+    text: 'y',
+    src: `/images/ts.png`
+  },
+  {
+    id: 'drag-element-6',
+    text: 'y',
+    src: `/images/ts.png`
+  },
+  {
+    id: 'drag-element-7',
+    text: 'x',
+    src: `/images/ts.png`
+  },
+  {
+    id: 'drag-element-8',
+    text: 'y',
+    src: `/images/ts.png`
+  },
+  {
+    id: 'drag-element-9',
     text: 'y',
     src: `/images/ts.png`
   },
@@ -42,14 +71,17 @@ const SkillsGrid = () => {
 
   return (
     <div id="drag-component" ref={constDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>
-      {testArr.map((x) => <Icon
-        key={x.id}
-        dragElement={x.id}
-        top={x.top}
-        left={x.left}
-        text={x.text}
-        imgSrc={x.src}
-      />)}
+      <div className='grid grid-cols-3 grid-rows-3 gap-[1px] justify-items-center bg-slate-300 w-[93px] h-[93px]'>
+        {testArr.map((x, i) =>
+          <Icon
+            key={i}
+            dragElement={x.id}
+            text={x.text}
+            imgSrc={x.src}
+            index={i}
+          />
+        )}
+      </div>
       <div id="drag-target"
         className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] bg-blue-900`}>
       </div>
