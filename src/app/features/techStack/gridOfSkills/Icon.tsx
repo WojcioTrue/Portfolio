@@ -22,7 +22,7 @@ const Icon = ({ dragElement, text, index }: IconType) => {
     const controls = useDragControls()
     const animationControls = useAnimationControls()
     const [elementPos, setElementPos] = useState({ top: 0, left: 0 })
-    const [dropValues, toDropValues] = useState({top: 0, left: 0})
+    const [dropValues, setDropValues] = useState({ top: 0, left: 0 })
 
     useEffect(() => {
         const element = document.getElementById(dragElement)
@@ -31,26 +31,32 @@ const Icon = ({ dragElement, text, index }: IconType) => {
         setElementPos({ top: offsetTop, left: offsetLeft })
     }, [])
 
-    // useEffect(() => {
-    //     if (dropTarget?.current !== undefined && dropTarget?.current !== null) {
-    //         const elementHeight = dropTarget.current.clientHeight
-    //         const elementWidth= dropTarget.current.clientWidth
-    //         const middleHorizontal = Math.floor(elementWidth/2)
-    //         const middleVertical = Math.floor(elementHeight/2)
-    //         console.log('Horizontal middle of element, ' ,middleHorizontal)
-    //         console.log('Vertical middle of element, ' ,middleVertical)
-
-    //     }
-    // }, [])
-
     useEffect(() => {
-        const element = document.getElementById(dragElement)
-        console.log(`
-            dragElement: ${dragElement},
-            elementPos.top: ${element!.offsetTop},
-            elementPos.left: ${element!.offsetLeft}
-            `)
-    }, [dragElement, elementPos])
+        const element = document.getElementById(dragElement)!
+        if (dropTarget?.current !== undefined && dropTarget?.current !== null) {
+            const dropTargetHeight = dropTarget.current.clientHeight
+            const dropTargetWidth = dropTarget.current.clientWidth
+            const middleHorizontal = Math.floor(dropTargetWidth / 2)
+            const middleVertical = Math.floor(dropTargetHeight / 2)
+            const elementHeight = Math.ceil(element.clientHeight / 2)
+            const tempTop = dropTarget.current.offsetTop - element.offsetTop + dropTargetHeight/2 - elementHeight
+
+
+            const tempLeft = dropTarget.current.offsetLeft + dropTargetWidth/2 - element.clientWidth/2 - element.offsetLeft
+            setDropValues({ top: tempTop, left: tempLeft })
+
+        }
+
+    }, [elementPos])
+
+    // useEffect(() => {
+    //     const element = document.getElementById(dragElement)
+    //     console.log(`
+    //         dragElement: ${dragElement},
+    //         elementPos.top: ${element!.offsetTop},
+    //         elementPos.left: ${element!.offsetLeft}
+    //         `)
+    // }, [dragElement, elementPos])
 
 
     // probably to remove, check later
@@ -77,8 +83,8 @@ const Icon = ({ dragElement, text, index }: IconType) => {
         if (overTarget.boolean) {
             droppedInField(el)
             animationControls.start({
-                x: 225 - elementPos.left,
-                y: 110 - elementPos.top,
+                x: dropValues.left,
+                y: dropValues.top,
             })
         }
         else {
