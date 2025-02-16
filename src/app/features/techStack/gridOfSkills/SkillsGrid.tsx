@@ -58,7 +58,7 @@ export const Arr: IconArrType[] = [
 ]
 
 const SkillsGrid = () => {
-  const { constraintDrag, isTestArr, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
+  const { constraintDrag, isTestArr, isClean, isTarget, isOverTarget, dropTarget } = useContext(TechStackContext)
   const constDrag = constraintDrag
   const { testArr } = isTestArr
   const { setClean } = isClean
@@ -82,8 +82,8 @@ const SkillsGrid = () => {
           />
         )}
       </div>
-      <div id="drag-target"
-        className={`absolute right-[10px] top-[75px] h-[100px] w-[100px] bg-blue-900`}>
+      <div ref={dropTarget} id="drag-target"
+        className={`absolute right-[10px] top-[100px] h-[100px] w-[100px] bg-blue-900`}>
       </div>
       <button onClick={() => { cleanDrop() }} disabled={!inTarget} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clear</button>
     </div>

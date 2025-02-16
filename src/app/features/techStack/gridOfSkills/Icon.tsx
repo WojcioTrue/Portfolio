@@ -26,13 +26,17 @@ const Icon = ({ dragElement, text, index }: IconType) => {
         const element = document.getElementById(dragElement)
         const offsetLeft = element!.offsetLeft
         const offsetTop = element!.offsetTop
-        console.log(offsetLeft, offsetTop)
             setElementPos({top: offsetTop, left: offsetLeft})
     },[])
 
     useEffect(() => {
-        console.log(dragElement, elementPos)
-    },[])
+        const element = document.getElementById(dragElement)
+        console.log(`
+            dragElement: ${dragElement},
+            elementPos.top: ${element!.offsetTop},
+            elementPos.left: ${element!.offsetLeft}
+            `)
+    },[elementPos])
 
     useEffect(() => {
         if (clean) {
