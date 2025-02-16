@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { TechStackContext } from '../techStackContext/TechStackContext'
 import useDetectEnter from './skillsHooks.tsx/useDetectEnter'
 import useDropped from './skillsHooks.tsx/useDropped'
+import { minify } from 'next/dist/build/swc'
 
 type IconType = {
     dragElement: string
@@ -12,7 +13,7 @@ type IconType = {
 }
 
 const Icon = ({ dragElement, text, index }: IconType) => {
-    const { constraintDrag, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
+    const { constraintDrag, dropTarget, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
     const { detectEnter } = useDetectEnter()
     const { droppedInField } = useDropped()
     const { clean, setClean } = isClean
@@ -20,14 +21,27 @@ const Icon = ({ dragElement, text, index }: IconType) => {
     const { overTarget } = isOverTarget
     const controls = useDragControls()
     const animationControls = useAnimationControls()
-    const [elementPos, setElementPos] = useState({top: 0, left: 0})
+    const [elementPos, setElementPos] = useState({ top: 0, left: 0 })
+    const [dropValues, toDropValues] = useState({top: 0, left: 0})
 
     useEffect(() => {
         const element = document.getElementById(dragElement)
         const offsetLeft = element!.offsetLeft
         const offsetTop = element!.offsetTop
-            setElementPos({top: offsetTop, left: offsetLeft})
-    },[])
+        setElementPos({ top: offsetTop, left: offsetLeft })
+    }, [])
+
+    // useEffect(() => {
+    //     if (dropTarget?.current !== undefined && dropTarget?.current !== null) {
+    //         const elementHeight = dropTarget.current.clientHeight
+    //         const elementWidth= dropTarget.current.clientWidth
+    //         const middleHorizontal = Math.floor(elementWidth/2)
+    //         const middleVertical = Math.floor(elementHeight/2)
+    //         console.log('Horizontal middle of element, ' ,middleHorizontal)
+    //         console.log('Vertical middle of element, ' ,middleVertical)
+
+    //     }
+    // }, [])
 
     useEffect(() => {
         const element = document.getElementById(dragElement)
@@ -36,8 +50,10 @@ const Icon = ({ dragElement, text, index }: IconType) => {
             elementPos.top: ${element!.offsetTop},
             elementPos.left: ${element!.offsetLeft}
             `)
-    },[elementPos])
+    }, [dragElement, elementPos])
 
+
+    // probably to remove, check later
     useEffect(() => {
         if (clean) {
             setClean(false)
@@ -64,7 +80,7 @@ const Icon = ({ dragElement, text, index }: IconType) => {
                 x: 225 - elementPos.left,
                 y: 110 - elementPos.top,
             })
-        } 
+        }
         else {
             animationControls.start({
                 x: 0,
