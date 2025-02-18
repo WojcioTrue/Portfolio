@@ -69,7 +69,7 @@ const SkillsGrid = () => {
 
   return (
     <div id="drag-component" ref={constDrag} className='relative flex flex-col items-center m-0  w-[300px] rounded-[7px] border-my-gray border-[1px] border-opacity-40 bg-red-400'>
-      <div className='grid mt-5 mx-2 grid-cols-3 grid-rows-3 gap-[1px] justify-items-center items-center bg-slate-300 w-[250px] h-[200px]'>
+      <div className='grid py-2 mt-5 mx-2 grid-cols-3 grid-rows-3 gap-[1px] justify-items-center items-center bg-white w-[250px] h-[230px]'>
         {testArr.map((x, i) =>
           <Icon
             key={i}
@@ -78,7 +78,7 @@ const SkillsGrid = () => {
           />
         )}
       </div>
-      <div className='bg-slate-500 w-full'>
+      <div className=' w-full'>
         <div ref={dropTarget} id="drag-target"
           className={` top-[80px] h-[120px] w-[250px] bg-blue-900 m-auto`}>
         </div>

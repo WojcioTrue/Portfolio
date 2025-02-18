@@ -88,6 +88,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                 flex
                 items-center
                 justify-center
+                bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 md:w-[35px] md:h-[35px] shadow-myshadow rounded-lg p-[7px]
                 `}
             drag={!(inTarget.id === dragElement)}
             dragConstraints={constraintDrag}

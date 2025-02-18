@@ -50,7 +50,7 @@ const IconTemplate = ({ name, left, top, id }: IconTemplateType) => {
         alt="#"
         width={50}
         height={50}
-        src={`/images/${name}.png`}
+        src={`/images/tech_icons/white/${name}.png`}
       />
     </motion.div>
   )
