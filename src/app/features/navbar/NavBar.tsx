@@ -58,7 +58,7 @@ const NavBar = () => {
   return (
 
     <nav className={
-      `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange} `} ${`${isBlur ? "blur-sm" : ""} transition-all `} navbar w-full py-3 px-0 md:px-6 overflow-hidden z-10 bg-my-navbarBackground shadow-myshadow backdrop-blur-sm`}>
+      `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange} `} ${`${isBlur ? "blur-sm" : ""} transition-all `} navbar w-full py-3 px-0 md:px-6 overflow-hidden z-50 bg-my-navbarBackground shadow-myshadow backdrop-blur-sm`}>
       <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
         <NavBarTitle />
         <NavBarList />
