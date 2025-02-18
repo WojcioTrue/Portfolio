@@ -3,15 +3,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { TechStackContext } from '../techStackContext/TechStackContext'
 import useDetectEnter from './skillsHooks.tsx/useDetectEnter'
 import useDropped from './skillsHooks.tsx/useDropped'
+import Image from 'next/image'
 
 type IconType = {
     dragElement: string
-    text: string
     imgSrc: string
-    index: number
 }
 
-const Icon = ({ dragElement, text, index }: IconType) => {
+const Icon = ({ dragElement, imgSrc }: IconType) => {
     const { constraintDrag, dropTarget, isTarget, isOverTarget } = useContext(TechStackContext)
     const { detectEnter } = useDetectEnter()
     const { droppedInField } = useDropped()
@@ -35,10 +34,10 @@ const Icon = ({ dragElement, text, index }: IconType) => {
             const dropTargetHeight = dropTarget.current.clientHeight
             const dropTargetWidth = dropTarget.current.clientWidth
             const elementHeight = Math.ceil(element.clientHeight / 2)
-            const tempTop = dropTarget.current.offsetTop - element.offsetTop + dropTargetHeight/2 - elementHeight
+            const tempTop = dropTarget.current.offsetTop - element.offsetTop + dropTargetHeight / 2 - elementHeight
 
 
-            const tempLeft = dropTarget.current.offsetLeft + dropTargetWidth/2 - element.clientWidth/2 - element.offsetLeft
+            const tempLeft = dropTarget.current.offsetLeft + dropTargetWidth / 2 - element.clientWidth / 2 - element.offsetLeft
             setDropValues({ top: tempTop, left: tempLeft })
 
         }
@@ -81,8 +80,8 @@ const Icon = ({ dragElement, text, index }: IconType) => {
                 dragDrop(dragElement)
             }}
             className={`
-                w-[30px] 
-                h-[30px] 
+                w-[60px] 
+                h-[60px] 
                 bg-green-300 
                 relative
                 z-10`}
@@ -95,7 +94,12 @@ const Icon = ({ dragElement, text, index }: IconType) => {
             animate={animationControls}
             dragControls={controls}
         >
-            {index}
+            {<Image
+                alt="#"
+                width={50}
+                height={50}
+                src={imgSrc}
+            />}
         </motion.div>
     )
 }

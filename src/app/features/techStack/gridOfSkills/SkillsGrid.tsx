@@ -13,27 +13,27 @@ export const Arr: IconArrType[] = [
   {
     id: 'drag-element-1',
     text: 'x',
-    src: `/images/ts.png`
+    src: `/images/html.png`
   },
   {
     id: 'drag-element-2',
     text: 'y',
-    src: `/images/ts.png`
+    src: `/images/css.png`
   },
   {
     id: 'drag-element-3',
     text: 'y',
-    src: `/images/ts.png`
+    src: `/images/js.png`
   },
   {
     id: 'drag-element-4',
     text: 'x',
-    src: `/images/ts.png`
+    src: `/images/react.png`
   },
   {
     id: 'drag-element-5',
     text: 'y',
-    src: `/images/ts.png`
+    src: `/images/redux.png`
   },
   {
     id: 'drag-element-6',
@@ -43,17 +43,17 @@ export const Arr: IconArrType[] = [
   {
     id: 'drag-element-7',
     text: 'x',
-    src: `/images/ts.png`
+    src: `/images/sass.png`
   },
   {
     id: 'drag-element-8',
     text: 'y',
-    src: `/images/ts.png`
+    src: `/images/next.png`
   },
   {
     id: 'drag-element-9',
     text: 'y',
-    src: `/images/ts.png`
+    src: `/images/eslint.png`
   },
 ]
 
@@ -68,22 +68,22 @@ const SkillsGrid = () => {
   }
 
   return (
-    <div id="drag-component" ref={constDrag} className='relative m-0 h-[300px] w-[300px] rounded-[7px] border-my-gray border-[1px] border-opacity-40 bg-red-400'>
-      <div className='grid mt-5 ml-5 grid-cols-3 grid-rows-3 gap-[1px] justify-items-center items-center bg-slate-300 w-[123px] h-[123px]'>
+    <div id="drag-component" ref={constDrag} className='relative flex flex-col items-center m-0  w-[300px] rounded-[7px] border-my-gray border-[1px] border-opacity-40 bg-red-400'>
+      <div className='grid mt-5 mx-2 grid-cols-3 grid-rows-3 gap-[1px] justify-items-center items-center bg-slate-300 w-[250px] h-[200px]'>
         {testArr.map((x, i) =>
           <Icon
             key={i}
             dragElement={x.id}
-            text={x.text}
             imgSrc={x.src}
-            index={i}
           />
         )}
       </div>
-      <div  ref={dropTarget} id="drag-target"
-        className={`absolute right-[10px] top-[80px] h-[80px] w-[120px] bg-blue-900`}>
+      <div className='bg-slate-500 w-full'>
+        <div ref={dropTarget} id="drag-target"
+          className={` top-[80px] h-[120px] w-[250px] bg-blue-900 m-auto`}>
+        </div>
+        <button onClick={() => { cleanDrop() }} disabled={!inTarget} className='block bg-yellow-600 px-5 py-3 m-auto '>Clear</button>
       </div>
-      <button onClick={() => { cleanDrop() }} disabled={!inTarget} className='absolute top-[200px] right-[20px] bg-yellow-600 px-5 py-3'>Clear</button>
     </div>
 
   )
