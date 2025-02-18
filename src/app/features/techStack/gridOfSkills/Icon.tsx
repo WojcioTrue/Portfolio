@@ -84,7 +84,11 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                 h-[60px] 
                 bg-green-300 
                 relative
-                z-10`}
+                z-10
+                flex
+                items-center
+                justify-center
+                `}
             drag={!(inTarget.id === dragElement)}
             dragConstraints={constraintDrag}
             dragElastic={0.02}
@@ -96,8 +100,8 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
         >
             {<Image
                 alt="#"
-                width={50}
-                height={50}
+                width={40}
+                height={40}
                 src={imgSrc}
             />}
         </motion.div>
