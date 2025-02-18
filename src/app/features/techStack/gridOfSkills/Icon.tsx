@@ -12,10 +12,9 @@ type IconType = {
 }
 
 const Icon = ({ dragElement, text, index }: IconType) => {
-    const { constraintDrag, dropTarget, isClean, isTarget, isOverTarget } = useContext(TechStackContext)
+    const { constraintDrag, dropTarget, isTarget, isOverTarget } = useContext(TechStackContext)
     const { detectEnter } = useDetectEnter()
     const { droppedInField } = useDropped()
-    const { clean, setClean } = isClean
     const { inTarget } = isTarget
     const { overTarget } = isOverTarget
     const controls = useDragControls()
@@ -45,17 +44,6 @@ const Icon = ({ dragElement, text, index }: IconType) => {
         }
 
     }, [dragElement, dropTarget, elementPos])
-
-    // probably to remove, check later
-    useEffect(() => {
-        if (clean) {
-            setClean(false)
-            animationControls.start({
-                x: 225,
-                y: 110,
-            })
-        }
-    }, [animationControls, clean, setClean])
 
     useEffect(() => {
         if (inTarget.id !== dragElement) {
