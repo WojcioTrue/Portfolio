@@ -11,10 +11,6 @@ export const TechStackContext = createContext<{
     testArr: IconArrType[],
     setTestArr: Dispatch<SetStateAction<IconArrType[]>>
   },
-  isClean: {
-    clean: boolean,
-    setClean: Dispatch<SetStateAction<boolean>>
-  },
   isTarget: {
     inTarget: { boolean: boolean, id: string },
     setInTarget: Dispatch<SetStateAction<{ boolean: boolean, id: string }>>
@@ -30,10 +26,6 @@ export const TechStackContext = createContext<{
     testArr: [],
     setTestArr: () => { }
   },
-  isClean: {
-    clean: false,
-    setClean: () => { }
-  },
   isTarget: {
     inTarget: { boolean: false, id: '' },
     setInTarget: () => { }
@@ -48,7 +40,6 @@ const TechStackContextProvider = ({ children }: ChildrenType) => {
   const constraintDrag = useRef<HTMLDivElement | null>(null)
   const dropTarget = useRef<HTMLDivElement | null>(null)
   const [testArr, setTestArr] = useState(Arr)
-  const [clean, setClean] = useState(false)
   const [inTarget, setInTarget] = useState({ boolean: false, id: '' })
   const [overTarget, setOverTarget] = useState({ boolean: false, id: '' })
 
@@ -59,10 +50,6 @@ const TechStackContextProvider = ({ children }: ChildrenType) => {
       isTestArr: {
         testArr,
         setTestArr,
-      },
-      isClean: {
-        clean,
-        setClean,
       },
       isTarget: {
         inTarget,
