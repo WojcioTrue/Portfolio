@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { TechStackContext } from '../techStackContext/TechStackContext'
 import useDetectEnter from './skillsHooks.tsx/useDetectEnter'
 import useDropped from './skillsHooks.tsx/useDropped'
-import { minify } from 'next/dist/build/swc'
 
 type IconType = {
     dragElement: string
@@ -36,8 +35,6 @@ const Icon = ({ dragElement, text, index }: IconType) => {
         if (dropTarget?.current !== undefined && dropTarget?.current !== null) {
             const dropTargetHeight = dropTarget.current.clientHeight
             const dropTargetWidth = dropTarget.current.clientWidth
-            const middleHorizontal = Math.floor(dropTargetWidth / 2)
-            const middleVertical = Math.floor(dropTargetHeight / 2)
             const elementHeight = Math.ceil(element.clientHeight / 2)
             const tempTop = dropTarget.current.offsetTop - element.offsetTop + dropTargetHeight/2 - elementHeight
 
@@ -47,17 +44,7 @@ const Icon = ({ dragElement, text, index }: IconType) => {
 
         }
 
-    }, [elementPos])
-
-    // useEffect(() => {
-    //     const element = document.getElementById(dragElement)
-    //     console.log(`
-    //         dragElement: ${dragElement},
-    //         elementPos.top: ${element!.offsetTop},
-    //         elementPos.left: ${element!.offsetLeft}
-    //         `)
-    // }, [dragElement, elementPos])
-
+    }, [dragElement, dropTarget, elementPos])
 
     // probably to remove, check later
     useEffect(() => {
