@@ -68,8 +68,8 @@ const SkillsGrid = () => {
   }
 
   return (
-    <div id="drag-component" ref={constDrag} className='relative m-0 h-[300px] w-[300px] bg-red-500'>
-      <div className='grid mt-5 ml-5 grid-cols-3 grid-rows-3 gap-[1px] justify-items-center bg-slate-300 w-[123px] h-[123px]'>
+    <div id="drag-component" ref={constDrag} className='relative m-0 h-[300px] w-[300px] rounded-[7px] border-my-gray border-[1px] border-opacity-40 bg-red-400'>
+      <div className='grid mt-5 ml-5 grid-cols-3 grid-rows-3 gap-[1px] justify-items-center items-center bg-slate-300 w-[123px] h-[123px]'>
         {testArr.map((x, i) =>
           <Icon
             key={i}
