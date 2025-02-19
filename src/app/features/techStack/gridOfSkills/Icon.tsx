@@ -73,6 +73,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
         <motion.div
             layout
             id={dragElement}
+
             onDrag={() => {
                 detectEnter(dragElement)
             }}
@@ -84,11 +85,11 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                 h-[60px] 
                 bg-green-300 
                 relative
-                z-10
                 flex
                 items-center
+                z-50
                 justify-center
-                bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 md:w-[35px] md:h-[35px] shadow-myshadow rounded-lg p-[7px]
+                bg-gradient-to-tr from-my-gradient1 to-my-gradient2 md:w-[35px] md:h-[35px] shadow-myshadow rounded-lg p-[7px]
                 `}
             drag={!(inTarget.id === dragElement)}
             dragConstraints={constraintDrag}
@@ -99,12 +100,16 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
             animate={animationControls}
             dragControls={controls}
         >
-            {<Image
-                alt="#"
-                width={40}
-                height={40}
-                src={imgSrc}
-            />}
+            <div className='z-100 w-full h-full' 
+            style={{
+                backgroundImage: (`url(${imgSrc})`),
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover"
+            }}
+            >
+            
+            </div>
         </motion.div>
     )
 }
