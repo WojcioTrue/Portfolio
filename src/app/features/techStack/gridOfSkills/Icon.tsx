@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { TechStackContext } from '../techStackContext/TechStackContext'
 import useDetectEnter from './skillsHooks.tsx/useDetectEnter'
 import useDropped from './skillsHooks.tsx/useDropped'
-import Image from 'next/image'
 
 type IconType = {
     dragElement: string
