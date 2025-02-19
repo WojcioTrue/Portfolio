@@ -81,15 +81,20 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                 dragDrop(dragElement)
             }}
             className={`
-                w-[60px] 
-                h-[60px] 
-                bg-green-300 
+                w-[45px] 
+                h-[45px] 
                 relative
+                bg-white
                 flex
                 items-center
-                z-50
+                z-10
                 justify-center
-                bg-gradient-to-tr from-my-gradient1 to-my-gradient2 md:w-[35px] md:h-[35px] shadow-myshadow rounded-lg p-[7px]
+                // border-[1px]
+                // border-my-purple
+                // border-opacity-15
+                shadow-myshadow 
+                rounded-lg 
+                p-[7px]
                 `}
             drag={!(inTarget.id === dragElement)}
             dragConstraints={constraintDrag}
@@ -100,15 +105,15 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
             animate={animationControls}
             dragControls={controls}
         >
-            <div className='z-100 w-full h-full' 
-            style={{
-                backgroundImage: (`url(${imgSrc})`),
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover"
-            }}
+            <div className='z-10 w-[28px] h-[28px]'
+                style={{
+                    backgroundImage: (`url(${imgSrc})`),
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover"
+                }}
             >
-            
+
             </div>
         </motion.div>
     )

@@ -68,7 +68,7 @@ const SkillsGrid = () => {
   }
 
   return (
-    <div id="drag-component" ref={constDrag} className='relative flex flex-col items-center m-0  w-[300px] rounded-[7px] border-my-gray border-[1px] border-opacity-40'>
+    <div id="drag-component" ref={constDrag} className='relative flex flex-col items-center m-0  w-[300px] rounded-[7px] shadow-myshadow'>
       <div className='grid py-2 mt-5 mx-2 grid-cols-3 grid-rows-3 gap-[1px] justify-items-center items-center bg-white w-[250px] h-[230px]'>
         {testArr.map((x, i) =>
           <Icon
@@ -78,9 +78,9 @@ const SkillsGrid = () => {
           />
         )}
       </div>
-      <div className=' w-full'>
+      <div className='bg-blue-900'>
         <div ref={dropTarget} id="drag-target"
-          className={` top-[80px] h-[120px] w-[250px] bg-blue-900 m-auto`}>
+          className={` top-[80px] h-[120px] w-[250px]  m-auto`}>
         </div>
         <button onClick={() => { cleanDrop() }} disabled={!inTarget} className='block bg-yellow-600 px-5 py-3 m-auto '>Clear</button>
       </div>
