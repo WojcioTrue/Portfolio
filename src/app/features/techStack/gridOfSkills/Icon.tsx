@@ -73,10 +73,6 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
         setActive(dragElement)
     }
 
-    useEffect(() => {
-        console.log(active)
-    }, [active])
-
     return (
         <motion.div
             layout
