@@ -19,6 +19,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
     const animationControls = useAnimationControls()
     const [elementPos, setElementPos] = useState({ top: 0, left: 0 })
     const [dropValues, setDropValues] = useState({ top: 0, left: 0 })
+    const [active, setActive] = useState<string>('')
 
     useEffect(() => {
         const element = document.getElementById(dragElement)
@@ -68,6 +69,14 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
         }
     }
 
+    const draggedElement = () => {
+        setActive(dragElement)
+    }
+
+    useEffect(() => {
+        console.log(active)
+    }, [active])
+
     return (
         <motion.div
             layout
@@ -75,6 +84,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
 
             onDrag={() => {
                 detectEnter(dragElement)
+                draggedElement()
             }}
             onDragEnd={() => {
                 dragDrop(dragElement)
@@ -86,7 +96,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                 bg-white
                 flex
                 items-center
-                z-10
+                ${active === dragElement ? "z-50" : "z-10"}
                 justify-center
                 // border-[1px]
                 // border-my-purple
@@ -104,7 +114,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
             animate={animationControls}
             dragControls={controls}
         >
-            <div className={`${"z-10"} w-[28px] h-[28px]`}
+            <div className={`w-[28px] h-[28px]`}
                 style={{
                     backgroundImage: (`url(${imgSrc})`),
                     backgroundPosition: "center",
@@ -112,7 +122,6 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                     backgroundSize: "cover"
                 }}
             >
-
             </div>
         </motion.div>
     )
