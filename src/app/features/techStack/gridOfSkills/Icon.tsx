@@ -25,7 +25,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
         const offsetLeft = element!.offsetLeft
         const offsetTop = element!.offsetTop
         setElementPos({ top: offsetTop, left: offsetLeft })
-    }, [])
+    }, [dragElement])
 
     useEffect(() => {
         const element = document.getElementById(dragElement)!
@@ -104,7 +104,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
             animate={animationControls}
             dragControls={controls}
         >
-            <div className='z-10 w-[28px] h-[28px]'
+            <div className={`${"z-10"} w-[28px] h-[28px]`}
                 style={{
                     backgroundImage: (`url(${imgSrc})`),
                     backgroundPosition: "center",
