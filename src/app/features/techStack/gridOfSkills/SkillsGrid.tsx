@@ -101,7 +101,6 @@ const SkillsGrid = () => {
       <div className=' 
                 w-[120px] 
                 border-[1px]
-                bg-gray-50    
                 shadow-myshadow 
                 rounded-lg 
                 mb-5
@@ -116,6 +115,7 @@ const SkillsGrid = () => {
               size={'30'}
             />} />
           <SkillButton 
+          onClick={() => cleanDrop()}
           icon={<CiCircleRemove 
           className='m-auto' 
           size={'35'} 

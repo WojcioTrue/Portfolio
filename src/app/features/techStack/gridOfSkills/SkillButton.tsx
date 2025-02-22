@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 type SkillButtonType = {
-    onClick?: () => {},
+    onClick?: () => void,
     disabled?: boolean,
     icon: ReactElement
 }
