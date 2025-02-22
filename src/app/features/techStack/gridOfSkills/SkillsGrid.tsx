@@ -78,9 +78,9 @@ const SkillsGrid = () => {
           />
         )}
       </div>
-      <div className='bg-blue-900'>
+      <div className='bg-blue-900 w-[120px]'>
         <div ref={dropTarget} id="drag-target"
-          className={` top-[80px] h-[120px] w-[250px]  m-auto`}>
+          className={`bg-gray-300 top-[80px] h-[120px] m-auto`}>
         </div>
         <button onClick={() => { cleanDrop() }} disabled={!inTarget} className='block bg-yellow-600 px-5 py-3 m-auto '>Clear</button>
       </div>
