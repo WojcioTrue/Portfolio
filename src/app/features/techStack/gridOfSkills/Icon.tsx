@@ -92,30 +92,29 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                 bg-white
                 flex
                 items-center
-                ${active === dragElement ? "z-50" : "z-10"}
                 justify-center
                 // border-[1px]
                 // border-my-purple
                 // border-opacity-15
                 shadow-myshadow 
                 rounded-lg 
-                p-[7px]
+                cursor-pointer
                 `}
             drag={!(inTarget.id === dragElement)}
             dragConstraints={constraintDrag}
             dragElastic={0.02}
             whileDrag={{
-                scale: 1.2,
+                scale: 1.1,
+                zIndex: "100",
             }}
             animate={animationControls}
             dragControls={controls}
         >
-            <div className={`w-[28px] h-[28px]`}
+            <div className={`w-[28px] h-[28px] z-10`}
                 style={{
                     backgroundImage: (`url(${imgSrc})`),
                     backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover"
+                    backgroundSize: "cover",
                 }}
             >
             </div>
