@@ -2,10 +2,7 @@
 import React, { useContext } from 'react'
 import Icon from './Icon'
 import { TechStackContext } from '../techStackContext/TechStackContext'
-import { IoClose } from "react-icons/io5";
-import { IoReaderOutline } from "react-icons/io5";
-import { IoCloseOutline } from "react-icons/io5";
-import SkillButton from './SkillButton';
+
 
 export type IconArrType = {
   id: string
@@ -62,14 +59,11 @@ export const Arr: IconArrType[] = [
 ]
 
 const SkillsGrid = () => {
-  const { constraintDrag, isTestArr, isTarget, dropTarget } = useContext(TechStackContext)
+  const { constraintDrag, isTestArr, dropTarget } = useContext(TechStackContext)
   const constDrag = constraintDrag
   const { testArr } = isTestArr
-  const { inTarget, setInTarget } = isTarget
 
-  const cleanDrop = () => {
-    setInTarget({ boolean: false, id: '' })
-  }
+
 
   return (
     <div id="drag-component" ref={constDrag} className='relative flex flex-col gap-10 items-center m-0 w-[300px] '>
@@ -113,30 +107,7 @@ const SkillsGrid = () => {
             shadow-myshadow`
             }>
         </div>
-        <div className='w-full flex justify-end gap-3 border-opacity-30 pr-2'>
-          <SkillButton
-            onClick={() => console.log('click')}
-            icon={
-              <IoReaderOutline
-                className='m-auto'
-                size={'25'}
-                fill='white'
-              />
-            }
-            text={'Open'}
-          />
-          <SkillButton
-            onClick={() => cleanDrop()}
-            icon={
-              <IoCloseOutline
-                className='m-auto'
-                size={'25'}
-                fill='white'
-                strokeWidth={10}
-              />
-            }
-          />
-        </div>
+        
       </div>
     </div>
 
