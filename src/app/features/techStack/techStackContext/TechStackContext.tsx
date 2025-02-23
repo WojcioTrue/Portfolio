@@ -7,9 +7,9 @@ import { SetStateAction, Dispatch } from "react"
 export const TechStackContext = createContext<{
   constraintDrag: React.RefObject<HTMLDivElement> | undefined,
   dropTarget: React.RefObject<HTMLDivElement> | undefined,
-  isTestArr: {
-    testArr: IconArrType[],
-    setTestArr: Dispatch<SetStateAction<IconArrType[]>>
+  skillArray: {
+    array: IconArrType[],
+    setArray: Dispatch<SetStateAction<IconArrType[]>>
   },
   isTarget: {
     inTarget: { boolean: boolean, id: string },
@@ -22,9 +22,9 @@ export const TechStackContext = createContext<{
 }>({
   constraintDrag: undefined,
   dropTarget: undefined,
-  isTestArr: {
-    testArr: [],
-    setTestArr: () => { }
+  skillArray: {
+    array: [],
+    setArray: () => { }
   },
   isTarget: {
     inTarget: { boolean: false, id: '' },
@@ -39,7 +39,7 @@ export const TechStackContext = createContext<{
 const TechStackContextProvider = ({ children }: ChildrenType) => {
   const constraintDrag = useRef<HTMLDivElement | null>(null)
   const dropTarget = useRef<HTMLDivElement | null>(null)
-  const [testArr, setTestArr] = useState(Arr)
+  const [array, setArray] = useState(Arr)
   const [inTarget, setInTarget] = useState({ boolean: false, id: '' })
   const [overTarget, setOverTarget] = useState({ boolean: false, id: '' })
 
@@ -47,9 +47,9 @@ const TechStackContextProvider = ({ children }: ChildrenType) => {
     <TechStackContext.Provider value={{
       dropTarget,
       constraintDrag,
-      isTestArr: {
-        testArr,
-        setTestArr,
+      skillArray: {
+        array,
+        setArray,
       },
       isTarget: {
         inTarget,

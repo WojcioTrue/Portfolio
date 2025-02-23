@@ -6,9 +6,9 @@ import SkillButtons from './SkillButtons'
 
 
 const SkillsGrid = () => {
-  const { constraintDrag, isTestArr, dropTarget } = useContext(TechStackContext)
+  const { constraintDrag, skillArray, dropTarget } = useContext(TechStackContext)
   const constDrag = constraintDrag
-  const { testArr } = isTestArr
+  const { array } = skillArray
 
 
 
@@ -31,7 +31,7 @@ const SkillsGrid = () => {
       border-[1px]
       rounded-[7px] 
       shadow-myshadow'>
-        {testArr.map((x, i) =>
+        {array.map((x, i) =>
           <Icon
             key={i}
             dragElement={x.id}
