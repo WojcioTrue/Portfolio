@@ -31,7 +31,7 @@ const Header = () => {
                 }}
                 viewport={{
                     once: true,
-                    margin: '-100px'
+                    margin: '0px 0px -100px 0px'
                 }}
             >
                 {"Technology "}
@@ -51,7 +51,7 @@ const Header = () => {
                 }}
                 viewport={{
                     once: true,
-                    margin: '-100px'
+                    margin: '0px 0px -100px 0px'
                 }}
             >
                 {"stack"}
@@ -71,7 +71,7 @@ const Header = () => {
                 }}
                 viewport={{
                     once: true,
-                    margin: '-100px'
+                    margin: '0px 0px -100px 0px'
                 }}>
                 {"."}
             </motion.h1>

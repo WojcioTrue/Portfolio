@@ -31,7 +31,7 @@ const Description = () => {
           }}
           viewport={{
             once: true,
-            margin: '-100px'
+            margin: '0px 0px -100px 0px'
           }}
           >{x}</motion.span>
       )}
