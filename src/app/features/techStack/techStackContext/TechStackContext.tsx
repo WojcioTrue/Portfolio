@@ -1,7 +1,7 @@
 import { createContext, useRef, useState } from "react"
-import { Arr } from "../gridOfSkills/SkillsGrid"
+import { Arr } from "../gridOfSkills/skillItems"
 import { ChildrenType } from "../../navbar/navBarContext/NavBarContextProvider"
-import { IconArrType } from "../gridOfSkills/SkillsGrid"
+import { IconArrType } from "../gridOfSkills/skillItems"
 import { SetStateAction, Dispatch } from "react"
 
 export const TechStackContext = createContext<{
