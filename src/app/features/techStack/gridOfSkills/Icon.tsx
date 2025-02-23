@@ -86,8 +86,8 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                 dragDrop(dragElement)
             }}
             className={`
-                w-[45px] 
-                h-[45px] 
+                w-[55px] 
+                h-[55px] 
                 relative
                 bg-white
                 flex
@@ -110,7 +110,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
             animate={animationControls}
             dragControls={controls}
         >
-            <div className={`w-[28px] h-[28px] z-10`}
+            <div className={`w-[32px] h-[32px] z-10`}
                 style={{
                     backgroundImage: (`url(${imgSrc})`),
                     backgroundPosition: "center",
