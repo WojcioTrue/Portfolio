@@ -44,6 +44,7 @@ const SkillsGrid = () => {
                 rounded-lg 
                 pb-3
                 overflow-hidden'>
+        <p className='block m-auto w-[80%] text-center text-my-gray select-none text-wrap'>Drag icon and drop it in element below.</p>
         <div ref={dropTarget} id="drag-target"
           className={`
             h-[120px] 
@@ -52,9 +53,10 @@ const SkillsGrid = () => {
             border-[1px]
             rounded-[7px] 
             shadow-myshadow`
-            }>
+          }>
+
         </div>
-        <SkillButtons/>
+        <SkillButtons />
       </div>
     </div>
 
