@@ -3,7 +3,7 @@ import { mabryProLight } from '@/app/assets/fonts/MabryPro'
 import { motion } from 'framer-motion'
 const Description = () => {
 
-  const description = ['My', 'set', 'of', 'technologies','used', 'to','build','web','apps.']
+  const description = 'My set of technologies used to build web apps .'
 
   return (
     <p className={`flex justify-center 
@@ -12,7 +12,7 @@ const Description = () => {
     sm:text-header-desc-sm-default
   text-my-gray
     w-full pb-6 tracking-description ${mabryProLight.className}`}>
-      {description.map((x, i) =>
+      {description.split(' ').map((x, i) =>
         <motion.span
         className='inline-block'
           key={i}
