@@ -12,7 +12,6 @@ const Header = () => {
         xl:text-header-my-xl 
         2xl:text-header-my-2xl 
         text-center 
-        pt-6 
         tracking-header 
         ${mabryProBold.className}`}>
             <motion.h1

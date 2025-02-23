@@ -40,6 +40,7 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
       to={text}
       spy={true}
       smooth={true}
+      offset={-77}
       duration={200}
     >
       <li onClick={() => {
