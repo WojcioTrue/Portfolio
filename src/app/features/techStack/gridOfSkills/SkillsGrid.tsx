@@ -2,9 +2,9 @@
 import React, { useContext } from 'react'
 import Icon from './Icon'
 import { TechStackContext } from '../techStackContext/TechStackContext'
-import { CiCircleRemove } from "react-icons/ci";
+import { IoClose } from "react-icons/io5";
 import { IoReaderOutline } from "react-icons/io5";
-
+import { IoCloseOutline } from "react-icons/io5";
 import SkillButton from './SkillButton';
 
 export type IconArrType = {
@@ -99,27 +99,42 @@ const SkillsGrid = () => {
         )}
       </div>
       <div className=' 
-                w-[120px] 
-                border-[1px]
-                shadow-myshadow 
+                w-[250px] 
                 rounded-lg 
-                mb-5
+                pb-3
                 overflow-hidden'>
         <div ref={dropTarget} id="drag-target"
-          className={` top-[80px] h-[120px] m-auto`}>
+          className={`
+            h-[120px] 
+            m-auto mb-2  
+            border-my-lightGray 
+            border-[1px]
+            rounded-[7px] 
+            shadow-myshadow`
+            }>
         </div>
-        <div className='w-full flex border-t-[1px] border-my-purple '>
+        <div className='w-full flex justify-end gap-3 border-opacity-30 pr-2'>
           <SkillButton
-            icon={<IoReaderOutline
-              className='m-auto'
-              size={'30'}
-            />} />
-          <SkillButton 
-          onClick={() => cleanDrop()}
-          icon={<CiCircleRemove 
-          className='m-auto' 
-          size={'35'} 
-          />} 
+            onClick={() => console.log('click')}
+            icon={
+              <IoReaderOutline
+                className='m-auto'
+                size={'25'}
+                fill='white'
+              />
+            }
+            text={'Open'}
+          />
+          <SkillButton
+            onClick={() => cleanDrop()}
+            icon={
+              <IoCloseOutline
+                className='m-auto'
+                size={'25'}
+                fill='white'
+                strokeWidth={10}
+              />
+            }
           />
         </div>
       </div>
