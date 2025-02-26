@@ -1,11 +1,13 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import SkillButtons from "../buttons/ButtonsWrapper"
 import { TechStackContext } from "../../techStackContext/TechStackContext"
 import DropTargetBg from "./DropTargetBg"
 
 
 const DropTarget = () => {
-    const { dropTarget } = useContext(TechStackContext)
+    const { dropTarget, isOverTarget, isTarget } = useContext(TechStackContext)
+    const isOver = isOverTarget.overTarget.boolean
+    const isInside = isTarget.inTarget.boolean
 
     return (
         <div className=' 
@@ -17,6 +19,7 @@ const DropTarget = () => {
             <p className='block m-auto w-[80%] text-center text-my-gray select-none text-wrap'>Drop icon below :)</p>
             <div ref={dropTarget} id="drag-target"
                 className={`
+                    transition-all duration-150
                     relative
                     h-[120px] 
                     m-auto 
@@ -27,6 +30,7 @@ const DropTarget = () => {
                     rounded-[7px] 
                     shadow-myshadow
                     bg-white
+                    // ${(isOver || isInside) ? 'bg-purple-50' : 'bg-white' }
                    `
                 }>
                 <DropTargetBg />
