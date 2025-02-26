@@ -24,7 +24,7 @@ const SkillsGrid = () => {
       w-[250px] 
       h-[230px]
       py-2 
-      mx-2 
+      mx-2
       border-my-lightGray 
       border-[1px]
       rounded-[7px] 
