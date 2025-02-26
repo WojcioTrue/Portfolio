@@ -9,6 +9,8 @@ const DropTarget = () => {
     const isOver = isOverTarget.overTarget.boolean
     const isInside = isTarget.inTarget.boolean
 
+    const backgroundColor = (isOver || isInside) ? 'bg-purple-50' : 'bg-white' 
+
     return (
         <div className=' 
             w-[250px] 
@@ -29,8 +31,7 @@ const DropTarget = () => {
                     border-[1px]
                     rounded-[7px] 
                     shadow-myshadow
-                    bg-white
-                    // ${(isOver || isInside) ? 'bg-purple-50' : 'bg-white' }
+                    ${backgroundColor}
                    `
                 }>
                 <DropTargetBg />
