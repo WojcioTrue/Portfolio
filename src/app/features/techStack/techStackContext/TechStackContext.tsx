@@ -18,6 +18,10 @@ export const TechStackContext = createContext<{
   isOverTarget: {
     overTarget: { boolean: boolean, id: string },
     setOverTarget: Dispatch<SetStateAction<{ boolean: boolean, id: string }>>
+  },
+  isDragged: {
+    dragged: boolean,
+    setDragged: Dispatch<SetStateAction<boolean>>
   }
 }>({
   constraintDrag: undefined,
@@ -33,6 +37,10 @@ export const TechStackContext = createContext<{
   isOverTarget: {
     overTarget: { boolean: false, id: '' },
     setOverTarget: () => { }
+  },
+  isDragged: {
+    dragged: false,
+    setDragged: () => { }
   }
 })
 
@@ -42,6 +50,7 @@ const TechStackContextProvider = ({ children }: ChildrenType) => {
   const [array, setArray] = useState(Arr)
   const [inTarget, setInTarget] = useState({ boolean: false, id: '' })
   const [overTarget, setOverTarget] = useState({ boolean: false, id: '' })
+  const [dragged, setDragged] = useState(false)
 
   return (
     <TechStackContext.Provider value={{
@@ -58,6 +67,10 @@ const TechStackContextProvider = ({ children }: ChildrenType) => {
       isOverTarget: {
         overTarget,
         setOverTarget
+      },
+      isDragged: {
+        dragged,
+        setDragged,
       }
     }}>
       {children}

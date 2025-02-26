@@ -73,6 +73,14 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
         setActive(dragElement)
     }
 
+    const isDragged = () => {
+        console.log(true)
+    }
+
+    const isNotDragged = () => {
+        console.log(false)
+    }
+
     return (
         <motion.div
             layout
@@ -81,9 +89,11 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
             onDrag={() => {
                 detectEnter(dragElement)
                 draggedElement()
+                isDragged()
             }}
             onDragEnd={() => {
                 dragDrop(dragElement)
+                isNotDragged()
             }}
             className={`
                 w-[55px] 

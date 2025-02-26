@@ -1,8 +1,14 @@
 import { motion } from "framer-motion"
+import { useContext } from "react"
+import { TechStackContext } from "../../techStackContext/TechStackContext"
+
 
 const DropTargetBg = () => {
+    const {} = useContext(TechStackContext)
+
+
     return (
-        <>
+        <div className={`hidden`}>
             <motion.div className='
                     absolute
                     top-[50%] 
@@ -90,7 +96,7 @@ const DropTargetBg = () => {
                 }}
             >
             </motion.div>
-        </>
+        </div>
     )
 }
 
