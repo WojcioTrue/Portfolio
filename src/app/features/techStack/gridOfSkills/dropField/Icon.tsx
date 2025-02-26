@@ -10,11 +10,12 @@ type IconType = {
 }
 
 const Icon = ({ dragElement, imgSrc }: IconType) => {
-    const { constraintDrag, dropTarget, isTarget, isOverTarget } = useContext(TechStackContext)
+    const { constraintDrag, dropTarget, isTarget, isOverTarget, isDragged } = useContext(TechStackContext)
     const { detectEnter } = useDetectEnter()
     const { droppedInField } = useDropped()
     const { inTarget } = isTarget
     const { overTarget } = isOverTarget
+    const { setDragged } = isDragged
     const controls = useDragControls()
     const animationControls = useAnimationControls()
     const [elementPos, setElementPos] = useState({ top: 0, left: 0 })
@@ -73,12 +74,12 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
         setActive(dragElement)
     }
 
-    const isDragged = () => {
-        console.log(true)
+    const dragEvent = () => {
+        setDragged(true)
     }
 
-    const isNotDragged = () => {
-        console.log(false)
+    const dragEventEnd = () => {
+        setDragged(false)
     }
 
     return (
@@ -89,11 +90,11 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
             onDrag={() => {
                 detectEnter(dragElement)
                 draggedElement()
-                isDragged()
+                dragEvent()
             }}
             onDragEnd={() => {
                 dragDrop(dragElement)
-                isNotDragged()
+                dragEventEnd()
             }}
             className={`
                 w-[55px] 
