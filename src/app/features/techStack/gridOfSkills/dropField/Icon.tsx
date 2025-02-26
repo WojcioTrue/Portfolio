@@ -99,6 +99,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                 shadow-myshadow 
                 rounded-lg 
                 cursor-pointer
+                z-20
                 `}
             drag={!(inTarget.id === dragElement)}
             dragConstraints={constraintDrag}
