@@ -79,7 +79,7 @@ const DropTargetBg = () => {
                     opacity: 0,
                 }}
                 animate={{
-                    scale: [1, 1.09, 1.15],
+                    scale: [1, 1.09, 1.20],
                     opacity: [0, 0.08, 0],
                 }}
                 transition={{
