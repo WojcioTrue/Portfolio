@@ -41,7 +41,7 @@ const DropTarget = () => {
                     text-center 
                     text-my-gray 
                     select-none text-wrap`}>
-                        Grab some icon...
+                        Grab some Tech-Icon...
                 </motion.p>
                <motion.p
                 initial={{
