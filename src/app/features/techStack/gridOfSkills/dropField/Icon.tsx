@@ -1,8 +1,8 @@
 import { motion, useAnimationControls, useDragControls } from 'framer-motion'
 import React, { useContext, useEffect, useState } from 'react'
-import { TechStackContext } from '../techStackContext/TechStackContext'
-import useDetectEnter from './skillsHooks.tsx/useDetectEnter'
-import useDropped from './skillsHooks.tsx/useDropped'
+import { TechStackContext } from '../../techStackContext/TechStackContext'
+import useDetectEnter from '../skillsHooks.tsx/useDetectEnter'
+import useDropped from '../skillsHooks.tsx/useDropped'
 
 type IconType = {
     dragElement: string
