@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import SkillButton from './SkillButton'
 import { IoReaderOutline } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
-import { TechStackContext } from '../techStackContext/TechStackContext';
+import { TechStackContext } from '../../techStackContext/TechStackContext';
 
 const SkillButtons = () => {
     const {isTarget } = useContext(TechStackContext)

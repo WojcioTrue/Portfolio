@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 import Icon from './Icon'
 import { TechStackContext } from '../techStackContext/TechStackContext'
-import SkillButtons from './ButtonsWrapper'
+import SkillButtons from './buttons/ButtonsWrapper'
 
 
 const SkillsGrid = () => {
