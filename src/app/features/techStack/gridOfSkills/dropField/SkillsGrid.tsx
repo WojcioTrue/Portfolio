@@ -2,11 +2,11 @@
 import React, { useContext } from 'react'
 import Icon from './Icon'
 import { TechStackContext } from '../../techStackContext/TechStackContext'
-import SkillButtons from '../buttons/ButtonsWrapper'
+import DropTarget from './DropTarget'
 
 
 const SkillsGrid = () => {
-  const { constraintDrag, skillArray, dropTarget } = useContext(TechStackContext)
+  const { constraintDrag, skillArray } = useContext(TechStackContext)
   const constDrag = constraintDrag
   const { array } = skillArray
 
@@ -38,25 +38,7 @@ const SkillsGrid = () => {
           />
         )}
       </div>
-      <div className=' 
-                w-[250px] 
-                rounded-lg 
-                pb-3
-                overflow-hidden'>
-        <p className='block m-auto w-[80%] text-center text-my-gray select-none text-wrap'>Drop icon below :)</p>
-        <div ref={dropTarget} id="drag-target"
-          className={`
-            h-[120px] 
-            m-auto mb-2  
-            border-my-lightGray 
-            border-[1px]
-            rounded-[7px] 
-            shadow-myshadow`
-          }>
-
-        </div>
-        <SkillButtons />
-      </div>
+      <DropTarget />
     </div>
 
   )
