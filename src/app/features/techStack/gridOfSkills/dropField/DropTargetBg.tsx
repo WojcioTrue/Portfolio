@@ -1,16 +1,19 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { useContext } from "react"
 import { TechStackContext } from "../../techStackContext/TechStackContext"
-import { once } from "events"
 
 
 const DropTargetBg = () => {
-    const { isDragged } = useContext(TechStackContext)
+    const { isDragged, isTarget } = useContext(TechStackContext)
     const dragged = isDragged.dragged
+    const inTarget = isTarget.inTarget.boolean
+
+    //condition if element is either dragged or inside DropTarget
+    const dragOrInside = (dragged || inTarget)
 
     return (
         <AnimatePresence>
-            {dragged && (
+            {dragOrInside && (
                 <>
                     <motion.div
                         className='
