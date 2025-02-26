@@ -25,6 +25,9 @@ const SkillsGrid = () => {
       h-[230px]
       py-2 
       mx-2 
+      border-my-lightGray 
+      border-[1px]
+      rounded-[7px] 
       bg-white  
       shadow-myshadow'>
         {array.map((x, i) =>
@@ -40,7 +43,7 @@ const SkillsGrid = () => {
                 rounded-lg 
                 pb-3
                 overflow-hidden'>
-        <p className='block m-auto w-[80%] text-center text-my-gray select-none text-wrap'>Drag icon and drop it in element below.</p>
+        <p className='block m-auto w-[80%] text-center text-my-gray select-none text-wrap'>Drop icon below :)</p>
         <div ref={dropTarget} id="drag-target"
           className={`
             h-[120px] 
