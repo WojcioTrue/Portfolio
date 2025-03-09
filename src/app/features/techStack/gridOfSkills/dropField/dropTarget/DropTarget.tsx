@@ -5,7 +5,7 @@ import DropTargetBg from "./DropTargetBg"
 import TargetDescripton from "./TargetDescripton"
 
 const DropTarget = () => {
-    const { dropTarget, isOverTarget, isTarget, isDragged } = useContext(TechStackContext)
+    const { dropTarget, isOverTarget, isTarget } = useContext(TechStackContext)
     const isOver = isOverTarget.overTarget.boolean
     const isInside = isTarget.inTarget.boolean
 
