@@ -104,9 +104,9 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
                 flex
                 items-center
                 justify-center
-                // border-[1px]
-                // border-my-purple
-                // border-opacity-15
+                 border-[1px]
+                border-my-purple
+                border-opacity-15
                 shadow-myshadow 
                 rounded-lg 
                 cursor-pointer
