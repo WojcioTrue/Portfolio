@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { SkillPromptContext } from './SkillPromptContextProvider'
+
+
 
 const SkillPrompt = () => {
+    const {promptPosition} = useContext(SkillPromptContext)
     const [coords, setCoords] = useState<{ top: number, left: number }>({ top: 0, left: 0 })
 
-
+    useEffect(() => {
+        console.log(promptPosition.position)
+    },[])
 
     useEffect(() => {
         const element = document.getElementById('drag-target')?.getBoundingClientRect()
