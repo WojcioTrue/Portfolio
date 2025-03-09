@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { useContext } from "react"
-import { TechStackContext } from "../../techStackContext/TechStackContext"
+import { TechStackContext } from "../../../techStackContext/TechStackContext"
 
 
 const DropTargetBg = () => {

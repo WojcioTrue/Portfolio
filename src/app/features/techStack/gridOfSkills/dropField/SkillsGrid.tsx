@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 import Icon from './Icon'
 import { TechStackContext } from '../../techStackContext/TechStackContext'
-import DropTarget from './DropTarget'
+import DropTarget from './dropTarget/DropTarget'
 
 
 const SkillsGrid = () => {

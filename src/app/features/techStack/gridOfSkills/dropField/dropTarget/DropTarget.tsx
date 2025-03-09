@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
-import SkillButtons from "../buttons/ButtonsWrapper"
-import { TechStackContext } from "../../techStackContext/TechStackContext"
+import SkillButtons from "../../buttons/ButtonsWrapper"
+import { TechStackContext } from "../../../techStackContext/TechStackContext"
 import DropTargetBg from "./DropTargetBg"
 import { AnimatePresence, motion } from "framer-motion"
 
