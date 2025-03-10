@@ -8,7 +8,5 @@ export const clickPromptCoords = (id : string) => {
     left: element!.left,
   }
 
-
-  console.log(coords)
   return coords
 }
