@@ -3,7 +3,8 @@ import { SkillPromptContext } from './SkillPromptContextProvider'
 
 
 const SkillPrompt = () => {
-    const { promptPosition } = useContext(SkillPromptContext)
+    const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
+    const {display, setDisplay} = promptDisplay
     const { position } = promptPosition
 
     return (
@@ -11,12 +12,13 @@ const SkillPrompt = () => {
             `fixed z-50 w-[250px] h-[120px] bg-gray-500 rounded-[7px]
         `}
             style={{
+                display: display ? 'block' : 'none',
                 top: position.top,
                 left: position.left
             }}
         >
             <button
-            onClick={() => console.log('banger')}
+            onClick={() => setDisplay(true)}
             className='bg-slate-400 w-[50px] h-[50px]'>X</button>
         </div>
     )
