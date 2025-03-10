@@ -23,7 +23,6 @@ const SkillButtons = () => {
       left: element!.left,
     }
   
-    console.log(coords)
     setPosition(coords)
   }
 
