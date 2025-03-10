@@ -1,10 +1,13 @@
-import React from 'react'
 
-const useSkillPromptHooks = () => {
 
-  return (
-    <div>useSkillPromptHooks</div>
-  )
+export const clickPromptCoords = () => {
+  const element = document.getElementById('drag-target')?.getBoundingClientRect()
+
+  const coords = {
+    top: element!.top,
+    left: element!.left,
+  }
+
+  console.log(coords)
+  return coords
 }
-
-export default useSkillPromptHooks

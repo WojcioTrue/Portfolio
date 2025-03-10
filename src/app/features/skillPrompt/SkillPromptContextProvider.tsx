@@ -2,7 +2,7 @@ import { createContext, useState } from "react"
 import { ChildrenType } from "../navbar/navBarContext/NavBarContextProvider"
 import { SetStateAction, Dispatch } from "react"
 
-type PromptPositionType = {
+export type PromptPositionType = {
     top: number,
     left: number
 }
