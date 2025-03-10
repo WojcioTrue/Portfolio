@@ -34,7 +34,7 @@ const SkillButtons = () => {
             fill='white'
           />
         }
-        text={'Open'}
+        text={'Re-Open'}
       />
       <SkillButton
         onClick={() => cleanDrop()}
