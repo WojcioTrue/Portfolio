@@ -8,8 +8,8 @@ import { SkillPromptContext } from '@/app/features/skillPrompt/SkillPromptContex
 const SkillButtons = () => {
   const { isTarget } = useContext(TechStackContext)
   const { promptPosition } = useContext(SkillPromptContext)
-  const { position, setPosition } = promptPosition
-  const { inTarget, setInTarget } = isTarget
+  const { setPosition } = promptPosition
+  const { setInTarget } = isTarget
 
   const cleanDrop = () => {
     setInTarget({ boolean: false, id: '' })
