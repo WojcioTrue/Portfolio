@@ -1,15 +1,28 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import SkillButtons from "../../buttons/ButtonsWrapper"
 import { TechStackContext } from "../../../techStackContext/TechStackContext"
 import DropTargetBg from "./DropTargetBg"
 import TargetDescripton from "./TargetDescripton"
+import { SkillPromptContext } from "@/app/features/skillPrompt/SkillPromptContextProvider"
+import { clickPromptCoords } from "@/app/features/skillPrompt/useSkillPromptHooks"
 
 const DropTarget = () => {
     const { dropTarget, isOverTarget, isTarget } = useContext(TechStackContext)
+    const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
+    const { setDisplay } = promptDisplay
+    const { setPosition } = promptPosition
     const isOver = isOverTarget.overTarget.boolean
     const isInside = isTarget.inTarget.boolean
 
     const backgroundColor = (isOver || isInside) ? 'bg-purple-50' : 'bg-white'
+
+    useEffect(() => {
+        const coords = clickPromptCoords('drag-target')
+            if (isTarget.inTarget.id !== '') {
+                setPosition(coords)
+                setDisplay(true)
+            }
+    }, [isTarget.inTarget.id, setDisplay, setPosition])
 
     return (
         <div className=' 
@@ -18,7 +31,7 @@ const DropTarget = () => {
             pb-3
             z-10'
         >
-            <TargetDescripton/>
+            <TargetDescripton />
             <div ref={dropTarget} id="drag-target"
                 className={`
                     transition-all duration-150

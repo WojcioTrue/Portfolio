@@ -9,7 +9,7 @@ const SkillPrompt = () => {
 
     return (
         <div className={
-            `fixed z-50 w-[250px] h-[120px] bg-gray-500 rounded-[7px]
+            `fixed z-50 w-[200px] h-[200px] bg-gray-500 rounded-[7px]
         `}
             style={{
                 display: display ? 'block' : 'none',
