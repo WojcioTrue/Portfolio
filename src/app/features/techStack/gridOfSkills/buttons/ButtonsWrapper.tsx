@@ -8,8 +8,9 @@ import { clickPromptCoords } from '@/app/features/skillPrompt/useSkillPromptHook
 
 const SkillButtons = () => {
   const { isTarget } = useContext(TechStackContext)
-  const { promptPosition } = useContext(SkillPromptContext)
+  const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
   const { setPosition } = promptPosition
+  const { setDisplay } = promptDisplay
   const { setInTarget } = isTarget
 
   const cleanDrop = () => {
@@ -19,6 +20,7 @@ const SkillButtons = () => {
   const promptShow = () => {
     const coords = clickPromptCoords('drag-target')
     setPosition(coords)
+    setDisplay(true)
   }
 
   return (

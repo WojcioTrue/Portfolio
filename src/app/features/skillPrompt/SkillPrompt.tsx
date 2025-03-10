@@ -4,7 +4,7 @@ import { SkillPromptContext } from './SkillPromptContextProvider'
 
 const SkillPrompt = () => {
     const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
-    const {display, setDisplay} = promptDisplay
+    const { display, setDisplay } = promptDisplay
     const { position } = promptPosition
 
     return (
@@ -18,8 +18,8 @@ const SkillPrompt = () => {
             }}
         >
             <button
-            onClick={() => setDisplay(true)}
-            className='bg-slate-400 w-[50px] h-[50px]'>X</button>
+                onClick={() => setDisplay(false)}
+                className='bg-slate-400 w-[50px] h-[50px]'>X</button>
         </div>
     )
 }
