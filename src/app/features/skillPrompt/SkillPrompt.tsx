@@ -12,25 +12,31 @@ const SkillPrompt = () => {
         <motion.div
             initial={{
                 display: "none",
-                top: position.top,
-                left: position.left,
-                opacity: 0
+                top: 0,
+                left: 0,
+                opacity: 0,
             }}
             animate={{
                 display: display ? 'block' : 'none',
-                top: position.top,
-                left: position.left
+                opacity: display ? 1 : 0,
+                transition: {
+                    opacity: {
+                        duration: 0.15,
+                        delay: 0.1
+                    }
+                }
+
             }}
-            className={`fixed z-50 w-[200px] h-[200px] bg-gray-500 rounded-[7px]`}
-            // style={{
-            //     display: display ? 'block' : 'none',
-            //     top: position.top,
-            //     left: position.left
-            // }}
+            className={`fixed z-50 w-full h-full bg-gray-900 bg-opacity-85  overflow-hidden`}
         >
-            <button
-                onClick={() => setDisplay(false)}
-                className='bg-slate-400 w-[50px] h-[50px]'>X</button>
+            <div>
+                <button
+                    onClick={() => setDisplay(false)}
+                    className='bg-slate-400 w-[50px] h-[50px]'>
+                    X
+                </button>
+            </div>
+
         </motion.div>
     )
 }
