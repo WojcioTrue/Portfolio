@@ -1,12 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { SkillPromptContext } from './SkillPromptContextProvider'
 import { motion } from 'framer-motion'
-
+import { HiOutlineXMark } from 'react-icons/hi2'
 
 const SkillPrompt = () => {
     const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
     const { display, setDisplay } = promptDisplay
     const { position } = promptPosition
+
+  useEffect(() => {
+    display ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
+  }, [display])
 
     return (
         <motion.div
@@ -29,12 +33,28 @@ const SkillPrompt = () => {
             }}
             className={`fixed z-50 w-full h-full bg-gray-900 bg-opacity-85  overflow-hidden`}
         >
+
+            <motion.button
+                onClick={() => setDisplay(false)}
+                className='
+                    absolute
+                    flex
+                    items-center
+                    justify-center
+                    bg-white 
+                    right-[17px]
+                    top-[23px]
+                    rounded-3xl
+                    w-[35px] 
+                    h-[35px]'
+                type="button"
+                aria-controls="skill_prompt_close"
+                aria-expanded="false"
+                aria-label="skill_prompt_close"
+            >
+                <HiOutlineXMark size={'25px'} color="rgb(116, 31, 245)" />
+            </motion.button>
             <div>
-                <button
-                    onClick={() => setDisplay(false)}
-                    className='bg-slate-400 w-[50px] h-[50px]'>
-                    X
-                </button>
             </div>
 
         </motion.div>
