@@ -7,17 +7,15 @@ const SkillInfo = () => {
   const { display } = promptDisplay
   const { top, left } = promptPosition.position
 
-  useEffect(() => {
-    console.log(promptPosition)
-  }, [])
+
 
   return (
     <AnimatePresence>
       {display &&
-        <motion.div className="
+        <motion.div 
+        layout
+        className="
             absolute 
-            top-1/2 
-            left-1/2 
             bg-white 
             w-[250px] 
             h-[120px]
@@ -26,18 +24,30 @@ const SkillInfo = () => {
           initial={{
             top: top,
             left: left,
+            scale: 0.8,
             opacity: 0,
           }}
           animate={{
             opacity: 1,
+            scale: 1,
+            top: 100,
+
             transition: {
               opacity: {
                 delay: 0.3,
-              }
+              },
+              scale: {
+                delay: 0.3,
+              },
+              top: {
+                type: 'spring',
+                delay: 0.35,
+              },
             }
           }}
           exit={{
             opacity: 0,
+            scale: 1.4,
           }}
         >
           SkillWrapper
