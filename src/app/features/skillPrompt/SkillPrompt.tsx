@@ -36,6 +36,9 @@ const SkillPrompt = () => {
                     exit={{
                         opacity: 0,
                         display: 'none',
+                        transition: {
+                            delay: 0.3
+                        }
                     }}
                     className={`fixed z-50 w-full h-full bg-gray-900 bg-opacity-85  overflow-hidden`}
                 >

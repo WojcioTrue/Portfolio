@@ -27,7 +27,8 @@ const SkillButton = () => {
                 }
             }}
             exit={{
-                scale: 1.6
+                scale: 1.6,
+                opacity: 0
             }}
             onClick={() => setDisplay(false)}
             className='
