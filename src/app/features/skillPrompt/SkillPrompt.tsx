@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from 'react'
 import { SkillPromptContext } from './SkillPromptContextProvider'
 import { AnimatePresence, motion } from 'framer-motion'
 import SkillButton from './SkillButton'
+import SkillInfo from './SkillInfo'
+
 
 const SkillPrompt = () => {
     const { promptDisplay } = useContext(SkillPromptContext)
@@ -38,6 +40,7 @@ const SkillPrompt = () => {
                     className={`fixed z-50 w-full h-full bg-gray-900 bg-opacity-85  overflow-hidden`}
                 >
                     <SkillButton />
+                    <SkillInfo/>
                 </motion.div>
             }
 
