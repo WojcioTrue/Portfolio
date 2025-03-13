@@ -35,6 +35,7 @@ const SkillsGrid = () => {
             key={i}
             dragElement={x.id}
             imgSrc={x.src}
+            whiteImgSrc={x.whiteSrc}
             text={x.text}
           />
         )}
