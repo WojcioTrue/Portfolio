@@ -8,9 +8,10 @@ import { SkillPromptContext } from '@/app/features/skillPrompt/SkillPromptContex
 type IconType = {
     dragElement: string
     imgSrc: string
+    text: string
 }
 
-const Icon = ({ dragElement, imgSrc }: IconType) => {
+const Icon = ({ dragElement, imgSrc, text }: IconType) => {
     const { constraintDrag, dropTarget, isTarget, isOverTarget, isDragged } = useContext(TechStackContext)
     const { promptSkill } = useContext(SkillPromptContext)
     const { skill, setSkill } = promptSkill
@@ -85,12 +86,12 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
         setDragged(false)
     }
 
-    useEffect(() => {
-        console.log(skill)
-    },[skill])
-
     const updateSkillPrompt = () => {
-        setSkill({name: 'XYZ'})
+        setSkill({
+            name: dragElement,
+            src: imgSrc,
+            text: text
+        })
     }
 
     return (

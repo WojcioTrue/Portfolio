@@ -2,7 +2,6 @@
 import { useContext } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 import { AnimatePresence, motion } from "framer-motion"
-import DropTargetBg from "../techStack/gridOfSkills/dropField/dropTarget/DropTargetBg"
 import ImgSkill from "./ImgSkill"
 
 const SkillInfo = () => {
