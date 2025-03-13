@@ -19,9 +19,6 @@ const SkillInfo = () => {
 
           className="
           absolute 
-          bg-gradient-to-tr 
-          from-my-gradient1
-          to-my-gradient2
           rounded-[7px]
             "
           initial={{
@@ -30,6 +27,7 @@ const SkillInfo = () => {
             width: 250,
             height: 120,
             opacity: 0,
+            background: "rgb(250 245 255)"
           }}
           animate={{
             top: 150,
@@ -38,7 +36,7 @@ const SkillInfo = () => {
             height: 600,
             opacity: 1,
             translateX: '-50%',
-
+            background: 'linear-gradient(45deg, rgb(191, 64, 191) 20%, rgb(127, 0, 255) 75%',
             transition: {
               top: {
                 type: 'spring',
