@@ -1,4 +1,5 @@
-import { useContext, useEffect } from "react"
+'use client'
+import { useContext } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 import { AnimatePresence, motion } from "framer-motion"
 
@@ -7,47 +8,65 @@ const SkillInfo = () => {
   const { display } = promptDisplay
   const { top, left } = promptPosition.position
 
-
+  const middleX = window.innerWidth / 2
+  const middleY = window.innerHeight / 2
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {display &&
-        <motion.div 
-        layout
-        className="
-            absolute 
+        <motion.div
+
+          className="
+          absolute
             bg-white 
-            w-[250px] 
-            h-[120px]
             rounded-[7px]
             "
           initial={{
-            top: top,
             left: left,
-            scale: 0.8,
+            top: top,
+            width: 250,
+            height: 120,
             opacity: 0,
           }}
           animate={{
+            top: 150,
+            left: middleX,
+            width: 400,
+            height: 600,
             opacity: 1,
-            scale: 1,
-            top: 100,
+            translateX: '-50%',
 
             transition: {
-              opacity: {
-                delay: 0.3,
-              },
-              scale: {
-                delay: 0.3,
-              },
               top: {
                 type: 'spring',
-                delay: 0.35,
+                delay: 0.3,
+                duration: 0.5
+              },
+              left: {
+                type: 'spring',
+                delay: 0.3,
+                duration: 0.5
+              },
+              width: {
+                type: 'spring',
+                delay: 0.6,
+                duration: 0.3
+              },
+              height: {
+                type: 'spring',
+                delay: 0.7,
+                duration: 0.5
+              },
+              translateX: {
+                type: 'spring',
+                delay: 0.3,
+                duration: 0.5
               },
             }
           }}
           exit={{
-            opacity: 0,
-            scale: 1.4,
+            scale: 1.2,
+            opacity: 0
           }}
         >
           SkillWrapper
