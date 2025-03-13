@@ -3,6 +3,7 @@ import { useContext } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 import { AnimatePresence, motion } from "framer-motion"
 import DropTargetBg from "../techStack/gridOfSkills/dropField/dropTarget/DropTargetBg"
+import ImgSkill from "./ImgSkill"
 
 const SkillInfo = () => {
   const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
@@ -29,6 +30,8 @@ const SkillInfo = () => {
             opacity: 0,
             background: "rgb(250 245 255)"
           }}
+          
+
           animate={{
             top: 150,
             left: middleX,
@@ -63,6 +66,7 @@ const SkillInfo = () => {
                 delay: 0.3,
                 duration: 0.5
               },
+
             }
           }}
           exit={{
@@ -70,7 +74,7 @@ const SkillInfo = () => {
             opacity: 0
           }}
         >
-          <p className="text-white">SkillWrapper</p>
+          <ImgSkill/>
         </motion.div>}
 
     </AnimatePresence>

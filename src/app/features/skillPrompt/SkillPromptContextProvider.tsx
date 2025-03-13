@@ -18,6 +18,12 @@ export const SkillPromptContext = createContext<{
     promptDisplay: {
         display: boolean,
         setDisplay: Dispatch<SetStateAction<boolean>>
+    },
+    promptSkill: {
+        skill: {
+            name: string,
+        },
+        setSkill: Dispatch<SetStateAction<{name: string}>>
     }
 }>({
     promptPosition: {
@@ -30,12 +36,19 @@ export const SkillPromptContext = createContext<{
     promptDisplay: {
         display: false,
         setDisplay: () => {}
+    },
+    promptSkill: {
+        skill: {
+            name: 'X',
+        },
+        setSkill: () => {}
     }
 })
 
 const SkillPromptContextProvider = ({children} : ChildrenType) => {
     const [display, setDisplay] = useState(false)
     const [position, setPosition] = useState<PromptPositionType>({top: 0, left: 0})
+    const [skill, setSkill] = useState({name: 'X'})
   return (
     <SkillPromptContext.Provider value={{
         promptPosition: {
@@ -45,7 +58,11 @@ const SkillPromptContextProvider = ({children} : ChildrenType) => {
         promptDisplay: {
             display,
             setDisplay
-        } 
+        },
+        promptSkill: {
+            skill,
+            setSkill
+        }
     }}>
             {children}
     </SkillPromptContext.Provider>
