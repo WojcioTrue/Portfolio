@@ -2,6 +2,7 @@
 import { useContext } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 import { AnimatePresence, motion } from "framer-motion"
+import DropTargetBg from "../techStack/gridOfSkills/dropField/dropTarget/DropTargetBg"
 
 const SkillInfo = () => {
   const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
@@ -17,9 +18,11 @@ const SkillInfo = () => {
         <motion.div
 
           className="
-          absolute
-            bg-white 
-            rounded-[7px]
+          absolute 
+          bg-gradient-to-tr 
+          from-my-gradient1
+          to-my-gradient2
+          rounded-[7px]
             "
           initial={{
             left: left,
@@ -69,7 +72,7 @@ const SkillInfo = () => {
             opacity: 0
           }}
         >
-          SkillWrapper
+          <p className="text-white">SkillWrapper</p>
         </motion.div>}
 
     </AnimatePresence>

@@ -5,7 +5,7 @@ import { useContext } from 'react'
 
 const SkillButton = () => {
     const { promptDisplay } = useContext(SkillPromptContext)
-    const {  setDisplay } = promptDisplay
+    const { setDisplay } = promptDisplay
     return (
         <motion.button
             initial={{
@@ -36,7 +36,9 @@ const SkillButton = () => {
                     flex
                     items-center
                     justify-center
-                    bg-white 
+                     bg-gradient-to-tr 
+                    from-my-gradient1
+                    to-my-gradient2
                     right-[17px]
                     top-[23px]
                     rounded-3xl
@@ -47,7 +49,7 @@ const SkillButton = () => {
             aria-expanded="false"
             aria-label="skill_prompt_close"
         >
-            <HiOutlineXMark size={'25px'} color="rgb(116, 31, 245)" />
+            <HiOutlineXMark size={'25px'} color="white" />
         </motion.button>
     )
 }
