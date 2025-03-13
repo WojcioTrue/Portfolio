@@ -6,48 +6,48 @@ export type IconArrType = {
   
   export const Arr: IconArrType[] = [
     {
-      id: 'drag-element-1',
-      text: 'x',
+      id: 'HTML',
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       src: `/images/tech_icons/gradient/html.png`
     },
     {
-      id: 'drag-element-2',
-      text: 'y',
+      id: 'CSS',
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       src: `/images/tech_icons/gradient/css.png`
     },
     {
-      id: 'drag-element-3',
-      text: 'y',
+      id: 'JS',
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       src: `/images/tech_icons/gradient/js.png`
     },
     {
-      id: 'drag-element-4',
+      id: 'React',
       text: 'x',
       src: `/images/tech_icons/gradient/react.png`
     },
     {
-      id: 'drag-element-5',
-      text: 'y',
+      id: 'Redux',
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       src: `/images/tech_icons/gradient/redux.png`
     },
     {
-      id: 'drag-element-6',
-      text: 'y',
+      id: 'TS',
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       src: `/images/tech_icons/gradient/ts.png`
     },
     {
-      id: 'drag-element-7',
+      id: 'Sass',
       text: 'x',
       src: `/images/tech_icons/gradient/sass.png`
     },
     {
-      id: 'drag-element-8',
-      text: 'y',
+      id: 'Next.js',
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       src: `/images/tech_icons/gradient/next.png`
     },
     {
-      id: 'drag-element-9',
-      text: 'y',
+      id: 'ESLint',
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       src: `/images/tech_icons/gradient/eslint.png`
     },
   ]

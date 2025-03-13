@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { TechStackContext } from '../../techStackContext/TechStackContext'
 import useDetectEnter from '../skillsHooks.tsx/useDetectEnter'
 import useDropped from '../skillsHooks.tsx/useDropped'
+import { SkillPromptContext } from '@/app/features/skillPrompt/SkillPromptContextProvider'
 
 type IconType = {
     dragElement: string
@@ -11,6 +12,8 @@ type IconType = {
 
 const Icon = ({ dragElement, imgSrc }: IconType) => {
     const { constraintDrag, dropTarget, isTarget, isOverTarget, isDragged } = useContext(TechStackContext)
+    const { promptSkill } = useContext(SkillPromptContext)
+    const { skill, setSkill } = promptSkill
     const { detectEnter } = useDetectEnter()
     const { droppedInField } = useDropped()
     const { inTarget } = isTarget
@@ -82,6 +85,14 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
         setDragged(false)
     }
 
+    useEffect(() => {
+        console.log(skill)
+    },[skill])
+
+    const updateSkillPrompt = () => {
+        setSkill({name: 'XYZ'})
+    }
+
     return (
         <motion.div
             layout
@@ -95,6 +106,7 @@ const Icon = ({ dragElement, imgSrc }: IconType) => {
             onDragEnd={() => {
                 dragDrop(dragElement)
                 dragEventEnd()
+                updateSkillPrompt()
             }}
             className={`
                 w-[55px] 
