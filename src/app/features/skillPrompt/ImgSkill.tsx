@@ -17,8 +17,7 @@ const ImgSkill = () => {
     left-1/2 
     -translate-x-1/2 
     -translate-y-1/2 
-    bg-white 
-    w-[50px] 
+       w-[50px] 
     h-[50px]">
         <Image
          src={skill.src}
