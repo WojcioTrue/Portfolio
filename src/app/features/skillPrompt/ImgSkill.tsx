@@ -20,6 +20,13 @@ const ImgSkill = () => {
     bg-white 
     w-[50px] 
     h-[50px]">
+        <Image
+         src={skill.src}
+         alt="#"
+         width={50}
+         height={50}
+        />
+
         </motion.div>
     )
 }

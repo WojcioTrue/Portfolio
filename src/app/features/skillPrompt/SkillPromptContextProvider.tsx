@@ -8,7 +8,9 @@ export type PromptPositionType = {
 }
 
 export type PromptSkillObj = {
-
+    name: string,
+    src: string,
+    text: string
 }
 
 export const SkillPromptContext = createContext<{
@@ -17,7 +19,7 @@ export const SkillPromptContext = createContext<{
             top: number,
             left: number,
         },
-         setPosition: Dispatch<SetStateAction<PromptPositionType>>
+        setPosition: Dispatch<SetStateAction<PromptPositionType>>
     },
     promptDisplay: {
         display: boolean,
@@ -33,11 +35,11 @@ export const SkillPromptContext = createContext<{
             top: 0,
             left: 0,
         },
-        setPosition: () => {}
+        setPosition: () => { }
     },
     promptDisplay: {
         display: false,
-        setDisplay: () => {}
+        setDisplay: () => { }
     },
     promptSkill: {
         skill: {
@@ -45,36 +47,36 @@ export const SkillPromptContext = createContext<{
             src: '',
             text: ''
         },
-        setSkill: () => {}
+        setSkill: () => { }
     }
 })
 
-const SkillPromptContextProvider = ({children} : ChildrenType) => {
+const SkillPromptContextProvider = ({ children }: ChildrenType) => {
     const [display, setDisplay] = useState(false)
-    const [position, setPosition] = useState<PromptPositionType>({top: 0, left: 0})
+    const [position, setPosition] = useState<PromptPositionType>({ top: 0, left: 0 })
     const [skill, setSkill] = useState<PromptSkillObj>({
         name: '',
         src: '',
         text: ''
     })
-  return (
-    <SkillPromptContext.Provider value={{
-        promptPosition: {
-            position,
-            setPosition,
-        },
-        promptDisplay: {
-            display,
-            setDisplay
-        },
-        promptSkill: {
-            skill,
-            setSkill
-        }
-    }}>
+    return (
+        <SkillPromptContext.Provider value={{
+            promptPosition: {
+                position,
+                setPosition,
+            },
+            promptDisplay: {
+                display,
+                setDisplay
+            },
+            promptSkill: {
+                skill,
+                setSkill
+            }
+        }}>
             {children}
-    </SkillPromptContext.Provider>
-  )
+        </SkillPromptContext.Provider>
+    )
 }
 
 export default SkillPromptContextProvider
