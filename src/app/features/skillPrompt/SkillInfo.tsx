@@ -24,7 +24,20 @@ const SkillInfo = () => {
     const getSkillProperties = () => {
       const middleX = window.innerWidth / 2
       const middleY = window.innerHeight / 2
-      const elementWidth = window.innerWidth - 50
+      const elementWidth = () => {
+        if(window.innerWidth >= 500){
+          return 500
+        } 
+          if(
+            (window.innerWidth < 500) && 
+            (window.innerWidth >= 450 )){
+              console.log()
+
+            return (500 - (500 - window.innerWidth)) - 40
+          } else {
+            return window.innerWidth - 40
+          }
+        }
       const elementheight = window.innerHeight - (100 + 50)
       return {
         coords:{
@@ -32,7 +45,7 @@ const SkillInfo = () => {
         y: middleY,
       },
         dimensions: {
-          width: elementWidth,
+          width: elementWidth(),
           height: elementheight,
         }}
     }
