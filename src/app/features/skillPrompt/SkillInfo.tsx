@@ -19,7 +19,7 @@ const SkillInfo = () => {
   const { top, left } = promptPosition.position
 
 
-
+    // i need to count width by myself, because for some reason framer motion doesnt support changing parameters. When I make transition from pixel to percentage i get bugs
   useEffect(() => {
     const getSkillProperties = () => {
       const middleX = window.innerWidth / 2
