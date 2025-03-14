@@ -6,9 +6,6 @@ import { SkillPromptContext } from "./SkillPromptContextProvider"
 const ImgSkill = () => {
     const {promptSkill} = useContext(SkillPromptContext)
     const { skill } = promptSkill
-    useEffect(() => {
-        console.log(promptSkill.skill)
-    },[promptSkill.skill])
 
     return (
         <motion.div className="
@@ -17,7 +14,7 @@ const ImgSkill = () => {
     left-1/2 
     -translate-x-1/2 
     -translate-y-1/2 
-       w-[50px] 
+    w-[50px] 
     h-[50px]">
         <Image
          src={skill.src}

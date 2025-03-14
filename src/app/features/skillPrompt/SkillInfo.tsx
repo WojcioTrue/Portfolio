@@ -1,16 +1,24 @@
 'use client'
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 import { AnimatePresence, motion } from "framer-motion"
 import ImgSkill from "./ImgSkill"
 
 const SkillInfo = () => {
   const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
+  const [ skillCoords, setSkillCoords ] = useState({
+      x: 0,
+      y: 0,
+  })
   const { display } = promptDisplay
   const { top, left } = promptPosition.position
 
   const middleX = window.innerWidth / 2
   const middleY = window.innerHeight / 2
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {console.log('x')})
+  },[])
 
   return (
     <AnimatePresence mode="wait">
@@ -35,6 +43,7 @@ const SkillInfo = () => {
             top: 150,
             left: middleX,
             width: 400,
+            maxWidth: 300,
             height: 600,
             opacity: 1,
             translateX: '-50%',
