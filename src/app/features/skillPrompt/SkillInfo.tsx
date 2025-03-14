@@ -26,13 +26,12 @@ const SkillInfo = () => {
       const middleY = window.innerHeight / 2
       const elementWidth = () => {
         if(window.innerWidth >= 500){
-          return 500
+          return 450
         } 
           if(
             (window.innerWidth < 500) && 
             (window.innerWidth >= 450 )){
-              console.log()
-
+              
             return (500 - (500 - window.innerWidth)) - 40
           } else {
             return window.innerWidth - 40
