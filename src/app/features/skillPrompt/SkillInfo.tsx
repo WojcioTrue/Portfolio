@@ -65,29 +65,30 @@ const SkillInfo = () => {
   }, [])
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence >
       {display &&
         <motion.div
 
           className="
           absolute 
           rounded-[7px]
+          overflow-hidden
             "
           initial={{
             left: left,
             top: top,
             width: 250,
-            height: 120,
+            // height: 120,
             opacity: 0,
             background: 'linear-gradient(45deg, rgb(250 245 255) 20%, rgb(250 245 255) 75%'
           }}
 
 
           animate={{
-            top: 100,
+            top: 80,
             left: skillProperties.coords.x,
             width: skillProperties.dimensions.width,
-            height: skillProperties.dimensions.height,
+            // height: "auto",
             opacity: 1,
             translateX: '-50%',
             background: 'linear-gradient(45deg, rgb(191, 64, 191) 20%, rgb(127, 0, 255) 75%',

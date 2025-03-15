@@ -7,7 +7,7 @@ const SkillText = () => {
     const { skill } = promptSkill
     return (
         <motion.div
-            className="pt-[180px] text-white mx-6">
+            className="pt-[180px] pb-[50px] text-white mx-6">
             <motion.p
                 initial={{
                     opacity: 0,
@@ -20,7 +20,7 @@ const SkillText = () => {
                         delay: 0.8
                     }
                 }}
-                className="text-5xl">{skill.name}</motion.p>
+                className="text-4xl">{skill.name}</motion.p>
 
             <motion.div
                 initial={{
@@ -34,7 +34,7 @@ const SkillText = () => {
                         delay: 0.9
                     }
                 }}
-                className="w-full bg-my-lightBackground my-5 h-[1px]"></motion.div>
+                className="w-full bg-my-lightBackground my-3 h-[1px]"></motion.div>
             <motion.p
                 initial={{
                     opacity: 0,
