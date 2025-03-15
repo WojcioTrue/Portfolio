@@ -5,48 +5,51 @@ import { AnimatePresence, motion } from "framer-motion"
 import ImgSkill from "./ImgSkill"
 
 const SkillInfo = () => {
-  const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
+  const { promptSkill, promptPosition, promptDisplay } = useContext(SkillPromptContext)
+  const { skill } = promptSkill
   const [skillProperties, setSkillProperties] = useState({
-    coords:{
-    x: 0,
-    y: 0,
-  },
+    coords: {
+      x: 0,
+      y: 0,
+    },
     dimensions: {
       width: 0,
       height: 0,
-    }})
+    }
+  })
   const { display } = promptDisplay
   const { top, left } = promptPosition.position
 
 
-    // i need to count width by myself, because for some reason framer motion doesnt support changing parameters. When I make transition from pixel to percentage i get bugs
+  // i need to count width by myself, because for some reason framer motion doesnt support changing parameters. When I make transition from pixel to percentage i get bugs
   useEffect(() => {
     const getSkillProperties = () => {
       const middleX = window.innerWidth / 2
       const middleY = window.innerHeight / 2
       const elementWidth = () => {
-        if(window.innerWidth >= 500){
+        if (window.innerWidth >= 500) {
           return 450
-        } 
-          if(
-            (window.innerWidth < 500) && 
-            (window.innerWidth >= 450 )){
-              
-            return (500 - (500 - window.innerWidth)) - 40
-          } else {
-            return window.innerWidth - 40
-          }
         }
+        if (
+          (window.innerWidth < 500) &&
+          (window.innerWidth >= 450)) {
+
+          return (500 - (500 - window.innerWidth)) - 40
+        } else {
+          return window.innerWidth - 40
+        }
+      }
       const elementheight = window.innerHeight - (100 + 50)
       return {
-        coords:{
-        x: middleX,
-        y: middleY,
-      },
+        coords: {
+          x: middleX,
+          y: middleY,
+        },
         dimensions: {
           width: elementWidth(),
           height: elementheight,
-        }}
+        }
+      }
     }
 
     window.addEventListener('resize', () => {
@@ -122,6 +125,12 @@ const SkillInfo = () => {
           }}
         >
           <ImgSkill />
+          <div className="pt-[280px] text-white mx-6">
+            <p className="text-5xl">{skill.name}</p>
+            <div className="w-full bg-my-lightBackground my-5 h-[1px]"></div>
+            <p>{skill.text}</p>
+          </div>
+
         </motion.div>}
 
     </AnimatePresence>

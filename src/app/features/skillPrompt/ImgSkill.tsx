@@ -1,27 +1,42 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 
 const ImgSkill = () => {
-    const {promptSkill} = useContext(SkillPromptContext)
+    const { promptSkill, promptDisplay } = useContext(SkillPromptContext)
     const { skill } = promptSkill
+    // const { display } = promptDisplay.display
 
     return (
-        <motion.div className="
-    absolute 
-    top-1/2 
-    left-1/2 
-    -translate-x-1/2 
-    -translate-y-1/2 
-    w-[50px] 
-    h-[50px]">
-        <Image
-         src={skill.src}
-         alt="#"
-         width={50}
-         height={50}
-        />
+        <motion.div
+        className="
+        absolute 
+        w-[50px] 
+        h-[50px]"
+        initial={{
+            top: '50%',
+            left: '50%',
+            translateX: "-50%",
+            translateY: "-50%",
+            width: 50,
+            height: 50
+        }}
+        animate={{
+            top: 150,
+            width: 150,
+            height: 150,
+            transition: {
+                duration: 0.2,
+                delay: 0.7
+            }
+        }}
+        >
+            <Image
+                src={skill.src}
+                alt="#"
+                fill
+            />
 
         </motion.div>
     )
