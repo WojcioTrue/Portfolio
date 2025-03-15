@@ -22,6 +22,13 @@ const SkillInfo = () => {
   const { top, left } = promptPosition.position
 
 
+  const contentHeight = () => {
+    if (document.getElementById('skill-text') !== null) {
+      return document.getElementById('skill-text')!.offsetHeight
+    }
+  }
+
+
   // i need to count width by myself, because for some reason framer motion doesnt support changing parameters. When I make transition from pixel to percentage i get bugs
   useEffect(() => {
     const getSkillProperties = () => {
@@ -48,7 +55,7 @@ const SkillInfo = () => {
         },
         dimensions: {
           width: elementWidth(),
-          height: elementheight,
+          height: 300,
         }
       }
     }
@@ -68,7 +75,7 @@ const SkillInfo = () => {
     <AnimatePresence >
       {display &&
         <motion.div
-
+          layout
           className="
           absolute 
           rounded-[7px]
@@ -78,7 +85,7 @@ const SkillInfo = () => {
             left: left,
             top: top,
             width: 250,
-            // height: 120,
+            height: 120,
             opacity: 0,
             background: 'linear-gradient(45deg, rgb(250 245 255) 20%, rgb(250 245 255) 75%'
           }}
@@ -88,7 +95,7 @@ const SkillInfo = () => {
             top: 80,
             left: skillProperties.coords.x,
             width: skillProperties.dimensions.width,
-            // height: "auto",
+            height: 300,
             opacity: 1,
             translateX: '-50%',
             background: 'linear-gradient(45deg, rgb(191, 64, 191) 20%, rgb(127, 0, 255) 75%',

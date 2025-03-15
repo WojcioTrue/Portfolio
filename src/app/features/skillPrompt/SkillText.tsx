@@ -7,6 +7,7 @@ const SkillText = () => {
     const { skill } = promptSkill
     return (
         <motion.div
+            id="skill-text"
             className="pt-[180px] pb-[50px] text-white mx-6">
             <motion.p
                 initial={{
