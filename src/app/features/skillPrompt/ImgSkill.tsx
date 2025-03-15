@@ -23,7 +23,7 @@ const ImgSkill = () => {
             height: 50
         }}
         animate={{
-            top: 150,
+            top: 100,
             width: 100,
             height: 100,
             transition: {

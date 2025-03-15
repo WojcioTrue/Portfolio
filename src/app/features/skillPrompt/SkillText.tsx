@@ -7,7 +7,7 @@ const SkillText = () => {
     const { skill } = promptSkill
     return (
         <motion.div
-            className="pt-[230px] text-white mx-6">
+            className="pt-[180px] text-white mx-6">
             <motion.p
                 initial={{
                     opacity: 0,
