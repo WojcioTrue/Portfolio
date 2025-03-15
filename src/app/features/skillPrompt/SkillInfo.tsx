@@ -3,10 +3,11 @@ import { useContext, useEffect, useState } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 import { AnimatePresence, motion } from "framer-motion"
 import ImgSkill from "./ImgSkill"
+import SkillText from "./SkillText"
 
 const SkillInfo = () => {
-  const { promptSkill, promptPosition, promptDisplay } = useContext(SkillPromptContext)
-  const { skill } = promptSkill
+  const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
+
   const [skillProperties, setSkillProperties] = useState({
     coords: {
       x: 0,
@@ -125,12 +126,7 @@ const SkillInfo = () => {
           }}
         >
           <ImgSkill />
-          <div className="pt-[280px] text-white mx-6">
-            <p className="text-5xl">{skill.name}</p>
-            <div className="w-full bg-my-lightBackground my-5 h-[1px]"></div>
-            <p>{skill.text}</p>
-          </div>
-
+          <SkillText/>
         </motion.div>}
 
     </AnimatePresence>
