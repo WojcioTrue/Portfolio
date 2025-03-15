@@ -7,15 +7,13 @@ const SkillText = () => {
     const { skill } = promptSkill
     return (
         <motion.div
-            className="pt-[280px] text-white mx-6">
+            className="pt-[230px] text-white mx-6">
             <motion.p
                 initial={{
-                    display: 'none',
                     opacity: 0,
                     x: -30
                 }}
                 animate={{
-                    display: 'block',
                     opacity: 1,
                     x: 0,
                     transition: {
@@ -26,12 +24,10 @@ const SkillText = () => {
 
             <motion.div
                 initial={{
-                    display: 'none',
                     opacity: 0,
                     x: -30
                 }}
                 animate={{
-                    display: 'block',
                     opacity: 1,
                     x: 0,
                     transition: {
@@ -41,12 +37,10 @@ const SkillText = () => {
                 className="w-full bg-my-lightBackground my-5 h-[1px]"></motion.div>
             <motion.p
                 initial={{
-                    display: 'none',
                     opacity: 0,
                     x: -30
                 }}
                 animate={{
-                    display: 'block',
                     opacity: 1,
                     x: 0,
                     transition: {

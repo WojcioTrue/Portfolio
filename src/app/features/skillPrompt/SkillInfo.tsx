@@ -79,7 +79,7 @@ const SkillInfo = () => {
             width: 250,
             height: 120,
             opacity: 0,
-            background: "rgb(250 245 255)"
+            background: 'linear-gradient(45deg, rgb(250 245 255) 20%, rgb(250 245 255) 75%'
           }}
 
 
@@ -126,7 +126,7 @@ const SkillInfo = () => {
           }}
         >
           <ImgSkill />
-          <SkillText/>
+          <SkillText />
         </motion.div>}
 
     </AnimatePresence>
