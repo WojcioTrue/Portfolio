@@ -7,6 +7,8 @@ export type PromptPropsType = {
     bottom: number,
     left: number,
     right: number,
+    height: number,
+    width: number,
 }
 
 export type PromptSkillObj = {
@@ -35,6 +37,8 @@ export const SkillPromptContext = createContext<{
             bottom: 0,
             left: 0,
             right: 0,
+            height: 0,
+            width: 0,
         },
         setPosition: () => { }
     },
@@ -59,6 +63,8 @@ const SkillPromptContextProvider = ({ children }: ChildrenType) => {
         bottom: 0,
         left: 0,
         right: 0,
+        height: 0,
+        width: 0
     })
     const [skill, setSkill] = useState<PromptSkillObj>({
         name: '',
