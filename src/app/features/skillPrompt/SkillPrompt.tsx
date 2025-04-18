@@ -138,7 +138,7 @@ const SkillPrompt = () => {
     //     </motion.div>}
 
     // </AnimatePresence>
-    <div className="px-10 py-20 flex justify-center">
+    <div className="py-20 flex justify-center">
       {display &&
         <motion.div
           layout
@@ -148,7 +148,7 @@ const SkillPrompt = () => {
         overflow-hidden
         bg-gray-400
         bg-opacity-30
-        w-[50%]"
+        w-[90%] sx:w-[350px]"
         >
           <ImgSkill />
           <SkillText />

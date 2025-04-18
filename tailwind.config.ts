@@ -21,6 +21,7 @@ const config: Config = {
         myshadow: '0 2px 5px -1px rgba(0,0,0,.08)',
       },
       screens: {
+        sx: '400px',
         ml: '992px',
       },
       colors: {

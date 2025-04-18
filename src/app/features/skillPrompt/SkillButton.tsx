@@ -40,7 +40,7 @@ const SkillButton = () => {
                      bg-gradient-to-tr 
                     from-my-gradient1
                     to-my-gradient2
-                    right-[17px]
+                    right-[10px]
                     top-[23px]
                     rounded-3xl
                     w-[35px] 
