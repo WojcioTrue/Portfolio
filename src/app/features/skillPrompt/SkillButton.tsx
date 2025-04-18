@@ -11,6 +11,7 @@ const SkillButton = () => {
             initial={{
                 opacity: 0,
                 scale: 1.6,
+                zIndex: 100,
             }}
             animate={{
                 opacity: 1,
