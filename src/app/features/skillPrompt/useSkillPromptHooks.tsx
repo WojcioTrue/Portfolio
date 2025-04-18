@@ -5,7 +5,9 @@ export const clickPromptCoords = (id : string) => {
 
   const coords = {
     top: element!.top,
+    bottom: element!.bottom,
     left: element!.left,
+    right: element!.right,
   }
 
   return coords
