@@ -10,11 +10,10 @@ const InitialPrompt = () => {
     const initialPromptRef = useRef<HTMLDivElement>(null)
     const { setPosition } = promptProps
 
-
     useEffect(() => {
         const updateWidth = setInterval(() => {
             const elementProps = initialPromptRef.current?.getBoundingClientRect()!
-            console.log(elementProps)
+            //guard clause after element is renered
             if (elementProps.width !== 0) {
                 clearInterval(updateWidth)
                 setPosition({
@@ -31,9 +30,6 @@ const InitialPrompt = () => {
             clearInterval(updateWidth)
         }
     }, [setPosition])
-
-
-
 
     return (
         <div id="initialPrompt" ref={initialPromptRef} className="
