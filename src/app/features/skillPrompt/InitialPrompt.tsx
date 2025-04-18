@@ -13,9 +13,11 @@ const InitialPrompt = () => {
     useEffect(() => {
         const updateWidth = setInterval(() => {
             const elementProps = initialPromptRef.current?.getBoundingClientRect()!
+            console.log(elementProps)
             //guard clause after element is renered
             if (elementProps.width !== 0) {
                 clearInterval(updateWidth)
+                const height = elementProps.height
                 setPosition({
                     top: elementProps.top,
                     bottom: elementProps. bottom,
@@ -56,7 +58,6 @@ const InitialPrompt = () => {
                 className="py-[30px] text-white mx-6">
                 <p className="text-4xl">{skill.name}</p>
                 <div className="w-full bg-my-lightBackground my-3 h-[1px]"></div>
-                <p>{skill.text}</p>
                 <p>{skill.text}</p>
             </div>
         </div>
