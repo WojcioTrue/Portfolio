@@ -2,11 +2,7 @@ import { useContext } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 import { motion } from "framer-motion"
 
-type SkillTextType = {
-    initAnimation: boolean
-}
-
-const SkillText = (initAnimation: SkillTextType) => {
+const SkillText = () => {
     const { promptSkill } = useContext(SkillPromptContext)
     const { skill } = promptSkill
     return (
