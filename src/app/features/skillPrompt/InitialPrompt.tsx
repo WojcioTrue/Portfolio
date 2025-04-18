@@ -29,9 +29,9 @@ const InitialPrompt = () => {
         w-[90%] sx:w-[350px]"
         >
             <ImgSkill />
-            <SkillText />
-            <SkillText />
-            <SkillText />
+            <SkillText initAnimation={false}/>
+            <SkillText initAnimation={false}/>
+            <SkillText initAnimation={false}/>
 
         </div>
     )
