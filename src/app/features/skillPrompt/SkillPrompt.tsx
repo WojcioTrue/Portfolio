@@ -40,7 +40,7 @@ const SkillPrompt = () => {
                             delay: 0.3
                         }
                     }}
-                    className={`fixed z-50 w-full h-full bg-gray-900 bg-opacity-90  overflow-x-hidden overflow-y-scroll`}
+                    className={`fixed z-50 w-full h-full bg-gray-900 bg-opacity-90  overflow-x-hidden`}
                 >
                     <SkillButton />
                     <SkillInfo/>
