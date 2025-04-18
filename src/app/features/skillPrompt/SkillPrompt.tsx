@@ -1,5 +1,5 @@
 'use client'
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 import InitialPrompt from "./InitialPrompt"
 
@@ -28,46 +28,46 @@ const SkillPrompt = () => {
 
 
   // i need to count width by myself, because for some reason framer motion doesnt support changing parameters. When I make transition from pixel to percentage i get bugs
-  useEffect(() => {
-    const getSkillProperties = () => {
-      const middleX = window.innerWidth / 2
-      const middleY = window.innerHeight / 2
-      const elementWidth = () => {
-        if (window.innerWidth >= 500) {
-          return 450
-        }
-        if (
-          (window.innerWidth < 500) &&
-          (window.innerWidth >= 450)) {
+  // useEffect(() => {
+  //   const getSkillProperties = () => {
+  //     const middleX = window.innerWidth / 2
+  //     const middleY = window.innerHeight / 2
+  //     const elementWidth = () => {
+  //       if (window.innerWidth >= 500) {
+  //         return 450
+  //       }
+  //       if (
+  //         (window.innerWidth < 500) &&
+  //         (window.innerWidth >= 450)) {
 
-          return (500 - (500 - window.innerWidth)) - 40
-        } else {
-          return window.innerWidth - 40
-        }
-      }
-      const elementheight = window.innerHeight - (100 + 50)
-      return {
-        coords: {
-          x: middleX,
-          y: middleY,
-        },
-        dimensions: {
-          width: elementWidth(),
-          height: 300,
-        }
-      }
-    }
+  //         return (500 - (500 - window.innerWidth)) - 40
+  //       } else {
+  //         return window.innerWidth - 40
+  //       }
+  //     }
+  //     const elementheight = window.innerHeight - (100 + 50)
+  //     return {
+  //       coords: {
+  //         x: middleX,
+  //         y: middleY,
+  //       },
+  //       dimensions: {
+  //         width: elementWidth(),
+  //         height: 300,
+  //       }
+  //     }
+  //   }
 
-    window.addEventListener('resize', () => {
-      setSkillProperties(getSkillProperties())
-    })
-    setSkillProperties(getSkillProperties())
-    return () => {
-      window.removeEventListener('resize', () => {
-        setSkillProperties(getSkillProperties())
-      })
-    }
-  }, [])
+  //   window.addEventListener('resize', () => {
+  //     setSkillProperties(getSkillProperties())
+  //   })
+  //   setSkillProperties(getSkillProperties())
+  //   return () => {
+  //     window.removeEventListener('resize', () => {
+  //       setSkillProperties(getSkillProperties())
+  //     })
+  //   }
+  // }, [])
 
   return (
     // <AnimatePresence >

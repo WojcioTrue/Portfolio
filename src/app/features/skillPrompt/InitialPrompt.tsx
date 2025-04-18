@@ -8,14 +8,23 @@ const InitialPrompt = () => {
     const { promptSkill } = useContext(SkillPromptContext)
     const { skill } = promptSkill
     const initialPromptRef = useRef<HTMLDivElement>(null)
-    const [elementProps, setElementProps] = useState<Object | null>(null)
+    const { setPosition } = promptProps
+
 
     useEffect(() => {
         const updateWidth = setInterval(() => {
             const elementProps = initialPromptRef.current?.getBoundingClientRect()!
-            console.log(elementProps.height)
+            console.log(elementProps)
             if (elementProps.width !== 0) {
                 clearInterval(updateWidth)
+                setPosition({
+                    top: elementProps.top,
+                    bottom: elementProps. bottom,
+                    left: elementProps.left,
+                    right: elementProps.right,
+                    height: elementProps.height,
+                    width: elementProps.width,
+                })
             }
         }, 10)
         return () => {
@@ -23,15 +32,14 @@ const InitialPrompt = () => {
         }
     }, [])
 
-    useEffect(() => {
-        console.log(elementProps)
-    }, [elementProps])
+
 
 
     return (
         <div id="initialPrompt" ref={initialPromptRef} className="
         relative
         rounded-[7px]
+        opacity-50
         overflow-hidden
         bg-gray-400
         bg-opacity-30
