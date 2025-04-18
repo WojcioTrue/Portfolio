@@ -1,29 +1,19 @@
-import React, { useContext, useEffect, useState, useRef, useLayoutEffect } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import { SkillPromptContext } from './SkillPromptContextProvider'
 import Image from "next/image"
 //This component will be used to get initial height and position for prompt, also use values like height and position when window will be resized. For now (18.04.2025) i can't animate height from stiff value (in pixels) to auto, so i will create this dummy component to get all values and push to final Prompt component
 
 const InitialPrompt = () => {
-    const { promptPosition } = useContext(SkillPromptContext)
+    const { promptProps } = useContext(SkillPromptContext)
     const { promptSkill } = useContext(SkillPromptContext)
     const { skill } = promptSkill
     const initialPromptRef = useRef<HTMLDivElement>(null)
     const [elementProps, setElementProps] = useState<Object | null>(null)
-    const [skillProperties, setSkillProperties] = useState({
-        coords: {
-            x: 0,
-            y: 0,
-        },
-        dimensions: {
-            width: 0,
-            height: 0,
-        }
-    })
 
     useEffect(() => {
         const updateWidth = setInterval(() => {
             const elementProps = initialPromptRef.current?.getBoundingClientRect()!
-            console.log(elementProps.width)
+            console.log(elementProps.height)
             if (elementProps.width !== 0) {
                 clearInterval(updateWidth)
             }

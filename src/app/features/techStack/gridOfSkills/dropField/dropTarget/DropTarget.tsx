@@ -8,9 +8,9 @@ import { clickPromptCoords } from "@/app/features/skillPrompt/useSkillPromptHook
 
 const DropTarget = () => {
     const { dropTarget, isOverTarget, isTarget } = useContext(TechStackContext)
-    const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
+    const { promptProps, promptDisplay } = useContext(SkillPromptContext)
     const { setDisplay } = promptDisplay
-    const { setPosition } = promptPosition
+    const { setPosition } = promptProps
     const isOver = isOverTarget.overTarget.boolean
     const isInside = isTarget.inTarget.boolean
 

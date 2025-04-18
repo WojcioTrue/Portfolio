@@ -2,7 +2,7 @@ import { createContext, useState } from "react"
 import { ChildrenType } from "../navbar/navBarContext/NavBarContextProvider"
 import { SetStateAction, Dispatch } from "react"
 
-export type PromptPositionType = {
+export type PromptPropsType = {
     top: number,
     bottom: number,
     left: number,
@@ -16,9 +16,9 @@ export type PromptSkillObj = {
 }
 
 export const SkillPromptContext = createContext<{
-    promptPosition: {
-        position: PromptPositionType,
-        setPosition: Dispatch<SetStateAction<PromptPositionType>>
+    promptProps: {
+        position: PromptPropsType,
+        setPosition: Dispatch<SetStateAction<PromptPropsType>>
     },
     promptDisplay: {
         display: boolean,
@@ -29,7 +29,7 @@ export const SkillPromptContext = createContext<{
         setSkill: Dispatch<SetStateAction<PromptSkillObj>>
     }
 }>({
-    promptPosition: {
+    promptProps: {
         position: {
             top: 0,
             bottom: 0,
@@ -54,7 +54,7 @@ export const SkillPromptContext = createContext<{
 
 const SkillPromptContextProvider = ({ children }: ChildrenType) => {
     const [display, setDisplay] = useState(false)
-    const [position, setPosition] = useState<PromptPositionType>({
+    const [position, setPosition] = useState<PromptPropsType>({
         top: 0,
         bottom: 0,
         left: 0,
@@ -67,7 +67,7 @@ const SkillPromptContextProvider = ({ children }: ChildrenType) => {
     })
     return (
         <SkillPromptContext.Provider value={{
-            promptPosition: {
+            promptProps: {
                 position,
                 setPosition,
             },

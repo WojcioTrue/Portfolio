@@ -4,7 +4,7 @@ import { SkillPromptContext } from "./SkillPromptContextProvider"
 import InitialPrompt from "./InitialPrompt"
 
 const SkillPrompt = () => {
-  const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
+  const { promptProps, promptDisplay } = useContext(SkillPromptContext)
 
   const [skillProperties, setSkillProperties] = useState({
     coords: {
@@ -17,7 +17,7 @@ const SkillPrompt = () => {
     }
   })
   const { display } = promptDisplay
-  const { top, left } = promptPosition.position
+  const { top, left } = promptProps.position
 
 
   const contentHeight = () => {

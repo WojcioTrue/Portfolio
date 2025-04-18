@@ -8,8 +8,8 @@ import { clickPromptCoords } from '@/app/features/skillPrompt/useSkillPromptHook
 
 const SkillButtons = () => {
   const { isTarget } = useContext(TechStackContext)
-  const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
-  const { setPosition } = promptPosition
+  const { promptProps, promptDisplay } = useContext(SkillPromptContext)
+  const { setPosition } = promptProps
   const { setDisplay } = promptDisplay
   const { setInTarget } = isTarget
   const disableButton = isTarget.inTarget.boolean
