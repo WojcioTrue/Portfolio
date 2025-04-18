@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { SkillPromptContext } from './SkillPromptContextProvider'
 import Image from "next/image"
 //This component will be used to get initial height and position for prompt, also use values like height and position when window will be resized. For now (18.04.2025) i can't animate height from stiff value (in pixels) to auto, so i will create this dummy component to get all values and push to final Prompt component
