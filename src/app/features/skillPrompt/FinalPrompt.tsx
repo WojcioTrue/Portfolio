@@ -40,6 +40,7 @@ const FinalPrompt = () => {
                 >
             <ImgSkill />
             <SkillText />
+            <SkillText />
         </motion.div>}
 
         </AnimatePresence >
