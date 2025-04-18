@@ -1,9 +1,7 @@
 'use client'
 import { useContext, useEffect, useState } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
-import { AnimatePresence, motion } from "framer-motion"
-import ImgSkill from "./ImgSkill"
-import SkillText from "./SkillText"
+import InitialPrompt from "./InitialPrompt"
 
 const SkillPrompt = () => {
   const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
@@ -139,23 +137,7 @@ const SkillPrompt = () => {
 
     // </AnimatePresence>
     <div className="py-20 flex justify-center">
-      {display &&
-        <motion.div
-          layout
-          className="
-          relative
-        rounded-[7px]
-        overflow-hidden
-        bg-gray-400
-        bg-opacity-30
-        w-[90%] sx:w-[350px]"
-        >
-          <ImgSkill />
-          <SkillText />
-          <SkillText />
-          <SkillText />
-
-        </motion.div>}
+      <InitialPrompt/>
     </div>
 
 
