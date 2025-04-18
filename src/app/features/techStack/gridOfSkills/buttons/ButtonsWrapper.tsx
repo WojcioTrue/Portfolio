@@ -12,6 +12,7 @@ const SkillButtons = () => {
   const { setPosition } = promptPosition
   const { setDisplay } = promptDisplay
   const { setInTarget } = isTarget
+  const disableButton = isTarget.inTarget.boolean
 
   const cleanDrop = () => {
     setInTarget({ boolean: false, id: '' })
@@ -27,6 +28,7 @@ const SkillButtons = () => {
     <div className='w-full flex justify-end gap-3 border-opacity-30 pr-2'>
       <SkillButton
         onClick={() => promptShow()}
+        disabled={!disableButton}
         icon={
           <IoReaderOutline
             className='m-auto'
