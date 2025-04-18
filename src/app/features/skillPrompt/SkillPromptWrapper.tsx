@@ -5,7 +5,7 @@ import SkillButton from './SkillButton'
 import SkillInfo from './SkillInfo'
 
 
-const SkillPrompt = () => {
+const SkillPromptWrapper = () => {
     const { promptDisplay } = useContext(SkillPromptContext)
     const { display } = promptDisplay
 
@@ -52,4 +52,4 @@ const SkillPrompt = () => {
     )
 }
 
-export default SkillPrompt
+export default SkillPromptWrapper

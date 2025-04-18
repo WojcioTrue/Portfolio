@@ -1,5 +1,5 @@
 import MainLayoutWrapper from '../MainLayoutWrapper'
-import SkillPrompt from '../skillPrompt/SkillPrompt'
+import SkillPromptWrapper from '../skillPrompt/SkillPromptWrapper'
 import SkillPromptContextProvider from '../skillPrompt/SkillPromptContextProvider'
 import MobileNavBar from './mobileNavbar/MobileNavBar'
 import NavBar from './NavBar'
@@ -12,7 +12,7 @@ const NavBarContextWrapper = () => {
             <MobileNavBar />
             <SkillPromptContextProvider>
                 <MainLayoutWrapper />
-                <SkillPrompt />
+                <SkillPromptWrapper />
             </SkillPromptContextProvider>
         </NavBarContextProvider>
     )
