@@ -4,7 +4,9 @@ import { SetStateAction, Dispatch } from "react"
 
 export type PromptPositionType = {
     top: number,
-    left: number
+    bottom: number,
+    left: number,
+    right: number,
 }
 
 export type PromptSkillObj = {
@@ -15,10 +17,7 @@ export type PromptSkillObj = {
 
 export const SkillPromptContext = createContext<{
     promptPosition: {
-        position: {
-            top: number,
-            left: number,
-        },
+        position: PromptPositionType,
         setPosition: Dispatch<SetStateAction<PromptPositionType>>
     },
     promptDisplay: {
@@ -33,7 +32,9 @@ export const SkillPromptContext = createContext<{
     promptPosition: {
         position: {
             top: 0,
+            bottom: 0,
             left: 0,
+            right: 0,
         },
         setPosition: () => { }
     },
@@ -53,7 +54,12 @@ export const SkillPromptContext = createContext<{
 
 const SkillPromptContextProvider = ({ children }: ChildrenType) => {
     const [display, setDisplay] = useState(false)
-    const [position, setPosition] = useState<PromptPositionType>({ top: 0, left: 0 })
+    const [position, setPosition] = useState<PromptPositionType>({
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+    })
     const [skill, setSkill] = useState<PromptSkillObj>({
         name: '',
         src: '',
