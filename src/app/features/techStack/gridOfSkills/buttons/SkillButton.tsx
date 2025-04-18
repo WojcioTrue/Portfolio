@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import React, { ReactElement, useEffect } from 'react'
+import React, { ReactElement } from 'react'
 type SkillButtonType = {
     onClick?: () => void,
     disabled?: boolean,
@@ -8,10 +8,6 @@ type SkillButtonType = {
 }
 
 const SkillButton = ({ onClick, disabled, icon, text }: SkillButtonType) => {
-
-    useEffect(() => {
-        console.log(disabled)
-    },[disabled])
 
     return (
 

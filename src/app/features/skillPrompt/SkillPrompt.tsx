@@ -138,19 +138,24 @@ const SkillPrompt = () => {
     //     </motion.div>}
 
     // </AnimatePresence>
-
-    display &&
-    <motion.div
-      layout
-      className="
+    <div className="px-10">
+      {display &&
+        <motion.div
+          layout
+          className="
         absolute 
         rounded-[7px]
         overflow-hidden
+        bg-gray-400
+        bg-opacity-30
+        max-w-full
           "
-    >
-      <ImgSkill />
-      <SkillText />
-    </motion.div>
+        >
+          <ImgSkill />
+          <SkillText />
+        </motion.div>}
+    </div>
+
 
   )
 }
