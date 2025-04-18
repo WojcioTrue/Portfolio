@@ -30,7 +30,7 @@ const InitialPrompt = () => {
         return () => {
             clearInterval(updateWidth)
         }
-    }, [])
+    }, [setPosition])
 
 
 
