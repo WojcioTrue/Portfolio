@@ -10,31 +10,30 @@ const ImgSkill = () => {
 
     return (
         <motion.div
-            className="absolute"
-            initial={{
-                top: '50%',
-                left: '50%',
-                translateX: "-50%",
-                translateY: "-50%",
-                width: 50,
-                height: 50
-            }}
-            animate={{
-                top: 100,
-                width: 100,
-                height: 100,
-                transition: {
-                    duration: 0.2,
-                    delay: 0.7
-                }
-            }}
+            className="relative bg-red-500 w-full h-[200px]"
+            // initial={{
+            //     top: 20,
+            //     left: '50%',
+            //     translateX: "-50%",
+            //     width: 50,
+            //     height: 50
+            // }}
+            // animate={{
+            //     top: 70,
+            //     width: 100,
+            //     height: 100,
+            //     transition: {
+            //         duration: 0.2,
+            //         delay: 0.7
+            //     }
+            // }}
         >
-            <Image
+            {/* <Image
                 src={skill.src}
                 alt="#"
                 fill
                 sizes="100%"
-            />
+            /> */}
 
         </motion.div>
     )

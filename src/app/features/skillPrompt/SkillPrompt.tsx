@@ -22,54 +22,54 @@ const SkillPrompt = () => {
   const { top, left } = promptPosition.position
 
 
-  // const contentHeight = () => {
-  //   if (document.getElementById('skill-text') !== null) {
-  //     return document.getElementById('skill-text')!.offsetHeight
-  //   }
-  // }
+  const contentHeight = () => {
+    if (document.getElementById('skill-text') !== null) {
+      return document.getElementById('skill-text')!.offsetHeight
+    }
+  }
 
 
-  // // i need to count width by myself, because for some reason framer motion doesnt support changing parameters. When I make transition from pixel to percentage i get bugs
-  // useEffect(() => {
-  //   const getSkillProperties = () => {
-  //     const middleX = window.innerWidth / 2
-  //     const middleY = window.innerHeight / 2
-  //     const elementWidth = () => {
-  //       if (window.innerWidth >= 500) {
-  //         return 450
-  //       }
-  //       if (
-  //         (window.innerWidth < 500) &&
-  //         (window.innerWidth >= 450)) {
+  // i need to count width by myself, because for some reason framer motion doesnt support changing parameters. When I make transition from pixel to percentage i get bugs
+  useEffect(() => {
+    const getSkillProperties = () => {
+      const middleX = window.innerWidth / 2
+      const middleY = window.innerHeight / 2
+      const elementWidth = () => {
+        if (window.innerWidth >= 500) {
+          return 450
+        }
+        if (
+          (window.innerWidth < 500) &&
+          (window.innerWidth >= 450)) {
 
-  //         return (500 - (500 - window.innerWidth)) - 40
-  //       } else {
-  //         return window.innerWidth - 40
-  //       }
-  //     }
-  //     const elementheight = window.innerHeight - (100 + 50)
-  //     return {
-  //       coords: {
-  //         x: middleX,
-  //         y: middleY,
-  //       },
-  //       dimensions: {
-  //         width: elementWidth(),
-  //         height: 300,
-  //       }
-  //     }
-  //   }
+          return (500 - (500 - window.innerWidth)) - 40
+        } else {
+          return window.innerWidth - 40
+        }
+      }
+      const elementheight = window.innerHeight - (100 + 50)
+      return {
+        coords: {
+          x: middleX,
+          y: middleY,
+        },
+        dimensions: {
+          width: elementWidth(),
+          height: 300,
+        }
+      }
+    }
 
-  //   window.addEventListener('resize', () => {
-  //     setSkillProperties(getSkillProperties())
-  //   })
-  //   setSkillProperties(getSkillProperties())
-  //   return () => {
-  //     window.removeEventListener('resize', () => {
-  //       setSkillProperties(getSkillProperties())
-  //     })
-  //   }
-  // }, [])
+    window.addEventListener('resize', () => {
+      setSkillProperties(getSkillProperties())
+    })
+    setSkillProperties(getSkillProperties())
+    return () => {
+      window.removeEventListener('resize', () => {
+        setSkillProperties(getSkillProperties())
+      })
+    }
+  }, [])
 
   return (
     // <AnimatePresence >
@@ -82,7 +82,7 @@ const SkillPrompt = () => {
     //       overflow-hidden
     //         "
     //       initial={{
-    //         left: left,
+    //         left: left + 10,
     //         top: top,
     //         width: 250,
     //         height: 120,
@@ -138,21 +138,23 @@ const SkillPrompt = () => {
     //     </motion.div>}
 
     // </AnimatePresence>
-    <div className="px-10">
+    <div className="px-10 py-20 flex justify-center">
       {display &&
         <motion.div
           layout
           className="
-        absolute 
+          relative
         rounded-[7px]
         overflow-hidden
         bg-gray-400
         bg-opacity-30
-        max-w-full
-          "
+        w-[50%]"
         >
           <ImgSkill />
           <SkillText />
+          <SkillText />
+          <SkillText />
+
         </motion.div>}
     </div>
 

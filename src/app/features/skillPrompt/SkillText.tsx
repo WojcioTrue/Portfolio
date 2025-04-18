@@ -8,7 +8,7 @@ const SkillText = () => {
     return (
         <motion.div
             id="skill-text"
-            className="pt-[180px] pb-[50px] text-white mx-6">
+            className="pb-[50px] text-white mx-6">
             <motion.p
                 initial={{
                     opacity: 0,
