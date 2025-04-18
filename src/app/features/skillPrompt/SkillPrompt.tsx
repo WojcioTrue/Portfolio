@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import ImgSkill from "./ImgSkill"
 import SkillText from "./SkillText"
 
-const SkillInfo = () => {
+const SkillPrompt = () => {
   const { promptPosition, promptDisplay } = useContext(SkillPromptContext)
 
   const [skillProperties, setSkillProperties] = useState({
@@ -142,4 +142,4 @@ const SkillInfo = () => {
   )
 }
 
-export default SkillInfo
+export default SkillPrompt

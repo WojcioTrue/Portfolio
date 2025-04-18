@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { SkillPromptContext } from './SkillPromptContextProvider'
 import { AnimatePresence, motion } from 'framer-motion'
 import SkillButton from './SkillButton'
-import SkillInfo from './SkillInfo'
+import SkillPrompt from './SkillPrompt'
 
 
 const SkillPromptWrapper = () => {
@@ -43,7 +43,7 @@ const SkillPromptWrapper = () => {
                     className={`fixed z-50 w-full h-full bg-gray-900 bg-opacity-90  overflow-x-hidden`}
                 >
                     <SkillButton />
-                    <SkillInfo/>
+                    <SkillPrompt/>
                 </motion.div>
             }
 
