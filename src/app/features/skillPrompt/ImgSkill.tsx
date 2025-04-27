@@ -1,12 +1,14 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { SkillPromptContext } from "./SkillPromptContextProvider"
 
 const ImgSkill = () => {
-    const { promptSkill, promptDisplay } = useContext(SkillPromptContext)
+    const { promptSkill, dropTargetProps } = useContext(SkillPromptContext)
     const { skill } = promptSkill
-    // const { display } = promptDisplay.display
+    const { height } = dropTargetProps.position
+    const initMiddle = (height/2) - (50/2)
+
 
     return (
         <div
@@ -14,16 +16,16 @@ const ImgSkill = () => {
 
         >
             <motion.div
-                className="bg-blue-500 absolute"
+                className="absolute"
                 initial={{
-                    top: '0%',
+                    top: initMiddle,
                     left: '50%',
                     translateX: "-50%",
                     width: 50,
                     height: 50
                 }}
                 animate={{
-                    top: '50%',
+                    top: initMiddle + 60,
                     translateY: '-50%',
                     width: 100,
                     height: 100,
