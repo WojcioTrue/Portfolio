@@ -4,7 +4,6 @@ import { IoReaderOutline } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
 import { TechStackContext } from '../../techStackContext/TechStackContext';
 import { SkillPromptContext } from '@/app/features/skillPrompt/SkillPromptContextProvider';
-import { clickPromptCoords } from '@/app/features/skillPrompt/useSkillPromptHooks';
 
 const SkillButtons = () => {
   const { isTarget } = useContext(TechStackContext)
@@ -19,8 +18,6 @@ const SkillButtons = () => {
   }
 
   const promptShow = () => {
-    const coords = clickPromptCoords('drag-target')
-    setPosition(coords)
     setDisplay(true)
   }
 

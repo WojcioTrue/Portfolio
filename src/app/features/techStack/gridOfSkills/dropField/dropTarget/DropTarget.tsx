@@ -4,7 +4,7 @@ import { TechStackContext } from "../../../techStackContext/TechStackContext"
 import DropTargetBg from "./DropTargetBg"
 import TargetDescripton from "./TargetDescripton"
 import { SkillPromptContext } from "@/app/features/skillPrompt/SkillPromptContextProvider"
-import { clickPromptCoords } from "@/app/features/skillPrompt/useSkillPromptHooks"
+
 
 const DropTarget = () => {
     const { dropTarget, isOverTarget, isTarget } = useContext(TechStackContext)
@@ -17,9 +17,9 @@ const DropTarget = () => {
     const backgroundColor = (isOver || isInside) ? 'bg-purple-50' : 'bg-white'
 
     useEffect(() => {
-        const coords = clickPromptCoords('drag-target')
+        
             if (isTarget.inTarget.id !== '') {
-                setPosition(coords)
+                // setPosition(coords)
                 setDisplay(true)
             }
     }, [isTarget.inTarget.id, setDisplay, setPosition])
