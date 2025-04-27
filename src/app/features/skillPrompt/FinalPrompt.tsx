@@ -17,10 +17,6 @@ const FinalPrompt = () => {
         }
     }, [height, width])
 
-    useEffect(() => {
-        console.log(valuesOn)
-    }, [display, valuesOn])
-
     return (
         <AnimatePresence mode="wait">
             {(display && valuesOn) &&

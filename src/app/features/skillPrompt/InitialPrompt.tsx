@@ -13,11 +13,10 @@ const InitialPrompt = () => {
     useEffect(() => {
         const updateWidth = setInterval(() => {
             const elementProps = initialPromptRef.current?.getBoundingClientRect()!
-            console.log(elementProps)
+            // console.log(elementProps)
             //guard clause after element is renered
             if (elementProps.width !== 0) {
                 clearInterval(updateWidth)
-                const height = elementProps.height
                 setPosition({
                     top: elementProps.top,
                     bottom: elementProps. bottom,
