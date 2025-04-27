@@ -10,7 +10,6 @@ const DropTarget = () => {
     const { dropTarget, isOverTarget, isTarget } = useContext(TechStackContext)
     const { promptProps, promptDisplay } = useContext(SkillPromptContext)
     const { setDisplay } = promptDisplay
-    const { setPosition } = promptProps
     const isOver = isOverTarget.overTarget.boolean
     const isInside = isTarget.inTarget.boolean
 
@@ -22,7 +21,7 @@ const DropTarget = () => {
                 // setPosition(coords)
                 setDisplay(true)
             }
-    }, [isTarget.inTarget.id, setDisplay, setPosition])
+    }, [isTarget.inTarget.id, setDisplay])
 
     return (
         <div className=' 

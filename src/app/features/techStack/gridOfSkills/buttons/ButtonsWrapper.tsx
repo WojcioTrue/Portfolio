@@ -8,7 +8,6 @@ import { SkillPromptContext } from '@/app/features/skillPrompt/SkillPromptContex
 const SkillButtons = () => {
   const { isTarget } = useContext(TechStackContext)
   const { promptProps, promptDisplay } = useContext(SkillPromptContext)
-  const { setPosition } = promptProps
   const { setDisplay } = promptDisplay
   const { setInTarget } = isTarget
   const disableButton = isTarget.inTarget.boolean
