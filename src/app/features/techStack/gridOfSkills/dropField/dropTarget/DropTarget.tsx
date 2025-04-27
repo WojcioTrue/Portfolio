@@ -8,9 +8,9 @@ import { DimensionPropsType, SkillPromptContext } from "@/app/features/skillProm
 
 const DropTarget = () => {
     const { dropTarget, isOverTarget, isTarget } = useContext(TechStackContext)
-    const { dropTargetProps, promptProps, promptDisplay } = useContext(SkillPromptContext)
+    const { dropTargetProps, promptDisplay } = useContext(SkillPromptContext)
     const { setDisplay } = promptDisplay
-    const { position, setPosition } = dropTargetProps
+    const { setPosition } = dropTargetProps
     const isOver = isOverTarget.overTarget.boolean
     const isInside = isTarget.inTarget.boolean
     const backgroundColor = (isOver || isInside) ? 'bg-purple-50' : 'bg-white'
