@@ -5,12 +5,16 @@ import SkillText from "./SkillText"
 import ImgSkill from "./ImgSkill"
 
 const FinalPrompt = () => {
-    const { promptProps, promptDisplay } = useContext(SkillPromptContext)
-
+    const { promptProps, promptDisplay, dropTargetProps } = useContext(SkillPromptContext)
     const { display } = promptDisplay
     const [valuesOn, setValuesOn] = useState(false)
-    const { left, width, height } = promptProps.position
-
+    const { left, width, height, top } = promptProps.position
+    const { 
+        height: initHeight, 
+        width: initWidth, 
+        top: initTop,
+        left: initLeft,
+    } = dropTargetProps.position
 
     useEffect(() => {
         if ((height !== undefined) && (width !== undefined)) {
@@ -22,23 +26,32 @@ const FinalPrompt = () => {
         <AnimatePresence mode="wait">
             {(display && valuesOn) &&
                 <motion.div
+                    initial={{
+                        width: initWidth,
+                        height: initHeight,
+                        top: initTop,
+                        left: initLeft,
+                        background: 'linear-gradient(45deg, rgb(191, 64, 191) 20%, rgb(127, 0, 255) 75%'
+                    }}
+                    animate={{
+                        width,
+                        height,
+                        left,
+                        top,
+                        transition: {
+                            delay: 0.3
+                        }
+                    }}
                     layout
                     className="
                         absolute 
                         rounded-[7px]
                         overflow-hidden
                             "
-                    style={{
-                        width: width,
-                        height: height,
-                        opacity: 1,
-                        left: left,
-                        }}
                 >
-            <ImgSkill />
-            <SkillText />
-            <SkillText />
-        </motion.div>}
+                    <ImgSkill />
+                    <SkillText />
+                </motion.div>}
 
         </AnimatePresence >
     )

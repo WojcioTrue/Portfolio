@@ -30,10 +30,8 @@ const InitialPrompt = () => {
         <div id="initialPrompt" ref={initialPromptRef} className="
         relative
         rounded-[7px]
-        opacity-50
+        opacity-0
         overflow-hidden
-        bg-gray-400
-        bg-opacity-30
         w-[90%] sx:w-[350px]"
         >
             <div className="relative bg-red-500 w-[100%] h-[150px]">

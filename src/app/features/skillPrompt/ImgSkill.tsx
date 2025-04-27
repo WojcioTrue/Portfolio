@@ -10,7 +10,7 @@ const ImgSkill = () => {
 
     return (
         <div
-            className="relative bg-red-500 w-[100%] h-[150px]"
+            className="relative w-[100%] h-[150px]"
 
         >
             <motion.div
