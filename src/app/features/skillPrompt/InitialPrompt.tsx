@@ -14,16 +14,11 @@ const InitialPrompt = () => {
         const updateWidth = setInterval(() => {
             const elementProps = initialPromptRef.current?.getBoundingClientRect()!
             //guard clause after element is renered
+            const { top, right, bottom, left, width, height, x, y } = elementProps
             if (elementProps.width !== 0) {
                 clearInterval(updateWidth)
-                setPosition({
-                    top: elementProps.top,
-                    bottom: elementProps. bottom,
-                    left: elementProps.left,
-                    right: elementProps.right,
-                    height: elementProps.height,
-                    width: elementProps.width,
-                })
+                
+                setPosition({ top, right, bottom, left, width, height, x, y })
             }
         }, 10)
         return () => {

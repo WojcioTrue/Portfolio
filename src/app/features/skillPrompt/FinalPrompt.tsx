@@ -9,7 +9,8 @@ const FinalPrompt = () => {
 
     const { display } = promptDisplay
     const [valuesOn, setValuesOn] = useState(false)
-    const { top, bottom, left, right, height, width } = promptProps.position
+    const { left, width, height } = promptProps.position
+
 
     useEffect(() => {
         if ((height !== undefined) && (width !== undefined)) {

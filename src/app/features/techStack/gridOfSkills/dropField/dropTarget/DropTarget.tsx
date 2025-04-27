@@ -16,10 +16,6 @@ const DropTarget = () => {
     const backgroundColor = (isOver || isInside) ? 'bg-purple-50' : 'bg-white'
 
     useEffect(() => {
-        console.log('position from DropTarget after update', position)
-    }, [position])
-
-    useEffect(() => {
         if (isTarget.inTarget.id !== '') {
             const initProps = dropTarget?.current?.getBoundingClientRect() as DimensionPropsType
             const { top, right, bottom, left, width, height, x, y } = initProps
