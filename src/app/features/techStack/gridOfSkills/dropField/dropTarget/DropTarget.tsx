@@ -3,7 +3,7 @@ import SkillButtons from "../../buttons/ButtonsWrapper"
 import { TechStackContext } from "../../../techStackContext/TechStackContext"
 import DropTargetBg from "./DropTargetBg"
 import TargetDescripton from "./TargetDescripton"
-import { SkillPromptContext } from "@/app/features/skillPrompt/SkillPromptContextProvider"
+import { DropTargetPropsType, SkillPromptContext } from "@/app/features/skillPrompt/SkillPromptContextProvider"
 
 
 const DropTarget = () => {
@@ -16,16 +16,17 @@ const DropTarget = () => {
     const backgroundColor = (isOver || isInside) ? 'bg-purple-50' : 'bg-white'
 
     useEffect(() => {
-
-    }, [dropTarget])
+        console.log('position from DropTarget after update', position)
+    }, [position])
 
     useEffect(() => {
         if (isTarget.inTarget.id !== '') {
-            const initProps = dropTarget?.current?.getBoundingClientRect()
-            console.log(initProps)
+            const initProps = dropTarget?.current?.getBoundingClientRect() as DropTargetPropsType
+            const { top, right, bottom, left, width, height, x, y } = initProps
+            setPosition({ top, right, bottom, left, width, height, x, y })
             setDisplay(true)
         }
-    }, [dropTarget, isTarget.inTarget.id, setDisplay])
+    }, [dropTarget, isTarget.inTarget.id, setDisplay, setPosition])
 
     return (
         <div className=' 
