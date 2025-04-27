@@ -8,19 +8,24 @@ import { SkillPromptContext } from "@/app/features/skillPrompt/SkillPromptContex
 
 const DropTarget = () => {
     const { dropTarget, isOverTarget, isTarget } = useContext(TechStackContext)
-    const { promptProps, promptDisplay } = useContext(SkillPromptContext)
+    const { dropTargetProps, promptProps, promptDisplay } = useContext(SkillPromptContext)
     const { setDisplay } = promptDisplay
+    const { position, setPosition } = dropTargetProps
     const isOver = isOverTarget.overTarget.boolean
     const isInside = isTarget.inTarget.boolean
-
     const backgroundColor = (isOver || isInside) ? 'bg-purple-50' : 'bg-white'
 
     useEffect(() => {
-        
-            if (isTarget.inTarget.id !== '') {
-                setDisplay(true)
-            }
-    }, [isTarget.inTarget.id, setDisplay])
+
+    }, [dropTarget])
+
+    useEffect(() => {
+        if (isTarget.inTarget.id !== '') {
+            const initProps = dropTarget?.current?.getBoundingClientRect()
+            console.log(initProps)
+            setDisplay(true)
+        }
+    }, [dropTarget, isTarget.inTarget.id, setDisplay])
 
     return (
         <div className=' 

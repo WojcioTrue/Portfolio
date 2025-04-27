@@ -2,13 +2,17 @@ import { createContext, useState } from "react"
 import { ChildrenType } from "../navbar/navBarContext/NavBarContextProvider"
 import { SetStateAction, Dispatch } from "react"
 
+
+
 export type DropTargetPropsType = {
-    top: number,
     bottom: number,
+    height: number,
     left: number,
     right: number,
-    height: number,
+    top: number,
     width: number,
+    x: number,
+    y: number,
 }
 
 export type PromptPropsType = {
@@ -46,12 +50,14 @@ export const SkillPromptContext = createContext<{
 }>({
     dropTargetProps: {
         position: {
-            top: 0,
             bottom: 0,
+            height: 0,
             left: 0,
             right: 0,
-            height: 0,
+            top: 0,
             width: 0,
+            x: 0,
+            y: 0,
         },
         setPosition: () => { },
     },
@@ -83,12 +89,14 @@ export const SkillPromptContext = createContext<{
 const SkillPromptContextProvider = ({ children }: ChildrenType) => {
     const [display, setDisplay] = useState(false)
     const [dropProps, setDropProps] = useState<DropTargetPropsType>({
-        top: 0,
         bottom: 0,
+        height: 0,
         left: 0,
         right: 0,
-        height: 0,
-        width: 0
+        top: 0,
+        width: 0,
+        x: 0,
+        y: 0,
     })
     const [position, setPosition] = useState<PromptPropsType>({
         top: 0,
