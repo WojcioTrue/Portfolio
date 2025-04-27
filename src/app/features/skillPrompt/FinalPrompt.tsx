@@ -12,7 +12,7 @@ const FinalPrompt = () => {
     const { top, bottom, left, right, height, width } = promptProps.position
 
     useEffect(() => {
-        if ((height !== 0) && (width !== 0)) {
+        if ((height !== undefined) && (width !== undefined)) {
             setValuesOn(true)
         }
     }, [height, width])
