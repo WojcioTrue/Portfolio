@@ -3,13 +3,14 @@ import SkillButton from './SkillButton'
 import { IoReaderOutline } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
 import { TechStackContext } from '../../techStackContext/TechStackContext';
-import { SkillPromptContext } from '@/app/features/skillPrompt/SkillPromptContextProvider';
+import { DimensionPropsType, SkillPromptContext } from '@/app/features/skillPrompt/SkillPromptContextProvider';
 
 const SkillButtons = () => {
-  const { isTarget } = useContext(TechStackContext)
-  const { promptProps, promptDisplay } = useContext(SkillPromptContext)
+  const { isTarget, dropTarget } = useContext(TechStackContext)
+  const { promptDisplay, dropTargetProps } = useContext(SkillPromptContext)
   const { setDisplay } = promptDisplay
   const { setInTarget } = isTarget
+  const { setPosition } = dropTargetProps
   const disableButton = isTarget.inTarget.boolean
 
   const cleanDrop = () => {
@@ -17,8 +18,13 @@ const SkillButtons = () => {
   }
 
   const promptShow = () => {
+    const initProps = dropTarget?.current?.getBoundingClientRect() as DimensionPropsType
+    const { top, right, bottom, left, width, height, x, y } = initProps
+    setPosition({ top, right, bottom, left, width, height, x, y })
     setDisplay(true)
   }
+
+
 
   return (
     <div className='w-full flex justify-end gap-3 border-opacity-30 pr-2'>
