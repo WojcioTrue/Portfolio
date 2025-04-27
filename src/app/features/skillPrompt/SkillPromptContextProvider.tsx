@@ -2,9 +2,18 @@ import { createContext, useState } from "react"
 import { ChildrenType } from "../navbar/navBarContext/NavBarContextProvider"
 import { SetStateAction, Dispatch } from "react"
 
+const defaultPosition = {
+    bottom: 0,
+    height: 0,
+    left: 0,
+    right: 0,
+    top: 0,
+    width: 0,
+    x: 0,
+    y: 0,
+}
 
-
-export type DropTargetPropsType = {
+export type DimensionPropsType = {
     bottom: number,
     height: number,
     left: number,
@@ -15,15 +24,6 @@ export type DropTargetPropsType = {
     y: number,
 }
 
-export type PromptPropsType = {
-    top: number,
-    bottom: number,
-    left: number,
-    right: number,
-    height: number,
-    width: number,
-}
-
 export type PromptSkillObj = {
     name: string,
     src: string,
@@ -32,12 +32,12 @@ export type PromptSkillObj = {
 
 export const SkillPromptContext = createContext<{
     dropTargetProps: {
-        position: DropTargetPropsType,
-        setPosition: Dispatch<SetStateAction<DropTargetPropsType>>,
+        position: DimensionPropsType,
+        setPosition: Dispatch<SetStateAction<DimensionPropsType>>,
     },
     promptProps: {
-        position: PromptPropsType,
-        setPosition: Dispatch<SetStateAction<PromptPropsType>>
+        position: DimensionPropsType,
+        setPosition: Dispatch<SetStateAction<DimensionPropsType>>
     },
     promptDisplay: {
         display: boolean,
@@ -49,27 +49,11 @@ export const SkillPromptContext = createContext<{
     }
 }>({
     dropTargetProps: {
-        position: {
-            bottom: 0,
-            height: 0,
-            left: 0,
-            right: 0,
-            top: 0,
-            width: 0,
-            x: 0,
-            y: 0,
-        },
+        position: defaultPosition,
         setPosition: () => { },
     },
     promptProps: {
-        position: {
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: 0,
-            width: 0,
-        },
+        position: defaultPosition,
         setPosition: () => { }
     },
     promptDisplay: {
@@ -88,24 +72,8 @@ export const SkillPromptContext = createContext<{
 
 const SkillPromptContextProvider = ({ children }: ChildrenType) => {
     const [display, setDisplay] = useState(false)
-    const [dropProps, setDropProps] = useState<DropTargetPropsType>({
-        bottom: 0,
-        height: 0,
-        left: 0,
-        right: 0,
-        top: 0,
-        width: 0,
-        x: 0,
-        y: 0,
-    })
-    const [position, setPosition] = useState<PromptPropsType>({
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: 0,
-        width: 0
-    })
+    const [dropProps, setDropProps] = useState<DimensionPropsType>(defaultPosition)
+    const [position, setPosition] = useState<DimensionPropsType>(defaultPosition)
     const [skill, setSkill] = useState<PromptSkillObj>({
         name: '',
         src: '',

@@ -3,7 +3,7 @@ import SkillButtons from "../../buttons/ButtonsWrapper"
 import { TechStackContext } from "../../../techStackContext/TechStackContext"
 import DropTargetBg from "./DropTargetBg"
 import TargetDescripton from "./TargetDescripton"
-import { DropTargetPropsType, SkillPromptContext } from "@/app/features/skillPrompt/SkillPromptContextProvider"
+import { DimensionPropsType, SkillPromptContext } from "@/app/features/skillPrompt/SkillPromptContextProvider"
 
 
 const DropTarget = () => {
@@ -21,7 +21,7 @@ const DropTarget = () => {
 
     useEffect(() => {
         if (isTarget.inTarget.id !== '') {
-            const initProps = dropTarget?.current?.getBoundingClientRect() as DropTargetPropsType
+            const initProps = dropTarget?.current?.getBoundingClientRect() as DimensionPropsType
             const { top, right, bottom, left, width, height, x, y } = initProps
             setPosition({ top, right, bottom, left, width, height, x, y })
             setDisplay(true)
