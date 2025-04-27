@@ -39,7 +39,11 @@ const FinalPrompt = () => {
                         left,
                         top,
                         transition: {
-                            delay: 0.3
+                            duration: 0.3,
+                            delay: 0.25,
+                            height: {
+                                delay: 0.5
+                            }
                         }
                     }}
                     layout
