@@ -18,7 +18,6 @@ const DropTarget = () => {
     useEffect(() => {
         
             if (isTarget.inTarget.id !== '') {
-                // setPosition(coords)
                 setDisplay(true)
             }
     }, [isTarget.inTarget.id, setDisplay])

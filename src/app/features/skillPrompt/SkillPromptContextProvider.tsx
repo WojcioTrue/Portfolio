@@ -2,6 +2,15 @@ import { createContext, useState } from "react"
 import { ChildrenType } from "../navbar/navBarContext/NavBarContextProvider"
 import { SetStateAction, Dispatch } from "react"
 
+export type DropTargetPropsType = {
+    top: number,
+    bottom: number,
+    left: number,
+    right: number,
+    height: number,
+    width: number,
+}
+
 export type PromptPropsType = {
     top: number,
     bottom: number,
@@ -18,6 +27,10 @@ export type PromptSkillObj = {
 }
 
 export const SkillPromptContext = createContext<{
+    dropTargetProps: {
+        position: DropTargetPropsType,
+        setPosition: Dispatch<SetStateAction<DropTargetPropsType>>,
+    },
     promptProps: {
         position: PromptPropsType,
         setPosition: Dispatch<SetStateAction<PromptPropsType>>
@@ -31,6 +44,17 @@ export const SkillPromptContext = createContext<{
         setSkill: Dispatch<SetStateAction<PromptSkillObj>>
     }
 }>({
+    dropTargetProps: {
+        position: {
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 0,
+            width: 0,
+        },
+        setPosition: () => { },
+    },
     promptProps: {
         position: {
             top: 0,
@@ -58,6 +82,14 @@ export const SkillPromptContext = createContext<{
 
 const SkillPromptContextProvider = ({ children }: ChildrenType) => {
     const [display, setDisplay] = useState(false)
+    const [dropProps, setDropProps] = useState<DropTargetPropsType>({
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 0,
+        width: 0
+    })
     const [position, setPosition] = useState<PromptPropsType>({
         top: 0,
         bottom: 0,
@@ -73,6 +105,10 @@ const SkillPromptContextProvider = ({ children }: ChildrenType) => {
     })
     return (
         <SkillPromptContext.Provider value={{
+            dropTargetProps: {
+                position: dropProps,
+                setPosition: setDropProps,
+            },
             promptProps: {
                 position,
                 setPosition,
