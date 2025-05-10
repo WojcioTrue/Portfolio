@@ -54,7 +54,12 @@ const FinalPrompt = () => {
                             "
                 >
                     <ImgSkill />
-                    <SkillText />
+                    {/* <SkillText /> */}
+                    <p>{left}</p>
+                    <p>{width}</p>
+                    <p>{height}</p>
+                    <p>{top}</p>
+
                 </motion.div>}
 
         </AnimatePresence >
