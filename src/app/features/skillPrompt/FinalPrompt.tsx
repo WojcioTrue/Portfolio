@@ -40,10 +40,10 @@ const FinalPrompt = () => {
                         left,
                         top,
                         transition: {
-                            duration: 0.3,
+                            duration: resize ? 0 : 0.3,
                             delay: resize ? 0 : 0.25,
                             height: {
-                                delay: 0.5
+                                delay: resize ? 0 : 0.5
                             }
                         }
                     }}
