@@ -7,7 +7,7 @@ const ImgSkill = () => {
     const { promptSkill, dropTargetProps } = useContext(SkillPromptContext)
     const { skill } = promptSkill
     const { height } = dropTargetProps.position
-    const initMiddle = (height/2) - (50/2)
+    const initMiddle = (height / 2) - (50 / 2)
 
 
     return (
