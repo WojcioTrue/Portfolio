@@ -63,7 +63,6 @@ const InitialPrompt = () => {
                 <p className="text-4xl">{skill.name}</p>
                 <div className="w-full bg-my-lightBackground my-3 h-[1px]"></div>
                 <p>{skill.text}</p>
-                <p>{promptProps.position.top}</p>
             </div>
         </div>
     )
