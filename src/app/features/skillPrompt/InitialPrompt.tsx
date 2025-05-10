@@ -4,9 +4,9 @@ import Image from "next/image"
 //This component will be used to get initial height and position for prompt, also use values like height and position when window will be resized. For now (18.04.2025) i can't animate height from stiff value (in pixels) to auto, so i will create this dummy component to get all values and push to final Prompt component
 
 const InitialPrompt = () => {
-    const { promptProps } = useContext(SkillPromptContext)
-    const { promptSkill } = useContext(SkillPromptContext)
+    const { promptProps, promptSkill, startResize } = useContext(SkillPromptContext)
     const { skill } = promptSkill
+    const { setResize } = startResize
     const initialPromptRef = useRef<HTMLDivElement>(null)
     const { setPosition } = promptProps
 
@@ -27,16 +27,17 @@ const InitialPrompt = () => {
     }, [setPosition])
 
     useEffect(() => {
-        const reSizeFunc = () => { 
+        const reSizeFunc = () => {
             const elementProps = initialPromptRef.current?.getBoundingClientRect()!
             const { top, right, bottom, left, width, height, x, y } = elementProps
+            setResize(true)
             setPosition({ top, right, bottom, left, width, height, x, y })
-        } 
+        }
         window.addEventListener('resize', reSizeFunc)
         return () => {
             window.removeEventListener('resize', reSizeFunc)
         }
-    }, [setPosition])
+    }, [setPosition, setResize])
 
     return (
         <div id="initialPrompt" ref={initialPromptRef} className="

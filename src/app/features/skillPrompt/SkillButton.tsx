@@ -4,7 +4,8 @@ import { SkillPromptContext } from './SkillPromptContextProvider'
 import { useContext } from 'react'
 
 const SkillButton = () => {
-    const { promptDisplay } = useContext(SkillPromptContext)
+    const { promptDisplay, startResize } = useContext(SkillPromptContext)
+    const { setResize } = startResize
     const { setDisplay } = promptDisplay
     return (
         <motion.button
@@ -31,7 +32,10 @@ const SkillButton = () => {
                 scale: 1.6,
                 opacity: 0
             }}
-            onClick={() => setDisplay(false)}
+            onClick={() => {
+                setDisplay(false)
+                setResize(false)
+            }}
             className='
                     absolute
                     flex

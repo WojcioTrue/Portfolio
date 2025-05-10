@@ -5,13 +5,14 @@ import SkillText from "./SkillText"
 import ImgSkill from "./ImgSkill"
 
 const FinalPrompt = () => {
-    const { promptProps, promptDisplay, dropTargetProps } = useContext(SkillPromptContext)
+    const { promptProps, promptDisplay, dropTargetProps, startResize } = useContext(SkillPromptContext)
     const { display } = promptDisplay
+    const { resize } = startResize
     const [valuesOn, setValuesOn] = useState(false)
     const { left, width, height, top } = promptProps.position
-    const { 
-        height: initHeight, 
-        width: initWidth, 
+    const {
+        height: initHeight,
+        width: initWidth,
         top: initTop,
         left: initLeft,
     } = dropTargetProps.position
@@ -21,6 +22,10 @@ const FinalPrompt = () => {
             setValuesOn(true)
         }
     }, [height, width])
+
+    useEffect(() => {
+        console.log(resize)
+    },[resize])
 
     return (
         <AnimatePresence mode="wait">
