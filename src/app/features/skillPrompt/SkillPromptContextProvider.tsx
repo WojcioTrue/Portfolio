@@ -39,6 +39,10 @@ export const SkillPromptContext = createContext<{
         position: DimensionPropsType,
         setPosition: Dispatch<SetStateAction<DimensionPropsType>>
     },
+    startResize: {
+        resize: boolean,
+        setResize: Dispatch<SetStateAction<boolean>>
+    },
     promptDisplay: {
         display: boolean,
         setDisplay: Dispatch<SetStateAction<boolean>>
@@ -55,6 +59,10 @@ export const SkillPromptContext = createContext<{
     promptProps: {
         position: defaultPosition,
         setPosition: () => { }
+    },
+    startResize: {
+        resize: false,
+        setResize: () => {},
     },
     promptDisplay: {
         display: false,
@@ -74,6 +82,7 @@ const SkillPromptContextProvider = ({ children }: ChildrenType) => {
     const [display, setDisplay] = useState(false)
     const [dropProps, setDropProps] = useState<DimensionPropsType>(defaultPosition)
     const [position, setPosition] = useState<DimensionPropsType>(defaultPosition)
+    const [resize, setResize] = useState<boolean>(false)
     const [skill, setSkill] = useState<PromptSkillObj>({
         name: '',
         src: '',
@@ -88,6 +97,10 @@ const SkillPromptContextProvider = ({ children }: ChildrenType) => {
             promptProps: {
                 position,
                 setPosition,
+            },
+            startResize: {
+                resize,
+                setResize,
             },
             promptDisplay: {
                 display,
