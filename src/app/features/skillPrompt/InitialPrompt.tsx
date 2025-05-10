@@ -36,7 +36,7 @@ const InitialPrompt = () => {
         return () => {
             window.removeEventListener('resize', reSizeFunc)
         }
-    }, [])
+    }, [setPosition])
 
     return (
         <div id="initialPrompt" ref={initialPromptRef} className="
