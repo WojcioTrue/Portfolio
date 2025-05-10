@@ -55,9 +55,6 @@ const FinalPrompt = () => {
                 >
                     <ImgSkill />
                     {/* <SkillText /> */}
-                    <p>{left}</p>
-                    <p>{width}</p>
-                    <p>{height}</p>
                     <p>{top}</p>
 
                 </motion.div>}
