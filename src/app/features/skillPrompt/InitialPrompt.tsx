@@ -17,7 +17,7 @@ const InitialPrompt = () => {
             const { top, right, bottom, left, width, height, x, y } = elementProps
             if (elementProps.width !== 0) {
                 clearInterval(updateWidth)
-                
+
                 setPosition({ top, right, bottom, left, width, height, x, y })
             }
         }, 10)
@@ -25,6 +25,18 @@ const InitialPrompt = () => {
             clearInterval(updateWidth)
         }
     }, [setPosition])
+
+    useEffect(() => {
+        const reSizeFunc = () => { 
+            const elementProps = initialPromptRef.current?.getBoundingClientRect()!
+            const { top, right, bottom, left, width, height, x, y } = elementProps
+            setPosition({ top, right, bottom, left, width, height, x, y })
+        } 
+        window.addEventListener('resize', reSizeFunc)
+        return () => {
+            window.removeEventListener('resize', reSizeFunc)
+        }
+    }, [])
 
     return (
         <div id="initialPrompt" ref={initialPromptRef} className="
