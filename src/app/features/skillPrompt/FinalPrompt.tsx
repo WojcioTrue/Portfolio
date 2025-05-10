@@ -47,7 +47,6 @@ const FinalPrompt = () => {
                             }
                         }
                     }}
-                    layout
                     className="
                         absolute 
                         rounded-[7px]
