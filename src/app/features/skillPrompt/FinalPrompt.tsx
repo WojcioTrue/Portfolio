@@ -9,7 +9,7 @@ const FinalPrompt = () => {
     const { display } = promptDisplay
     const { resize } = startResize
     const [valuesOn, setValuesOn] = useState(false)
-    const { left, width, height, top } = promptProps.position
+    const { left, width, height } = promptProps.position
     const {
         height: initHeight,
         width: initWidth,
@@ -38,7 +38,7 @@ const FinalPrompt = () => {
                         width,
                         height,
                         left,
-                        top,
+                        top : 80, // top is actually just padding from parent node value
                         transition: {
                             duration: resize ? 0 : 0.3,
                             delay: resize ? 0 : 0.25,
@@ -54,9 +54,7 @@ const FinalPrompt = () => {
                             "
                 >
                     <ImgSkill />
-                    {/* <SkillText /> */}
-                    <p>{top}</p>
-
+                    <SkillText />
                 </motion.div>}
 
         </AnimatePresence >
