@@ -31,7 +31,6 @@ const InitialPrompt = () => {
             
             const elementProps = initialPromptRef.current?.getBoundingClientRect()!
             const { top, right, bottom, left, width, height, x, y } = elementProps
-            console.log(top),
             setResize(true)
             setPosition({ top, right, bottom, left, width, height, x, y })
         }
