@@ -13,7 +13,7 @@ const SkillsGrid = () => {
 
 
   return (
-    <div id="drag-component" ref={constDrag} className='relative flex flex-col gap-4 items-center m-0 w-[300px] '>
+    <div id="drag-component" ref={constDrag} className='relative flex flex-col gap-4 items-center m-0 w-[300px] lg:w-[900px] lg:flex-row lg:justify-center lg:items-center'>
       <div className='
       grid 
       grid-cols-3 
@@ -25,11 +25,11 @@ const SkillsGrid = () => {
       h-[230px]
       py-2 
       mx-2
-      border-my-lightGray 
-      border-[1px]
+
+
       rounded-[7px] 
       bg-white  
-      shadow-myshadow'>
+      '>
         {array.map((x, i) =>
           <Icon
             key={i}

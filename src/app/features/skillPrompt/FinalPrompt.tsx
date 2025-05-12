@@ -38,7 +38,7 @@ const FinalPrompt = () => {
                         width,
                         height,
                         left,
-                        top : 80, // top is actually just padding from parent node value
+                        top : 80, // top is actually just padding value from parent 
                         transition: {
                             duration: resize ? 0 : 0.3,
                             delay: resize ? 0 : 0.25,
