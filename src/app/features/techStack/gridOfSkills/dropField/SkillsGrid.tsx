@@ -13,7 +13,7 @@ const SkillsGrid = () => {
 
 
   return (
-    <div id="drag-component" ref={constDrag} className='relative flex flex-col gap-4 items-center m-0 w-[300px] lg:w-[900px] lg:flex-row lg:justify-center lg:items-center'>
+    <div id="drag-component" ref={constDrag} className='relative flex flex-col gap-4 items-center m-0 w-[300px] lg:w-[900px] lg:flex-row lg:justify-center lg:items-center '>
       <div className='
       grid 
       grid-cols-3 
