@@ -55,13 +55,19 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
 
 
     useEffect(() => {
-        window.addEventListener('resize', () => {
-            animationControls.start({
-                x: 0,
-                y: 0,
-            })
-        })
-    },[animationControls])
+        const tempResize = () => {
+            if (inTarget.id !== dragElement) {
+                animationControls.start({
+                    x: 0,
+                    y: 0,
+                })
+            }
+        }
+        window.addEventListener('resize', tempResize)
+        return () => {
+            window.removeEventListener('resize', tempResize)
+        }
+    }, [animationControls, dragElement, inTarget.id])
 
     useEffect(() => {
         if (inTarget.id !== dragElement) {
