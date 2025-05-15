@@ -29,7 +29,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
     const [active, setActive] = useState<string>('')
 
     useEffect(() => {
-        const element = document.getElementById(dragElement)
+        const element = dragElementRef.current!
         const offsetLeft = element!.offsetLeft
         const offsetTop = element!.offsetTop
         setElementPos({ top: offsetTop, left: offsetLeft })
