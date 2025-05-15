@@ -28,12 +28,14 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
     const [dropValues, setDropValues] = useState({ top: 0, left: 0 })
     const [active, setActive] = useState<string>('')
 
-    useEffect(() => {
-        const element = dragElementRef.current!
-        const offsetLeft = element!.offsetLeft
-        const offsetTop = element!.offsetTop
-        setElementPos({ top: offsetTop, left: offsetLeft })
-    }, [dragElement])
+
+    // probably redundant useEffect
+    // useEffect(() => {
+    //     const element = dragElementRef.current!
+    //     const offsetLeft = element!.offsetLeft
+    //     const offsetTop = element!.offsetTop
+    //     setElementPos({ top: offsetTop, left: offsetLeft })
+    // }, [dragElement])
 
     useEffect(() => {
         const element = dragElementRef.current!
@@ -50,6 +52,16 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
         }
 
     }, [dragElement, dropTarget, elementPos])
+
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            animationControls.start({
+                x: 0,
+                y: 0,
+            })
+        })
+    },[animationControls])
 
     useEffect(() => {
         if (inTarget.id !== dragElement) {
