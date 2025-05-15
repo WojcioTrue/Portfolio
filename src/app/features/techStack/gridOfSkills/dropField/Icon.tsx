@@ -1,5 +1,5 @@
 import { motion, useAnimationControls, useDragControls } from 'framer-motion'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import { TechStackContext } from '../../techStackContext/TechStackContext'
 import useDetectEnter from '../skillsHooks.tsx/useDetectEnter'
 import useDropped from '../skillsHooks.tsx/useDropped'
@@ -23,6 +23,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
     const { setDragged } = isDragged
     const controls = useDragControls()
     const animationControls = useAnimationControls()
+    const dragElementRef = useRef<HTMLDivElement>(null)
     const [elementPos, setElementPos] = useState({ top: 0, left: 0 })
     const [dropValues, setDropValues] = useState({ top: 0, left: 0 })
     const [active, setActive] = useState<string>('')
@@ -35,7 +36,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
     }, [dragElement])
 
     useEffect(() => {
-        const element = document.getElementById(dragElement)!
+        const element = dragElementRef.current!
         if (dropTarget?.current !== undefined && dropTarget?.current !== null) {
             const dropTargetHeight = dropTarget.current.clientHeight
             const dropTargetWidth = dropTarget.current.clientWidth
@@ -99,7 +100,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
         <motion.div
             layout
             id={dragElement}
-
+            ref={dragElementRef}
             onDrag={() => {
                 detectEnter(dragElement)
                 draggedElement()
