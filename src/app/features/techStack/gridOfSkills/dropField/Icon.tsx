@@ -45,23 +45,6 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
         }
     }
 
-    const dragEvent = () => {
-        setDragged(true)
-    }
-
-    const dragEventEnd = () => {
-        setDragged(false)
-    }
-
-    const updateSkillPrompt = () => {
-        setSkill({
-            name: dragElement,
-            src: whiteImgSrc,
-            text: text
-        })
-    }
-
-
     // inital drag drop target coords for icon
     useEffect(() => {
         const element = dragElementRef.current!
@@ -134,15 +117,22 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
             layout
             id={dragElement}
             ref={dragElementRef}
+
             onDrag={() => {
                 detectEnter(dragElement)
-                dragEvent()
+                setDragged(true)
             }}
+
             onDragEnd={() => {
                 dragDrop(dragElement)
-                dragEventEnd()
-                updateSkillPrompt()
+                setDragged(false)
+                setSkill({
+                    name: dragElement,
+                    src: whiteImgSrc,
+                    text: text
+                })
             }}
+            
             className={`
                 w-[55px] 
                 h-[55px] 
