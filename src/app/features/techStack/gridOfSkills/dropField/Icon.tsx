@@ -37,6 +37,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
     //     setElementPos({ top: offsetTop, left: offsetLeft })
     // }, [dragElement])
 
+    // inital drag drop target coords for icon
     useEffect(() => {
         const element = dragElementRef.current!
         if (dropTarget?.current !== undefined && dropTarget?.current !== null) {
@@ -45,12 +46,9 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
             const elementHeight = Math.ceil(element.clientHeight / 2)
             const tempTop = dropTarget.current.offsetTop - element.offsetTop + dropTargetHeight / 2 - elementHeight
 
-
             const tempLeft = dropTarget.current.offsetLeft + dropTargetWidth / 2 - element.clientWidth / 2 - element.offsetLeft
             dropValues.current = { top: tempTop, left: tempLeft }
-
         }
-
     }, [dragElement, dropTarget, elementPos])
 
     useEffect(() => {
@@ -86,6 +84,8 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
         }
     }, [animationControls, dragElement, inTarget.id])
 
+
+    // return icon to default position after dragging
     useEffect(() => {
         if (inTarget.id !== dragElement) {
             animationControls.start({
