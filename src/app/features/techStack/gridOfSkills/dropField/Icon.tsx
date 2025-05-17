@@ -52,11 +52,10 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
             const initCenter = targetCenter(element)!
             dropValues.current = initCenter
         }
+        
         // inital position
         resizeCenter()
-
         window.addEventListener('resize', resizeCenter)
-
         return () => {
             window.removeEventListener('resize', resizeCenter)
         }
