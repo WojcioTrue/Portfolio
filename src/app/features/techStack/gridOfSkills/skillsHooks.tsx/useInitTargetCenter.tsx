@@ -1,10 +1,8 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { TechStackContext } from '../../techStackContext/TechStackContext'
-
 
 const useInitTargetCenter = () => {
     const { dropTarget } = useContext(TechStackContext)
-
 
     const targetCenter = (element: HTMLDivElement) => {
         if (dropTarget?.current !== undefined && dropTarget?.current !== null) {

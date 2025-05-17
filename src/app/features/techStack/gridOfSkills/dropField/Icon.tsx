@@ -29,29 +29,27 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
     const dragElementRef = useRef<HTMLDivElement>(null)
     const dropValues = useRef({ top: 0, left: 0 })
 
-   // inital drag drop target coords for icon
+    // inital drag drop target coords for icon
     useEffect(() => {
         const element = dragElementRef.current!
         const initCenter = targetCenter(element)!
         dropValues.current = initCenter
-    }, [dragElement, dropTarget])
+    }, [dragElement, dropTarget, targetCenter])
 
+    // drag drop target coords for icon after resize
     useEffect(() => {
-        window.addEventListener('resize', () => {
+        const resizeCenter = () => {
             const element = dragElementRef.current!
-            if (dropTarget?.current !== undefined && dropTarget?.current !== null) {
-                const dropTargetHeight = dropTarget.current.clientHeight
-                const dropTargetWidth = dropTarget.current.clientWidth
-                const elementHeight = Math.ceil(element.clientHeight / 2)
-                const tempTop = dropTarget.current.offsetTop - element.offsetTop + dropTargetHeight / 2 - elementHeight
+            const initCenter = targetCenter(element)!
+            dropValues.current = initCenter
+        }
 
-                const tempLeft = dropTarget.current.offsetLeft + dropTargetWidth / 2 - element.clientWidth / 2 - element.offsetLeft
-                dropValues.current = { top: tempTop, left: tempLeft }
-            }
-        })
-    }, [dropTarget])
-
-
+        window.addEventListener('resize', resizeCenter)
+        
+        return () => {
+            window.removeEventListener('resize', resizeCenter)
+        }
+    }, [dropTarget, targetCenter])
 
     // update icon position after resizing
     useEffect(() => {
