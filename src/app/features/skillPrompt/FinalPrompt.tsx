@@ -25,8 +25,10 @@ const FinalPrompt = () => {
 
     return (
         <AnimatePresence mode="wait">
+
             {(display && valuesOn) &&
                 <motion.div
+                    layout
                     initial={{
                         width: initWidth,
                         height: initHeight,

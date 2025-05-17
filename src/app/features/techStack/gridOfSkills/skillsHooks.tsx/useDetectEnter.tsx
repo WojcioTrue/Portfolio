@@ -12,7 +12,6 @@ const useDetectEnter = () => {
         const overflow = 10;
         const element = el.current!
         const target = targetContext?.current
-        console.log(target)
         const collisions = detectElementOverflow(element, target!);
         (!(collisions.overflowRight >= overflow) &&
             !(collisions.overflowLeft >= overflow) &&
