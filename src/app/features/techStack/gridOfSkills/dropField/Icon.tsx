@@ -29,6 +29,39 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
     const dragElementRef = useRef<HTMLDivElement>(null)
     const dropValues = useRef({ top: 0, left: 0 })
 
+    const dragDrop = (el: string) => {
+        if (overTarget.boolean) {
+            droppedInField(el)
+            animationControls.start({
+                x: dropValues.current.left,
+                y: dropValues.current.top,
+            })
+        }
+        else {
+            animationControls.start({
+                x: 0,
+                y: 0,
+            })
+        }
+    }
+
+    const dragEvent = () => {
+        setDragged(true)
+    }
+
+    const dragEventEnd = () => {
+        setDragged(false)
+    }
+
+    const updateSkillPrompt = () => {
+        setSkill({
+            name: dragElement,
+            src: whiteImgSrc,
+            text: text
+        })
+    }
+
+
     // inital drag drop target coords for icon
     useEffect(() => {
         const element = dragElementRef.current!
@@ -45,13 +78,13 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
         }
 
         window.addEventListener('resize', resizeCenter)
-        
+
         return () => {
             window.removeEventListener('resize', resizeCenter)
         }
     }, [dropTarget, targetCenter])
 
-    // update icon position after resizing
+    // update grid of icon's positions after resizing
     useEffect(() => {
         const resizeIcons = () => {
             if (inTarget.id !== dragElement) {
@@ -78,22 +111,6 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
         }
     }, [animationControls, dragElement, inTarget])
 
-    const dragDrop = (el: string) => {
-        if (overTarget.boolean) {
-            droppedInField(el)
-            animationControls.start({
-                x: dropValues.current.left,
-                y: dropValues.current.top,
-            })
-        }
-        else {
-            animationControls.start({
-                x: 0,
-                y: 0,
-            })
-        }
-    }
-
     useEffect(() => {
         const resize = () => {
             if (inTarget.id === dragElement) {
@@ -110,21 +127,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
         }
     }, [animationControls, dragElement, , inTarget.id])
 
-    const dragEvent = () => {
-        setDragged(true)
-    }
 
-    const dragEventEnd = () => {
-        setDragged(false)
-    }
-
-    const updateSkillPrompt = () => {
-        setSkill({
-            name: dragElement,
-            src: whiteImgSrc,
-            text: text
-        })
-    }
 
     return (
         <motion.div
