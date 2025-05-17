@@ -19,7 +19,6 @@ const SkillButtons = () => {
 
   const promptShow = () => {
     const initProps = dropTarget?.current?.getBoundingClientRect() as DimensionPropsType
-    console.log(initProps)
     const { top, right, bottom, left, width, height, x, y } = initProps
     setPosition({ top, right, bottom, left, width, height, x, y })
     setDisplay(true)
