@@ -1,9 +1,11 @@
 import { motion, useAnimationControls, useDragControls } from 'framer-motion'
-import React, { useContext, useEffect, useState, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { TechStackContext } from '../../techStackContext/TechStackContext'
 import useDetectEnter from '../skillsHooks.tsx/useDetectEnter'
 import useDropped from '../skillsHooks.tsx/useDropped'
 import { SkillPromptContext } from '@/app/features/skillPrompt/SkillPromptContextProvider'
+import useInitTargetCenter from '../skillsHooks.tsx/useInitTargetCenter'
+
 
 type IconType = {
     dragElement: string
@@ -15,41 +17,24 @@ type IconType = {
 const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
     const { constraintDrag, dropTarget, isTarget, isOverTarget, isDragged } = useContext(TechStackContext)
     const { promptSkill } = useContext(SkillPromptContext)
-    const { skill, setSkill } = promptSkill
+    const { setSkill } = promptSkill
     const { detectEnter } = useDetectEnter()
     const { droppedInField } = useDropped()
+    const { targetCenter } = useInitTargetCenter()
     const { inTarget } = isTarget
     const { overTarget } = isOverTarget
     const { setDragged } = isDragged
     const controls = useDragControls()
     const animationControls = useAnimationControls()
     const dragElementRef = useRef<HTMLDivElement>(null)
-    const [elementPos, setElementPos] = useState({ top: 0, left: 0 })
     const dropValues = useRef({ top: 0, left: 0 })
-    const [active, setActive] = useState<string>('')
 
-
-    // probably redundant useEffect
-    // useEffect(() => {
-    //     const element = dragElementRef.current!
-    //     const offsetLeft = element!.offsetLeft
-    //     const offsetTop = element!.offsetTop
-    //     setElementPos({ top: offsetTop, left: offsetLeft })
-    // }, [dragElement])
-
-    // inital drag drop target coords for icon
+   // inital drag drop target coords for icon
     useEffect(() => {
         const element = dragElementRef.current!
-        if (dropTarget?.current !== undefined && dropTarget?.current !== null) {
-            const dropTargetHeight = dropTarget.current.clientHeight
-            const dropTargetWidth = dropTarget.current.clientWidth
-            const elementHeight = Math.ceil(element.clientHeight / 2)
-            const tempTop = dropTarget.current.offsetTop - element.offsetTop + dropTargetHeight / 2 - elementHeight
-
-            const tempLeft = dropTarget.current.offsetLeft + dropTargetWidth / 2 - element.clientWidth / 2 - element.offsetLeft
-            dropValues.current = { top: tempTop, left: tempLeft }
-        }
-    }, [dragElement, dropTarget, elementPos])
+        const initCenter = targetCenter(element)!
+        dropValues.current = initCenter
+    }, [dragElement, dropTarget])
 
     useEffect(() => {
         window.addEventListener('resize', () => {
@@ -93,7 +78,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
                 y: 0,
             })
         }
-    }, [animationControls, dragElement, elementPos.left, elementPos.top, inTarget])
+    }, [animationControls, dragElement, inTarget])
 
     const dragDrop = (el: string) => {
         if (overTarget.boolean) {
@@ -127,10 +112,6 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
         }
     }, [animationControls, dragElement, , inTarget.id])
 
-    const draggedElement = () => {
-        setActive(dragElement)
-    }
-
     const dragEvent = () => {
         setDragged(true)
     }
@@ -154,7 +135,6 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
             ref={dragElementRef}
             onDrag={() => {
                 detectEnter(dragElement)
-                draggedElement()
                 dragEvent()
             }}
             onDragEnd={() => {
