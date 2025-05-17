@@ -1,13 +1,14 @@
 import detectElementOverflow from 'detect-element-overflow'
-import { useContext } from 'react';
+import { RefObject, useContext } from 'react';
 import { TechStackContext } from '../../techStackContext/TechStackContext';
+
 
 const useDetectEnter = () => {
     const { isOverTarget } = useContext(TechStackContext)
     const setOverTarget = isOverTarget.setOverTarget
-    const detectEnter = (el: string) => {
+    const detectEnter = (el: RefObject<HTMLDivElement>) => {
         const overflow = 10;
-        const element = document.getElementById(el)!
+        const element = el.current!
         const target = document.getElementById('drag-target')!
         const collisions = detectElementOverflow(element, target);
         (!(collisions.overflowRight >= overflow) &&
@@ -15,7 +16,7 @@ const useDetectEnter = () => {
             !(collisions.overflowTop >= overflow) &&
             !(collisions.overflowBottom >= overflow)
         ) ?
-            setOverTarget({ boolean: true, id: el }) :
+            setOverTarget({ boolean: true, id: element.id }) :
             setOverTarget({ boolean: false, id: '' })
     }
     return {detectEnter}

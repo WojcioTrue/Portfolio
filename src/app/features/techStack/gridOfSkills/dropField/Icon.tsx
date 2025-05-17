@@ -119,7 +119,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
             ref={dragElementRef}
 
             onDrag={() => {
-                detectEnter(dragElement)
+                detectEnter(dragElementRef)
                 setDragged(true)
             }}
 
@@ -132,7 +132,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
                     text: text
                 })
             }}
-            
+
             className={`
                 w-[55px] 
                 h-[55px] 
