@@ -24,6 +24,8 @@ const DropTarget = () => {
         }
     }, [dropTarget, isTarget.inTarget.id, setDisplay, setPosition])
 
+    
+
     return (
         <div className=' 
             w-[250px] 

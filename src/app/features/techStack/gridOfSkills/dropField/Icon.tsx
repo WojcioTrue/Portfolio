@@ -45,13 +45,6 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
         }
     }
 
-    // inital drag drop target coords for icon
-    useEffect(() => {
-        const element = dragElementRef.current!
-        const initCenter = targetCenter(element)!
-        dropValues.current = initCenter
-    }, [dragElement, dropTarget, targetCenter])
-
     // drag drop target coords for icon after resize
     useEffect(() => {
         const resizeCenter = () => {
@@ -59,6 +52,8 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
             const initCenter = targetCenter(element)!
             dropValues.current = initCenter
         }
+        // inital position
+        resizeCenter()
 
         window.addEventListener('resize', resizeCenter)
 
