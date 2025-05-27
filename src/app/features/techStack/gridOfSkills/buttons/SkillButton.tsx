@@ -12,16 +12,20 @@ const SkillButton = ({ onClick, disabled, icon, text }: SkillButtonType) => {
     return (
 
         <motion.button
+            layout
             transition={{
                 duration: 0.3,
                 type: "Tween"
             }}
+            animate={{
+                filter: disabled ? "grayscale(0.7)" : "grayscale(0)",
+            }}
             whileHover={{
-                scale: 1.1,
+                scale: disabled ? 1 : 1.1,
                 transition: { duration: 0.2 },
             }}
             whileTap={{
-                scale: 0.9,
+                scale: disabled ? 1 : 0.9,
                 transition: { duration: 0.2 },
             }}
             onClick={onClick} disabled={disabled} className='

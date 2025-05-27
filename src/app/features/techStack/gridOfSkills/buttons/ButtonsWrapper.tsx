@@ -42,6 +42,7 @@ const SkillButtons = () => {
       />
       <SkillButton
         onClick={() => cleanDrop()}
+        disabled={!disableButton}
         icon={
           <IoCloseOutline
             className='m-auto'
