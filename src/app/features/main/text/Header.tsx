@@ -25,6 +25,7 @@ const Header = () => {
       2xl:text-header-my-2xl 
       text-center
       tracking-header
+      z-10
       ${mabryProBold.className}`}>Wojcio_True</motion.h1>
   )
 }

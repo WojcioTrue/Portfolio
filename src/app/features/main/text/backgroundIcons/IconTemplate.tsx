@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { HoverContext } from "../MainText"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 
 type IconTemplateType = {
   name: string,
@@ -17,10 +17,12 @@ const IconTemplate = ({ name, left, top, id }: IconTemplateType) => {
   const leftValue = id === 9 ? `calc(50% - 75px)` : id === 8 ? `calc(50% + 35px)` : `calc(50% - 20px)`
   const topValue = (id === 9 || id === 8) ? `${(7 * 50) - 50}px` : `${(id * 50)}px`
 
+  console.log(delayValue)
+
   return (
     <motion.div
       layout
-      className={`absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 opacity-70 w-[30px] h-[30px] md:w-[35px] md:h-[35px] shadow-myshadow rounded-lg p-[7px] -z-10`}
+      className={`absolute bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-[30px] h-[30px] md:w-[35px] md:h-[35px] shadow-myshadow rounded-lg p-[7px] -z-10`}
       style={{
         left: hover ? leftValue : `${left}%`,
         top: hover ? topValue : `${top}%`
