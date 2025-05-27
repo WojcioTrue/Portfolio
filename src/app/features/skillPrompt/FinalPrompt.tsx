@@ -49,6 +49,10 @@ const FinalPrompt = () => {
                             }
                         }
                     }}
+                    exit={{
+                        scale: 1.15,
+                        opacity: 0
+                    }}
                     className="
                         absolute 
                         rounded-[7px]
