@@ -9,11 +9,10 @@ import { Link } from 'react-scroll';
 import useDisableScrollEv from "../navBarHooks/useDisableScrollEv"
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
-  const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
+  const { defaultRef, navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { position, setPosition } = navBarDesktopPosition
   const { setIndicatorPosition } = indicatorDesktop
   const [disable, disableAfterClick] = useDisableScrollEv()
-  const defaultRef = useRef(null)
 
   // change position of indicator when clicked
   const changeIndicatorPos = (ev: React.MouseEvent) => {
@@ -44,7 +43,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
         (event: React.MouseEvent) => {
           if (!disable) {
             listElementClick(event),
-            disableAfterClick()
+              disableAfterClick()
           }
         }
       }
