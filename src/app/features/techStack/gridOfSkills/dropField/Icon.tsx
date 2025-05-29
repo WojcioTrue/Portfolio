@@ -149,9 +149,6 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
                 scale: 1.1,
                 zIndex: "100",
             }}
-            initial={{
-                opacity: 0,
-            }}
             animate={animationControls}
             dragControls={controls}
 
