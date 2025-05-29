@@ -5,17 +5,14 @@ import { TechStackContext } from '../../techStackContext/TechStackContext'
 import DropTarget from './dropTarget/DropTarget'
 import { motion } from 'framer-motion'
 
-
 const SkillsGrid = () => {
   const { constraintDrag, skillArray } = useContext(TechStackContext)
   const constDrag = constraintDrag
   const { array } = skillArray
 
-
-
   return (
     <div id="drag-component" ref={constDrag} className='relative flex flex-col gap-4 items-center m-0 w-[300px] lg:w-[900px] lg:flex-row lg:justify-center lg:items-center '>
-      <motion.div className='
+      <motion.div layout className='
       grid 
       grid-cols-3 
       grid-rows-3 
