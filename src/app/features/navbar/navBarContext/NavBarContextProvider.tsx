@@ -1,10 +1,11 @@
 "use client"
-import { SetStateAction, Dispatch } from "react"
+import { SetStateAction, Dispatch, useRef } from "react"
 import { useState, createContext } from "react"
 import { categories } from "../navItems"
 import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTypes"
 
 const NavBarContext = createContext<{
+  defaultRef: React.RefObject<HTMLDivElement> | undefined,
   toogleMobileNav: {
     displayMenu: boolean,
     setDisplayMenu: Dispatch<SetStateAction<boolean>>
@@ -32,6 +33,7 @@ const NavBarContext = createContext<{
     setDisable: Dispatch<SetStateAction<boolean>>
   }
 }>({
+  defaultRef: undefined,
   toogleMobileNav: {
     displayMenu: false,
     setDisplayMenu: () => { }
@@ -80,6 +82,7 @@ export type ChildrenType = {
 const NavBarContextProvider = ({ children }: ChildrenType) => {
   // state for context
   const [displayMenu, setDisplayMenu] = useState<boolean>(false)
+  const defaultRef = useRef<HTMLDivElement | null>(null)
   //state for changing menu to fixed
   const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
     {
@@ -106,6 +109,7 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
   return (
     <NavBarContext.Provider value={
       {
+        defaultRef,
         toogleMobileNav: { displayMenu, setDisplayMenu },
         navBarDesktopPosition: {
           position: navBarDesktopPosition,
