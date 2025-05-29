@@ -153,16 +153,6 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
                 opacity: 0,
             }}
             animate={animationControls}
-            whileInView={{
-                opacity: 1,
-                transition: {
-                    delay: 0.2
-                }
-            }}
-            viewport={{
-                once: true,
-                margin: '0px 0px -100px 0px'
-            }}
             dragControls={controls}
 
         >
