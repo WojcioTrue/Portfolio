@@ -12,12 +12,14 @@ const NavBarIndicatorIcon = () => {
       if (active) {
         const activeLi = listElements.filter(x => x.active === true)
         const activeNode = document.getElementById(`desktop_indicator_${activeLi[0].section}`)?.getBoundingClientRect()
+        console.log(activeNode)
         setIndicatorPosition({
           horizontalMid: activeNode!.left,
           verticalMid: 25,
         })
       } else {
         const defaultNode = document.getElementById(`desktop_indicator_default`)?.getBoundingClientRect()
+        console.log(defaultNode)
         setIndicatorPosition({
           horizontalMid: defaultNode!.left,
           verticalMid: 25,
