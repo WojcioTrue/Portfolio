@@ -4,6 +4,7 @@ import { TechStackContext } from "../../../techStackContext/TechStackContext"
 import DropTargetBg from "./DropTargetBg"
 import TargetDescripton from "./TargetDescripton"
 import { DimensionPropsType, SkillPromptContext } from "@/app/features/skillPrompt/SkillPromptContextProvider"
+import { motion } from "framer-motion"
 
 
 const DropTarget = () => {
@@ -24,14 +25,28 @@ const DropTarget = () => {
         }
     }, [dropTarget, isTarget.inTarget.id, setDisplay, setPosition])
 
-    
+
 
     return (
-        <div className=' 
+        <motion.div className=' 
             w-[250px] 
             rounded-lg 
             pb-3
             z-10'
+            initial={{
+                opacity: 0,
+            }}
+            whileInView={{
+                opacity: 1,
+                transition: {
+                    duration: 1,
+                    delay: 1
+                }
+            }}
+            viewport={{
+                once: true,
+                margin: '0px 0px -100px 0px'
+            }}
         >
             <TargetDescripton />
             <div ref={dropTarget} id="drag-target"
@@ -52,7 +67,7 @@ const DropTarget = () => {
                 <DropTargetBg />
             </div>
             <SkillButtons />
-        </div>
+        </motion.div>
     )
 }
 
