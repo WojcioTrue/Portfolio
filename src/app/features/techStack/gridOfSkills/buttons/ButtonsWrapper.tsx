@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import SkillButton from './SkillButton'
 import { IoReaderOutline } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
