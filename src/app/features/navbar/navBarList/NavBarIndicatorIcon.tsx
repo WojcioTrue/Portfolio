@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { motion } from 'framer-motion'
-import { act } from 'react-dom/test-utils'
 
 const NavBarIndicatorIcon = () => {
   const { indicatorDesktop, navBarItems } = useContext(NavBarContext)
@@ -36,9 +35,18 @@ const NavBarIndicatorIcon = () => {
         left: `${indicatorPosition.horizontalMid}px`,
       }}
       layout
+      initial={{
+        opacity: 0
+      }}
+      animate={{
+        opacity: 1,
+      }}
       transition={{
         type: 'spring',
-        duration: 0.6
+        duration: 0.6,
+        opacity: {
+          delay: 0.6,
+        }
       }}
     >
       <motion.span
