@@ -24,10 +24,10 @@ const Description = () => {
           whileInView={{
             opacity: 1,
             y: '0px',
-            x: '0px'
-          }}
-          transition={{
-            delay: 1 + i/15
+            x: '0px',
+            transition: {
+              delay: 1 + i/15
+            }
           }}
           viewport={{
             once: true,

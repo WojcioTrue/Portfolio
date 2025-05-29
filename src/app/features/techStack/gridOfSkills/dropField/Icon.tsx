@@ -6,7 +6,6 @@ import useDropped from '../skillsHooks.tsx/useDropped'
 import { SkillPromptContext } from '@/app/features/skillPrompt/SkillPromptContextProvider'
 import useInitTargetCenter from '../skillsHooks.tsx/useInitTargetCenter'
 
-
 type IconType = {
     dragElement: string
     imgSrc: string
@@ -52,7 +51,7 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
             const initCenter = targetCenter(element)!
             dropValues.current = initCenter
         }
-        
+
         // inital position
         resizeCenter()
         window.addEventListener('resize', resizeCenter)
@@ -150,8 +149,22 @@ const Icon = ({ dragElement, imgSrc, whiteImgSrc, text }: IconType) => {
                 scale: 1.1,
                 zIndex: "100",
             }}
+            initial={{
+                opacity: 0,
+            }}
             animate={animationControls}
+            whileInView={{
+                opacity: 1,
+                transition: {
+                    delay: 0.2
+                }
+            }}
+            viewport={{
+                once: true,
+                margin: '0px 0px -100px 0px'
+            }}
             dragControls={controls}
+
         >
             <div className={`w-[32px] h-[32px] z-10`}
                 style={{
