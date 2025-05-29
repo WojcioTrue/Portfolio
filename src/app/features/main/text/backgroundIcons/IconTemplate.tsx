@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { HoverContext } from "../MainText"
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 
 type IconTemplateType = {
   name: string,
@@ -17,7 +17,6 @@ const IconTemplate = ({ name, left, top, id }: IconTemplateType) => {
   const leftValue = id === 9 ? `calc(50% - 75px)` : id === 8 ? `calc(50% + 35px)` : `calc(50% - 20px)`
   const topValue = (id === 9 || id === 8) ? `${(7 * 50) - 50}px` : `${(id * 50)}px`
 
-  console.log(delayValue)
 
   return (
     <motion.div
