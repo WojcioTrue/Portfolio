@@ -1,12 +1,10 @@
 import { mabryProBold } from '@/app/assets/fonts/MabryPro'
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
 
 const Header = () => {
-    const ref = useRef(null)
-
+   
     return (
-        <div ref={ref} className={`flex justify-center text-header-my-default 
+        <div className={`flex justify-center text-header-my-default 
         sm:text-header-my-sm 
         md:text-header-my-md 
         xl:text-header-my-xl 
