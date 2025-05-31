@@ -3,7 +3,7 @@ import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { motion } from 'framer-motion'
 
 const NavBarIndicatorIcon = () => {
-  const { indicatorDesktop, navBarItems } = useContext(NavBarContext)
+  const { defaultRef,indicatorDesktop, navBarItems } = useContext(NavBarContext)
   const { indicatorPosition, setIndicatorPosition } = indicatorDesktop
   const { listElements, active } = navBarItems
 
@@ -12,13 +12,12 @@ const NavBarIndicatorIcon = () => {
       if (active) {
         const activeLi = listElements.filter(x => x.active === true)
         const activeNode = document.getElementById(`desktop_indicator_${activeLi[0].section}`)?.getBoundingClientRect()
-        console.log(activeNode)
         setIndicatorPosition({
           horizontalMid: activeNode!.left,
           verticalMid: 25,
         })
       } else {
-        const defaultNode = document.getElementById(`desktop_indicator_default`)?.getBoundingClientRect()
+        const defaultNode = defaultRef?.current?.getBoundingClientRect()
         console.log(defaultNode)
         setIndicatorPosition({
           horizontalMid: defaultNode!.left,
@@ -27,7 +26,7 @@ const NavBarIndicatorIcon = () => {
       }
     }
     window.addEventListener('resize',() => indicatorResize())
-  }, [listElements, active, setIndicatorPosition])
+  }, [listElements, active, setIndicatorPosition, defaultRef])
 
   return (
     <motion.div

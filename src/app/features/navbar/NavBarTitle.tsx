@@ -13,6 +13,7 @@ const NavBarTitle = () => {
     const { listElements, setActive } = navBarItems
     const [disable, disableAfterClick] = useDisableScrollEv()
 
+
     const resetActive = () => {
         const liElements = listElements.map(x => ({ ...x, active: false }))
         navBarItems.setListElements(liElements),

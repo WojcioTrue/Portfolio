@@ -1,5 +1,5 @@
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
-import { useContext, useRef } from 'react'
+import { useContext } from 'react'
 import { categories } from '../navItems'
 import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
@@ -9,7 +9,7 @@ import { Link } from 'react-scroll';
 import useDisableScrollEv from "../navBarHooks/useDisableScrollEv"
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
-  const { defaultRef, navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
+  const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { position, setPosition } = navBarDesktopPosition
   const { setIndicatorPosition } = indicatorDesktop
   const [disable, disableAfterClick] = useDisableScrollEv()
@@ -47,7 +47,6 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
           }
         }
       }
-        ref={defaultRef}
         id={id}
         className={`desktop-nav-bar-element px-4 text-md cursor-pointer`}>
         <p className={`flex items-center w-max gap-2 transition-colors ${isActive ? "text-my-purple" : "text-my-black"}`}>

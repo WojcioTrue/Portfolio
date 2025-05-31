@@ -5,7 +5,7 @@ import { categories } from "../navItems"
 import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTypes"
 
 const NavBarContext = createContext<{
-  defaultRef: React.RefObject<HTMLLIElement> | undefined,
+  defaultRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   toogleMobileNav: {
     displayMenu: boolean,
     setDisplayMenu: Dispatch<SetStateAction<boolean>>
@@ -82,7 +82,7 @@ export type ChildrenType = {
 const NavBarContextProvider = ({ children }: ChildrenType) => {
   // state for context
   const [displayMenu, setDisplayMenu] = useState<boolean>(false)
-  const defaultRef = useRef<HTMLLIElement | null>(null)
+  const defaultRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   //state for changing menu to fixed
   const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
     {
