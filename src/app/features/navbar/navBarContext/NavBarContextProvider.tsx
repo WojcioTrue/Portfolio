@@ -6,6 +6,10 @@ import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTy
 
 const NavBarContext = createContext<{
   defaultRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  skillsRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  aboutRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  textRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  somethingRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   toogleMobileNav: {
     displayMenu: boolean,
     setDisplayMenu: Dispatch<SetStateAction<boolean>>
@@ -34,6 +38,10 @@ const NavBarContext = createContext<{
   }
 }>({
   defaultRef: undefined,
+  skillsRef: undefined,
+  aboutRef: undefined,
+  textRef: undefined,
+  somethingRef: undefined,
   toogleMobileNav: {
     displayMenu: false,
     setDisplayMenu: () => { }
@@ -83,6 +91,10 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
   // state for context
   const [displayMenu, setDisplayMenu] = useState<boolean>(false)
   const defaultRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const skillsRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const aboutRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const textRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const somethingRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   //state for changing menu to fixed
   const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
     {
@@ -110,6 +122,10 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
     <NavBarContext.Provider value={
       {
         defaultRef,
+        skillsRef,
+        aboutRef,
+        textRef,
+        somethingRef,
         toogleMobileNav: { displayMenu, setDisplayMenu },
         navBarDesktopPosition: {
           position: navBarDesktopPosition,

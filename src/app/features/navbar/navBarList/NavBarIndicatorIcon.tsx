@@ -3,30 +3,43 @@ import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { motion } from 'framer-motion'
 
 const NavBarIndicatorIcon = () => {
-  const { defaultRef,indicatorDesktop, navBarItems } = useContext(NavBarContext)
+  const { defaultRef, skillsRef, aboutRef, textRef, somethingRef, indicatorDesktop, navBarItems } = useContext(NavBarContext)
   const { indicatorPosition, setIndicatorPosition } = indicatorDesktop
-  const { listElements, active } = navBarItems
+  const { listElements } = navBarItems
 
   useEffect(() => {
+
+    const assignRef = (arg: string) => {
+      if (arg === 'Skills') {
+        return skillsRef
+      } else if (arg === 'About') {
+        return aboutRef
+      } else if (arg === 'Text') {
+        return textRef
+      } else if (arg === 'Something') {
+        return somethingRef
+      }
+    }
+
     const indicatorResize = () => {
-      if (active) {
-        const activeLi = listElements.filter(x => x.active === true)
-        const activeNode = document.getElementById(`desktop_indicator_${activeLi[0].section}`)?.getBoundingClientRect()
+      const activeLi = listElements.filter(x => x.active === true)
+      if (activeLi.length > 0) {
+        const activeRef = assignRef(activeLi[0].section)
+        const activeNode = activeRef?.current?.getBoundingClientRect()
         setIndicatorPosition({
           horizontalMid: activeNode!.left,
           verticalMid: 25,
         })
       } else {
         const defaultNode = defaultRef?.current?.getBoundingClientRect()
-        console.log(defaultNode)
         setIndicatorPosition({
           horizontalMid: defaultNode!.left,
           verticalMid: 25,
         })
       }
     }
-    window.addEventListener('resize',() => indicatorResize())
-  }, [listElements, active, setIndicatorPosition, defaultRef])
+    window.addEventListener('resize', () => indicatorResize())
+  }, [aboutRef, defaultRef, listElements, setIndicatorPosition, skillsRef, somethingRef, textRef])
 
   return (
     <motion.div
