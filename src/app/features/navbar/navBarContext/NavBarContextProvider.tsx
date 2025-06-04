@@ -6,11 +6,11 @@ import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTy
 
 const NavBarContext = createContext<{
   // refs for sections in DOM 
-  defaultSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
-  skillsSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
-  aboutSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
-  textSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
-  somethingSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  defaultSectionRef: React.RefObject<HTMLDivElement> | undefined,
+  skillsSectionRef: React.RefObject<HTMLDivElement> | undefined,
+  aboutSectionRef: React.RefObject<HTMLDivElement> | undefined,
+  textSectionRef: React.RefObject<HTMLDivElement> | undefined,
+  somethingSectionRef: React.RefObject<HTMLDivElement> | undefined,
   // indicator's points in navbar for pointer/indicator
   defaultIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   skillsIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
