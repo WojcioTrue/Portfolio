@@ -21,12 +21,26 @@ const MainLayoutWrapper = () => {
     }, [disable, setDisable])
 
     useEffect(() => {
+        // const assignRef = (arg: string) => {
+        //     if (arg = 'default') {
+        //         return defaultRef
+        //     } else if (arg === 'Skills') {
+        //         return skillsRef
+        //     } else if (arg === 'About') {
+        //         return aboutRef
+        //     } else if (arg === 'Text') {
+        //         return textRef
+        //     } else if (arg === 'Something') {
+        //         return somethingRef
+        //     }
+        // }
         const sectionsArr = ['default', 'Skills', 'About', 'Text', 'Something']
         let activeElement = 'default'
         const scrollEvent = () => {
             if (disable) return;
             for (const section of sectionsArr) {
                 const sectionById = document.getElementById(section)!
+                // console.log(sectionById)
                 const changedDistance = window.scrollY - sectionById.offsetTop
                 const triggerChange = (changedDistance <= 200) && (changedDistance >= -200)
                 if (triggerChange) {

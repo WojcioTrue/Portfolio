@@ -3,7 +3,7 @@ import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import { motion } from 'framer-motion'
 
 const NavBarIndicatorIcon = () => {
-  const { defaultRef, skillsRef, aboutRef, textRef, somethingRef, indicatorDesktop, navBarItems } = useContext(NavBarContext)
+  const { defaultIndicatorRef, skillsIndicatorRef, aboutIndicatorRef, textIndicatorRef, somethingIndicatorRef, indicatorDesktop, navBarItems } = useContext(NavBarContext)
   const { indicatorPosition, setIndicatorPosition } = indicatorDesktop
   const { listElements } = navBarItems
 
@@ -11,13 +11,13 @@ const NavBarIndicatorIcon = () => {
 
     const assignRef = (arg: string) => {
       if (arg === 'Skills') {
-        return skillsRef
+        return skillsIndicatorRef
       } else if (arg === 'About') {
-        return aboutRef
+        return aboutIndicatorRef
       } else if (arg === 'Text') {
-        return textRef
+        return textIndicatorRef
       } else if (arg === 'Something') {
-        return somethingRef
+        return somethingIndicatorRef
       }
     }
 
@@ -31,7 +31,7 @@ const NavBarIndicatorIcon = () => {
           verticalMid: 25,
         })
       } else {
-        const defaultNode = defaultRef?.current?.getBoundingClientRect()
+        const defaultNode = defaultIndicatorRef?.current?.getBoundingClientRect()
         setIndicatorPosition({
           horizontalMid: defaultNode!.left,
           verticalMid: 25,
@@ -39,7 +39,7 @@ const NavBarIndicatorIcon = () => {
       }
     }
     window.addEventListener('resize', () => indicatorResize())
-  }, [aboutRef, defaultRef, listElements, setIndicatorPosition, skillsRef, somethingRef, textRef])
+  }, [aboutIndicatorRef, defaultIndicatorRef, listElements, setIndicatorPosition, skillsIndicatorRef, somethingIndicatorRef, textIndicatorRef])
 
   return (
     <motion.div

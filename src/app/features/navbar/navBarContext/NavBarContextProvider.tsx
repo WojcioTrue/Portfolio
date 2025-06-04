@@ -5,11 +5,11 @@ import { categories } from "../navItems"
 import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTypes"
 
 const NavBarContext = createContext<{
-  defaultRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
-  skillsRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
-  aboutRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
-  textRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
-  somethingRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  defaultIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  skillsIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  aboutIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  textIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  somethingIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   toogleMobileNav: {
     displayMenu: boolean,
     setDisplayMenu: Dispatch<SetStateAction<boolean>>
@@ -37,11 +37,11 @@ const NavBarContext = createContext<{
     setDisable: Dispatch<SetStateAction<boolean>>
   }
 }>({
-  defaultRef: undefined,
-  skillsRef: undefined,
-  aboutRef: undefined,
-  textRef: undefined,
-  somethingRef: undefined,
+  defaultIndicatorRef: undefined,
+  skillsIndicatorRef: undefined,
+  aboutIndicatorRef: undefined,
+  textIndicatorRef: undefined,
+  somethingIndicatorRef: undefined,
   toogleMobileNav: {
     displayMenu: false,
     setDisplayMenu: () => { }
@@ -90,11 +90,11 @@ export type ChildrenType = {
 const NavBarContextProvider = ({ children }: ChildrenType) => {
   // state for context
   const [displayMenu, setDisplayMenu] = useState<boolean>(false)
-  const defaultRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
-  const skillsRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
-  const aboutRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
-  const textRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
-  const somethingRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const defaultIndicatorRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const skillsIndicatorRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const aboutIndicatorRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const textIndicatorRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const somethingIndicatorRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   //state for changing menu to fixed
   const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
     {
@@ -121,11 +121,11 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
   return (
     <NavBarContext.Provider value={
       {
-        defaultRef,
-        skillsRef,
-        aboutRef,
-        textRef,
-        somethingRef,
+        defaultIndicatorRef,
+        skillsIndicatorRef,
+        aboutIndicatorRef,
+        textIndicatorRef,
+        somethingIndicatorRef,
         toogleMobileNav: { displayMenu, setDisplayMenu },
         navBarDesktopPosition: {
           position: navBarDesktopPosition,

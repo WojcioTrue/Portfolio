@@ -3,19 +3,19 @@ import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 
 
 const NavBarIndicatorField = ({ text }: { text: string }) => {
-    const { defaultRef, skillsRef, aboutRef, textRef, somethingRef } = useContext(NavBarContext)
+    const { defaultIndicatorRef, skillsIndicatorRef, aboutIndicatorRef, textIndicatorRef, somethingIndicatorRef, } = useContext(NavBarContext)
 
     const assignRef = (arg : string) => {
         if(text === 'default'){
-            return defaultRef
+            return defaultIndicatorRef
         } else if (text === 'Skills'){
-            return skillsRef
+            return skillsIndicatorRef
         } else if (text === 'About'){
-            return aboutRef
+            return aboutIndicatorRef
         } else if (text === 'Text'){
-            return textRef
+            return textIndicatorRef
         } else if (text === 'Something'){
-            return somethingRef
+            return somethingIndicatorRef
         }
     }
 
