@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { SetStateAction, Dispatch } from "react"
 import { IndicatorDesktopType } from "../navBarTypes"
 import { ListElement } from "../navBarTypes"
+import useGetIndicatorPosition from "./useGetIndicatorPosition"
 
 type TypeUseDefaultIndicator = {
     active: boolean,

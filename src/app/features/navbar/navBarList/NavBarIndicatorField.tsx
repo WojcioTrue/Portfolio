@@ -6,15 +6,15 @@ const NavBarIndicatorField = ({ text }: { text: string }) => {
     const { defaultIndicatorRef, skillsIndicatorRef, aboutIndicatorRef, textIndicatorRef, somethingIndicatorRef, } = useContext(NavBarContext)
 
     const assignRef = (arg : string) => {
-        if(text === 'default'){
+        if(arg === 'default'){
             return defaultIndicatorRef
-        } else if (text === 'Skills'){
+        } else if (arg === 'Skills'){
             return skillsIndicatorRef
-        } else if (text === 'About'){
+        } else if (arg === 'About'){
             return aboutIndicatorRef
-        } else if (text === 'Text'){
+        } else if (arg === 'Text'){
             return textIndicatorRef
-        } else if (text === 'Something'){
+        } else if (arg === 'Something'){
             return somethingIndicatorRef
         }
     }
