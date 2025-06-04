@@ -10,13 +10,13 @@ const Skills = () => {
       <TechStack />
       <div
         ref={aboutSectionRef}
-        id="About" className="relative h-full bg-yellow-400">About</div>
+        className="relative h-full bg-yellow-400">About</div>
       <div
         ref={textSectionRef}
-        id="Text" className="relative h-full bg-red-600">Text</div>
+        className="relative h-full bg-red-600">Text</div>
       <div
         ref={somethingSectionRef}
-        id="Something" className="relative h-full bg-yellow-900">Something</div>
+        className="relative h-full bg-yellow-900">Something</div>
     </>
   )
 }
