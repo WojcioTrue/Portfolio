@@ -5,11 +5,20 @@ import { categories } from "../navItems"
 import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTypes"
 
 const NavBarContext = createContext<{
+  // refs for sections in DOM 
+  defaultSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  skillsSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  aboutSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  textSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  somethingSectionRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  // indicator's points in navbar for pointer/indicator
   defaultIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   skillsIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   aboutIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   textIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   somethingIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  /////////////////////////////////////////////////
+
   toogleMobileNav: {
     displayMenu: boolean,
     setDisplayMenu: Dispatch<SetStateAction<boolean>>
@@ -37,6 +46,12 @@ const NavBarContext = createContext<{
     setDisable: Dispatch<SetStateAction<boolean>>
   }
 }>({
+  defaultSectionRef: undefined,
+  skillsSectionRef: undefined,
+  aboutSectionRef: undefined,
+  textSectionRef: undefined,
+  somethingSectionRef: undefined,
+  /////////////////////////////////
   defaultIndicatorRef: undefined,
   skillsIndicatorRef: undefined,
   aboutIndicatorRef: undefined,
@@ -90,6 +105,13 @@ export type ChildrenType = {
 const NavBarContextProvider = ({ children }: ChildrenType) => {
   // state for context
   const [displayMenu, setDisplayMenu] = useState<boolean>(false)
+  //sections Ref
+  const defaultSectionRef = useRef<HTMLDivElement | null>(null)
+  const skillsSectionRef = useRef<HTMLDivElement | null>(null)
+  const aboutSectionRef = useRef<HTMLDivElement | null>(null)
+  const textSectionRef = useRef<HTMLDivElement | null>(null)
+  const somethingSectionRef = useRef<HTMLDivElement | null>(null)
+  //indicators Ref
   const defaultIndicatorRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   const skillsIndicatorRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   const aboutIndicatorRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
@@ -121,6 +143,13 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
   return (
     <NavBarContext.Provider value={
       {
+        //section ref's
+        defaultSectionRef,
+        skillsSectionRef,
+        aboutSectionRef,
+        textSectionRef,
+        somethingSectionRef,
+        //indicator's ref
         defaultIndicatorRef,
         skillsIndicatorRef,
         aboutIndicatorRef,

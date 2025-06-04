@@ -34,13 +34,13 @@ const MainLayoutWrapper = () => {
         //         return somethingRef
         //     }
         // }
-        const sectionsArr = ['default', 'Skills', 'About', 'Text', 'Something']
+        const sectionsArr = listElements.map(x => x.section)
+        sectionsArr.unshift('default')
         let activeElement = 'default'
         const scrollEvent = () => {
             if (disable) return;
             for (const section of sectionsArr) {
                 const sectionById = document.getElementById(section)!
-                // console.log(sectionById)
                 const changedDistance = window.scrollY - sectionById.offsetTop
                 const triggerChange = (changedDistance <= 200) && (changedDistance >= -200)
                 if (triggerChange) {
