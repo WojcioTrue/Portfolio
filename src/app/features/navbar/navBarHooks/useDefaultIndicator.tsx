@@ -1,8 +1,9 @@
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { SetStateAction, Dispatch } from "react"
 import { IndicatorDesktopType } from "../navBarTypes"
 import { ListElement } from "../navBarTypes"
 import useGetIndicatorPosition from "./useGetIndicatorPosition"
+import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 
 type TypeUseDefaultIndicator = {
     active: boolean,
@@ -11,8 +12,8 @@ type TypeUseDefaultIndicator = {
 }
 
 // indicator position when clicked
-export const getIndicatorPosition = (section: string) => {
-    const indicatorPosition = document.getElementById(`desktop_indicator_${section}`)!.getBoundingClientRect()
+export const getIndicatorPosition = (section: HTMLDivElement | HTMLLIElement | null | undefined) => {
+    const indicatorPosition = section!.getBoundingClientRect()
     const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
     return {
         horizontalMid: horizontalMidPosition,
@@ -22,19 +23,35 @@ export const getIndicatorPosition = (section: string) => {
 
 // indicator position when page is loaded 
 const useDefaultIndicator = ({ active, setIDesktopPosition, listElements }: TypeUseDefaultIndicator) => {
+    const { defaultIndicatorRef, skillsIndicatorRef, aboutIndicatorRef, textIndicatorRef, somethingIndicatorRef } = useContext(NavBarContext)
+
+    const assignRef = (arg: string) => {
+        if (arg === 'Skills') {
+            return skillsIndicatorRef
+        } else if (arg === 'About') {
+            return aboutIndicatorRef
+        } else if (arg === 'Text') {
+            return textIndicatorRef
+        } else if (arg === 'Something') {
+            return somethingIndicatorRef
+        }
+    }
+
 
     useEffect(() => {
         if (!active) {
-            const defaultPosition = getIndicatorPosition('default')
-            setIDesktopPosition(defaultPosition)
+            const defaultSection = useGetIndicatorPosition(defaultIndicatorRef?.current)
+            setIDesktopPosition(defaultSection)
         }
         else {
             const getActiveSection = listElements.filter(x => x.active === true)
-            const activeLi = getIndicatorPosition(`${getActiveSection[0].section}`)
+            const activeRef = assignRef(getActiveSection[0].section)
+            const activeLi = getIndicatorPosition(activeRef?.current)
             setIDesktopPosition(activeLi)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [active, setIDesktopPosition, listElements])
+
 }
 
 export default useDefaultIndicator

@@ -9,7 +9,7 @@ const NavBarIndicatorIcon = () => {
 
   useEffect(() => {
 
-    const assignRef = (arg: string) => {
+   const assignRef = (arg: string) => {
       if (arg === 'Skills') {
         return skillsIndicatorRef
       } else if (arg === 'About') {
