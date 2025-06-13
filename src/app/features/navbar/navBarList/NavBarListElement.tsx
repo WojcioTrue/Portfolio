@@ -3,7 +3,6 @@ import { useContext } from 'react'
 import { categories } from '../navItems'
 import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
-import { getIndicatorPosition } from '../navBarHooks/useDefaultIndicator'
 import { clickChangeCenter } from "../navBarHooks/useDefaultBackground"
 import { Link } from 'react-scroll';
 import useDisableScrollEv from "../navBarHooks/useDisableScrollEv"

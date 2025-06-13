@@ -11,19 +11,11 @@ type TypeUseDefaultIndicator = {
     listElements: ListElement[]
 }
 
-// indicator position when clicked
-export const getIndicatorPosition = (section: HTMLDivElement | HTMLLIElement | null | undefined) => {
-    const indicatorPosition = section!.getBoundingClientRect()
-    const horizontalMidPosition = Number((indicatorPosition.left).toFixed(0))
-    return {
-        horizontalMid: horizontalMidPosition,
-        verticalMid: 25,
-    }
-}
 
 // indicator position when page is loaded 
 const useDefaultIndicator = ({ active, setIDesktopPosition, listElements }: TypeUseDefaultIndicator) => {
     const { defaultIndicatorRef, skillsIndicatorRef, aboutIndicatorRef, textIndicatorRef, somethingIndicatorRef } = useContext(NavBarContext)
+
 
     const assignRef = (arg: string) => {
         if (arg === 'Skills') {
@@ -37,16 +29,28 @@ const useDefaultIndicator = ({ active, setIDesktopPosition, listElements }: Type
         }
     }
 
+    const horizontalMidPosition = (section: HTMLDivElement | HTMLLIElement | null | undefined) => {
+
+        const horizontalMidPosition = () => {
+            const indicatorPosition = section?.getBoundingClientRect()
+            return Number((indicatorPosition!.left).toFixed(0))
+
+        }
+        return {
+            horizontalMid: horizontalMidPosition(),
+            verticalMid: 25,
+        }
+    }
 
     useEffect(() => {
         if (!active) {
-            const defaultSection = useGetIndicatorPosition(defaultIndicatorRef?.current)
+            const defaultSection = horizontalMidPosition(defaultIndicatorRef?.current)
             setIDesktopPosition(defaultSection)
         }
         else {
             const getActiveSection = listElements.filter(x => x.active === true)
             const activeRef = assignRef(getActiveSection[0].section)
-            const activeLi = getIndicatorPosition(activeRef?.current)
+            const activeLi = horizontalMidPosition(activeRef?.current)
             setIDesktopPosition(activeLi)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
