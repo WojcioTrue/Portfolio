@@ -4,9 +4,13 @@ import { NavBarContext } from "./../../navBarContext/NavBarContextProvider"
 
 const BackDrop = () => {
   const {toogleMobileNav} = useContext(NavBarContext)
-  const {displayMenu} = toogleMobileNav
+  const {displayMenu, backdropRef} = toogleMobileNav
+
+  // to remove (probably)
   return (
-   <div id="backdrop" className={` h-screen w-screen bg-gray-200 ${displayMenu && 'backdrop-open'} fixed z-10 top-0 left-0`}></div>
+   <div ref={backdropRef} className={` h-screen w-screen bg-gray-200 ${displayMenu && 'backdrop-open'} fixed z-100 top-0 left-0 opacity-0`}>
+    
+   </div>
   )
 }
 

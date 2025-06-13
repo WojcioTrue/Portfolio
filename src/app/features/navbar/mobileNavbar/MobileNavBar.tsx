@@ -13,13 +13,13 @@ const MobileNavBar = () => {
     const { toogleMobileNav, navBarItems } = useContext(NavBarContext)
     const { blurPage } = useContext(BlurPage)
     const { setIsBlur } = blurPage
-    const { displayMenu, setDisplayMenu } = toogleMobileNav
+    const { displayMenu, backdropRef , setDisplayMenu } = toogleMobileNav
     const { listElements, setActive } = navBarItems
     const [disable, disableAfterClick] = useDisableScrollEv()
 
-
+    // fix it !
     useEffect(() => {
-        const backdropId = document.getElementById('backdrop')
+        const backdropId = backdropRef?.current
 
         const handleClickOutside = (event: MouseEvent) => {
             (backdropId && backdropId.contains(event.target as Node)) && (setDisplayMenu(false), setIsBlur(false))

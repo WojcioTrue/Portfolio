@@ -21,6 +21,7 @@ const NavBarContext = createContext<{
 
   toogleMobileNav: {
     displayMenu: boolean,
+    backdropRef: React.RefObject<HTMLDivElement> | undefined,
     setDisplayMenu: Dispatch<SetStateAction<boolean>>
   },
   navBarDesktopPosition: {
@@ -59,6 +60,7 @@ const NavBarContext = createContext<{
   somethingIndicatorRef: undefined,
   toogleMobileNav: {
     displayMenu: false,
+    backdropRef: undefined,
     setDisplayMenu: () => { }
   },
   navBarDesktopPosition: {
@@ -103,8 +105,9 @@ export type ChildrenType = {
 }
 
 const NavBarContextProvider = ({ children }: ChildrenType) => {
-  // state for context
+  // toggleMobieNav
   const [displayMenu, setDisplayMenu] = useState<boolean>(false)
+  const backdropRef = useRef<HTMLDivElement | null>(null)
   //sections Ref
   const defaultSectionRef = useRef<HTMLDivElement | null>(null)
   const skillsSectionRef = useRef<HTMLDivElement | null>(null)
@@ -155,7 +158,7 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
         aboutIndicatorRef,
         textIndicatorRef,
         somethingIndicatorRef,
-        toogleMobileNav: { displayMenu, setDisplayMenu },
+        toogleMobileNav: { displayMenu, backdropRef, setDisplayMenu },
         navBarDesktopPosition: {
           position: navBarDesktopPosition,
           setPosition: setNavBarDesktopPosition,
