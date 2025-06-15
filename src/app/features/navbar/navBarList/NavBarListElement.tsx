@@ -6,6 +6,7 @@ import { NavBarListElementType } from '../navBarTypes'
 import { clickChangeCenter } from "../navBarHooks/useDefaultBackground"
 import { Link } from 'react-scroll';
 import useDisableScrollEv from "../navBarHooks/useDisableScrollEv"
+import { horizontalMidPosition as getIndicatorPosition } from "../navBarHooks/useDefaultIndicator"
 
 const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
@@ -42,14 +43,15 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
         (event: React.MouseEvent) => {
           if (!disable) {
             listElementClick(event),
-              disableAfterClick()
+            horizontalMidPosition(text),
+            disableAfterClick()
           }
         }
       }
         id={id}
         className={`desktop-nav-bar-element px-4 text-md cursor-pointer`}>
         <p className={`flex items-center w-max gap-2 transition-colors ${isActive ? "text-my-purple" : "text-my-black"}`}>
-          <NavBarIndicatorField text={text}/>
+          <NavBarIndicatorField text={text} />
           {text}
         </p>
       </li>
