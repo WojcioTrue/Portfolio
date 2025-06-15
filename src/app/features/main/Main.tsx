@@ -7,6 +7,7 @@ const Main = () => {
   const { defaultSectionRef } = useContext(NavBarContext)
   return (
     <div
+      id="default"
       ref={defaultSectionRef}
       className="relative flex min-h-[100%] px-8 landscape:pt-[80px] landscape:pb-[50px] bg-gradient-to-br from-my-lightBackground from-20% via-my-white items-center justify-center overflow-hidden">
       <MainText />

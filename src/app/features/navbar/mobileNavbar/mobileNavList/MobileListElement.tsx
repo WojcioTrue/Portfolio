@@ -2,13 +2,13 @@ import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
 import { useContext } from 'react'
 import { categories } from '../../navItems'
 import { NavBarListElementType } from '../../navBarTypes'
-import { getIndicatorPosition } from "../../navBarHooks/useDefaultIndicator"
 import MobileIndicatorIcon from "./MobileIndicatorIcon"
 import { motion } from "framer-motion"
 import { BlurPage } from "../backdrop/BackDropContext"
 import { Link } from 'react-scroll';
 import useDisableScrollEv from "../../navBarHooks/useDisableScrollEv"
-useDisableScrollEv
+import useIndicatorRef from "../../navBarHooks/useIndicatorRef"
+import { horizontalMidPosition } from "../../navBarHooks/useDefaultIndicator"
 
 const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { blurPage } = useContext(BlurPage)
@@ -18,13 +18,15 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { setDisplayMenu } = toogleMobileNav
   const { setIsBlur } = blurPage
   const [disable, disableAfterClick] = useDisableScrollEv()
+  const refObj = useIndicatorRef()
 
+  console.log(text)
   const changeActiveLi = () => {
     setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
   }
 
-  const changeIndicator = (arg: string) => {
-    setIndicatorPosition(getIndicatorPosition(arg))
+  const changeIndicator = () => {
+    setIndicatorPosition(horizontalMidPosition(refObj?.current))
   }
 
   const closeMenu = () => {
@@ -45,7 +47,7 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
     >
       <li onClick={() => {
         changeActiveLi();
-        changeIndicator(text);
+        changeIndicator();
         closeMenu();
         disableAfterClick()
       }
