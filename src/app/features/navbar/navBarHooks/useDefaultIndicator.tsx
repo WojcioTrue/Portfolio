@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect } from "react"
 import { SetStateAction, Dispatch } from "react"
 import { IndicatorDesktopType } from "../navBarTypes"
 import { ListElement } from "../navBarTypes"
-import useGetIndicatorPosition from "./useGetIndicatorPosition"
-import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import useIndicatorRef from "./useIndicatorRef"
 
 type TypeUseDefaultIndicator = {
