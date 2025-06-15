@@ -34,7 +34,7 @@ export const clickChangeCenter = ({ event, position, setPosition }: ClickChangeT
 }
 
 export const getPosition = ({ id, desktopPosition }: GetInitialPositionType) => {
-    
+    console.log(id)
     const element = document.getElementById(id)!;
     const elementWidth = Math.round(Number(((element as HTMLLIElement).clientWidth)));
 

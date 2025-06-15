@@ -20,7 +20,6 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const [disable, disableAfterClick] = useDisableScrollEv()
   const refObj = useIndicatorRef()
 
-  console.log(text)
   const changeActiveLi = () => {
     setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
   }
