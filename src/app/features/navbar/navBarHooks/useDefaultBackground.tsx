@@ -34,17 +34,12 @@ export const clickChangeCenter = ({ event, position, setPosition }: ClickChangeT
 }
 
 export const getPosition = ({ id, desktopPosition }: GetInitialPositionType) => {
-    console.log(id)
     const element = document.getElementById(id)!;
     const elementWidth = Math.round(Number(((element as HTMLLIElement).clientWidth)));
 
     const leftValue = Number((element as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
 
     const rightValue = (document.body.clientWidth - (Number((element as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
-
-    // const topValue = Number(element.getBoundingClientRect().top.toFixed(0))
-
-    // const bottomValue = Number(element.getBoundingClientRect().bottom.toFixed(0))
 
     return { ...desktopPosition, left: leftValue, right: rightValue }
 }
