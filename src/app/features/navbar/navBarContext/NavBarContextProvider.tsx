@@ -66,6 +66,7 @@ const NavBarContext = createContext<{
   // refs for li elements
   defaultLiRef: undefined,
 
+  /////////////////////////////////////////////
   toogleMobileNav: {
     displayMenu: false,
     backdropRef: undefined,
@@ -171,6 +172,9 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
         somethingIndicatorRef,
         // menu li refs
         defaultLiRef,
+
+
+        /////////////////////////////////////////////
         toogleMobileNav: { displayMenu, backdropRef, setDisplayMenu },
         navBarDesktopPosition: {
           position: navBarDesktopPosition,

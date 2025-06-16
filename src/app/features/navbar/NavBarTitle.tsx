@@ -1,5 +1,5 @@
 import NavBarIndicatorField from "./navBarList/NavBarIndicatorField"
-import { useContext } from "react"
+import { RefObject, useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
 import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
@@ -8,10 +8,11 @@ import useDisableScrollEv from "./navBarHooks/useDisableScrollEv"
 useDisableScrollEv
 
 const NavBarTitle = () => {
-    const { navBarDesktopPosition, navBarItems } = useContext(NavBarContext)
+    const { navBarDesktopPosition, navBarItems, defaultLiRef } = useContext(NavBarContext)
     const { position, setPosition } = navBarDesktopPosition
     const { listElements, setActive } = navBarItems
     const [disable, disableAfterClick] = useDisableScrollEv()
+    const defaultLi = defaultLiRef as RefObject<HTMLDivElement>
 
 
     const resetActive = () => {
@@ -30,6 +31,7 @@ const NavBarTitle = () => {
                 })
             }}
             id="desktop_navbar_default"
+            ref={defaultLi}
             className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
 
             <Link
