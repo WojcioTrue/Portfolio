@@ -3,7 +3,7 @@ import MobileListElement from './MobileListElement'
 import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
 
 const MobileUnList = () => {
-  const { navBarItems, navRef } = useContext(NavBarContext)
+  const { navBarItems, navRef, mobileNavLabelRef } = useContext(NavBarContext)
   const { active } = navBarItems
 
   const ulClick = () => {
@@ -17,13 +17,14 @@ const MobileUnList = () => {
   return (
     <div className='w-full flex flex-col pl-3 mt-3 mb-10'>
       <hr />
-      <label 
-      id="mobile-navbar-list" 
-      htmlFor="mobile-navbar-list" 
-      className={`w-full text-left pl-2 py-2 text-xl 
+      <label
+        id="mobile-navbar-list"
+        ref={mobileNavLabelRef}
+        htmlFor="mobile-navbar-list"
+        className={`w-full text-left pl-2 py-2 text-xl 
       ${active ? 'text-my-black' : 'text-my-purple'}`}>
         Menu Items
-        </label>
+      </label>
       <ul
         ref={navRef}
         className='w-full'

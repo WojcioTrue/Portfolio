@@ -20,9 +20,10 @@ const NavBarContext = createContext<{
   // refs for li elements in menu
   defaultLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   //refs for menu
-
   // navBar UList element reference (all navbar, not compoenents inside nav :) 
   navRef: React.RefObject<HTMLUListElement> | undefined,
+  mobileNavLabelRef : React.RefObject<HTMLLabelElement> | undefined,
+  // mobile toggle ref
   toogleMobileNav: {
     displayMenu: boolean,
     backdropRef: React.RefObject<HTMLDivElement> | undefined,
@@ -70,6 +71,7 @@ const NavBarContext = createContext<{
 
   // navBar UList element reference (all navbar, not compoenents inside nav :) 
   navRef: undefined,
+  mobileNavLabelRef: undefined,
   /////////////////////////////////////////////
   toogleMobileNav: {
     displayMenu: false,
@@ -136,6 +138,7 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
   // menu li refs
   const defaultLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   const navRef = useRef<HTMLUListElement | null>(null)
+  const mobileNavLabelRef = useRef<HTMLLabelElement | null>(null)
   //state for changing menu to fixed
   const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
     {
@@ -179,6 +182,7 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
 
         // navbar ref
         navRef,
+        mobileNavLabelRef,
         /////////////////////////////////////////////
         toogleMobileNav: { displayMenu, backdropRef, setDisplayMenu },
         navBarDesktopPosition: {
