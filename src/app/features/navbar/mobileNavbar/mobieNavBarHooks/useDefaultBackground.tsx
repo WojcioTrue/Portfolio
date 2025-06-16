@@ -2,13 +2,13 @@ import { useContext, useEffect } from 'react'
 import { NavBarContext } from "./../../navBarContext/NavBarContextProvider"
 
 const useDefaultBackground = () => {
-   const { toogleMobileNav, navBarMobilePosition } = useContext(NavBarContext)
+   const { toogleMobileNav, navBarMobilePosition, mobileNavLabelRef } = useContext(NavBarContext)
     const { displayMenu } = toogleMobileNav
     const { navBarItems } = useContext(NavBarContext)
     const { position, setPosition } = navBarMobilePosition
   
     useEffect(() => {
-      const labelElement = document.getElementById('mobile-navbar-list')!
+      const labelElement = mobileNavLabelRef?.current!
       const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
       if (displayMenu) {
         if (getActiveSection.length > 0) {
