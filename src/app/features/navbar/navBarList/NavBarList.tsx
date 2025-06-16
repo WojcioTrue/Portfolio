@@ -15,8 +15,8 @@ const NavBarList = () => {
 
   useEffect(() => {
     const updateActiveLi = () => {
-      const activeElement = () => navBarItems.listElements.filter(x => x.active === true);
-      setActiveElement(activeElement())
+      const activeElement = navBarItems.listElements.filter(x => x.active === true);
+      setActiveElement(activeElement)
     }
 
     window.addEventListener('resize', updateActiveLi)
