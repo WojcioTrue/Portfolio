@@ -11,13 +11,15 @@ const NavBarContext = createContext<{
   aboutSectionRef: React.RefObject<HTMLDivElement> | undefined,
   textSectionRef: React.RefObject<HTMLDivElement> | undefined,
   somethingSectionRef: React.RefObject<HTMLDivElement> | undefined,
-  // indicator's points in navbar for pointer/indicator
+  // refs for indicator's points in navbar
   defaultIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   skillsIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   aboutIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   textIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   somethingIndicatorRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
-  /////////////////////////////////////////////////
+  // refs for li elements
+
+  //refs for menu
 
   toogleMobileNav: {
     displayMenu: boolean,
