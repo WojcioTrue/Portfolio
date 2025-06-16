@@ -36,7 +36,7 @@ const useScrollBackground = () => {
             mobileScrollDiv!.removeEventListener('scroll', scrollPosition)
         }
 
-    }, [navBarItems.listElements, displayMenu, position, setPosition])
+    }, [navBarItems.listElements, displayMenu, position, setPosition, mobileNavLabelRef])
 }
 
 export default useScrollBackground
