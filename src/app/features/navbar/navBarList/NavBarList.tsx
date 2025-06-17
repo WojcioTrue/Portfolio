@@ -7,7 +7,7 @@ import { getPosition } from "../navBarHooks/useDefaultBackground";
 
 
 const NavBarList = () => {
-  const { navBarItems, navBarDesktopPosition } = useContext(NavBarContext)
+  const { navBarItems, navBarDesktopPosition, defaultLiRef } = useContext(NavBarContext)
   const [activeElement, setActiveElement] = useState<ListElement[]>([])
   const { listElements } = navBarItems
   const { position, setPosition } = navBarDesktopPosition
@@ -30,16 +30,16 @@ const NavBarList = () => {
     function handleResize() {
       if (activeElement[0] !== undefined) {
         const activeSectionName = `desktop_navbar_li_${activeElement[0].section}`
-        const activeSectionPosition = getPosition({
-          id: activeSectionName,
-          desktopPosition: { ...position }
-        })
+        // const activeSectionPosition = getPosition({
+        //   id: activeSectionName,
+        //   desktopPosition: { ...position }
+        // })
 
-        setPosition(activeSectionPosition)
+        // setPosition(activeSectionPosition)
       }
       else {
         const defaultSectionPosition = getPosition({
-          id: 'desktop_navbar_default',
+          ref: defaultLiRef?.current!,
           desktopPosition: { ...position }
         })
         setPosition(defaultSectionPosition)

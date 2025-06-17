@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { ListElement } from "../navBarTypes";
 import { ItemPositionType } from "../navBarTypes";
 import { SetStateAction, Dispatch } from "react"
+import { NavBarContext } from "../navBarContext/NavBarContextProvider";
 
 type DefaultBackGroundType = {
     listElements: ListElement[],
@@ -16,7 +17,7 @@ type ClickChangeType = {
 }
 
 type GetInitialPositionType = {
-    id: string,
+    ref: HTMLDivElement | HTMLLIElement | undefined | null,
     desktopPosition: ItemPositionType
 }
 
@@ -33,8 +34,8 @@ export const clickChangeCenter = ({ event, position, setPosition }: ClickChangeT
     setPosition(newPosition)
 }
 // remove desktopPosition arg (????)
-export const getPosition = ({ id, desktopPosition }: GetInitialPositionType) => {
-    const element = document.getElementById(id)!;
+export const getPosition = ({ ref, desktopPosition }: GetInitialPositionType) => {
+    const element = ref;
     const elementWidth = Math.round(Number(((element as HTMLLIElement).clientWidth)));
 
     const leftValue = Number((element as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
@@ -45,25 +46,28 @@ export const getPosition = ({ id, desktopPosition }: GetInitialPositionType) => 
 }
 
 const useDefaultBackground = ({ listElements, navBarDesktopPosition, setNavBarDesktopPosition }: DefaultBackGroundType) => {
+      const {  defaultLiRef } = useContext(NavBarContext)
+
 
     useEffect(() => {
         const getActiveSection = listElements.filter(x => x.active === true)
         // check if there are active elements
         if (getActiveSection.length === 0) {
             const defaultSectionPosition = getPosition({
-                id: 'desktop_navbar_default', 
+                ref: defaultLiRef?.current, 
                 desktopPosition: navBarDesktopPosition
             })
             setNavBarDesktopPosition(defaultSectionPosition)
         }
         else {
             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
-            const activeSectionPosition = getPosition({
-                id: activeSectionName, 
-                desktopPosition: navBarDesktopPosition
-            })
+            console.log(activeSectionName)
+            // const activeSectionPosition = getPosition({
+            //     id: activeSectionName, 
+            //     desktopPosition: navBarDesktopPosition
+            // })
 
-            setNavBarDesktopPosition(activeSectionPosition)
+            // setNavBarDesktopPosition(activeSectionPosition)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [listElements])
