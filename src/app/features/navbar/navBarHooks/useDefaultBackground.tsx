@@ -61,7 +61,7 @@ const useDefaultBackground = ({ listElements, navBarDesktopPosition, setNavBarDe
         }
         else {
             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
-            console.log(activeSectionName)
+            console.log(getActiveSection[0].section)
             // const activeSectionPosition = getPosition({
             //     id: activeSectionName, 
             //     desktopPosition: navBarDesktopPosition
