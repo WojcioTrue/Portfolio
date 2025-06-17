@@ -10,7 +10,7 @@ type TypeUseDefaultIndicator = {
     listElements: ListElement[]
 }
 
-   export const horizontalMidPosition = (section: HTMLDivElement | HTMLLIElement | null | undefined) => {
+   export const horizontalMidPosition = (section: HTMLDivElement | HTMLSpanElement | null | undefined) => {
 
         const horizontalMidPosition = () => {
             const indicatorPosition = section?.getBoundingClientRect()
