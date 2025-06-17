@@ -17,12 +17,16 @@ const NavBarContext = createContext<{
   aboutIndicatorRef: React.RefObject<HTMLSpanElement | HTMLDivElement> | undefined,
   textIndicatorRef: React.RefObject<HTMLSpanElement | HTMLDivElement> | undefined,
   somethingIndicatorRef: React.RefObject<HTMLSpanElement | HTMLDivElement> | undefined,
-  // refs for li elements in menu
+  // refs for li elements in navbar
   defaultLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  skillsLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  aboutLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  textLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
+  somethingLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   //refs for menu
   // navBar UList element reference (all navbar, not compoenents inside nav :) 
   navRef: React.RefObject<HTMLUListElement> | undefined,
-  mobileNavLabelRef : React.RefObject<HTMLLabelElement> | undefined,
+  mobileNavLabelRef: React.RefObject<HTMLLabelElement> | undefined,
   // mobile toggle ref
   toogleMobileNav: {
     displayMenu: boolean,
@@ -52,7 +56,7 @@ const NavBarContext = createContext<{
     setDisable: Dispatch<SetStateAction<boolean>>
   }
 }>({
-   ////////////////////////////////////////////////
+  ////////////////////////////////////////////////
 
   // refs for sections in DOM 
   defaultSectionRef: undefined,
@@ -66,9 +70,12 @@ const NavBarContext = createContext<{
   aboutIndicatorRef: undefined,
   textIndicatorRef: undefined,
   somethingIndicatorRef: undefined,
-  // refs for li elements
+  // refs for li elements in navbar
   defaultLiRef: undefined,
-
+  skillsLiRef: undefined,
+  aboutLiRef: undefined,
+  textLiRef: undefined,
+  somethingLiRef: undefined,
   // navBar UList element reference (all navbar, not compoenents inside nav :) 
   navRef: undefined,
   mobileNavLabelRef: undefined,
@@ -137,6 +144,10 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
   const somethingIndicatorRef = useRef<HTMLSpanElement | HTMLDivElement | null>(null)
   // menu li refs
   const defaultLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const skillsLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const aboutLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const textLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
+  const somethingLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   const navRef = useRef<HTMLUListElement | null>(null)
   const mobileNavLabelRef = useRef<HTMLLabelElement | null>(null)
   //state for changing menu to fixed
@@ -177,9 +188,12 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
         aboutIndicatorRef,
         textIndicatorRef,
         somethingIndicatorRef,
-        // menu li refs
+        // navbar li refs
         defaultLiRef,
-
+        skillsLiRef,
+        aboutLiRef,
+        textLiRef,
+        somethingLiRef,
         // navbar ref
         navRef,
         mobileNavLabelRef,
