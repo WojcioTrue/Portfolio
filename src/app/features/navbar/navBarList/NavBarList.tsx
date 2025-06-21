@@ -18,7 +18,6 @@ const NavBarList = ({activeLiElement} : NavBarListType) => {
   const activeLiRef = useLiRef(activeLiElement)
 
   useEffect(() => {
-    console.log(activeLiRef)
     const updateActiveLi = () => {
       const activeElement = navBarItems.listElements.filter(x => x.active === true);
       setActiveElement(activeElement)
@@ -32,15 +31,12 @@ const NavBarList = ({activeLiElement} : NavBarListType) => {
   }, [navBarItems.listElements])
 
   useEffect(() => {
-    function handleResize() {
       if (activeElement[0] !== undefined) {
-        const activeSectionName = `desktop_navbar_li_${activeElement[0].section}`
-        // const activeSectionPosition = getPosition({
-        //   id: activeSectionName,
-        //   desktopPosition: { ...position }
-        // })
-
-        // setPosition(activeSectionPosition)
+        const activeSectionPosition = getPosition({
+          ref: activeLiRef?.current,
+          desktopPosition: { ...position }
+        })!
+        setPosition(activeSectionPosition)
       }
       else {
         const defaultSectionPosition = getPosition({
@@ -49,9 +45,7 @@ const NavBarList = ({activeLiElement} : NavBarListType) => {
         })!
         setPosition(defaultSectionPosition)
       }
-    }
-    handleResize()
-
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeElement, setPosition, listElements]);
 
