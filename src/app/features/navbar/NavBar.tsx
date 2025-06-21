@@ -15,8 +15,10 @@ const NavBar = () => {
   const { navBarItems, navBarDesktopPosition, toogleMobileNav, indicatorDesktop } = useContext(NavBarContext)
   const { blurPage } = useContext(BlurPage)
   const { isBlur } = blurPage
+  const { listElements, active, setActive } = navBarItems
   const [fixedMenu, setFixedMenu] = useState<boolean>(false)
   const { displayMenu } = toogleMobileNav
+  const [activeName, setActiveName] = useState<string>('')
 
   useEffect(() => {
     displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
@@ -37,21 +39,28 @@ const NavBar = () => {
   }, [])
 
   useEffect(() => {
-    const isActive = navBarItems.listElements.some(x => x.active === true)
-    navBarItems.setActive(isActive)
-  }, [navBarItems])
+    const isActive = listElements.some(x => x.active === true)
+    const activeSection = listElements.filter(x => x.active === true)
+    setActive(isActive)
+    if(activeSection.length > 0){
+      setActiveName(activeSection[0].section)
+    } else {
+      setActiveName('')
+    }
+    
+  }, [listElements, setActive])
 
   // indicator position
   useDefaultIndicator({
-    active: navBarItems.active,
+    active: active,
     setIDesktopPosition:
       indicatorDesktop.setIndicatorPosition,
-    listElements: navBarItems.listElements
+    listElements: listElements
   })
 
   // default value for background when page is loaded
   useDefaultBackground({
-    listElements: navBarItems.listElements,
+    activeSection: activeName,
     navBarDesktopPosition: navBarDesktopPosition.position, setNavBarDesktopPosition: navBarDesktopPosition.setPosition
   })
 

@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo } from "react"
+import { useCallback, useContext } from "react"
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 
 const useLiRef = (section: string) => {

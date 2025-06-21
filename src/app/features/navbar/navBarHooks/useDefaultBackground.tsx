@@ -1,12 +1,11 @@
 import { useContext, useEffect } from "react";
-import { ListElement } from "../navBarTypes";
 import { ItemPositionType } from "../navBarTypes";
 import { SetStateAction, Dispatch } from "react"
 import { NavBarContext } from "../navBarContext/NavBarContextProvider";
 import useLiRef from "./useLiRef";
 
 type DefaultBackGroundType = {
-    listElements: ListElement[],
+    activeSection: string,
     navBarDesktopPosition: ItemPositionType,
     setNavBarDesktopPosition: Dispatch<SetStateAction<ItemPositionType>>
 }
@@ -48,29 +47,29 @@ export const getPosition = ({ ref: element, desktopPosition }: GetInitialPositio
 
 }
 
-const useDefaultBackground = ({ listElements, navBarDesktopPosition, setNavBarDesktopPosition }: DefaultBackGroundType) => {
-      const {  defaultLiRef } = useContext(NavBarContext)
-
+const useDefaultBackground = ({ activeSection, navBarDesktopPosition, setNavBarDesktopPosition }: DefaultBackGroundType) => {
+    const { defaultLiRef } = useContext(NavBarContext)
+    const activeLiRef = useLiRef(activeSection)
 
     useEffect(() => {
-        //     const defaultSectionPosition = getPosition({
-        //         ref: defaultLiRef?.current, 
-        //         desktopPosition: navBarDesktopPosition
-        //     })
-        //     setNavBarDesktopPosition(defaultSectionPosition)
-        // }
-//         else {
-//             const activeSectionName = `desktop_navbar_li_${getActiveSection[0].section}`
-//             console.log(getActiveSection[0].section)
-//             // const activeSectionPosition = getPosition({
-//             //     id: activeSectionName, 
-//             //     desktopPosition: navBarDesktopPosition
-//             // })
+        console.log(activeSection)
+        if (activeSection.length > 0) {
+            const activeSectionPosition = getPosition({
+                ref: activeLiRef?.current,
+                desktopPosition: navBarDesktopPosition
+            })!
 
-//             // setNavBarDesktopPosition(activeSectionPosition)
-//         }
+            setNavBarDesktopPosition(activeSectionPosition)
+        } else {
+            const defaultSectionPosition = getPosition({
+                ref: defaultLiRef?.current,
+                desktopPosition: navBarDesktopPosition
+            })!
+            setNavBarDesktopPosition(defaultSectionPosition)
+        }
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [listElements])
- }
+    }, [activeSection])
+}
 
 export default useDefaultBackground
