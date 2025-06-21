@@ -51,6 +51,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
         }
       }
         id={id}
+        // to fix
         ref={liElementRef as RefObject<HTMLLIElement>}
         className={`desktop-nav-bar-element px-4 text-md cursor-pointer`}>
         <p className={`flex items-center w-max gap-2 transition-colors ${isActive ? "text-my-purple" : "text-my-black"}`}>
