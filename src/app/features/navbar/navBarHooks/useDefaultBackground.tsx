@@ -52,7 +52,6 @@ const useDefaultBackground = ({ activeSection, navBarDesktopPosition, setNavBarD
     const activeLiRef = useLiRef(activeSection)
 
     useEffect(() => {
-        console.log(activeSection)
         if (activeSection.length > 0) {
             const activeSectionPosition = getPosition({
                 ref: activeLiRef?.current,

@@ -4,6 +4,7 @@ import NavBarListElement from "./NavBarListElement";
 import { v4 as uuidv4 } from 'uuid';
 import { ListElement } from '../navBarTypes';
 import { getPosition } from "../navBarHooks/useDefaultBackground";
+import useLiRef from "../navBarHooks/useLiRef";
 
 type NavBarListType = {
   activeLiElement : string
@@ -14,9 +15,10 @@ const NavBarList = ({activeLiElement} : NavBarListType) => {
   const [activeElement, setActiveElement] = useState<ListElement[]>([])
   const { listElements } = navBarItems
   const { position, setPosition } = navBarDesktopPosition
-
+  const activeLiRef = useLiRef(activeLiElement)
 
   useEffect(() => {
+    console.log(activeLiRef)
     const updateActiveLi = () => {
       const activeElement = navBarItems.listElements.filter(x => x.active === true);
       setActiveElement(activeElement)
