@@ -1,11 +1,9 @@
 import NavBarIndicatorField from "./navBarList/NavBarIndicatorField"
 import { RefObject, useContext } from "react"
 import { NavBarContext } from "./navBarContext/NavBarContextProvider"
-import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
 import { Link } from 'react-scroll';
 import useDisableScrollEv from "./navBarHooks/useDisableScrollEv"
-import useLiRef from "./navBarHooks/useLiRef"
 useDisableScrollEv
 
 const NavBarTitle = () => {
@@ -25,11 +23,11 @@ const NavBarTitle = () => {
     return (
         <div
             onClick={(event: React.MouseEvent) => {
-                clickChangeCenter({
-                    event,
-                    position,
-                    setPosition
-                })
+                // clickChangeCenter({
+                //     event,
+                //     position,
+                //     setPosition
+                // })
             }}
             id="desktop_navbar_default"
             ref={defaultLi}

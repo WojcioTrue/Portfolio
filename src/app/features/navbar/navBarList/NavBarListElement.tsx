@@ -3,7 +3,7 @@ import { RefObject, useContext } from 'react'
 import { categories } from '../navItems'
 import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
-import { clickChangeCenter } from "../navBarHooks/useDefaultBackground"
+import { newClickCenter } from "../navBarHooks/useDefaultBackground"
 import { Link } from 'react-scroll';
 import useDisableScrollEv from "../navBarHooks/useDisableScrollEv"
 import { horizontalMidPosition } from "../navBarHooks/useDefaultIndicator"
@@ -27,11 +27,16 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
 
   const listElementClick = (event: React.MouseEvent) => {
     event.preventDefault()
-    clickChangeCenter({
-      event,
-      position,
-      setPosition
-    });
+    // clickChangeCenter({
+    //   event,
+    //   position,
+    //   setPosition
+    // });
+    newClickCenter({
+      activeLiRef: liElementRef?.current,
+      navBarDesktopPosition: position,
+      setNavBarDesktopPosition: setPosition
+    })
     changeIndicatorPos(event);
     setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
   }
