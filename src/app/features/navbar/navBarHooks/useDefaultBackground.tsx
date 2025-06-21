@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { RefObject, useContext, useEffect } from "react";
 import { ItemPositionType } from "../navBarTypes";
 import { SetStateAction, Dispatch } from "react"
 import { NavBarContext } from "../navBarContext/NavBarContextProvider";
@@ -21,6 +21,18 @@ type GetInitialPositionType = {
     desktopPosition: ItemPositionType
 }
 
+export const getPosition = ({ ref: element, desktopPosition }: GetInitialPositionType) => {
+    if (element !== undefined) {
+        const elementWidth = Math.round(Number(((element as HTMLLIElement).clientWidth)));
+
+        const leftValue = Number((element as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
+
+        const rightValue = (document.body.clientWidth - (Number((element as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
+
+        return { ...desktopPosition, left: leftValue, right: rightValue }
+    }
+}
+
 export const clickChangeCenter = ({ event, position, setPosition }: ClickChangeType) => {
     event.preventDefault();
     // center of current target element
@@ -33,24 +45,10 @@ export const clickChangeCenter = ({ event, position, setPosition }: ClickChangeT
     const newPosition = { ...position, left: leftValue, right: rightValue }
     setPosition(newPosition)
 }
-// remove desktopPosition arg (to fix)
-export const getPosition = ({ ref: element, desktopPosition }: GetInitialPositionType) => {
-    if (element !== null) {
-        const elementWidth = Math.round(Number(((element as HTMLLIElement).clientWidth)));
-
-        const leftValue = Number((element as HTMLLIElement).getBoundingClientRect().left.toFixed(0)) + elementWidth;
-
-        const rightValue = (document.body.clientWidth - (Number((element as HTMLLIElement).getBoundingClientRect().right.toFixed(0)) - elementWidth))
-
-        return { ...desktopPosition, left: leftValue, right: rightValue }
-    }
-
-}
 
 const useDefaultBackground = ({ activeSection, navBarDesktopPosition, setNavBarDesktopPosition }: DefaultBackGroundType) => {
     const { defaultLiRef } = useContext(NavBarContext)
     const activeLiRef = useLiRef(activeSection)
-
     useEffect(() => {
         if (activeSection.length > 0) {
             const activeSectionPosition = getPosition({

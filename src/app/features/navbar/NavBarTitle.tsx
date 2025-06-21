@@ -5,6 +5,7 @@ import { clickChangeCenter } from "./navBarHooks/useDefaultBackground"
 import ToggleMenuButton from "@/app/features/navbar/ToggleMenuButton"
 import { Link } from 'react-scroll';
 import useDisableScrollEv from "./navBarHooks/useDisableScrollEv"
+import useLiRef from "./navBarHooks/useLiRef"
 useDisableScrollEv
 
 const NavBarTitle = () => {

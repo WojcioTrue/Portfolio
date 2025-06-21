@@ -14,6 +14,7 @@ import { BlurPage } from "./mobileNavbar/backdrop/BackDropContext"
 const NavBar = () => {
   const { navBarItems, navBarDesktopPosition, toogleMobileNav, indicatorDesktop } = useContext(NavBarContext)
   const { blurPage } = useContext(BlurPage)
+  const { position, setPosition } = navBarDesktopPosition
   const { isBlur } = blurPage
   const { listElements, active, setActive } = navBarItems
   const [fixedMenu, setFixedMenu] = useState<boolean>(false)
@@ -42,12 +43,12 @@ const NavBar = () => {
     const isActive = listElements.some(x => x.active === true)
     const activeSection = listElements.filter(x => x.active === true)
     setActive(isActive)
-    if(activeSection.length > 0){
+    if (activeSection.length > 0) {
       setActiveLiElement(activeSection[0].section)
     } else {
       setActiveLiElement('')
     }
-    
+
   }, [listElements, setActive])
 
   // indicator position
@@ -61,7 +62,8 @@ const NavBar = () => {
   // default value for background when page is loaded
   useDefaultBackground({
     activeSection: activeLiElement,
-    navBarDesktopPosition: navBarDesktopPosition.position, setNavBarDesktopPosition: navBarDesktopPosition.setPosition
+    navBarDesktopPosition: position,
+    setNavBarDesktopPosition: setPosition
   })
 
   return (
@@ -70,7 +72,7 @@ const NavBar = () => {
       `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange} `} ${`${isBlur ? "blur-sm" : ""} transition-all `} navbar w-full py-3 px-0 md:px-6 overflow-hidden z-50 bg-my-navbarBackground shadow-myshadow backdrop-blur-sm`}>
       <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
         <NavBarTitle />
-        <NavBarList activeLiElement={activeLiElement}/>
+        <NavBarList activeLiElement={activeLiElement} />
       </span>
       <BackDrop />
       <AnimatedBackground />

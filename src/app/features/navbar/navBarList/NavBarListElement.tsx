@@ -1,5 +1,5 @@
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
-import { RefObject, useContext, useEffect } from 'react'
+import { RefObject, useContext } from 'react'
 import { categories } from '../navItems'
 import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
@@ -14,6 +14,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { navBarDesktopPosition, navBarItems, indicatorDesktop } = useContext(NavBarContext)
   const { position, setPosition } = navBarDesktopPosition
   const { setIndicatorPosition } = indicatorDesktop
+  const { setListElements } = navBarItems
   const [disable, disableAfterClick] = useDisableScrollEv()
   const liIndicatorRef = useIndicatorRef()
   const liElementRef = useLiRef(text)
@@ -25,13 +26,14 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   }
 
   const listElementClick = (event: React.MouseEvent) => {
+    event.preventDefault()
     clickChangeCenter({
       event,
       position,
       setPosition
     });
     changeIndicatorPos(event);
-    navBarItems.setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
+    setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
   }
 
   return (
