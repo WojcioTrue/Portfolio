@@ -5,8 +5,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { ListElement } from '../navBarTypes';
 import { getPosition } from "../navBarHooks/useDefaultBackground";
 
+type NavBarListType = {
+  activeLiElement : string
+}
 
-const NavBarList = () => {
+const NavBarList = ({activeLiElement} : NavBarListType) => {
   const { navBarItems, navBarDesktopPosition, defaultLiRef } = useContext(NavBarContext)
   const [activeElement, setActiveElement] = useState<ListElement[]>([])
   const { listElements } = navBarItems

@@ -18,7 +18,7 @@ const NavBar = () => {
   const { listElements, active, setActive } = navBarItems
   const [fixedMenu, setFixedMenu] = useState<boolean>(false)
   const { displayMenu } = toogleMobileNav
-  const [activeName, setActiveName] = useState<string>('')
+  const [activeLiElement, setActiveLiElement] = useState<string>('')
 
   useEffect(() => {
     displayMenu ? document.body.classList.add('overflow-y-hidden') : document.body.classList.remove('overflow-y-hidden')
@@ -43,9 +43,9 @@ const NavBar = () => {
     const activeSection = listElements.filter(x => x.active === true)
     setActive(isActive)
     if(activeSection.length > 0){
-      setActiveName(activeSection[0].section)
+      setActiveLiElement(activeSection[0].section)
     } else {
-      setActiveName('')
+      setActiveLiElement('')
     }
     
   }, [listElements, setActive])
@@ -60,7 +60,7 @@ const NavBar = () => {
 
   // default value for background when page is loaded
   useDefaultBackground({
-    activeSection: activeName,
+    activeSection: activeLiElement,
     navBarDesktopPosition: navBarDesktopPosition.position, setNavBarDesktopPosition: navBarDesktopPosition.setPosition
   })
 
@@ -70,7 +70,7 @@ const NavBar = () => {
       `${!fixedMenu ? 'absolute' : `!fixed ${navBarStyles.navchange} `} ${`${isBlur ? "blur-sm" : ""} transition-all `} navbar w-full py-3 px-0 md:px-6 overflow-hidden z-50 bg-my-navbarBackground shadow-myshadow backdrop-blur-sm`}>
       <span className="flex justify-between items-stretch flex-col md:flex-row max-w-7xl m-auto h-auto z-10 relative">
         <NavBarTitle />
-        <NavBarList />
+        <NavBarList activeLiElement={activeLiElement}/>
       </span>
       <BackDrop />
       <AnimatedBackground />
