@@ -41,7 +41,7 @@ const NavBarList = () => {
         const defaultSectionPosition = getPosition({
           ref: defaultLiRef?.current!,
           desktopPosition: { ...position }
-        })
+        })!
         setPosition(defaultSectionPosition)
       }
     }
