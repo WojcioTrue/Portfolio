@@ -1,11 +1,11 @@
-import { useCallback, useContext } from "react"
+import { useContext, useMemo } from "react"
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 
 const useIndicatorRef = () => {
     const { defaultIndicatorRef, skillsIndicatorRef, aboutIndicatorRef, textIndicatorRef, somethingIndicatorRef, navBarItems } = useContext(NavBarContext)
     const { listElements } = navBarItems
 
-    const getReference = useCallback(() => {
+    const getReference = useMemo(() => {
         const getRef = (arg: string) => {
             if (arg === 'Skills') {
                 return skillsIndicatorRef
@@ -26,7 +26,7 @@ const useIndicatorRef = () => {
     }, [aboutIndicatorRef, defaultIndicatorRef, listElements, skillsIndicatorRef, somethingIndicatorRef, textIndicatorRef])
 
 
-    return getReference()
+    return getReference
 }
 
 
