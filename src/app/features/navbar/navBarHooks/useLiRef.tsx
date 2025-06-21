@@ -14,8 +14,7 @@ const useLiRef = (section: string) => {
             } else if (arg === 'Something') {
                 return somethingLiRef
             }
-        
-    }, [])
+    }, [aboutLiRef, skillsLiRef, somethingLiRef, textLiRef])
     return getReference(section)
 }
 
