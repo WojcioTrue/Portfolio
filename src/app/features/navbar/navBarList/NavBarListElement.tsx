@@ -27,11 +27,6 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
 
   const listElementClick = (event: React.MouseEvent) => {
     event.preventDefault()
-    // clickChangeCenter({
-    //   event,
-    //   position,
-    //   setPosition
-    // });
     newClickCenter({
       activeLiRef: liElementRef?.current,
       navBarDesktopPosition: position,

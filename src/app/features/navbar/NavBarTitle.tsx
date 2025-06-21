@@ -22,13 +22,9 @@ const NavBarTitle = () => {
 
     return (
         <div
-            onClick={(event: React.MouseEvent) => {
-                // clickChangeCenter({
-                //     event,
-                //     position,
-                //     setPosition
-                // })
-            }}
+            // onClick={(event: React.MouseEvent) => {
+
+            // }}
             id="desktop_navbar_default"
             ref={defaultLi}
             className="navbar__brand flex justify-between items-center w-auto pr-3 pl-5">
