@@ -1,12 +1,11 @@
 import { useContext, useMemo } from "react"
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 
-
 const useLiRef = () => {
     const { defaultLiRef, skillsLiRef, aboutLiRef, textLiRef, somethingLiRef, navBarItems } = useContext(NavBarContext)
     const { listElements } = navBarItems
 
-    const getLiRef = useMemo(() => {
+    const getReference = useMemo(() => {
         const getRef = (arg: string) => {
             if (arg === 'Skills') {
                 return skillsLiRef
@@ -27,8 +26,7 @@ const useLiRef = () => {
     }, [aboutLiRef, defaultLiRef, listElements, skillsLiRef, somethingLiRef, textLiRef])
 
 
-
-    return getLiRef
+    return getReference
 }
 
 export default useLiRef
