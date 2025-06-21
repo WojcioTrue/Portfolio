@@ -1,16 +1,15 @@
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import NavBarListElement from "./NavBarListElement";
 import { v4 as uuidv4 } from 'uuid';
-import { ListElement } from '../navBarTypes';
-import { getPosition, newClickCenter } from "../navBarHooks/useDefaultBackground";
+import { newClickCenter } from "../navBarHooks/useDefaultBackground";
 import useLiRef from "../navBarHooks/useLiRef";
 
 type NavBarListType = {
-  activeLiElement : string
+  activeLiElement: string
 }
 
-const NavBarList = ({activeLiElement} : NavBarListType) => {
+const NavBarList = ({ activeLiElement }: NavBarListType) => {
   const { navBarItems, navBarDesktopPosition } = useContext(NavBarContext)
   const { listElements } = navBarItems
   const { position, setPosition } = navBarDesktopPosition
@@ -19,12 +18,12 @@ const NavBarList = ({activeLiElement} : NavBarListType) => {
   useEffect(() => {
     const updateActiveLi = () => {
       newClickCenter({
-          activeLiRef: activeLiRef?.current,
-          navBarDesktopPosition: position,
-          setNavBarDesktopPosition: setPosition
-        })
+        activeLiRef: activeLiRef?.current,
+        navBarDesktopPosition: position,
+        setNavBarDesktopPosition: setPosition
+      })
     }
-        
+
     window.addEventListener('resize', updateActiveLi)
 
     return () => {
