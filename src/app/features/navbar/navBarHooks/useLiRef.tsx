@@ -1,12 +1,10 @@
-import { useContext, useMemo } from "react"
+import { useCallback, useContext, useMemo } from "react"
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 
-const useLiRef = () => {
-    const { defaultLiRef, skillsLiRef, aboutLiRef, textLiRef, somethingLiRef, navBarItems } = useContext(NavBarContext)
-    const { listElements } = navBarItems
+const useLiRef = (section: string) => {
+    const { skillsLiRef, aboutLiRef, textLiRef, somethingLiRef } = useContext(NavBarContext)
 
-    const getReference = useMemo(() => {
-        const getRef = (arg: string) => {
+    const getReference = useCallback((arg : string) => {
             if (arg === 'Skills') {
                 return skillsLiRef
             } else if (arg === 'About') {
@@ -16,17 +14,9 @@ const useLiRef = () => {
             } else if (arg === 'Something') {
                 return somethingLiRef
             }
-        }
-        const getActiveSection = listElements.filter(x => x.active === true)
-        if (getActiveSection.length > 0) {
-            return getRef(getActiveSection[0].section)
-        } else {
-            return defaultLiRef
-        }
-    }, [aboutLiRef, defaultLiRef, listElements, skillsLiRef, somethingLiRef, textLiRef])
-
-
-    return getReference
+        
+    }, [])
+    return getReference(section)
 }
 
 export default useLiRef

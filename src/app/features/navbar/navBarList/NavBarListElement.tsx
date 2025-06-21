@@ -1,5 +1,5 @@
 import { NavBarContext } from "../navBarContext/NavBarContextProvider"
-import { RefObject, useContext } from 'react'
+import { RefObject, useContext, useEffect } from 'react'
 import { categories } from '../navItems'
 import NavBarIndicatorField from './NavBarIndicatorField'
 import { NavBarListElementType } from '../navBarTypes'
@@ -16,7 +16,7 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
   const { setIndicatorPosition } = indicatorDesktop
   const [disable, disableAfterClick] = useDisableScrollEv()
   const liIndicatorRef = useIndicatorRef()
-  const liElementRef = useLiRef()
+  const liElementRef = useLiRef(text)
 
   const changeIndicatorPos = (ev: React.MouseEvent) => {
     ev.preventDefault()
@@ -51,7 +51,6 @@ const NavBarListElement = ({ id, text, isActive }: NavBarListElementType) => {
         }
       }
         id={id}
-        // to fix
         ref={liElementRef as RefObject<HTMLLIElement>}
         className={`desktop-nav-bar-element px-4 text-md cursor-pointer`}>
         <p className={`flex items-center w-max gap-2 transition-colors ${isActive ? "text-my-purple" : "text-my-black"}`}>
