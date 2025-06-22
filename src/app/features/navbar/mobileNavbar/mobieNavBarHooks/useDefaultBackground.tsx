@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useMemo } from 'react'
 import { NavBarContext } from "./../../navBarContext/NavBarContextProvider"
 import useMobileLiRef from './useMobileLiRef'
 
@@ -6,7 +6,9 @@ const useDefaultBackground = () => {
   const { toogleMobileNav, navBarItems, navBarMobilePosition, mobileNavLabelRef } = useContext(NavBarContext)
   const { displayMenu } = toogleMobileNav
   const { position, setPosition } = navBarMobilePosition
-  const activeLi = navBarItems.listElements.filter(x => x.active === true)
+  const activeLi = useMemo(() =>
+    navBarItems.listElements.filter(x => x.active === true)
+    ,[navBarItems.listElements])
   const getRef = () => activeLi.length > 0 ? activeLi[0].section : ''
   const liRef = useMobileLiRef(getRef())!
 
@@ -27,7 +29,7 @@ const useDefaultBackground = () => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [displayMenu, navBarItems.listElements, setPosition])
+  }, [displayMenu, activeLi, setPosition])
 }
 
 export default useDefaultBackground
