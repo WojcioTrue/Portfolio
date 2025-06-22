@@ -1,25 +1,23 @@
 import { useContext, useEffect } from 'react'
 import { NavBarContext } from "./../../navBarContext/NavBarContextProvider"
-import { ListElement } from '../../navBarTypes'
+import useMobileLiRef from './useMobileLiRef'
 
-type DefaultBackgroundType = ListElement[] | []
-
-const useDefaultBackground = (activeLi: DefaultBackgroundType) => {
-  const { toogleMobileNav, navBarMobilePosition, mobileNavLabelRef } = useContext(NavBarContext)
+const useDefaultBackground = () => {
+  const { toogleMobileNav, navBarItems, navBarMobilePosition, mobileNavLabelRef } = useContext(NavBarContext)
   const { displayMenu } = toogleMobileNav
-  const { navBarItems } = useContext(NavBarContext)
   const { position, setPosition } = navBarMobilePosition
+  const activeLi = navBarItems.listElements.filter(x => x.active === true)
+  const getRef = () => activeLi.length > 0 ? activeLi[0].section : ''
+  const liRef = useMobileLiRef(getRef())!
+
 
   useEffect(() => {
     const labelElement = mobileNavLabelRef?.current!
-    const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
     if (displayMenu) {
-      if (getActiveSection.length > 0) {
-        const activeSectionName = `mobile_navbar_li_${getActiveSection[0].section}`
-        const firstLiElement = document.getElementById(activeSectionName)!;
-
-        const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
-        const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
+      if (activeLi.length > 0) {
+        console.log(liRef)
+        const topValue = Number(liRef.current!.getBoundingClientRect().top.toFixed(0))
+        const bottomValue = Number(liRef.current!.getBoundingClientRect().bottom.toFixed(0))
         const newPosition = { ...position, top: topValue, bottom: bottomValue }
         setPosition(newPosition)
       } else {
