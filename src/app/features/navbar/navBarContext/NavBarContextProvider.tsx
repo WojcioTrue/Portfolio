@@ -26,7 +26,14 @@ const NavBarContext = createContext<{
   //refs for menu
   // navBar UList element reference (all navbar, not compoenents inside nav :) 
   navRef: React.RefObject<HTMLUListElement> | undefined,
+  /// mobile navbar label
   mobileNavLabelRef: React.RefObject<HTMLLabelElement> | undefined,
+  /// mobile navbar list element
+  mobileSkillsLi : React.RefObject<HTMLLIElement> | undefined,
+  mobileAboutLi : React.RefObject<HTMLLIElement> | undefined,
+  mobileTextLi : React.RefObject<HTMLLIElement> | undefined,
+  mobileSomethingLi : React.RefObject<HTMLLIElement> | undefined,
+  /////////////////////////////////////////////
   // mobile toggle ref
   toogleMobileNav: {
     displayMenu: boolean,
@@ -78,7 +85,13 @@ const NavBarContext = createContext<{
   somethingLiRef: undefined,
   // navBar UList element reference (all navbar, not compoenents inside nav :) 
   navRef: undefined,
+  /// mobile navbar label
   mobileNavLabelRef: undefined,
+  /// mobile navbar list element
+  mobileSkillsLi : undefined,
+  mobileAboutLi : undefined,
+  mobileTextLi : undefined,
+  mobileSomethingLi : undefined,
   /////////////////////////////////////////////
   toogleMobileNav: {
     displayMenu: false,
@@ -149,7 +162,13 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
   const textLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   const somethingLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   const navRef = useRef<HTMLUListElement | null>(null)
+  /// mobile navbar label Ref
   const mobileNavLabelRef = useRef<HTMLLabelElement | null>(null)
+  // mobile navbar Li //////////////////////
+  const mobileSkillsLi = useRef<HTMLLIElement | null>(null)
+  const mobileAboutLi = useRef<HTMLLIElement | null>(null)
+  const mobileTextLi = useRef<HTMLLIElement | null>(null)
+  const mobileSomethingLi = useRef<HTMLLIElement | null>(null)
   //state for changing menu to fixed
   const [navBarDesktopPosition, setNavBarDesktopPosition] = useState<ItemPositionType>(
     {
@@ -196,7 +215,12 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
         somethingLiRef,
         // navbar ref
         navRef,
+        //// mobile references
         mobileNavLabelRef,
+        mobileSkillsLi,
+        mobileAboutLi,
+        mobileTextLi,
+        mobileSomethingLi,
         /////////////////////////////////////////////
         toogleMobileNav: { displayMenu, backdropRef, setDisplayMenu },
         navBarDesktopPosition: {
