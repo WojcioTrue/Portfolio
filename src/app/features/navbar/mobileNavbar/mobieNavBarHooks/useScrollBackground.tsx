@@ -10,7 +10,6 @@ const useScrollBackground = () => {
     const getRef = () => activeLi.length > 0 ? activeLi[0].section : ''
     const liRef = useMobileLiRef(getRef())!
 
-
     useEffect(() => {
         const scrollPosition = () => {
             const labelElement = mobileNavLabelRef?.current!
