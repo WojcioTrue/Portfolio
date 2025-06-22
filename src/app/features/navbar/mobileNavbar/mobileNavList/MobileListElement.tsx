@@ -1,5 +1,5 @@
 import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { categories } from '../../navItems'
 import { NavBarListElementType } from '../../navBarTypes'
 import MobileIndicatorIcon from "./MobileIndicatorIcon"
