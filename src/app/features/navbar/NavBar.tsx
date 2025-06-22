@@ -10,6 +10,7 @@ import useDefaultBackground from "./navBarHooks/useDefaultBackground"
 import AnimatedBackground from "./animatedBackground/AnimatedBackground"
 import useDefaultIndicator from "./navBarHooks/useDefaultIndicator"
 import { BlurPage } from "./mobileNavbar/backdrop/BackDropContext"
+import useScrollBackground from "./mobileNavbar/mobieNavBarHooks/useScrollBackground"
 
 const NavBar = () => {
   const { navBarItems, navBarDesktopPosition, toogleMobileNav, indicatorDesktop } = useContext(NavBarContext)
@@ -65,6 +66,8 @@ const NavBar = () => {
     navBarDesktopPosition: position,
     setNavBarDesktopPosition: setPosition
   })
+
+  useScrollBackground()
 
   return (
 
