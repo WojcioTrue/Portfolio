@@ -28,11 +28,11 @@ const useScrollBackground = () => {
                 }
             }
         }
-        const mobileScrollDiv = document.getElementById('mobile-menu-scroll');
-        mobileScrollDiv!.addEventListener('scroll', scrollPosition)
+        const mobileScrollDiv = document.getElementById('mobile-menu-scroll')!;
+        mobileScrollDiv.addEventListener('scroll', scrollPosition)
 
         return () => {
-            mobileScrollDiv!.removeEventListener('scroll', scrollPosition)
+            mobileScrollDiv.removeEventListener('scroll', scrollPosition)
         }
 
     }, [navBarItems.listElements, displayMenu, position, setPosition, mobileNavLabelRef])
