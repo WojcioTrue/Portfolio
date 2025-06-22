@@ -15,7 +15,6 @@ const useDefaultBackground = () => {
     const labelElement = mobileNavLabelRef?.current!
     if (displayMenu) {
       if (activeLi.length > 0) {
-        console.log(liRef)
         const topValue = Number(liRef.current!.getBoundingClientRect().top.toFixed(0))
         const bottomValue = Number(liRef.current!.getBoundingClientRect().bottom.toFixed(0))
         const newPosition = { ...position, top: topValue, bottom: bottomValue }

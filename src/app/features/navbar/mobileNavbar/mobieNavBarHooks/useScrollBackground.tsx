@@ -1,25 +1,27 @@
 import { useEffect, useContext } from 'react'
 import { NavBarContext } from '../../navBarContext/NavBarContextProvider'
+import useMobileLiRef from './useMobileLiRef'
 
 const useScrollBackground = () => {
     const { toogleMobileNav, navBarItems, navBarMobilePosition, mobileNavLabelRef } = useContext(NavBarContext)
     const { displayMenu } = toogleMobileNav
     const { position, setPosition } = navBarMobilePosition
+    const activeLi = navBarItems.listElements.filter(x => x.active === true)
+    const getRef = () => activeLi.length > 0 ? activeLi[0].section : ''
+    const liRef = useMobileLiRef(getRef())!
+
 
     useEffect(() => {
         const scrollPosition = () => {
             const labelElement = mobileNavLabelRef?.current!
-            const getActiveSection = navBarItems.listElements.filter(x => x.active === true)
-            if (displayMenu) {
-                if (getActiveSection.length > 0) {
-                    const activeSectionName = `mobile_navbar_li_${getActiveSection[0].section}`
-                    const firstLiElement = document.getElementById(activeSectionName)!;
-
-                    const topValue = Number(firstLiElement.getBoundingClientRect().top.toFixed(0))
-                    const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
+            if (!displayMenu) {
+                if (activeLi.length > 0) {
+                    console.log('triggered')
+                    const activeSection = liRef.current!
+                    const topValue = Number(activeSection.getBoundingClientRect().top.toFixed(0))
+                    const bottomValue = Number(activeSection.getBoundingClientRect().bottom.toFixed(0))
                     const newPosition = { ...position, top: topValue, bottom: bottomValue }
                     setPosition(newPosition)
-
                 } else {
                     const topValue = Number(labelElement.getBoundingClientRect().top.toFixed(0))
                     const bottomValue = Number(labelElement.getBoundingClientRect().bottom.toFixed(0))
@@ -35,7 +37,7 @@ const useScrollBackground = () => {
             mobileScrollDiv.removeEventListener('scroll', scrollPosition)
         }
 
-    }, [navBarItems.listElements, displayMenu, position, setPosition, mobileNavLabelRef])
+    }, [navBarItems.listElements, displayMenu, position, setPosition, mobileNavLabelRef, liRef, activeLi.length])
 }
 
 export default useScrollBackground
