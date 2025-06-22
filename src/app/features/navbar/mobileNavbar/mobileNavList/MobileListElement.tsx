@@ -9,6 +9,7 @@ import { Link } from 'react-scroll';
 import useDisableScrollEv from "../../navBarHooks/useDisableScrollEv"
 import useIndicatorRef from "../../navBarHooks/useIndicatorRef"
 import { horizontalMidPosition } from "../../navBarHooks/useDefaultIndicator"
+import useMobileLiRef from "../mobieNavBarHooks/useMobileLiRef"
 
 const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { blurPage } = useContext(BlurPage)
@@ -19,6 +20,7 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
   const { setIsBlur } = blurPage
   const [disable, disableAfterClick] = useDisableScrollEv()
   const refObj = useIndicatorRef()
+  const liRef = useMobileLiRef(text)
 
   const changeActiveLi = () => {
     setListElements(categories.map(x => x.section === text ? { ...x, active: true } : { ...x, active: false }))
@@ -34,10 +36,6 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
       setIsBlur(false)
     }, 300)
   }
-
-  useEffect(() => {
-    console.log(text)
-  },[])
 
   return (
     <Link
@@ -55,9 +53,9 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
         disableAfterClick()
       }
       }
+        ref={liRef}
         id={id}
         className={`mobile-nav-bar-element py-2 pl-1 flex`}>
-
         <MobileIndicatorIcon active={isActive} />
         <motion.p
           layout

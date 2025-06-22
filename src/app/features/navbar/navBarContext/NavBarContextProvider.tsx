@@ -1,5 +1,5 @@
 "use client"
-import { SetStateAction, Dispatch, useRef } from "react"
+import { SetStateAction, Dispatch, useRef, ReactNode } from "react"
 import { useState, createContext } from "react"
 import { categories } from "../navItems"
 import { ItemPositionType, IndicatorDesktopType, ListElement } from "../navBarTypes"
