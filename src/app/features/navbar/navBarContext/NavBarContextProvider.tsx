@@ -24,7 +24,7 @@ const NavBarContext = createContext<{
   textLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   somethingLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   //refs for menu
-  // navBar UList element reference (all navbar, not compoenents inside nav :) 
+  // navBar UList element reference (navbar, not compoenents inside nav :) 
   navRef: React.RefObject<HTMLUListElement> | undefined,
   /// mobile navbar label
   mobileNavLabelRef: React.RefObject<HTMLLabelElement> | undefined,
