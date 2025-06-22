@@ -1,5 +1,5 @@
 import { NavBarContext } from "../../navBarContext/NavBarContextProvider"
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { categories } from '../../navItems'
 import { NavBarListElementType } from '../../navBarTypes'
 import MobileIndicatorIcon from "./MobileIndicatorIcon"
@@ -34,6 +34,10 @@ const MobileListElement = ({ text, id, isActive }: NavBarListElementType) => {
       setIsBlur(false)
     }, 300)
   }
+
+  useEffect(() => {
+    console.log(text)
+  },[])
 
   return (
     <Link
