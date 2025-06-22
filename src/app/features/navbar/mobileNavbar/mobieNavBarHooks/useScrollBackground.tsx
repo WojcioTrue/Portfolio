@@ -19,7 +19,6 @@ const useScrollBackground = () => {
                     const bottomValue = Number(firstLiElement.getBoundingClientRect().bottom.toFixed(0))
                     const newPosition = { ...position, top: topValue, bottom: bottomValue }
                     setPosition(newPosition)
-                    console.log('changed')
 
                 } else {
                     const topValue = Number(labelElement.getBoundingClientRect().top.toFixed(0))

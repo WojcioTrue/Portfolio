@@ -38,7 +38,6 @@ export const newClickCenter = ({ activeLiRef, navBarDesktopPosition, setNavBarDe
         ref: activeLiRef,
         desktopPosition: navBarDesktopPosition
     })!
-    console.log(activeSectionPosition)
     setNavBarDesktopPosition(activeSectionPosition)
 }
 
