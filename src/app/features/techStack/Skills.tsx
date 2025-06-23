@@ -4,14 +4,10 @@ import { useContext } from 'react'
 import { NavBarContext } from '../navbar/navBarContext/NavBarContextProvider'
 
 const Skills = () => {
-  const { aboutSectionRef, textSectionRef, somethingSectionRef } = useContext(NavBarContext)
+  const {textSectionRef, somethingSectionRef } = useContext(NavBarContext)
   return (
     <>
       <TechStack />
-      <div
-        id="About"
-        ref={aboutSectionRef}
-        className="relative h-full bg-yellow-400">About</div>
       <div
         id="Text"
         ref={textSectionRef}
