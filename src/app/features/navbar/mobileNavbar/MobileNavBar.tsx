@@ -49,8 +49,9 @@ const MobileNavBar = () => {
         <div
             className={`fixed z-50 pl-2 overflow-hidden right-0 top-0 w-full h-full max-w-sm  ${displayMenu ? "display-on" : "display-off"}`}>
             <div ref={mobileNavBarRef} className='overflow-y-auto h-full'>
-                <span className='absolute top-0 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-full h-[5px]'></span>
+
                 <div className="relative flex items-center px-3 pt-[21px]">
+                    <span className='absolute top-0 bg-gradient-to-tr from-my-gradient1 to-my-gradient2 w-[calc(100%+21px)] h-[5px] ml-[-21px]'></span>
                     <span onClick={
                         () => {
                             setDisplayMenu(false)
