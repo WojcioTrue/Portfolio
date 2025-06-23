@@ -1,13 +1,17 @@
 import React, { useContext } from 'react'
 import { NavBarContext } from '../navbar/navBarContext/NavBarContextProvider'
+import Header from './Header'
+
 
 const About = () => {
-    const {aboutSectionRef} = useContext(NavBarContext)
+  const { aboutSectionRef } = useContext(NavBarContext)
   return (
     <div
-        id="About"
-        ref={aboutSectionRef}
-        className="relative h-full border-t-[1px] border-my-lightGray bg-gradient-to-br from-my-white from-20% via-my-lightBackground">About</div>
+      id="About"
+      ref={aboutSectionRef}
+      className="relative min-h-[calc(100%_-_77px)] border-t-[1px] border-my-lightGray bg-gradient-to-tl from-my-lightBackground from-[20%] via-my-white pt-10 pb-16">
+      <Header />
+    </div>
   )
 }
 
