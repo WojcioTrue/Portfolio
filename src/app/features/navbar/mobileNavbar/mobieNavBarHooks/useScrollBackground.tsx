@@ -3,19 +3,22 @@ import { NavBarContext } from '../../navBarContext/NavBarContextProvider'
 import useMobileLiRef from './useMobileLiRef'
 
 const useScrollBackground = () => {
-    const { toogleMobileNav, navBarItems, navBarMobilePosition, mobileNavLabelRef } = useContext(NavBarContext)
+    const { toogleMobileNav, navBarItems, navBarMobilePosition, mobileNavLabelRef, mobileNavBarRef } = useContext(NavBarContext)
     const { displayMenu } = toogleMobileNav
     const { position, setPosition } = navBarMobilePosition
-    const activeLi = useMemo(() => 
+    const activeLi = useMemo(() =>
         navBarItems.listElements.filter(x => x.active === true)
-    ,[navBarItems.listElements])
+        , [navBarItems.listElements])
     const getRef = () => activeLi.length > 0 ? activeLi[0].section : ''
     const liRef = useMobileLiRef(getRef())!
 
     useEffect(() => {
-        const scrollPosition = () => {
+        const mobileNavBar = mobileNavBarRef?.current
+        console.log(mobileNavBar)
+        const scrollPosition = (display: boolean) => {
+            console.log('scrolled')
             const labelElement = mobileNavLabelRef?.current!
-            if (!displayMenu) {
+            if (display) {
                 if (activeLi.length > 0) {
                     const activeSection = liRef.current!
                     const topValue = Number(activeSection.getBoundingClientRect().top.toFixed(0))
@@ -30,10 +33,15 @@ const useScrollBackground = () => {
                 }
             }
         }
+        scrollPosition(!displayMenu)
 
-        scrollPosition()
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        mobileNavBar?.addEventListener('scroll', () => scrollPosition(displayMenu))
+
+        return () => {
+            mobileNavBar?.removeEventListener('scroll', () => scrollPosition(displayMenu))
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeLi])
 }
 

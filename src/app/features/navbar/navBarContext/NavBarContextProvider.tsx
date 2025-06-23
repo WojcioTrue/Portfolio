@@ -27,7 +27,7 @@ const NavBarContext = createContext<{
   // navBar UList reference
   navRef: React.RefObject<HTMLUListElement> | undefined,
   /// mobile navBar reference
-  mobileNavBar: React.RefObject<HTMLDivElement> | undefined,
+  mobileNavBarRef: React.RefObject<HTMLDivElement> | undefined,
   /// mobile navbar label
   mobileNavLabelRef: React.RefObject<HTMLLabelElement> | undefined,
   /// mobile navbar list element
@@ -88,7 +88,7 @@ const NavBarContext = createContext<{
   // navBar UList  reference
   navRef: undefined,
   /// mobile navBar reference
-  mobileNavBar: undefined,
+  mobileNavBarRef: undefined,
   /// mobile navbar label
   mobileNavLabelRef: undefined,
   /// mobile navbar list element
@@ -167,7 +167,7 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
   const somethingLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   const navRef = useRef<HTMLUListElement | null>(null)
   /// mobile navBar reference
-  const mobileNavBar = useRef<HTMLDivElement | null>(null)
+  const mobileNavBarRef = useRef<HTMLDivElement | null>(null)
   /// mobile navbar label Ref
   const mobileNavLabelRef = useRef<HTMLLabelElement | null>(null)
   // mobile navbar Li //////////////////////
@@ -222,7 +222,7 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
         // navbar ref
         navRef,
         /// mobile navBar reference
-        mobileNavBar,
+        mobileNavBarRef,
         //// mobile references
         mobileNavLabelRef,
         mobileSkillsLi,
