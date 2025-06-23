@@ -24,15 +24,17 @@ const NavBarContext = createContext<{
   textLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   somethingLiRef: React.RefObject<HTMLLIElement | HTMLDivElement> | undefined,
   //refs for menu
-  // navBar UList element reference (navbar, not compoenents inside nav :) 
+  // navBar UList reference
   navRef: React.RefObject<HTMLUListElement> | undefined,
+  /// mobile navBar reference
+  mobileNavBar: React.RefObject<HTMLDivElement> | undefined,
   /// mobile navbar label
   mobileNavLabelRef: React.RefObject<HTMLLabelElement> | undefined,
   /// mobile navbar list element
-  mobileSkillsLi : React.RefObject<HTMLLIElement> | undefined,
-  mobileAboutLi : React.RefObject<HTMLLIElement> | undefined,
-  mobileTextLi : React.RefObject<HTMLLIElement> | undefined,
-  mobileSomethingLi : React.RefObject<HTMLLIElement> | undefined,
+  mobileSkillsLi: React.RefObject<HTMLLIElement> | undefined,
+  mobileAboutLi: React.RefObject<HTMLLIElement> | undefined,
+  mobileTextLi: React.RefObject<HTMLLIElement> | undefined,
+  mobileSomethingLi: React.RefObject<HTMLLIElement> | undefined,
   /////////////////////////////////////////////
   // mobile toggle ref
   toogleMobileNav: {
@@ -83,15 +85,17 @@ const NavBarContext = createContext<{
   aboutLiRef: undefined,
   textLiRef: undefined,
   somethingLiRef: undefined,
-  // navBar UList element reference (all navbar, not compoenents inside nav :) 
+  // navBar UList  reference
   navRef: undefined,
+  /// mobile navBar reference
+  mobileNavBar: undefined,
   /// mobile navbar label
   mobileNavLabelRef: undefined,
   /// mobile navbar list element
-  mobileSkillsLi : undefined,
-  mobileAboutLi : undefined,
-  mobileTextLi : undefined,
-  mobileSomethingLi : undefined,
+  mobileSkillsLi: undefined,
+  mobileAboutLi: undefined,
+  mobileTextLi: undefined,
+  mobileSomethingLi: undefined,
   /////////////////////////////////////////////
   toogleMobileNav: {
     displayMenu: false,
@@ -162,6 +166,8 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
   const textLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   const somethingLiRef = useRef<HTMLLIElement | HTMLDivElement | null>(null)
   const navRef = useRef<HTMLUListElement | null>(null)
+  /// mobile navBar reference
+  const mobileNavBar = useRef<HTMLDivElement | null>(null)
   /// mobile navbar label Ref
   const mobileNavLabelRef = useRef<HTMLLabelElement | null>(null)
   // mobile navbar Li //////////////////////
@@ -215,6 +221,8 @@ const NavBarContextProvider = ({ children }: ChildrenType) => {
         somethingLiRef,
         // navbar ref
         navRef,
+        /// mobile navBar reference
+        mobileNavBar,
         //// mobile references
         mobileNavLabelRef,
         mobileSkillsLi,

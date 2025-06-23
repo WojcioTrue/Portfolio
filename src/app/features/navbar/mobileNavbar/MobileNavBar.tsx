@@ -5,7 +5,6 @@ import { NavBarContext } from "../navBarContext/NavBarContextProvider"
 import MobileAnimatedBg from './animatedBg/MobileAnimatedBg'
 import ToggleMenuButton from '@/app/features/navbar/ToggleMenuButton'
 import { BlurPage } from './backdrop/BackDropContext'
-import useScrollBackground from './mobieNavBarHooks/useScrollBackground'
 import { Link } from 'react-scroll';
 import useDisableScrollEv from '../navBarHooks/useDisableScrollEv'
 
@@ -17,7 +16,7 @@ const MobileNavBar = () => {
     const { listElements, setActive } = navBarItems
     const [disable, disableAfterClick] = useDisableScrollEv()
 
-    // fix it !
+    // fix it (nie działa kliknięcie poza navbar menu)
     useEffect(() => {
         const backdropId = backdropRef?.current
 
@@ -32,9 +31,6 @@ const MobileNavBar = () => {
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [setDisplayMenu]);
-
-    // to fix
-    // useScrollBackground()
 
     const closeMenu = () => {
         setTimeout(() => {
