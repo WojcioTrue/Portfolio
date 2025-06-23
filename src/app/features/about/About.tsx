@@ -7,7 +7,7 @@ const About = () => {
     <div
         id="About"
         ref={aboutSectionRef}
-        className="relative h-full bg-yellow-green">About</div>
+        className="relative h-full bg-white border-t-[1px] border-my-lightGray ">About</div>
   )
 }
 
