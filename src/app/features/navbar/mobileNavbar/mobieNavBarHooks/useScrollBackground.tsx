@@ -14,9 +14,7 @@ const useScrollBackground = () => {
 
     useEffect(() => {
         const mobileNavBar = mobileNavBarRef?.current
-        console.log(mobileNavBar)
         const scrollPosition = (display: boolean) => {
-            console.log('scrolled')
             const labelElement = mobileNavLabelRef?.current!
             if (display) {
                 if (activeLi.length > 0) {
@@ -35,14 +33,14 @@ const useScrollBackground = () => {
         }
         scrollPosition(!displayMenu)
 
-        mobileNavBar?.addEventListener('scroll', () => scrollPosition(displayMenu))
+        mobileNavBar?.addEventListener('scroll', () => scrollPosition(!displayMenu))
 
         return () => {
-            mobileNavBar?.removeEventListener('scroll', () => scrollPosition(displayMenu))
+            mobileNavBar?.removeEventListener('scroll', () => scrollPosition(!displayMenu))
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [activeLi])
+    }, [activeLi, displayMenu])
 }
 
 export default useScrollBackground
