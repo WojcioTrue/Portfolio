@@ -32,7 +32,7 @@ const CarouselWrapper = () => {
   })
 
   const rightClick = () => {
-    console.log(modifyArr(elArr))
+    setElArr(prev => modifyArr(prev))
   }
 
   return (
