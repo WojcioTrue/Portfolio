@@ -24,17 +24,22 @@ const slideArray: SlideArrayType[] = [
 const CarouselWrapper = () => {
   const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
 
-  const modifyArr = (x: SlideArrayType[]) => x.map((el) => { return { ...el, el.x = el.x + 100 } })
+  const modifyArr = (x: SlideArrayType[]) => x.map((el) => {
+    return {
+      ...el,
+      x: el.x + 100
+    }
+  })
 
   const rightClick = () => {
-    // setElArr(prev =>  )
+    console.log(modifyArr(elArr))
   }
 
   return (
     <div className='relative flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px] overflow-hidden '>
       <CarouselSlideDisplay arr={elArr} />
       <div className='bg-white h-[50px] w-[50px] absolute left-0 top-1/2'>Left</div>
-      <div className='bg-white h-[50px] w-[50px] absolute right-0 top-1/2'>right</div>
+      <div onClick={() => rightClick()} className='bg-white h-[50px] w-[50px] absolute right-0 top-1/2'>right</div>
     </div>
   )
 }
