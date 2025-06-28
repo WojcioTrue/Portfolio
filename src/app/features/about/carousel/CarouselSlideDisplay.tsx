@@ -1,4 +1,3 @@
-import React from 'react'
 import Slide from './slide/Slide'
 
 const slideArray = [
