@@ -3,8 +3,10 @@ import CarouselDisplaySlide from './CarouselDisplaySlide'
 
 const CarouselWrapper = () => {
   return (
-    <div className='flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px] overflow-hidden h-[100px] '>
+    <div className='flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px] overflow-hidden '>
       <CarouselDisplaySlide/>
+      <div className='bg-white h-[50px] w-[50px]'>Left</div>
+      <div className='bg-white h-[50px] w-[50px]'>Left</div>
     </div>
   )
 }

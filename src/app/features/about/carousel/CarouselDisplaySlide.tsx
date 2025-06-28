@@ -2,7 +2,7 @@ import React from 'react'
 
 const CarouselDisplaySlide = () => {
   return (
-    <div className='bg-red-700 w-[100px] h-[200px]'>display slide</div>
+    <div className='bg-red-700 w-[200px] h-[200px]'>display slide</div>
   )
 }
 
