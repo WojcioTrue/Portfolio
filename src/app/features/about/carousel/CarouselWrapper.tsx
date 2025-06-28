@@ -19,13 +19,12 @@ const slideArray: SlideArrayType[] = [
     text: 'third',
     x: 500
   }
-
 ]
 
 const CarouselWrapper = () => {
   const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
 
-  const modifyArr = (x: SlideArrayType[]) => x.map((el) => {return {...el, el.x += 100}})
+  const modifyArr = (x: SlideArrayType[]) => x.map((el) => { return { ...el, el.x = el.x + 100 } })
 
   const rightClick = () => {
     // setElArr(prev =>  )
