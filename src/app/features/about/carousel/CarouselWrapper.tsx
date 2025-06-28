@@ -25,6 +25,12 @@ const slideArray: SlideArrayType[] = [
 const CarouselWrapper = () => {
   const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
 
+  const modifyArr = (x: SlideArrayType[]) => x.map((el) => {return {...el, el.x += 100}})
+
+  const rightClick = () => {
+    // setElArr(prev =>  )
+  }
+
   return (
     <div className='relative flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px] overflow-hidden '>
       <CarouselSlideDisplay arr={elArr} />
