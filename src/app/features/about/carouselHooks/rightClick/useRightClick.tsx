@@ -1,23 +1,30 @@
-import {  SlideArrayType } from "../../carouselContext/CarouselContextProvider"
+import { useContext } from "react"
+import { CarouselContext, SlideArrayType } from "../../carouselContext/CarouselContextProvider"
 
-const useCarouselRightClick = (arg: any) => {
+const useCarouselRightClick = () => {
+    const { carouseElementsArr } = useContext(CarouselContext)
+    const { setArray } = carouseElementsArr
 
-    const rightClickEffect = (array: SlideArrayType[]) => 
+    const rightClickEffect = (array: SlideArrayType[]) =>
         array.map((el) => {
-        if (el.x <= 0) {
-            return {
-                ...el,
-                x: el.x - 250,
-                visible: false,
+            if (el.x <= 0) {
+                return {
+                    ...el,
+                    x: el.x - 250,
+                    visible: false,
+                }
+            } else {
+                return {
+                    ...el,
+                    x: el.x - 250
+                }
             }
-        } else {
-            return {
-                ...el,
-                x: el.x - 250
-            }
-        }
-    })
-    return rightClickEffect(arg)
+        })
+
+    const modifyArrRight = () => {
+        setArray(prev => rightClickEffect(prev))
+    }
+    return modifyArrRight
 }
 
 

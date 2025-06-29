@@ -1,6 +1,9 @@
-import { SlideArrayType } from "../../carouselContext/CarouselContextProvider"
+import { useContext } from "react"
+import { CarouselContext, SlideArrayType } from "../../carouselContext/CarouselContextProvider"
 
-const useLeftClick = (arg: any) => {
+const useLeftClick = () => {
+    const { carouseElementsArr } = useContext(CarouselContext)
+    const { setArray } = carouseElementsArr
 
     const leftClickEffect = (array: SlideArrayType[]) =>
         array.map((el) => {
@@ -18,7 +21,12 @@ const useLeftClick = (arg: any) => {
                 }
             }
         })
-    return leftClickEffect(arg)
+
+    const leftClick = () => {
+        setArray(prev => leftClickEffect(prev))
+    }
+
+    return leftClick
 }
 
 export default useLeftClick

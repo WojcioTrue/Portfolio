@@ -11,35 +11,13 @@ export type SlideArrayType = {
   active: boolean
 }
 
-const slideArray: SlideArrayType[] = [
-  {
-    text: 'first',
-    x: 0,
-    visible: true,
-    active: true,
-  },
-  {
-    text: 'second',
-    x: 250,
-    visible: true,
-    active: false,
-
-  },
-  {
-    text: 'third',
-    x: 500,
-    visible: true,
-    active: false,
-  }
-]
-
 const CarouselWrapper = () => {
   const { carouseElementsArr } = useContext(CarouselContext)
   const { array, setArray } = carouseElementsArr
   const [lastActive, setLastActive] = useState<boolean>(false)
   const [firstActive, setFirstActive] = useState<boolean>(true)
-  const rightClick = useCarouselRightClick
-  const leftClick = useLeftClick
+  const rightClick = useCarouselRightClick()
+  const leftClick = useLeftClick()
 
   useEffect(() => {
     const lastActive = array[array.length - 1].active === true ? true : false
@@ -64,12 +42,12 @@ const CarouselWrapper = () => {
     })
 
   const rightArrowClick = () => {
-    setArray(prev => rightClick(prev))
-    setArray(prev => changeActive(prev))
+    rightClick()
+    // setArray(prev => changeActive(prev))
   }
 
   const leftArrowClick = () => {
-    setArray(prev => leftClick(prev))
+    leftClick()
     setArray(prev => changeActive(prev))
   }
 
