@@ -29,7 +29,7 @@ const slideArray: SlideArrayType[] = [
 const CarouselWrapper = () => {
   const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
 
-  const modifyArr = (x: SlideArrayType[]) => x.map((el) => {
+  const rightClickEffect = (x: SlideArrayType[]) => x.map((el) => {
     if (el.x <= 0) {
       return {
         ...el,
@@ -44,14 +44,34 @@ const CarouselWrapper = () => {
     }
   })
 
+    const leftClickEffect = (x: SlideArrayType[]) => x.map((el) => {
+    if (el.x >= -250) {
+      return {
+        ...el,
+        x: el.x + 250,
+        opacity: 1,
+      }
+    } else {
+      return {
+        ...el,
+        x: el.x + 250,
+        opacity: 0,
+      }
+    }
+  })
+
   const rightClick = () => {
-    setElArr(prev => modifyArr(prev))
+    setElArr(prev => rightClickEffect(prev))
+  }
+
+    const leftClick = () => {
+    setElArr(prev => leftClickEffect(prev))
   }
 
   return (
     <div className='relative flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px] overflow-hidden '>
       <CarouselSlideDisplay arr={elArr} />
-      <div className='bg-white h-[50px] w-[50px] absolute left-0 top-1/2'>Left</div>
+      <div onClick={() => leftClick()} className='bg-white h-[50px] w-[50px] absolute left-0 top-1/2'>Left</div>
       <div onClick={() => rightClick()} className='bg-white h-[50px] w-[50px] absolute right-0 top-1/2'>right</div>
     </div>
   )
