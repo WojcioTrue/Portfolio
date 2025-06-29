@@ -5,6 +5,7 @@ import useCarouselRightClick from '../carouselHooks/rightClick/useRightClick'
 import useLeftClick from '../carouselHooks/leftClick/useLeftClick'
 import useChangeActive from '../carouselHooks/useChangeActive'
 import useFirstLastActive from '../carouselHooks/useFirstLastActive'
+import CarouselButton from './CarouselButton'
 
 export type SlideArrayType = {
   text: string,
@@ -34,26 +35,16 @@ const CarouselWrapper = () => {
   return (
     <div className='relative flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px] overflow-hidden '>
       <CarouselSlideDisplay arr={array} />
-
-      <button
-        onClick={() => leftArrowClick()}
+      <CarouselButton
+        buttonClick={leftArrowClick}
         disabled={firstActive}
-        className='h-[50px] w-[50px] absolute left-0 top-1/2'
-        style={{
-          backgroundColor: firstActive ? 'red' : 'white'
-        }}
-      >left
-      </button>
-
-      <button
-        onClick={() => rightArrowClick()}
+        text={'Left'}
+      />
+      <CarouselButton
+        buttonClick={rightArrowClick}
         disabled={lastActive}
-        className='h-[50px] w-[50px] absolute right-0 top-1/2'
-        style={{
-          backgroundColor: lastActive ? 'red' : 'white'
-        }}
-      >right</button>
-
+        text={'Right'}
+      />
     </div>
   )
 }
