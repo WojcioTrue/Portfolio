@@ -1,6 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
 import CarouselSlideDisplay from './CarouselSlideDisplay'
-import { CarouselContext } from '../carouselContext/CarouselContextProvider'
 import useCarouselRightClick from '../carouselHooks/rightClick/useRightClick'
 import useLeftClick from '../carouselHooks/leftClick/useLeftClick'
 import useChangeActive from '../carouselHooks/useChangeActive'
