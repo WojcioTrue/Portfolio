@@ -43,7 +43,7 @@ const CarouselWrapper = () => {
 
   const rightArrowClick = () => {
     rightClick()
-    // setArray(prev => changeActive(prev))
+    setArray(prev => changeActive(prev))
   }
 
   const leftArrowClick = () => {
