@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import CarouselSlideDisplay from './CarouselSlideDisplay'
 import { CarouselContext } from '../carouselContext/CarouselContextProvider'
-
+import useCarouselRightClick from '../carouselHooks/useCarouselClick'
 
 export type SlideArrayType = {
   text: string,
@@ -34,17 +34,17 @@ const slideArray: SlideArrayType[] = [
 
 const CarouselWrapper = () => {
   const { carouseElementsArr } = useContext(CarouselContext)
-  const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
+  const { array, setArray } = carouseElementsArr
   const [lastActive, setLastActive] = useState<boolean>(false)
   const [firstActive, setFirstActive] = useState<boolean>(true)
-
+  const rightClickState = useCarouselRightClick
 
   useEffect(() => {
-    const lastActive = elArr[elArr.length - 1].active === true ? true : false
-    const firstActive = elArr[0].active === true ? true : false
+    const lastActive = array[array.length - 1].active === true ? true : false
+    const firstActive = array[0].active === true ? true : false
     setLastActive(lastActive)
     setFirstActive(firstActive)
-  }, [elArr])
+  }, [array])
 
   const changeActive = (x: SlideArrayType[]) =>
     x.map((el) => {
@@ -61,20 +61,7 @@ const CarouselWrapper = () => {
       }
     })
 
-  const rightClickEffect = (x: SlideArrayType[]) => x.map((el) => {
-    if (el.x <= 0) {
-      return {
-        ...el,
-        x: el.x - 250,
-        visible: false,
-      }
-    } else {
-      return {
-        ...el,
-        x: el.x - 250
-      }
-    }
-  })
+
 
   const leftClickEffect = (x: SlideArrayType[]) => x.map((el) => {
     if (el.x >= -250) {
@@ -93,18 +80,18 @@ const CarouselWrapper = () => {
   })
 
   const rightClick = () => {
-    setElArr(prev => rightClickEffect(prev))
-    setElArr(prev => changeActive(prev))
+    setArray(prev => rightClickState(prev))
+    setArray(prev => changeActive(prev))
   }
 
   const leftClick = () => {
-    setElArr(prev => leftClickEffect(prev))
-    setElArr(prev => changeActive(prev))
+    setArray(prev => leftClickEffect(prev))
+    setArray(prev => changeActive(prev))
   }
 
   return (
     <div className='relative flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px] overflow-hidden '>
-      <CarouselSlideDisplay arr={elArr} />
+      <CarouselSlideDisplay arr={array} />
 
       <button
         onClick={() => leftClick()}
