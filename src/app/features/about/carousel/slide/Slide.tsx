@@ -8,14 +8,18 @@ type SlideType = {
   active: boolean
 }
 
-const Slide = ({ text, x, opacity, active }: SlideType) => {
+const Slide = ({ text, x, opacity, index, active }: SlideType) => {
 
   return (
-    <div className='absolute bg-blue-500 h-[100%] w-[100%]'
-      style={{
-        transform: `translateX(${x}px) translateY(${x / 20}px)`,
-        opacity: opacity
-      }}>{text} {`${active}`}</div>
+    <div className='absolute h-[100%] w-[100%]'>
+      <div className='bg-yellow-500 m-[10px] w-[90%] h-[90%]'
+        style={{
+          transform: `translateX(${x}px) translateY(${x / 20}px)`,
+          opacity: opacity
+        }}>{text} {`${active}`}
+      </div>
+    </div>
+
   )
 }
 
