@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CarouselSlideDisplay from './CarouselSlideDisplay'
 
 export type SlideArrayType = {
@@ -32,6 +32,16 @@ const slideArray: SlideArrayType[] = [
 
 const CarouselWrapper = () => {
   const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
+  const [lastActive, setLastActive] = useState<boolean>(false)
+  const [firstActive, setFirstActive] = useState<boolean>(false)
+
+
+  useEffect(() => {
+    const lastActive = elArr[elArr.length - 1].active === true ? true : false
+    const firstActive = elArr[0].active === true ? true : false
+    setLastActive(lastActive)
+    setFirstActive(firstActive)
+  }, [elArr])
 
   const changeActive = (x: SlideArrayType[]) =>
     x.map((el) => {
@@ -82,6 +92,7 @@ const CarouselWrapper = () => {
   const rightClick = () => {
     setElArr(prev => rightClickEffect(prev))
     setElArr(prev => changeActive(prev))
+    // lastElActive(elArr)
   }
 
   const leftClick = () => {
@@ -92,8 +103,26 @@ const CarouselWrapper = () => {
   return (
     <div className='relative flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px] overflow-hidden '>
       <CarouselSlideDisplay arr={elArr} />
-      <div onClick={() => leftClick()} className='bg-white h-[50px] w-[50px] absolute left-0 top-1/2'>Left</div>
-      <div onClick={() => rightClick()} className='bg-white h-[50px] w-[50px] absolute right-0 top-1/2'>right</div>
+
+      <button
+        onClick={() => leftClick()}
+        disabled={firstActive}
+        className='h-[50px] w-[50px] absolute left-0 top-1/2'
+        style={{
+          backgroundColor: firstActive ? 'red' : 'white'
+        }}
+      >left
+      </button>
+
+      <button
+        onClick={() => rightClick()}
+        disabled={lastActive}
+        className='h-[50px] w-[50px] absolute right-0 top-1/2'
+        style={{
+          backgroundColor: lastActive ? 'red' : 'white'
+        }}
+      >right</button>
+
     </div>
   )
 }
