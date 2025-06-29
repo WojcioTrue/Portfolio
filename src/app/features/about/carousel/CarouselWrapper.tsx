@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CarouselSlideDisplay from './CarouselSlideDisplay'
+import { CarouselContext } from '../carouselContext/CarouselContextProvider'
+
 
 export type SlideArrayType = {
   text: string,
@@ -31,6 +33,7 @@ const slideArray: SlideArrayType[] = [
 ]
 
 const CarouselWrapper = () => {
+  const { carouseElementsArr } = useContext(CarouselContext)
   const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
   const [lastActive, setLastActive] = useState<boolean>(false)
   const [firstActive, setFirstActive] = useState<boolean>(true)

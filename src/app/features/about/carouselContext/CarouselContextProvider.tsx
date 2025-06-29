@@ -30,7 +30,7 @@ const slideArray: SlideArrayType[] = [
     }
 ]
 
-const CarouselContext = createContext<{
+export const CarouselContext = createContext<{
     carouseElementsArr: {
         array: SlideArrayType[]
         setArray: Dispatch<SetStateAction<SlideArrayType[]>>
@@ -44,7 +44,7 @@ const CarouselContext = createContext<{
 
 
 const CarouselContextProvider = ({ children }: ChildrenType) => {
-    const [array, setArray] = useState<SlideArrayType[]>(slideArray)
+    const [array, setArray] = useState<SlideArrayType[] | []>(slideArray)
 
     return (
         <CarouselContext.Provider value={
@@ -54,7 +54,10 @@ const CarouselContextProvider = ({ children }: ChildrenType) => {
                     setArray,
                 }
             }
-        }> {children}
+        }> 
+        {children}
         </CarouselContext.Provider >
     )
 }
+
+export { CarouselContextProvider }
