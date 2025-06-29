@@ -3,21 +3,26 @@ import CarouselSlideDisplay from './CarouselSlideDisplay'
 
 export type SlideArrayType = {
   text: string,
-  x: number
+  x: number,
+  opacity: number
 }
 
 const slideArray: SlideArrayType[] = [
   {
     text: 'first',
-    x: 0
+    x: 0,
+    opacity: 1,
   },
   {
     text: 'second',
-    x: 250
+    x: 250,
+    opacity: 1,
+
   },
   {
     text: 'third',
-    x: 500
+    x: 500,
+    opacity: 1,
   }
 ]
 
@@ -25,9 +30,17 @@ const CarouselWrapper = () => {
   const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
 
   const modifyArr = (x: SlideArrayType[]) => x.map((el) => {
-    return {
-      ...el,
-      x: el.x + 100
+    if (el.x <= 0) {
+      return {
+        ...el,
+        x: el.x - 250,
+        opacity: 0,
+      }
+    } else {
+      return {
+        ...el,
+        x: el.x - 250
+      }
     }
   })
 
