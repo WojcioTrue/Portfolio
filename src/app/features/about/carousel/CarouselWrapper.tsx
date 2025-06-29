@@ -15,8 +15,6 @@ export type SlideArrayType = {
 }
 
 const CarouselWrapper = () => {
-  const { carouseElementsArr } = useContext(CarouselContext)
-  const { array } = carouseElementsArr
   const rightClick = useCarouselRightClick()
   const leftClick = useLeftClick()
   const changeActive = useChangeActive()
@@ -34,7 +32,7 @@ const CarouselWrapper = () => {
 
   return (
     <div className='relative flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px] overflow-hidden '>
-      <CarouselSlideDisplay arr={array} />
+      <CarouselSlideDisplay />
       <CarouselButton
         buttonClick={leftArrowClick}
         disabled={firstActive}
