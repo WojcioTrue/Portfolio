@@ -1,4 +1,5 @@
 import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { ChildrenType } from "../../navbar/navBarContext/NavBarContextProvider";
 
 export type SlideArrayType = {
     text: string,
@@ -7,19 +8,53 @@ export type SlideArrayType = {
     active: boolean
 }
 
+const slideArray: SlideArrayType[] = [
+    {
+        text: 'first',
+        x: 0,
+        visible: true,
+        active: true,
+    },
+    {
+        text: 'second',
+        x: 250,
+        visible: true,
+        active: false,
+
+    },
+    {
+        text: 'third',
+        x: 500,
+        visible: true,
+        active: false,
+    }
+]
+
 const CarouselContext = createContext<{
-    arrOfElements: {
+    carouseElementsArr: {
         array: SlideArrayType[]
         setArray: Dispatch<SetStateAction<SlideArrayType[]>>
     }
 }>({
-    arrOfElements: {
+    carouseElementsArr: {
         array: [],
         setArray: () => { }
     }
 })
 
 
-const CarouselContextProvider = () => {
-    const [array, setArray] = useState<SlideArrayType | []>([])
+const CarouselContextProvider = ({ children }: ChildrenType) => {
+    const [array, setArray] = useState<SlideArrayType[]>(slideArray)
+
+    return (
+        <CarouselContext.Provider value={
+            {
+                carouseElementsArr: {
+                    array,
+                    setArray,
+                }
+            }
+        }> {children}
+        </CarouselContext.Provider >
+    )
 }
