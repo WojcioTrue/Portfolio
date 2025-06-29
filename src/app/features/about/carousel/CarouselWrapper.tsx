@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import CarouselSlideDisplay from './CarouselSlideDisplay'
 import { CarouselContext } from '../carouselContext/CarouselContextProvider'
-import useCarouselRightClick from '../carouselHooks/useCarouselClick'
+import useCarouselRightClick from '../carouselHooks/rightClick/useRightClick'
+import useLeftClick from '../carouselHooks/leftClick/useLeftClick'
 
 export type SlideArrayType = {
   text: string,
@@ -37,7 +38,8 @@ const CarouselWrapper = () => {
   const { array, setArray } = carouseElementsArr
   const [lastActive, setLastActive] = useState<boolean>(false)
   const [firstActive, setFirstActive] = useState<boolean>(true)
-  const rightClickState = useCarouselRightClick
+  const rightClick = useCarouselRightClick
+  const leftClick = useLeftClick
 
   useEffect(() => {
     const lastActive = array[array.length - 1].active === true ? true : false
@@ -61,31 +63,13 @@ const CarouselWrapper = () => {
       }
     })
 
-
-
-  const leftClickEffect = (x: SlideArrayType[]) => x.map((el) => {
-    if (el.x >= -250) {
-      return {
-        ...el,
-        x: el.x + 250,
-        visible: true,
-      }
-    } else {
-      return {
-        ...el,
-        x: el.x + 250,
-        visible: false,
-      }
-    }
-  })
-
-  const rightClick = () => {
-    setArray(prev => rightClickState(prev))
+  const rightArrowClick = () => {
+    setArray(prev => rightClick(prev))
     setArray(prev => changeActive(prev))
   }
 
-  const leftClick = () => {
-    setArray(prev => leftClickEffect(prev))
+  const leftArrowClick = () => {
+    setArray(prev => leftClick(prev))
     setArray(prev => changeActive(prev))
   }
 
@@ -94,7 +78,7 @@ const CarouselWrapper = () => {
       <CarouselSlideDisplay arr={array} />
 
       <button
-        onClick={() => leftClick()}
+        onClick={() => leftArrowClick()}
         disabled={firstActive}
         className='h-[50px] w-[50px] absolute left-0 top-1/2'
         style={{
@@ -104,7 +88,7 @@ const CarouselWrapper = () => {
       </button>
 
       <button
-        onClick={() => rightClick()}
+        onClick={() => rightArrowClick()}
         disabled={lastActive}
         className='h-[50px] w-[50px] absolute right-0 top-1/2'
         style={{

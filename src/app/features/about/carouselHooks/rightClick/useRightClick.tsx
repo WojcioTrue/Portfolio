@@ -1,4 +1,4 @@
-import {  SlideArrayType } from "../carouselContext/CarouselContextProvider"
+import {  SlideArrayType } from "../../carouselContext/CarouselContextProvider"
 
 const useCarouselRightClick = (arg: any) => {
 
