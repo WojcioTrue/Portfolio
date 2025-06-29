@@ -4,37 +4,56 @@ import CarouselSlideDisplay from './CarouselSlideDisplay'
 export type SlideArrayType = {
   text: string,
   x: number,
-  opacity: number
+  visible: boolean,
+  active: boolean
 }
 
 const slideArray: SlideArrayType[] = [
   {
     text: 'first',
     x: 0,
-    opacity: 1,
+    visible: true,
+    active: true,
   },
   {
     text: 'second',
     x: 250,
-    opacity: 1,
+    visible: true,
+    active: false,
 
   },
   {
     text: 'third',
     x: 500,
-    opacity: 1,
+    visible: true,
+    active: false,
   }
 ]
 
 const CarouselWrapper = () => {
   const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
 
+  const changeActive = (x: SlideArrayType[]) =>
+    x.map((el) => {
+      if (el.x === 0) {
+        return {
+          ...el,
+          active: true,
+        }
+      } else {
+        return {
+          ...el,
+          active: false,
+        }
+      }
+    })
+
   const rightClickEffect = (x: SlideArrayType[]) => x.map((el) => {
     if (el.x <= 0) {
       return {
         ...el,
         x: el.x - 250,
-        opacity: 0,
+        visible: false,
       }
     } else {
       return {
@@ -44,28 +63,30 @@ const CarouselWrapper = () => {
     }
   })
 
-    const leftClickEffect = (x: SlideArrayType[]) => x.map((el) => {
+  const leftClickEffect = (x: SlideArrayType[]) => x.map((el) => {
     if (el.x >= -250) {
       return {
         ...el,
         x: el.x + 250,
-        opacity: 1,
+        visible: true,
       }
     } else {
       return {
         ...el,
         x: el.x + 250,
-        opacity: 0,
+        visible: false,
       }
     }
   })
 
   const rightClick = () => {
     setElArr(prev => rightClickEffect(prev))
+    setElArr(prev => changeActive(prev))
   }
 
-    const leftClick = () => {
+  const leftClick = () => {
     setElArr(prev => leftClickEffect(prev))
+    setElArr(prev => changeActive(prev))
   }
 
   return (
