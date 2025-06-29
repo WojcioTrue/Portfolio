@@ -33,7 +33,7 @@ const slideArray: SlideArrayType[] = [
 const CarouselWrapper = () => {
   const [elArr, setElArr] = useState<SlideArrayType[]>(slideArray)
   const [lastActive, setLastActive] = useState<boolean>(false)
-  const [firstActive, setFirstActive] = useState<boolean>(false)
+  const [firstActive, setFirstActive] = useState<boolean>(true)
 
 
   useEffect(() => {
@@ -92,7 +92,6 @@ const CarouselWrapper = () => {
   const rightClick = () => {
     setElArr(prev => rightClickEffect(prev))
     setElArr(prev => changeActive(prev))
-    // lastElActive(elArr)
   }
 
   const leftClick = () => {
