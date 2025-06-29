@@ -3,6 +3,7 @@ import CarouselSlideDisplay from './CarouselSlideDisplay'
 import { CarouselContext } from '../carouselContext/CarouselContextProvider'
 import useCarouselRightClick from '../carouselHooks/rightClick/useRightClick'
 import useLeftClick from '../carouselHooks/leftClick/useLeftClick'
+import useChangeActive from '../carouselHooks/useChangeActive'
 
 export type SlideArrayType = {
   text: string,
@@ -13,11 +14,12 @@ export type SlideArrayType = {
 
 const CarouselWrapper = () => {
   const { carouseElementsArr } = useContext(CarouselContext)
-  const { array, setArray } = carouseElementsArr
+  const { array } = carouseElementsArr
   const [lastActive, setLastActive] = useState<boolean>(false)
   const [firstActive, setFirstActive] = useState<boolean>(true)
   const rightClick = useCarouselRightClick()
   const leftClick = useLeftClick()
+  const changeActive = useChangeActive()
 
   useEffect(() => {
     const lastActive = array[array.length - 1].active === true ? true : false
@@ -26,29 +28,14 @@ const CarouselWrapper = () => {
     setFirstActive(firstActive)
   }, [array])
 
-  const changeActive = (x: SlideArrayType[]) =>
-    x.map((el) => {
-      if (el.x === 0) {
-        return {
-          ...el,
-          active: true,
-        }
-      } else {
-        return {
-          ...el,
-          active: false,
-        }
-      }
-    })
-
   const rightArrowClick = () => {
     rightClick()
-    setArray(prev => changeActive(prev))
+    changeActive()
   }
 
   const leftArrowClick = () => {
     leftClick()
-    setArray(prev => changeActive(prev))
+    changeActive()
   }
 
   return (
