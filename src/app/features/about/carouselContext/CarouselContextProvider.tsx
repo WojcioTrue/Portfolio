@@ -1,34 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useState } from "react";
 import { ChildrenType } from "../../navbar/navBarContext/NavBarContextProvider";
-
-export type SlideArrayType = {
-    text: string,
-    x: number,
-    visible: boolean,
-    active: boolean
-}
-
-const slideArray: SlideArrayType[] = [
-    {
-        text: 'first',
-        x: 0,
-        visible: true,
-        active: true,
-    },
-    {
-        text: 'second',
-        x: 250,
-        visible: true,
-        active: false,
-
-    },
-    {
-        text: 'third',
-        x: 500,
-        visible: true,
-        active: false,
-    }
-]
+import { slideArray, SlideArrayType } from "./slidesArray";
 
 export const CarouselContext = createContext<{
     carouseElementsArr: {
