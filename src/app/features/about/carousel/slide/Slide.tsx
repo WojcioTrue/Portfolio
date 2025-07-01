@@ -1,6 +1,6 @@
 import React from 'react'
 
-type SlideType = {
+export type SlideType = {
   text: string,
   x: number,
   gap: number,
@@ -13,9 +13,9 @@ const Slide = ({ text, x, gap, opacity, index, active }: SlideType) => {
 
   return (
     <div className='h-[100%] w-[100%] absolute'>
-      <div className='bg-yellow-500 m-[10px] w-[90%] h-[90%]'
+      <div className='bg-yellow-500 w-[100%] h-[100%]'
         style={{
-          transform: `translateX(${x}px) translateY(${15}px)`,
+          transform: `translateX(${x}px)`,
           opacity: opacity
         }}>{text} {`${active}`}
       </div>
