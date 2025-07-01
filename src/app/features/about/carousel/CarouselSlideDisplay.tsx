@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
 import { CarouselContext } from '../carouselContext/CarouselContextProvider'
-import { SlideArrayType } from '../carouselContext/slidesArray'
 import Slide from './slide/Slide'
 
 const CarouselSlideDisplay = () => {
