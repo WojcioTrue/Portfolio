@@ -36,7 +36,7 @@ const CarouselSlideDisplay = () => {
           index={x.index}
           text={x.text}
           x={x.x}
-          gap={x.gap}
+          gap={20}
           opacity={x.visible ? 1 : 0}
           active={x.active}
         />)}

@@ -15,7 +15,7 @@ const Slide = ({ text, x, gap, opacity, index, active }: SlideType) => {
     <div className='h-[100%] w-[100%] absolute'>
       <div className='bg-yellow-500 w-[100%] h-[100%]'
         style={{
-          transform: `translateX(${x}px)`,
+          transform: `translateX(${x + (gap * index)}px)`,
           opacity: opacity
         }}>{text} {`${active}`}
       </div>
