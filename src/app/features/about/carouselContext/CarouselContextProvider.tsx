@@ -1,4 +1,4 @@
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useState, useRef } from "react";
 import { ChildrenType } from "../../navbar/navBarContext/NavBarContextProvider";
 import { slideArray, SlideArrayType } from "./slidesArray";
 
@@ -7,27 +7,29 @@ export const CarouselContext = createContext<{
         array: SlideArrayType[]
         setArray: Dispatch<SetStateAction<SlideArrayType[]>>
     }
+    carouselSlideDisplayRef: React.RefObject<HTMLDivElement> | undefined,
 }>({
     carouseElementsArr: {
         array: [],
         setArray: () => { }
-    }
+    },
+    carouselSlideDisplayRef: undefined,
 })
 
 
 const CarouselContextProvider = ({ children }: ChildrenType) => {
     const [array, setArray] = useState<SlideArrayType[] | []>(slideArray)
+    const carouselSlideDisplayRef = useRef<HTMLDivElement | null>(null)
 
     return (
-        <CarouselContext.Provider value={
-            {
-                carouseElementsArr: {
-                    array,
-                    setArray,
-                }
-            }
-        }> 
-        {children}
+        <CarouselContext.Provider value={{
+            carouseElementsArr: {
+                array,
+                setArray,
+            },
+            carouselSlideDisplayRef,
+        }}>
+            {children}
         </CarouselContext.Provider >
     )
 }
