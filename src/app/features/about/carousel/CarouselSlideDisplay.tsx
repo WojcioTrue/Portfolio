@@ -1,19 +1,19 @@
 import { useContext, useEffect, useState } from 'react'
 import { CarouselContext } from '../carouselContext/CarouselContextProvider'
 import Slide from './slide/Slide'
-
+import { SlideArrayType } from './CarouselWrapper'
 
 const CarouselSlideDisplay = () => {
   const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
   const { array } = carouseElementsArr
-  const [alteredArr, setAlteredArr] = useState(undefined)
+  const [alteredArr, setAlteredArr] = useState<SlideArrayType | undefined>(undefined)
 
   useEffect(() => {
     const displayWidth = carouselSlideDisplayRef?.current?.getBoundingClientRect().width!
-    const newArr = array.map((x,i) => {
+    const newArr = array.map((x, i) => {
       return {
         ...x,
-        x : displayWidth * (i),
+        x: displayWidth * (i),
       }
     })
     console.log(newArr)
