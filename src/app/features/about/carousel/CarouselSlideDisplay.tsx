@@ -5,8 +5,8 @@ import Slide from './slide/Slide'
 
 const CarouselSlideDisplay = () => {
   const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
-  const { array } = carouseElementsArr
-  const [alteredArr, setAlteredArr] = useState<SlideArrayType[] | undefined>(undefined)
+  const { array, setArray } = carouseElementsArr
+  const [display, setDisplay] = useState(false)
 
   useEffect(() => {
     const displayWidth = carouselSlideDisplayRef?.current?.getBoundingClientRect().width
@@ -17,17 +17,20 @@ const CarouselSlideDisplay = () => {
           x: displayWidth * (i),
         }
       })
-      console.log(newArr)
-      setAlteredArr(newArr)
+      // change display to true when array is modified
+      setDisplay(true)
+      setArray(newArr)
     }
 
-  }, [array, carouselSlideDisplayRef])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setArray, carouselSlideDisplayRef])
+
 
   return (
     <div
       ref={carouselSlideDisplayRef}
       className='bg-red-700 w-[200px] h-[200px] relative'>
-      {alteredArr && alteredArr.map((x) =>
+      {display && array.map((x) =>
         <Slide
           key={x.index}
           index={x.index}

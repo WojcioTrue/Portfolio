@@ -5,15 +5,6 @@ import useChangeActive from '../carouselHooks/useChangeActive'
 import useFirstLastActive from '../carouselHooks/useFirstLastActive'
 import CarouselButton from './CarouselButton'
 
-export type SlideArrayType = {
-  index: number
-  gap: number
-  text: string,
-  x: number,
-  visible: boolean,
-  active: boolean
-}
-
 const CarouselWrapper = () => {
   const rightClick = useCarouselRightClick()
   const leftClick = useLeftClick()
