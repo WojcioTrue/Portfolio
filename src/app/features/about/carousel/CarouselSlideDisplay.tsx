@@ -16,8 +16,7 @@ const CarouselSlideDisplay = () => {
         x: 20,
       }
 
-      console.log(modifiedArr)
-
+      // if display is endabled, then width is updated 
       setDisplay(true)
       setArray(modifiedArr)
     }
