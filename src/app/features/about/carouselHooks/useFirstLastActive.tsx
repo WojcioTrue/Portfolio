@@ -8,8 +8,8 @@ const useFirstLastActive = () => {
     const [firstActive, setFirstActive] = useState<boolean>(true)
 
     useEffect(() => {
-        const lastActive = array[array.length - 1].active === true ? true : false
-        const firstActive = array[0].active === true ? true : false
+        const lastActive = array.elements[array.elements.length - 1].active === true ? true : false
+        const firstActive = array.elements[0].active === true ? true : false
         setLastActive(lastActive)
         setFirstActive(firstActive)
     }, [array])

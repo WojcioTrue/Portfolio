@@ -10,7 +10,7 @@ const CarouselSlideDisplay = () => {
   useEffect(() => {
     const displayWidth = carouselSlideDisplayRef?.current?.getBoundingClientRect().width
     if (displayWidth !== undefined) {
-      const newArr = array.map((x, i) => {
+      const newArr = array.elements.map((x, i) => {
         return {
           ...x,
           x: displayWidth * (i),
@@ -18,7 +18,7 @@ const CarouselSlideDisplay = () => {
       })
       // change display to true when array is modified
       setDisplay(true)
-      setArray(newArr)
+      // setArray(newArr)
     }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,7 +32,7 @@ const CarouselSlideDisplay = () => {
     <div
       ref={carouselSlideDisplayRef}
       className='bg-red-700 w-[200px] h-[200px] relative'>
-      {array.map((x) =>
+      {array.elements.map((x) =>
         <Slide
           key={x.index}
           index={x.index}

@@ -7,8 +7,8 @@ const useChangeActive = () => {
     const { carouseElementsArr } = useContext(CarouselContext)
     const { setArray } = carouseElementsArr
 
-    const changeActive = (x: SlideArrayType[]) =>
-        x.map((el) => {
+    const changeActive = (x: SlideArrayType) =>
+        x.elements.map((el) => {
             if (el.x === 0) {
                 return {
                     ...el,
@@ -23,7 +23,7 @@ const useChangeActive = () => {
         })
 
     const changeActiveClick = () => {
-        setArray(prev => changeActive(prev))
+        // setArray(prev => changeActive(prev))
     }
 
     return changeActiveClick

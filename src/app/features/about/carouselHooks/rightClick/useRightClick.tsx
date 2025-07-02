@@ -6,8 +6,8 @@ const useCarouselRightClick = () => {
     const { carouseElementsArr } = useContext(CarouselContext)
     const { setArray } = carouseElementsArr
 
-    const rightClickEffect = (array: SlideArrayType[]) =>
-        array.map((el) => {
+    const rightClickEffect = (array: SlideArrayType) =>
+        array.elements.map((el) => {
             if (el.x <= 0) {
                 return {
                     ...el,
@@ -23,7 +23,7 @@ const useCarouselRightClick = () => {
         })
 
     const modifyArrRight = () => {
-        setArray(prev => rightClickEffect(prev))
+        // setArray(prev => rightClickEffect(prev))
     }
     return modifyArrRight
 }
