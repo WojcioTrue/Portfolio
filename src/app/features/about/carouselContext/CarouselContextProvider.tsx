@@ -12,11 +12,10 @@ export const CarouselContext = createContext<{
     carouseElementsArr: {
         array: {
             width: 0,
-            gap: 0,
+            x: 0,
             elements: [{
                 index: 0,
                 text: '',
-                x: 0,
                 visible: false,
                 active: false
             }]

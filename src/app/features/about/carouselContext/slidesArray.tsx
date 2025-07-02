@@ -1,10 +1,9 @@
 export type SlideArrayType = {
     width: number,
-    gap: number,
+    x: number,
     elements: {
         index: number,
         text: string,
-        x: number,
         visible: boolean,
         active: boolean
     }[]
@@ -12,19 +11,17 @@ export type SlideArrayType = {
 
 export const slideArray: SlideArrayType = {
     width: 0,
-    gap: 0,
+    x: 0,
     elements: [
         {
             index: 0,
             text: 'first',
-            x: 0,
             visible: true,
             active: true,
         },
         {
             index: 1,
             text: 'second',
-            x: 0,
             visible: true,
             active: false,
 
@@ -32,7 +29,6 @@ export const slideArray: SlideArrayType = {
         {
             index: 2,
             text: 'third',
-            x: 0,
             visible: true,
             active: false,
         }
