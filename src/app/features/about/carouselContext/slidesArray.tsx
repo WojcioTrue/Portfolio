@@ -10,7 +10,6 @@ export type SlideArrayType = {
     }[]
 }
 
-
 export const slideArray: SlideArrayType = {
     width: 0,
     gap: 0,

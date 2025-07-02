@@ -4,13 +4,23 @@ import { slideArray, SlideArrayType } from "./slidesArray";
 
 export const CarouselContext = createContext<{
     carouseElementsArr: {
-        array: SlideArrayType[]
-        setArray: Dispatch<SetStateAction<SlideArrayType[]>>
+        array: SlideArrayType
+        setArray: Dispatch<SetStateAction<SlideArrayType>>
     }
     carouselSlideDisplayRef: React.RefObject<HTMLDivElement> | undefined,
 }>({
     carouseElementsArr: {
-        array: [],
+        array: {
+            width: 0,
+            gap: 0,
+            elements: [{
+                index: 0,
+                text: '',
+                x: 0,
+                visible: false,
+                active: false
+            }]
+        },
         setArray: () => { }
     },
     carouselSlideDisplayRef: undefined,
@@ -18,7 +28,7 @@ export const CarouselContext = createContext<{
 
 
 const CarouselContextProvider = ({ children }: ChildrenType) => {
-    const [array, setArray] = useState<SlideArrayType[] | []>(slideArray)
+    const [array, setArray] = useState<SlideArrayType>(slideArray)
     const carouselSlideDisplayRef = useRef<HTMLDivElement | null>(null)
 
     return (
