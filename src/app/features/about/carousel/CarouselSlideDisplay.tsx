@@ -24,12 +24,15 @@ const CarouselSlideDisplay = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setArray, carouselSlideDisplayRef])
 
+  useEffect(() => {
+    console.log(array)
+  },[array])
 
   return (
     <div
       ref={carouselSlideDisplayRef}
       className='bg-red-700 w-[200px] h-[200px] relative'>
-      {display && array.map((x) =>
+      {array.map((x) =>
         <Slide
           key={x.index}
           index={x.index}

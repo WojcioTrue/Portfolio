@@ -1,5 +1,6 @@
 import { useContext } from "react"
-import { CarouselContext, SlideArrayType } from "../../carouselContext/CarouselContextProvider"
+import { CarouselContext } from "../../carouselContext/CarouselContextProvider"
+import { SlideArrayType } from "../../carouselContext/slidesArray"
 
 const useCarouselRightClick = () => {
     const { carouseElementsArr } = useContext(CarouselContext)
@@ -10,13 +11,13 @@ const useCarouselRightClick = () => {
             if (el.x <= 0) {
                 return {
                     ...el,
-                    x: el.x - 250,
+                    x: el.x - 200,
                     visible: false,
                 }
             } else {
                 return {
                     ...el,
-                    x: el.x - 250
+                    x: el.x - 200
                 }
             }
         })
