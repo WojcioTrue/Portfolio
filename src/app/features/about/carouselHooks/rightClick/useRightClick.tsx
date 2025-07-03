@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { CarouselContext } from "../../carouselContext/CarouselContextProvider"
 import { SlideArrayType } from "../../carouselContext/slidesArray"
-import { error } from "console"
+// import { SlideArrayType } from "../../carouselContext/slidesArray"
 
 const useCarouselRightClick = () => {
     const { carouseElementsArr } = useContext(CarouselContext)
@@ -11,15 +11,15 @@ const useCarouselRightClick = () => {
     // move to button component
     useEffect(() => {
         if (array.width !== 0) {
-            console.log('button enabled', array.width)
             setEnableButton(true)
+            console.log(array)
+        } else {
             console.log(array)
         }
     }, [array])
 
-    const rightClickEffect = (array: SlideArrayType, width: number) => {
-        if (enableButton) {
-            const modifiedX = array.elements.map((el) => {
+    const rightClickEffect = (arg : SlideArrayType) => {
+            const modifiedX = arg.elements.map((el) => {
                 if (el.x <= 0) {
                     return {
                         ...el,
@@ -40,11 +40,8 @@ const useCarouselRightClick = () => {
                 ]
             }
             return newArr
-        }
+        
     }
-
-
-
 
     const modifyArrRight = () => {
         setArray(prev => rightClickEffect(prev))
