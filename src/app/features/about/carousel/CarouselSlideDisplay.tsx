@@ -10,12 +10,20 @@ const CarouselSlideDisplay = () => {
   useEffect(() => {
     const displayWidth = carouselSlideDisplayRef?.current?.getBoundingClientRect().width
     if (displayWidth !== undefined) {
-      const modifiedArr = {
-        ...array,
-        width: displayWidth,
-        x: 20,
-      }
+      const newArr = array.elements.map((x,i) => {
+        return {
+          ...x,
+          x: displayWidth * (i * 1)
+        }
+      })
 
+      const modifiedArr = {
+        width: displayWidth,
+        gap: 20,
+        elements: [
+          ...newArr
+        ]
+      }
       // if display is endabled, then width is updated 
       setDisplay(true)
       setArray(modifiedArr)
@@ -33,7 +41,7 @@ const CarouselSlideDisplay = () => {
           key={x.index}
           index={x.index}
           text={x.text}
-          x={array.width * i}
+          x={x.x}
           gap={20}
           opacity={x.visible ? 1 : 0}
           active={x.active}
