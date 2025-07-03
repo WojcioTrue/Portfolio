@@ -1,26 +1,35 @@
 import { useContext } from "react"
-import { CarouselContext, SlideArrayType } from "../../carouselContext/CarouselContextProvider"
+import { CarouselContext } from "../../carouselContext/CarouselContextProvider"
+import { SlideArrayType } from "../../carouselContext/slidesArray"
 
 const useLeftClick = () => {
     const { carouseElementsArr } = useContext(CarouselContext)
-    const { setArray } = carouseElementsArr
+    const { array, setArray } = carouseElementsArr
 
-    const leftClickEffect = (array: SlideArrayType[]) =>
-        array.map((el) => {
-            if (el.x >= -250) {
+    const leftClickEffect = (arg: SlideArrayType) => {
+        const modifiedX = arg.elements.map((el) => {
+            if (el.x >= -(array.width + 1)) {
                 return {
                     ...el,
-                    x: el.x + 250,
+                    x: el.x + array.width,
                     visible: true,
                 }
             } else {
                 return {
                     ...el,
-                    x: el.x + 250,
-                    visible: false,
+                    x: el.x + array.width
                 }
             }
         })
+        const newArr = {
+            ...array,
+            elements: [
+                ...modifiedX,
+            ]
+        }
+        console.log(newArr)
+        return newArr
+    }
 
     const leftClick = () => {
         setArray(prev => leftClickEffect(prev))
