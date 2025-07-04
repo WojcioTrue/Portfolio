@@ -4,12 +4,17 @@ import useLeftClick from '../carouselHooks/leftClick/useLeftClick'
 import useChangeActive from '../carouselHooks/useChangeActive'
 import useFirstLastActive from '../carouselHooks/useFirstLastActive'
 import CarouselButton from './CarouselButton'
+import { CarouselContext } from '../carouselContext/CarouselContextProvider'
+import { useContext } from 'react'
 
 const CarouselWrapper = () => {
+  const { firstActive, lastActive } = useContext(CarouselContext)
   const rightClick = useCarouselRightClick()
   const leftClick = useLeftClick()
+  const { isFirstActive } = firstActive
+  const { isLastActive } = lastActive
   const changeActive = useChangeActive()
-  const { firstActive, lastActive } = useFirstLastActive()
+  useFirstLastActive()
 
   const rightArrowClick = () => {
     rightClick()
@@ -26,12 +31,12 @@ const CarouselWrapper = () => {
       <CarouselSlideDisplay />
       <CarouselButton
         buttonClick={leftArrowClick}
-        disabled={firstActive}
+        disabled={isFirstActive}
         text={'Left'}
       />
       <CarouselButton
         buttonClick={rightArrowClick}
-        disabled={lastActive}
+        disabled={isLastActive}
         text={'Right'}
       />
     </div>

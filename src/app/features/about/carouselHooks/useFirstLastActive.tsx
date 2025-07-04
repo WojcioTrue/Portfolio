@@ -4,8 +4,8 @@ import { CarouselContext } from "../carouselContext/CarouselContextProvider"
 const useFirstLastActive = () => {
     const { carouseElementsArr, firstActive, lastActive } = useContext(CarouselContext)
     const { array } = carouseElementsArr
-    const { isFirstActive, setIsFirstActive} = firstActive
-    const {isLastActive, setIsLastActive} = lastActive
+    const { setIsFirstActive} = firstActive
+    const { setIsLastActive} = lastActive
 
     useEffect(() => {
         if(array.elements.length === 0){
@@ -18,10 +18,6 @@ const useFirstLastActive = () => {
         setIsFirstActive(firstActive)
     }, [array, setIsFirstActive, setIsLastActive])
 
-    return {
-        firstActive,
-        lastActive
-    }
 }
 
 export default useFirstLastActive
