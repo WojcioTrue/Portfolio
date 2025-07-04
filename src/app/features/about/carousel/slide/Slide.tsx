@@ -12,7 +12,7 @@ export type SlideType = {
 const Slide = ({ text, x, gap, opacity, index, active }: SlideType) => {
 
   return (
-    <div className='h-[100%] w-[100%] absolute'>
+    <div className='h-[100%] w-[100%] absolute flex items-center justify-center'>
       <div className='bg-yellow-500 w-[100%] h-[100%]'
         style={{
           transform: `translateX(${x}px)`,
