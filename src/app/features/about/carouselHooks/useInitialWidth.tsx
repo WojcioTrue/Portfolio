@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react"
 import { CarouselContext } from "../carouselContext/CarouselContextProvider"
 
-
 const useInitialWidth = () => {
     const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
     const { array, setArray } = carouseElementsArr
