@@ -2,12 +2,14 @@ import { useContext, useEffect, useState } from 'react'
 import { CarouselContext } from '../carouselContext/CarouselContextProvider'
 import Slide from './slide/Slide'
 import useInitialWidth from '../carouselHooks/useInitialWidth'
+import useResponsiveWidth from '../carouselHooks/useResponsiveWidth'
 
 const CarouselSlideDisplay = () => {
   const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
   const { array } = carouseElementsArr
   const [display, setDisplay] = useState(false)
   useInitialWidth()
+  useResponsiveWidth()
 
   useEffect(() => {
     if (array.width !== 0) {
@@ -18,7 +20,7 @@ const CarouselSlideDisplay = () => {
   return (
     <div
       ref={carouselSlideDisplayRef}
-      className='bg-red-700 w-[200px] h-[200px] relative'>
+      className='bg-red-700 relative w-[150px] h-[150px] md:w-[250px] md:h-[250px]'>
       {display && array.elements.map((x, i) =>
         <Slide
           key={x.index}
