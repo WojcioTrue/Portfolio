@@ -27,7 +27,6 @@ const useLeftClick = () => {
                 ...modifiedX,
             ]
         }
-        console.log(newArr)
         return newArr
     }
 
