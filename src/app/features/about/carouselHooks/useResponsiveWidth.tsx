@@ -10,10 +10,10 @@ const useResponsiveWidth = () => {
         const resizeEvent = () => {
             const displayWidth = carouselSlideDisplayRef?.current?.getBoundingClientRect().width
             if (displayWidth !== undefined) {
-                const newArr = array.elements.map((x, i) => {
+                const newArr = array.elements.map((x) => {
                     return {
                         ...x,
-                        x: displayWidth * (i * 1)
+                        x: displayWidth * (x.index * 1)
                     }
                 })
 

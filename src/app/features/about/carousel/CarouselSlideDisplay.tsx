@@ -14,6 +14,7 @@ const CarouselSlideDisplay = () => {
   useEffect(() => {
     if (array.width !== 0) {
       setDisplay(true)
+      console.log(array)
     }
   }, [array])
 
