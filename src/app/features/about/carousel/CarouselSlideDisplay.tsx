@@ -1,12 +1,16 @@
-import { RefObject, useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CarouselContext } from '../carouselContext/CarouselContextProvider'
 import Slide from './slide/Slide'
+import useInitialWidth from '../carouselHooks/useInitialWidth'
 
 const CarouselSlideDisplay = () => {
   const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
   const { array, setArray } = carouseElementsArr
   const [display, setDisplay] = useState(false)
+  useInitialWidth()
 
+  
+  // initial width of slide Display element
   useEffect(() => {
     const displayWidth = carouselSlideDisplayRef?.current?.getBoundingClientRect().width
     if (displayWidth !== undefined) {
