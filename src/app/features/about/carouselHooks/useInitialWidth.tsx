@@ -1,9 +1,19 @@
 import { useContext, useEffect } from "react"
 import { CarouselContext } from "../carouselContext/CarouselContextProvider"
 
-const useInitialWidth = () => {
+// pass prop between elements
+const useInitialWidth = (gap: number) => {
     const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
     const { array, setArray } = carouseElementsArr
+    const gapValue = () => {
+        if((typeof gap === 'number') && (isFinite(gap))){
+            return Number(gap.toFixed(0))
+        } else {
+            console.error('please pass number value. Gap will be setted to default 0 value')
+            return 0
+        }
+    }
+
 
     // initial width of slide Display element
     useEffect(() => {
@@ -18,7 +28,7 @@ const useInitialWidth = () => {
 
             const modifiedArr = {
                 width: displayWidth,
-                gap: 20,
+                gap: gapValue(),
                 elements: [
                     ...newArr
                 ]
