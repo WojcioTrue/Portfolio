@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { CarouselContext } from '../../carouselContext/CarouselContextProvider'
 
 export type SlideType = {
   text: string,
@@ -11,21 +12,26 @@ export type SlideType = {
 
 const Slide = ({ text, x, gap, index, active }: SlideType) => {
 
-  const countOpacity = (arg: number) => {
-    console.log('triggered')
-    if (0 > arg) {
-      return 0
-    }
-    return 1 - index * 0.25
-  }
+
+  useEffect(() => {
+    console.log(text,index)
+  },[])
 
   return (
     <motion.li
-    layout
-    className='h-[100%] w-[100%] absolute flex items-center justify-center'
+      layout
+      initial={{
+        
+      }}
+      animate={{
+        transform: `translateX(${x + (gap * index)}px)`
+      }}
+      transition={{
+        duration: 0.2,
+      }}
+      className='h-[100%] w-[100%] absolute flex items-center justify-center'
       style={{
-        transform: `translateX(${x + (gap * index)}px)`,
-        opacity: countOpacity(index)
+
       }}>
       <div className='bg-yellow-500 w-[100%] h-[100%]'
       >{text} {`${active}`}
