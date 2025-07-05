@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 
 export type SlideType = {
@@ -19,7 +20,9 @@ const Slide = ({ text, x, gap, index, active }: SlideType) => {
   }
 
   return (
-    <li className='h-[100%] w-[100%] absolute flex items-center justify-center'
+    <motion.li
+    layout
+    className='h-[100%] w-[100%] absolute flex items-center justify-center'
       style={{
         transform: `translateX(${x + (gap * index)}px)`,
         opacity: countOpacity(index)
@@ -27,7 +30,7 @@ const Slide = ({ text, x, gap, index, active }: SlideType) => {
       <div className='bg-yellow-500 w-[100%] h-[100%]'
       >{text} {`${active}`}
       </div>
-    </li>
+    </motion.li>
 
   )
 }
