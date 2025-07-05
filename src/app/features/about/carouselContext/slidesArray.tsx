@@ -6,6 +6,7 @@ export type SlideArrayType = {
         x: number,
         text: string,
         visible: boolean,
+        opacity: number,
         active: boolean
     }[]
 }
@@ -19,6 +20,7 @@ export const slideArray: SlideArrayType = {
             x: 0,
             text: 'first',
             visible: true,
+            opacity: 0,
             active: true,
         },
         {
@@ -26,6 +28,7 @@ export const slideArray: SlideArrayType = {
             x: 0,
             text: 'second',
             visible: true,
+            opacity: 0,
             active: false,
 
         },
@@ -34,6 +37,7 @@ export const slideArray: SlideArrayType = {
             x: 0,
             text: 'third',
             visible: true,
+            opacity: 0,
             active: false,
         }
     ]
