@@ -7,7 +7,7 @@ export const CarouselContext = createContext<{
         array: SlideArrayType
         setArray: Dispatch<SetStateAction<SlideArrayType>>
     }
-    carouselSlideDisplayRef: React.RefObject<HTMLDivElement> | undefined,
+    carouselSlideDisplayRef: React.RefObject<HTMLUListElement> | undefined,
     firstActive: {
         isFirstActive: boolean
         setIsFirstActive: Dispatch<SetStateAction<boolean>>
@@ -26,6 +26,7 @@ export const CarouselContext = createContext<{
                 x: 0,
                 text: '',
                 visible: false,
+                opacity: 0,
                 active: false
             }]
         },
@@ -45,7 +46,7 @@ export const CarouselContext = createContext<{
 
 const CarouselContextProvider = ({ children }: ChildrenType) => {
     const [array, setArray] = useState<SlideArrayType>(slideArray)
-    const carouselSlideDisplayRef = useRef<HTMLDivElement | null>(null)
+    const carouselSlideDisplayRef = useRef<HTMLUListElement | null>(null)
     const [isFirstActive, setIsFirstActive] = useState<boolean>(true)
     const [isLastActive, setIsLastActive] = useState<boolean>(true)
 

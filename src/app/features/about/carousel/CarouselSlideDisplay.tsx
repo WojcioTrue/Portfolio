@@ -19,7 +19,7 @@ const CarouselSlideDisplay = () => {
   }, [array])
 
   return (
-    <div
+    <ul
       ref={carouselSlideDisplayRef}
       className='bg-red-700 relative w-[150px] h-[150px] md:w-[250px] md:h-[250px]'>
       {display && array.elements.map((x, i) =>
@@ -31,7 +31,7 @@ const CarouselSlideDisplay = () => {
           gap={gap}
           active={x.active}
         />)}
-    </div>
+    </ul>
   )
 }
 
