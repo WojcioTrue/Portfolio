@@ -1,7 +1,10 @@
+import { v4 as uuidv4, V4Options } from 'uuid';
+
 export type SlideArrayType = {
     width: number,
     gap: number,
     elements: {
+        key: string,
         index: number,
         x: number,
         text: string,
@@ -16,6 +19,7 @@ export const slideArray: SlideArrayType = {
     gap: 0,
     elements: [
         {
+            key: uuidv4(),
             index: 0,
             x: 0,
             text: 'first',
@@ -24,6 +28,7 @@ export const slideArray: SlideArrayType = {
             active: true,
         },
         {
+            key: uuidv4(),
             index: 1,
             x: 0,
             text: 'second',
@@ -33,6 +38,7 @@ export const slideArray: SlideArrayType = {
 
         },
         {
+            key: uuidv4(),
             index: 2,
             x: 0,
             text: 'third',

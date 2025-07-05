@@ -24,7 +24,7 @@ const CarouselSlideDisplay = () => {
       className='bg-red-700 relative w-[150px] h-[150px] md:w-[250px] md:h-[250px]'>
       {display && array.elements.map((x, i) =>
         <Slide
-          key={x.text}
+          key={x.key}
           index={x.index}
           text={x.text}
           x={x.x}

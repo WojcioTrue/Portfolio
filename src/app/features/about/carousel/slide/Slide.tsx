@@ -13,15 +13,11 @@ export type SlideType = {
 const Slide = ({ text, x, gap, index, active }: SlideType) => {
 
 
-  useEffect(() => {
-    console.log(text,index)
-  },[])
-
   return (
     <motion.li
       layout
       initial={{
-        
+        transform: `translateX(${x + (gap * index)}px)`
       }}
       animate={{
         transform: `translateX(${x + (gap * index)}px)`
