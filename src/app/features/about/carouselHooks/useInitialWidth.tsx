@@ -5,6 +5,7 @@ import { CarouselContext } from "../carouselContext/CarouselContextProvider"
 const useInitialWidth = (gap: number) => {
     const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
     const { array, setArray } = carouseElementsArr
+    
     const gapValue = () => {
         if((typeof gap === 'number') && (isFinite(gap))){
             return Number(gap.toFixed(0))
@@ -13,7 +14,6 @@ const useInitialWidth = (gap: number) => {
             return 0
         }
     }
-
 
     // initial width of slide Display element
     useEffect(() => {
