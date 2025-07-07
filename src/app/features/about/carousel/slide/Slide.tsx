@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import React, { useContext, useEffect } from 'react'
-import { CarouselContext } from '../../carouselContext/CarouselContextProvider'
+import React from 'react'
+
 
 export type SlideType = {
   text: string,
