@@ -13,6 +13,7 @@ const CarouselSlideDisplay = () => {
   useResponsiveWidth()
 
   useEffect(() => {
+    console.log(array)
     if (array.width !== 0) {
       setDisplay(true)
     }
@@ -30,6 +31,7 @@ const CarouselSlideDisplay = () => {
           x={x.x}
           gap={gap}
           active={x.active}
+          visible={x.visible}
         />)}
     </ul>
   )
