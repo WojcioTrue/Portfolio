@@ -15,12 +15,15 @@ const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
     initial: (customX: number) => ({
       opacity: 0,
       x: customX,
+      y: (10 * index),
       transition: { duration: 0.4 }
     }),
     animate: (customX: number) => ({
       // exit animation doesnt work with passed prop, im changing opacity without removing element from DOM
-      opacity: visible ? (1 - (index * 0.30)) : 0,
+      opacity: visible ? (1 - (index * 0.35)) : 0,
       x: customX,
+      y: (10 * index),
+      zIndex: 50 - index,
       transition: { duration: 0.4 }
     }),
   };
