@@ -3,6 +3,7 @@ import { CarouselContext } from '../carouselContext/CarouselContextProvider'
 import Slide from './slide/Slide'
 import useInitialWidth from '../carouselHooks/useInitialWidth'
 import useResponsiveWidth from '../carouselHooks/useResponsiveWidth'
+import { AnimatePresence } from 'framer-motion'
 
 const CarouselSlideDisplay = () => {
   const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
@@ -13,7 +14,6 @@ const CarouselSlideDisplay = () => {
   useResponsiveWidth()
 
   useEffect(() => {
-    console.log(array)
     if (array.width !== 0) {
       setDisplay(true)
     }
