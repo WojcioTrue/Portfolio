@@ -1,7 +1,4 @@
 import { AnimatePresence, motion, useMotionValue, Variants } from 'framer-motion'
-import React, { useContext, useEffect, useState } from 'react'
-import { CarouselContext } from '../../carouselContext/CarouselContextProvider'
-
 
 export type SlideType = {
   text: string,
@@ -13,9 +10,6 @@ export type SlideType = {
 }
 
 const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
-  const { carouseElementsArr } = useContext(CarouselContext)
-  const { array } = carouseElementsArr
-  const xValue = useMotionValue(x)
 
   const motionVariants: Variants = {
     initial: (customX: number) => ({
@@ -24,7 +18,8 @@ const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
       transition: { duration: 0.4 }
     }),
     animate: (customX: number) => ({
-      opacity: visible ? 1 : 0,
+      // exit animation doesnt work with passed prop, im changing opacity without removing element from DOM
+      opacity: visible ? (1 - (index * 0.30)) : 0,
       x: customX,
       transition: { duration: 0.4 }
     }),
@@ -34,7 +29,7 @@ const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
     <AnimatePresence mode="wait">
       <motion.li
         layout
-        custom={x}
+        custom={x - (gap * index)}
         variants={motionVariants}
         initial="initial"
         animate="animate"
