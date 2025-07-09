@@ -23,7 +23,9 @@ const CarouselButton = ({ buttonClick, disabled, text }: CarouselButtonType) => 
             style={{
                 zIndex: 100,
                 left: text === "Left" ? '-20px' : undefined,
-                right: text === "Right" ? '-20px' : undefined
+                right: text === "Right" ? '-20px' : undefined,
+                filter: disabled ? 'grayscale(1)' : 'grayscale(0)',
+                opacity : disabled ? '0.7' : '1'
             }}
         >{text === "Left" ? <FaArrowLeft /> :
             text === "Right" ? <FaArrowRight /> :
