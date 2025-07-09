@@ -9,7 +9,7 @@ const CarouselSlideDisplay = () => {
   const { array } = carouseElementsArr
   const [display, setDisplay] = useState(false)
   const { gap } = array
-  useInitialWidth(40)
+  useInitialWidth(25)
   useResponsiveWidth()
 
   useEffect(() => {

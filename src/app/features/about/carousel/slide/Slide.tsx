@@ -1,4 +1,6 @@
+import { mabryProRegular } from '@/app/assets/fonts/MabryPro';
 import { AnimatePresence, motion, Variants } from 'framer-motion'
+import { useEffect } from 'react';
 
 export type SlideType = {
   text: string,
@@ -40,9 +42,9 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         className='h-[100%] w-[100%] absolute flex items-center justify-center'
         style={{
         }}>
-        <div className='w-[100%] h-[100%] p-2 shadow-myshadow rounded-lg  bg-gradient-to-tr from-my-gradient2/90 to-my-gradient1/85  opacity-85'
+        <div className='w-[100%] h-[100%] p-2 shadow-myshadow rounded-lg  bg-gradient-to-tr from-my-gradient2/85 to-my-gradient1/85'
         >
-          <h1 className='text-white'>White</h1>
+          <h1 className={`text-white text-4xl ${mabryProRegular.className}`}>{text}</h1>
         </div>
       </motion.li>
 {/* 

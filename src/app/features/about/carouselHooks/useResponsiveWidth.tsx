@@ -19,7 +19,7 @@ const useResponsiveWidth = () => {
 
                 const modifiedArr = {
                     width: displayWidth,
-                    gap: 20,
+                    gap: array.gap,
                     elements: [
                         ...newArr
                     ]
