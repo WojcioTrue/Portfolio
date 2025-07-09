@@ -21,7 +21,7 @@ const CarouselSlideDisplay = () => {
   return (
     <ul
       ref={carouselSlideDisplayRef}
-      className='relative w-[80%] max-w-[550px] h-[250px] md:h-[250px]'>
+      className='relative w-[80%] max-w-[380px] h-[400px]'>
       {display && array.elements.map((x, i) =>
         <Slide
           key={x.key}

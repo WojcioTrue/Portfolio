@@ -11,7 +11,7 @@ const Description = () => {
     gap-[6px] 
     text-header-desc-default
     sm:text-header-desc-sm-default
-  text-my-lightGray
+  text-my-gray
     w-full pb-6 tracking-description ${mabryProLight.className}`}>
       {description.split(' ').map((x, i) =>
         <motion.span

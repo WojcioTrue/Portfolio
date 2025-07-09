@@ -22,7 +22,7 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
     }),
     animate: (customX: number) => ({
       // exit animation doesnt work with passed prop, im changing opacity without removing element from DOM
-      opacity: visible ? (1 - (index * 0.25)) : 0,
+      opacity: visible ? (1 - (index * 0.3)) : 0,
       x: customX,
       y: (15 * index),
       zIndex: 10 - index,
@@ -39,19 +39,16 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         variants={motionVariants}
         initial="initial"
         animate="animate"
+        exit="exit"
         className='h-[100%] w-[100%] absolute flex items-center justify-center'
         style={{
         }}>
-        <div className='w-[100%] h-[100%] p-2 shadow-myshadow rounded-lg  bg-gradient-to-tr from-my-gradient2/85 to-my-gradient1/85'
+        <div className='w-[100%] h-[100%] p-2 shadow-myshadow rounded-lg bg-white border-[1px] border-my-purple border-opacity-15'
         >
           <h1 className={`text-white text-4xl ${mabryProRegular.className}`}>{text}</h1>
+          <h2 className={`text-white text-4xl ${mabryProRegular.className}`}>lorem ipsum dol...</h2>
         </div>
       </motion.li>
-{/* 
-
-style={{
-          background: 'linear-gradient(45deg, rgb(191, 64, 191) 20%, rgb(127, 0, 255) 75%'
-        }} */}
     </AnimatePresence>
 
 

@@ -12,7 +12,7 @@ const Header = () => {
         2xl:text-header-my-2xl 
         text-center 
         tracking-header 
-        text-my-white
+        text-my-black
         ${mabryProBold.className}`}>
             <motion.h1
                 className='mr-5'
