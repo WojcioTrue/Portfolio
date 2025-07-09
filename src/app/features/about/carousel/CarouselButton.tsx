@@ -16,8 +16,10 @@ const CarouselButton = ({ buttonClick, disabled, text }: CarouselButtonType) => 
                 h-[40px] w-[40px] 
                 absolute top-1/2 -translate-y-1/2 
                 rounded-[100px] overflow-hidden 
-                ${disabled ? 'bg-gradient-to-tr from-my-gradient1 to-my-gradient2' : 'bg-gray-500'} 
-                text-white z-50`}
+                bg-gradient-to-tr 
+                from-my-gradient1 to-my-gradient2
+                text-white 
+                z-50`}
             style={{
                 zIndex: 100,
                 left: text === "Left" ? '-20px' : undefined,
