@@ -1,3 +1,5 @@
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
+
 type CarouselButtonType = {
     buttonClick: () => void,
     disabled: boolean,
@@ -9,14 +11,21 @@ const CarouselButton = ({ buttonClick, disabled, text }: CarouselButtonType) => 
         <button
             onClick={() => buttonClick()}
             disabled={disabled}
-            className='h-[50px] w-[50px] absolute top-1/2'
+            className={`
+                flex justify-center items-center 
+                h-[40px] w-[40px] 
+                absolute top-1/2 -translate-y-1/2 
+                rounded-[100px] overflow-hidden 
+                ${disabled ? 'bg-gradient-to-tr from-my-gradient1 to-my-gradient2' : 'bg-gray-500'} 
+                text-white z-50`}
             style={{
                 zIndex: 100,
-                backgroundColor: disabled ? 'red' : 'white',
-                left: text === "Left" ? '0' : undefined,
-                right: text === "Right" ? '0' : undefined
+                left: text === "Left" ? '-20px' : undefined,
+                right: text === "Right" ? '-20px' : undefined
             }}
-        >{text}
+        >{text === "Left" ? <FaArrowLeft /> :
+            text === "Right" ? <FaArrowRight /> :
+                undefined}
         </button>
     )
 }

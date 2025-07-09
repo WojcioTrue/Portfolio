@@ -45,7 +45,7 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         }}>
         <div className='w-[100%] h-[100%] p-2 shadow-myshadow rounded-lg bg-white border-[1px] border-my-purple border-opacity-15'
         >
-          <h1 className={` bg-gradient-to-tr 
+          <h1 className={`bg-gradient-to-tr 
                     from-my-gradient1
                     to-my-gradient2 inline-block text-transparent bg-clip-text tracking-header px-2 text-4xl ${mabryProMedium.className}`}>{text}</h1>
           <h2 className={`text-white text-4xl ${mabryProRegular.className}`}>lorem ipsum dol...</h2>
