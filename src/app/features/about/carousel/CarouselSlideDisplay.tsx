@@ -3,7 +3,6 @@ import { CarouselContext } from '../carouselContext/CarouselContextProvider'
 import Slide from './slide/Slide'
 import useInitialWidth from '../carouselHooks/useInitialWidth'
 import useResponsiveWidth from '../carouselHooks/useResponsiveWidth'
-import { AnimatePresence } from 'framer-motion'
 
 const CarouselSlideDisplay = () => {
   const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
@@ -22,7 +21,7 @@ const CarouselSlideDisplay = () => {
   return (
     <ul
       ref={carouselSlideDisplayRef}
-      className='relative w-[150px] h-[150px] md:w-[250px] md:h-[250px]'>
+      className='relative w-[80%] max-w-[550px] h-[250px] md:h-[250px]'>
       {display && array.elements.map((x, i) =>
         <Slide
           key={x.key}

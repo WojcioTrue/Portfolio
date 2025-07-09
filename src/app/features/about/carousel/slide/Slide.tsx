@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useMotionValue, Variants } from 'framer-motion'
+import { AnimatePresence, motion, Variants } from 'framer-motion'
 
 export type SlideType = {
   text: string,
@@ -9,7 +9,7 @@ export type SlideType = {
   visible: boolean
 }
 
-const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
+const Slide = ({ text, x, gap, index, visible }: SlideType) => {
 
   const motionVariants: Variants = {
     initial: (customX: number) => ({
@@ -20,12 +20,12 @@ const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
     }),
     animate: (customX: number) => ({
       // exit animation doesnt work with passed prop, im changing opacity without removing element from DOM
-      opacity: visible ? (1 - (index * 0.35)) : 0,
+      opacity: visible ? (1 - (index * 0.15)) : 0,
       x: customX,
-      y: (10 * index),
+      y: (25 * index),
       zIndex: 10 - index,
       transition: { duration: 0.4 },
-      filter: `blur(${index * 2}px)`,
+      filter: `blur(${Math.abs(index * 2)}px)`,
     }),
   };
 
@@ -33,7 +33,7 @@ const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
     <AnimatePresence mode="wait">
       <motion.li
         layout
-        custom={x - (gap * index)}
+        custom={x - (x - (gap * index))}
         variants={motionVariants}
         initial="initial"
         animate="animate"

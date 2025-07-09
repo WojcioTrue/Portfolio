@@ -22,6 +22,7 @@ export const CarouselContext = createContext<{
             width: 0,
             gap: 0,
             elements: [{
+                key: '',
                 index: 0,
                 x: 0,
                 text: '',
