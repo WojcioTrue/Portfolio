@@ -6,16 +6,16 @@ const description = 'lorem ipsum dol.. .'
 
 const Description = () => {
 
-   return (
+  return (
     <p className={`flex justify-center 
     gap-[6px] 
     text-header-desc-default
     sm:text-header-desc-sm-default
-  text-my-gray
+  text-my-lightGray
     w-full pb-6 tracking-description ${mabryProLight.className}`}>
       {description.split(' ').map((x, i) =>
         <motion.span
-        className='inline-block'
+          className='inline-block'
           key={i}
           initial={{
             opacity: 0,
@@ -27,14 +27,14 @@ const Description = () => {
             y: '0px',
             x: '0px',
             transition: {
-              delay: 1 + i/15
+              delay: 1 + i / 15
             }
           }}
           viewport={{
             once: true,
             margin: '0px 0px -100px 0px'
           }}
-          >{x}</motion.span>
+        >{x}</motion.span>
       )}
     </p>
   )
