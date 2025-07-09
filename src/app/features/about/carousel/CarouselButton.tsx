@@ -11,6 +11,7 @@ const CarouselButton = ({ buttonClick, disabled, text }: CarouselButtonType) => 
             disabled={disabled}
             className='h-[50px] w-[50px] absolute top-1/2'
             style={{
+                zIndex: 100,
                 backgroundColor: disabled ? 'red' : 'white',
                 left: text === "Left" ? '0' : undefined,
                 right: text === "Right" ? '0' : undefined
