@@ -27,7 +27,7 @@ const CarouselWrapper = () => {
   }
 
   return (
-    <div className='relative flex flex-row justify-center bg-green-600 w-[100%] max-w-[1200px]'>
+    <div className='relative flex flex-row justify-center w-[100%] max-w-[1200px]'>
       <CarouselSlideDisplay />
       <CarouselButton
         buttonClick={leftArrowClick}

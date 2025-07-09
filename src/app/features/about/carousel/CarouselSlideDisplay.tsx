@@ -22,7 +22,7 @@ const CarouselSlideDisplay = () => {
   return (
     <ul
       ref={carouselSlideDisplayRef}
-      className='bg-red-700 relative w-[150px] h-[150px] md:w-[250px] md:h-[250px]'>
+      className='relative w-[150px] h-[150px] md:w-[250px] md:h-[250px]'>
       {display && array.elements.map((x, i) =>
         <Slide
           key={x.key}

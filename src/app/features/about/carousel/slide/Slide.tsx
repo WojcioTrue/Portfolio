@@ -40,7 +40,7 @@ const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
         style={{
         }}>
         <div className='bg-yellow-500 w-[100%] h-[100%]'
-        >{text} {`${x}`}
+        >{text} {`${x - (gap * index)}`}
         </div>
       </motion.li>
 
