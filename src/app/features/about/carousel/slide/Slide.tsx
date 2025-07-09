@@ -23,7 +23,7 @@ const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
       opacity: visible ? (1 - (index * 0.35)) : 0,
       x: customX,
       y: (10 * index),
-      zIndex: 50 - index,
+      zIndex: 10 - index,
       transition: { duration: 0.4 }
     }),
   };
