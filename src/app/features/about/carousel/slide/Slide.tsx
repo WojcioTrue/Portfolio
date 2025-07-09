@@ -24,7 +24,8 @@ const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
       x: customX,
       y: (10 * index),
       zIndex: 10 - index,
-      transition: { duration: 0.4 }
+      transition: { duration: 0.4 },
+      filter: `blur(${index * 2}px)`,
     }),
   };
 
@@ -39,7 +40,15 @@ const Slide = ({ text, x, gap, index, active, visible }: SlideType) => {
         className='h-[100%] w-[100%] absolute flex items-center justify-center'
         style={{
         }}>
-        <div className='bg-yellow-500 w-[100%] h-[100%]'
+        <div className='
+                w-[100%] 
+                h-[100%] 
+               bg-white
+                 border-[1.5px]
+                border-my-purple
+                border-opacity-15
+                shadow-myshadow 
+                rounded-lg '
         >{text} {`${x - (gap * index)}`}
         </div>
       </motion.li>
