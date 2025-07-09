@@ -9,9 +9,6 @@ import useChangeActive from '../carouselHooks/useChangeActive'
 import useCarouselRightClick from '../carouselHooks/rightClick/useRightClick'
 import useLeftClick from '../carouselHooks/leftClick/useLeftClick'
 
-
-
-
 const CarouselSlideDisplay = () => {
   const { carouseElementsArr, carouselSlideDisplayRef, firstActive, lastActive } = useContext(CarouselContext)
   const { array } = carouseElementsArr
@@ -23,8 +20,6 @@ const CarouselSlideDisplay = () => {
   const { isLastActive } = lastActive
   const changeActive = useChangeActive()
   useFirstLastActive()
-
-
   useInitialWidth(25)
   useResponsiveWidth()
 
@@ -34,7 +29,6 @@ const CarouselSlideDisplay = () => {
     }
   }, [array])
 
-  
 const rightArrowClick = () => {
   rightClick()
   changeActive()
