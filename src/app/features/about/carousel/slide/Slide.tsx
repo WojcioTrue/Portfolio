@@ -62,7 +62,8 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
           <div className='w-[calc(100%-16px)] h-[1px] bg-gradient-to-tr 
                     from-my-gradient1
                     to-my-gradient2  px-9 m-auto my-3'></div>
-          <h2 className={`mx-8 text-my-gray text-xl ${mabryProRegular.className}`}>lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...</h2>
+          <p className={`mx-8 text-my-gray
+    ${mabryProRegular.className}`}>lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...</p>
         </div>
       </motion.li>
     </AnimatePresence>
