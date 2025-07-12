@@ -3,7 +3,7 @@ import { CarouselContext } from "../carouselContext/CarouselContextProvider";
 import Slide from "./slide/Slide";
 import useInitialWidth from "../carouselHooks/useInitialWidth";
 import useResponsiveWidth from "../carouselHooks/useResponsiveWidth";
-import CarouselButton from "./CarouselButton";
+import CarouselSlideButton from "./CarouselSlideButton";
 import useFirstLastActive from "../carouselHooks/useFirstLastActive";
 import useChangeActive from "../carouselHooks/useChangeActive";
 import useCarouselRightClick from "../carouselHooks/rightClick/useRightClick";
@@ -61,12 +61,12 @@ const CarouselSlideDisplay = () => {
             visible={x.visible}
           />
         ))}
-      <CarouselButton
+      <CarouselSlideButton
         buttonClick={leftArrowClick}
         disabled={isFirstActive}
         text={"Left"}
       />
-      <CarouselButton
+      <CarouselSlideButton
         buttonClick={rightArrowClick}
         disabled={isLastActive}
         text={"Right"}

@@ -1,17 +1,17 @@
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-type CarouselButtonType = {
+type CarouselSlideButtonType = {
   buttonClick: () => void;
   disabled: boolean;
   text: string;
 };
 
-const CarouselButton = ({
+const CarouselSlideButton = ({
   buttonClick,
   disabled,
   text,
-}: CarouselButtonType) => {
+}: CarouselSlideButtonType) => {
   return (
     <motion.button
       initial={{
@@ -39,4 +39,4 @@ const CarouselButton = ({
   );
 };
 
-export default CarouselButton;
+export default CarouselSlideButton;
