@@ -28,12 +28,12 @@ const CarouselSlideButton = ({
       }}
       onClick={() => buttonClick()}
       disabled={disabled}
-      className={`absolute top-1/2 z-50 flex h-[40px] w-[40px] -translate-y-1/2 items-center justify-center overflow-hidden rounded-[100px] border-[1px] border-my-purple text-white`}
+      className={`absolute top-1/2 z-50 flex h-[40px] w-[40px] -translate-y-1/2 items-center justify-center overflow-hidden bg-gradient-to-tr from-my-gradient1 to-my-gradient2 rounded-[100px] border-[1px] text-white`}
     >
       {text === "Left" ? (
-        <FaArrowLeft color="rgb(116, 41, 245)" />
+        <FaArrowLeft color="rgb(255,255,255)" />
       ) : text === "Right" ? (
-        <FaArrowRight color="rgb(116, 41, 245)" />
+        <FaArrowRight color="rgb(255,255,255)" />
       ) : undefined}
     </motion.button>
   );

@@ -28,13 +28,13 @@ const CarouselOpenButton = () => {
         scale: 1.6,
         opacity: 0,
       }}
-      className="absolute right-[10px] top-[23px] flex h-[35px] w-[35px] items-center justify-center rounded-3xl bg-gradient-to-tr from-my-gradient1 to-my-gradient2"
+      className="absolute bottom-[10px] right-[10px] h-[45px] rounded-md bg-transparent bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-3 cursor-pointer text-white"
       type="button"
       aria-controls="carousel_skill_open"
       aria-expanded="false"
       aria-label="carousel_skill_open"
     >
-      <HiOutlineXMark size={"25px"} color="white" />
+      {"Text "}
     </motion.button>
   );
 };

@@ -1,5 +1,6 @@
 import { mabryProMedium, mabryProRegular } from "@/app/assets/fonts/MabryPro";
 import { AnimatePresence, motion, Variants } from "framer-motion";
+import CarouselOpenButton from "../CarouselOpenButton";
 
 export type SlideType = {
   text: string;
@@ -54,6 +55,8 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
             dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...
           </p>
         </div>
+        <CarouselOpenButton />
+        <CarouselOpenButton />
       </motion.li>
     </AnimatePresence>
   );
