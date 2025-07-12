@@ -20,7 +20,7 @@ const CarouselSlideDisplay = () => {
   const { isLastActive } = lastActive
   const changeActive = useChangeActive()
   useFirstLastActive()
-  useInitialWidth(25)
+  useInitialWidth(30)
   useResponsiveWidth()
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const leftArrowClick = () => {
   return (
     <ul
       ref={carouselSlideDisplayRef}
-      className='relative w-[80%] max-w-[380px] h-[400px]'>
+      className='relative w-[80%] max-w-[480px] h-[300px]'>
       {display && array.elements.map((x, i) =>
         <Slide
           key={x.key}

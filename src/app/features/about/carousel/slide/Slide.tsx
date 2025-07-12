@@ -1,6 +1,5 @@
 import { mabryProMedium, mabryProRegular } from '@/app/assets/fonts/MabryPro';
 import { AnimatePresence, motion, Variants } from 'framer-motion'
-import { useEffect } from 'react';
 
 export type SlideType = {
   text: string,
@@ -24,7 +23,7 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
       // exit animation doesnt work with passed prop, im changing opacity without removing element from DOM
       opacity: visible ? (1 - (index * 0.3)) : 0,
       x: customX,
-      y: (15 * index),
+      y: (10 * index),
       zIndex: 10 - index,
       transition: { duration: 0.4 },
       filter: `blur(${Math.abs(index * 2)}px)`,
@@ -43,7 +42,7 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         className='h-[100%] w-[100%] absolute flex items-center justify-center'
         style={{
         }}>
-        <div className='w-[100%] h-[100%] p-2 shadow-myshadow rounded-lg bg-white border-[1px] border-my-purple border-opacity-15'
+        <div className='w-[100%] h-[100%] py-8 px-3 shadow-myshadow rounded-lg bg-white border-[1px] border-my-purple border-opacity-15'
         >
           <h1 className={`bg-gradient-to-tr 
                     from-my-gradient1
