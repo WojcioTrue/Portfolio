@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { HiOutlineXMark } from "react-icons/hi2";
 
-const CarouselButton = () => {
+const CarouselOpenButton = () => {
   return (
     <motion.button
       initial={{
@@ -39,4 +39,4 @@ const CarouselButton = () => {
   );
 };
 
-export default CarouselButton;
+export default CarouselOpenButton;
