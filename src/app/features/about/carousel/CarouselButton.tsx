@@ -20,12 +20,10 @@ const CarouselButton = ({
         right: text === "Right" ? "-20px" : undefined,
       }}
       animate={{
-        // filter: disabled ? "grayscale(1)" : "grayscale(0)",
-        opacity: disabled ? "0.5" : "1",
+        filter: disabled ? "grayscale(1)" : "grayscale(0)",
+        opacity: disabled ? 0.5 : 1,
         transition: {
-          opacity: {
-            duration: 2,
-          },
+          duration: 0.2,
         },
       }}
       onClick={() => buttonClick()}
