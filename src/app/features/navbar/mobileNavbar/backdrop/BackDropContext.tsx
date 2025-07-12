@@ -3,34 +3,36 @@ import { Dispatch, SetStateAction } from "react";
 
 type BlurPageType = {
   blurPage: {
-    isBlur: boolean,
-    setIsBlur: Dispatch<SetStateAction<boolean>>
-  }
-}
+    isBlur: boolean;
+    setIsBlur: Dispatch<SetStateAction<boolean>>;
+  };
+};
 
 export const BlurPage = createContext<BlurPageType>({
   blurPage: {
     isBlur: false,
-    setIsBlur: () => { }
-  }
-})
+    setIsBlur: () => {},
+  },
+});
 
 type ChildrenType = {
-    children : React.ReactNode
-  }
+  children: React.ReactNode;
+};
 
-const BackDropContext = ({children} : ChildrenType) => {
-    const [isBlur, setIsBlur] = useState<boolean>(false)
+const BackDropContext = ({ children }: ChildrenType) => {
+  const [isBlur, setIsBlur] = useState<boolean>(false);
   return (
-    <BlurPage.Provider value={{
+    <BlurPage.Provider
+      value={{
         blurPage: {
           isBlur,
           setIsBlur,
-        }
-      }}>
-        {children}
-      </BlurPage.Provider>
-  )
-}
+        },
+      }}
+    >
+      {children}
+    </BlurPage.Provider>
+  );
+};
 
-export default BackDropContext
+export default BackDropContext;

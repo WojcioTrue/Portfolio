@@ -1,38 +1,36 @@
-import { useContext, useEffect } from "react"
-import { CarouselContext } from "../carouselContext/CarouselContextProvider"
-
+import { useContext, useEffect } from "react";
+import { CarouselContext } from "../carouselContext/CarouselContextProvider";
 
 const useResponsiveWidth = () => {
-    const { carouseElementsArr, carouselSlideDisplayRef } = useContext(CarouselContext)
-    const { array, setArray } = carouseElementsArr
+  const { carouseElementsArr, carouselSlideDisplayRef } =
+    useContext(CarouselContext);
+  const { array, setArray } = carouseElementsArr;
 
-    useEffect(() => {
-        const resizeEvent = () => {
-            const displayWidth = carouselSlideDisplayRef?.current?.getBoundingClientRect().width
-            if (displayWidth !== undefined) {
-                const newArr = array.elements.map((x) => {
-                    return {
-                        ...x,
-                        x: displayWidth * (x.index * 1)
-                    }
-                })
+  useEffect(() => {
+    const resizeEvent = () => {
+      const displayWidth =
+        carouselSlideDisplayRef?.current?.getBoundingClientRect().width;
+      if (displayWidth !== undefined) {
+        const newArr = array.elements.map((x) => {
+          return {
+            ...x,
+            x: displayWidth * (x.index * 1),
+          };
+        });
 
-                const modifiedArr = {
-                    width: displayWidth,
-                    gap: array.gap,
-                    elements: [
-                        ...newArr
-                    ]
-                }
-                setArray(modifiedArr)
-            }
-        }
-        window.addEventListener('resize', resizeEvent)
-        return () => {
-            window.removeEventListener('resize', resizeEvent)
-        }
-    }, [carouselSlideDisplayRef, array, setArray])
+        const modifiedArr = {
+          width: displayWidth,
+          gap: array.gap,
+          elements: [...newArr],
+        };
+        setArray(modifiedArr);
+      }
+    };
+    window.addEventListener("resize", resizeEvent);
+    return () => {
+      window.removeEventListener("resize", resizeEvent);
+    };
+  }, [carouselSlideDisplayRef, array, setArray]);
+};
 
-}
-
-export default useResponsiveWidth
+export default useResponsiveWidth;

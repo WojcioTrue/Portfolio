@@ -1,24 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { NavBarContext } from "./../../navBarContext/NavBarContextProvider"
-import animatedBackground from './animatedBg.module.scss'
-
-
+import React, { useContext, useEffect, useState } from "react";
+import { NavBarContext } from "./../../navBarContext/NavBarContextProvider";
+import animatedBackground from "./animatedBg.module.scss";
 
 const Top = () => {
-  const { navBarMobilePosition } = useContext(NavBarContext)
-  const { position } = navBarMobilePosition
-  const [height, setHeight] = useState<number>(0)
+  const { navBarMobilePosition } = useContext(NavBarContext);
+  const { position } = navBarMobilePosition;
+  const [height, setHeight] = useState<number>(0);
 
   useEffect(() => {
-    setHeight(window.innerHeight)
-  }, [navBarMobilePosition])
+    setHeight(window.innerHeight);
+  }, [navBarMobilePosition]);
 
   return (
     <div
-      className={`relative bg-white h-[100%] z-[-10] rounded-bl-lg ${animatedBackground.bg_animation_bottom}`}
-      style={{ bottom: `${height - position.top}px` }}>
-    </div>
-  )
-}
+      className={`relative z-[-10] h-[100%] rounded-bl-lg bg-white ${animatedBackground.bg_animation_bottom}`}
+      style={{ bottom: `${height - position.top}px` }}
+    ></div>
+  );
+};
 
-export default Top
+export default Top;

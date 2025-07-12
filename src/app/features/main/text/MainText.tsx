@@ -1,51 +1,52 @@
-import { motion } from 'framer-motion';
-import Header from './Header';
-import Description from './Description';
-import Button from './Button';
-import IconsWrapper from './backgroundIcons/IconsWrapper';
-import { createContext, useEffect, useState } from 'react';
-import { SetStateAction, Dispatch } from "react"
+import { motion } from "framer-motion";
+import Header from "./Header";
+import Description from "./Description";
+import Button from "./Button";
+import IconsWrapper from "./backgroundIcons/IconsWrapper";
+import { createContext, useEffect, useState } from "react";
+import { SetStateAction, Dispatch } from "react";
 
 export const HoverContext = createContext<{
-  hover: boolean,
-  setHover: Dispatch<SetStateAction<boolean>>
-}>
-  ({
-    hover: false,
-    setHover: () => { }
-  })
+  hover: boolean;
+  setHover: Dispatch<SetStateAction<boolean>>;
+}>({
+  hover: false,
+  setHover: () => {},
+});
 
 const MainText = () => {
-  const [hover, setHover] = useState(false)
+  const [hover, setHover] = useState(false);
 
   return (
-    <HoverContext.Provider value={{
-      hover,
-      setHover
-    }}>
+    <HoverContext.Provider
+      value={{
+        hover,
+        setHover,
+      }}
+    >
       <motion.div
         layout
         initial={{
           opacity: 0,
-          translateX: '-20px'
+          translateX: "-20px",
         }}
         animate={{
           opacity: 1,
-          translateX: '0px'
+          translateX: "0px",
         }}
         transition={{
           duration: 0.3,
-          type: "Tween"
+          type: "Tween",
         }}
-        className='max-w-[1000px] relative w-full flex flex-col flex-nowrap items-center bg-opacity-70 px-10 py-8 rounded-xl z-10'>
+        className="relative z-10 flex w-full max-w-[1000px] flex-col flex-nowrap items-center rounded-xl bg-opacity-70 px-10 py-8"
+      >
         <Header />
         <Description />
         <Button />
         <IconsWrapper />
       </motion.div>
     </HoverContext.Provider>
+  );
+};
 
-  )
-}
-
-export default MainText
+export default MainText;

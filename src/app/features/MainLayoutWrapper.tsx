@@ -91,7 +91,7 @@ const MainLayoutWrapper = () => {
   }, [disable]);
 
   return (
-    <span className={`${isBlur ? "blur-sm" : ""} transition-all `}>
+    <span className={`${isBlur ? "blur-sm" : ""} transition-all`}>
       <Main />
       <TechStack />
       <About />

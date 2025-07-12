@@ -1,14 +1,14 @@
-import CarouselSlideDisplay from './CarouselSlideDisplay'
-import useFirstLastActive from '../carouselHooks/useFirstLastActive'
+import CarouselSlideDisplay from "./CarouselSlideDisplay";
+import useFirstLastActive from "../carouselHooks/useFirstLastActive";
 
 const CarouselWrapper = () => {
-  useFirstLastActive()
+  useFirstLastActive();
 
   return (
-    <div className='relative flex flex-row justify-center w-[100%] max-w-[1200px]'>
+    <div className="relative flex w-[100%] max-w-[1200px] flex-row justify-center">
       <CarouselSlideDisplay />
     </div>
-  )
-}
+  );
+};
 
-export default CarouselWrapper
+export default CarouselWrapper;

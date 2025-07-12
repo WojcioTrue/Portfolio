@@ -1,15 +1,13 @@
-import InitialPrompt from "./InitialPrompt"
-import FinalPrompt from "./FinalPrompt"
+import InitialPrompt from "./InitialPrompt";
+import FinalPrompt from "./FinalPrompt";
 
 const SkillPrompt = () => {
   return (
-    <div className="py-20 flex justify-center">
+    <div className="flex justify-center py-20">
       <InitialPrompt />
       <FinalPrompt />
     </div>
+  );
+};
 
-
-  )
-}
-
-export default SkillPrompt
+export default SkillPrompt;

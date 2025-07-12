@@ -1,23 +1,23 @@
 export type NavBarListElementType = {
-    text: string,
-    id: string,
-    isActive: boolean
-    image?: string,
-  }
+  text: string;
+  id: string;
+  isActive: boolean;
+  image?: string;
+};
 
-  export type ItemPositionType = {
-    left: number,
-    right: number,
-    top: number,
-    bottom: number
-}
+export type ItemPositionType = {
+  left: number;
+  right: number;
+  top: number;
+  bottom: number;
+};
 
 export type IndicatorDesktopType = {
-    horizontalMid: number,
-    verticalMid: number,
-}
+  horizontalMid: number;
+  verticalMid: number;
+};
 
 export type ListElement = {
-  section: string,
-  active: boolean
-}
+  section: string;
+  active: boolean;
+};

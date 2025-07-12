@@ -1,18 +1,19 @@
 "use client";
-import { useContext } from 'react';
-import { NavBarContext } from '../navbar/navBarContext/NavBarContextProvider';
-import MainText from './text/MainText';
+import { useContext } from "react";
+import { NavBarContext } from "../navbar/navBarContext/NavBarContextProvider";
+import MainText from "./text/MainText";
 
 const Main = () => {
-  const { defaultSectionRef } = useContext(NavBarContext)
+  const { defaultSectionRef } = useContext(NavBarContext);
   return (
     <div
       id="default"
       ref={defaultSectionRef}
-      className="relative flex min-h-[100%] px-8 landscape:pt-[80px] landscape:pb-[50px] bg-gradient-to-br from-my-lightBackground from-20% via-my-white items-center justify-center overflow-hidden">
+      className="relative flex min-h-[100%] items-center justify-center overflow-hidden bg-gradient-to-br from-my-lightBackground from-20% via-my-white px-8 landscape:pb-[50px] landscape:pt-[80px]"
+    >
       <MainText />
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

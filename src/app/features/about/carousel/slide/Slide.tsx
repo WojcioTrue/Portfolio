@@ -38,28 +38,17 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className="h-[100%] w-[100%] absolute flex items-center justify-center"
+        className="absolute flex h-[100%] w-[100%] items-center justify-center"
         style={{}}
       >
-        <div className="w-[100%] h-[100%] py-8 px-3 shadow-myshadow rounded-lg bg-white bg-opacity-90">
+        <div className="h-[100%] w-[100%] rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">
           <h1
-            className={`bg-gradient-to-tr 
-           from-my-gradient1
-           to-my-gradient2 
-             inline-block 
-             text-transparent 
-             bg-clip-text 
-             tracking-header 
-             px-2 text-4xl 
-             ${mabryProMedium.className}`}
+            className={`inline-block bg-gradient-to-tr from-my-gradient1 to-my-gradient2 bg-clip-text px-2 text-4xl tracking-header text-transparent ${mabryProMedium.className}`}
           >
             Name of project
           </h1>
-          <div className="bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-9 w-[calc(100%-16px)] m-auto my-3  h-[1px] "></div>
-          <p
-            className={`mx-8 text-my-gray
-    ${mabryProRegular.className}`}
-          >
+          <div className="m-auto my-3 h-[1px] w-[calc(100%-16px)] bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-9"></div>
+          <p className={`mx-8 text-my-gray ${mabryProRegular.className}`}>
             lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem
             ipsum dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum
             dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...

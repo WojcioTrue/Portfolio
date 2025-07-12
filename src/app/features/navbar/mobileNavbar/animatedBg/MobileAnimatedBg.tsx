@@ -1,14 +1,14 @@
-import Bottom from './Bottom'
-import Top from './Top'
-import useDefaultBackground from '../mobieNavBarHooks/useDefaultBackground'
+import Bottom from "./Bottom";
+import Top from "./Top";
+import useDefaultBackground from "../mobieNavBarHooks/useDefaultBackground";
 const MobileAnimatedBg = () => {
-  useDefaultBackground()
+  useDefaultBackground();
   return (
-    <div className={`absolute top-0 h-[100%] w-full z-[-10]`}>
+    <div className={`absolute top-0 z-[-10] h-[100%] w-full`}>
       <Top />
       <Bottom />
     </div>
-  )
-}
+  );
+};
 
-export default MobileAnimatedBg
+export default MobileAnimatedBg;
