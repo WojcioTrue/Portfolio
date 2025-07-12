@@ -42,7 +42,7 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         className='h-[100%] w-[100%] absolute flex items-center justify-center'
         style={{
         }}>
-        <div className='w-[100%] h-[100%] py-8 px-3 shadow-myshadow rounded-lg bg-white'
+        <div className='w-[100%] h-[100%] py-8 px-3 shadow-myshadow rounded-lg bg-white bg-opacity-90'
         >
           {/* bg-gradient-to-tr 
                     from-my-gradient1
@@ -50,18 +50,14 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
                     inline-block 
                     text-transparent 
                     bg-clip-text  */}
-          <h1 className={`
-          
-                    bg-gradient-to-tr 
+          <h1 className={`bg-gradient-to-tr 
                     from-my-gradient1
                     to-my-gradient2 
                     inline-block 
                     text-transparent 
                     bg-clip-text 
                     tracking-header px-2 text-4xl ${mabryProMedium.className}`}>Name of project</h1>
-          <div className='w-[calc(100%-16px)] h-[1px] bg-gradient-to-tr 
-                    from-my-gradient1
-                    to-my-gradient2  px-9 m-auto my-3'></div>
+          <div className='w-[calc(100%-16px)] h-[1px] bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-9 m-auto my-3'></div>
           <p className={`mx-8 text-my-gray
     ${mabryProRegular.className}`}>lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...</p>
         </div>

@@ -16,8 +16,8 @@ const CarouselButton = ({ buttonClick, disabled, text }: CarouselButtonType) => 
                 h-[40px] w-[40px] 
                 absolute top-1/2 -translate-y-1/2 
                 rounded-[100px] overflow-hidden 
-                bg-gradient-to-tr 
-                from-my-gradient1 to-my-gradient2
+                border-[1px]
+                border-my-purple
                 text-white 
                 z-50`}
             style={{
@@ -25,10 +25,10 @@ const CarouselButton = ({ buttonClick, disabled, text }: CarouselButtonType) => 
                 left: text === "Left" ? '-20px' : undefined,
                 right: text === "Right" ? '-20px' : undefined,
                 filter: disabled ? 'grayscale(1)' : 'grayscale(0)',
-                opacity : disabled ? '0.7' : '1'
+                opacity: disabled ? '0.3' : '1'
             }}
-        >{text === "Left" ? <FaArrowLeft /> :
-            text === "Right" ? <FaArrowRight /> :
+        >{text === "Left" ? <FaArrowLeft color="rgb(116, 41, 245)" /> :
+            text === "Right" ? <FaArrowRight color="rgb(116, 41, 245)" /> :
                 undefined}
         </button>
     )
