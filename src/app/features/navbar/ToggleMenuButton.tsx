@@ -21,7 +21,7 @@ const ToggleMenuButton = ({ onlyMobile }: ToggleMenuButtonType) => {
       transition={{
         delay: 0.2,
       }}
-      className={`h-12 w-12 ${onlyMobile ? "md:hidden" : ""}flex items-center justify-center`}
+      className={`h-12 w-12 ${onlyMobile ? "md:hidden" : ""} flex items-center justify-center`}
       type="button"
       aria-controls="dropdown__navbar"
       aria-expanded="false"
