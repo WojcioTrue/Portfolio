@@ -39,7 +39,7 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className="absolute flex h-[100%] w-[100%] items-center justify-center"
+        className="absolute flex w-[100%] items-center justify-center"
         style={{}}
       >
         <div className="h-[100%] w-[100%] rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">
@@ -49,10 +49,12 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
             Name of project
           </h1>
           <div className="m-auto my-3 h-[1px] w-[calc(100%-16px)] bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-9"></div>
-          <p className={`mx-8 text-my-gray ${mabryProRegular.className}`}>
+          <p className={`mx-8 mb-9 text-my-gray ${mabryProRegular.className}`}>
             lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem
             ipsum dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum
-            dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...
+            dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem
+            ipsum dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum
+            
           </p>
         </div>
         <div className="absolute bottom-[10px] right-[10px] flex gap-3">
