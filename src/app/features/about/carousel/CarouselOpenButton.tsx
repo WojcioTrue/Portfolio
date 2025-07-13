@@ -1,14 +1,18 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { HiOutlineXMark } from "react-icons/hi2";
+import { FaGithub } from "react-icons/fa";
 
-const CarouselOpenButton = () => {
+type CarouselOpenButtonType = {
+  text?: string;
+  href: string;
+};
+
+const CarouselOpenButton = ({ text, href }: CarouselOpenButtonType) => {
   return (
     <motion.button
       initial={{
         opacity: 0,
-        scale: 1.6,
-        zIndex: 100,
+        scale: 1.2,
       }}
       animate={{
         opacity: 1,
@@ -24,19 +28,24 @@ const CarouselOpenButton = () => {
           },
         },
       }}
-      exit={{
-        scale: 1.6,
-        opacity: 0,
+      whileHover={{
+        scale: 1.1,
+        transition: {
+          delay: 0,
+        },
       }}
-      className="absolute bottom-[10px] right-[10px] h-[45px] rounded-md bg-transparent bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-3 cursor-pointer text-white"
+      whileTap={{
+        scale: 0.95,
+      }}
+      className="h-[45px] cursor-pointer rounded-md bg-transparent bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-3 text-white"
       type="button"
       aria-controls="carousel_skill_open"
       aria-expanded="false"
       aria-label="carousel_skill_open"
     >
-      {"Text "}
+      {text === undefined && <FaGithub size={25} />}
+      {text}
     </motion.button>
   );
 };
-
 export default CarouselOpenButton;

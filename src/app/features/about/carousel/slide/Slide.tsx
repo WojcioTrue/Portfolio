@@ -55,8 +55,10 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
             dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...
           </p>
         </div>
-        <CarouselOpenButton />
-        <CarouselOpenButton />
+        <div className="absolute bottom-[10px] right-[10px] flex gap-3">
+          <CarouselOpenButton text={"Live view"} href={"#"} />
+          <CarouselOpenButton text={undefined} href={"#"} />
+        </div>
       </motion.li>
     </AnimatePresence>
   );
