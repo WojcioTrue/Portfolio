@@ -8,6 +8,7 @@ import useFirstLastActive from "../carouselHooks/useFirstLastActive";
 import useChangeActive from "../carouselHooks/useChangeActive";
 import useCarouselRightClick from "../carouselHooks/rightClick/useRightClick";
 import useLeftClick from "../carouselHooks/leftClick/useLeftClick";
+import SlideDecoy from "./slide/Slide_Decoy";
 
 const CarouselSlideDisplay = () => {
   const {
@@ -49,6 +50,7 @@ const CarouselSlideDisplay = () => {
       ref={carouselSlideDisplayRef}
       className="relative w-[80%] max-w-[480px]"
     >
+      <SlideDecoy text={""} x={0} gap={0} index={0} active={false} visible={false}/>
       {display &&
         array.elements.map((x, i) => (
           <Slide

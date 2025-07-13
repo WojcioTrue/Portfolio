@@ -11,22 +11,14 @@ export type SlideType = {
   visible: boolean;
 };
 
-const Slide = ({ text, x, gap, index, visible }: SlideType) => {
+const SlideDecoy = ({ text, x, gap, index, visible }: SlideType) => {
   const motionVariants: Variants = {
     initial: (customX: number) => ({
       opacity: 0,
-      x: customX,
-      y: 10 * index,
-      transition: { duration: 0.4 },
     }),
     animate: (customX: number) => ({
-      // exit animation doesnt work with passed prop, im changing opacity without removing element from DOM
-      opacity: visible ? 1 - index * 0.3 : 0,
-      x: customX,
+      x: 0,
       y: 10 * index,
-      zIndex: 10 - index,
-      transition: { duration: 0.4 },
-      filter: `blur(${Math.abs(index * 2)}px)`,
     }),
   };
 
@@ -39,10 +31,10 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className="absolute flex items-center justify-center top-0"
+        className="flex items-center justify-center"
         style={{}}
       >
-        <div className="rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">
+        <div className="rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow z-[-10000]">
           <h1
             className={`inline-block bg-gradient-to-tr from-my-gradient1 to-my-gradient2 bg-clip-text px-2 text-4xl tracking-header text-transparent ${mabryProMedium.className}`}
           >
@@ -66,4 +58,4 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
   );
 };
 
-export default Slide;
+export default SlideDecoy;
