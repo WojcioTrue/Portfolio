@@ -46,6 +46,7 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
     return () => {
       window.removeEventListener("resize", updateHeight);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
