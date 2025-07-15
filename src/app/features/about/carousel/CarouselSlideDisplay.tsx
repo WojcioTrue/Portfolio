@@ -29,8 +29,10 @@ const CarouselSlideDisplay = () => {
   useResponsiveWidth();
 
   useEffect(() => {
-    if (array.width !== 0) {
+    console.log(array.height, 'chuj');
+    if (array.height !== 0) {
       setDisplay(true);
+      console.log("triggered");
     }
   }, [array]);
 
@@ -47,19 +49,22 @@ const CarouselSlideDisplay = () => {
   return (
     <ul
       ref={carouselSlideDisplayRef}
-      className="relative w-[80%] max-w-[480px]"
+      className="relative w-[80%] max-w-[480px] m-auto"
+      style={{
+        height: array.height
+      }}
     >
       {array.elements.map((x, i) => (
-          <Slide
-            key={x.key}
-            index={x.index}
-            text={x.text}
-            x={x.x}
-            gap={gap}
-            active={x.active}
-            visible={x.visible}
-          />
-        ))}
+        <Slide
+          key={x.key}
+          index={x.index}
+          text={x.text}
+          x={x.x}
+          gap={gap}
+          active={x.active}
+          visible={x.visible}
+        />
+      ))}
       <CarouselSlideButton
         buttonClick={leftArrowClick}
         disabled={isFirstActive}

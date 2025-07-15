@@ -17,6 +17,7 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
   const { carouseElementsArr } = useContext(CarouselContext);
   const { array, setArray } = carouseElementsArr;
   const slideRef = useRef<HTMLLIElement | null>(null);
+
   const motionVariants: Variants = {
     initial: (customX: number) => ({
       opacity: 0,
@@ -39,10 +40,14 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
     const updateHeight = () => {
       // all elements have same height, so trigger function just once
       if (text === array.elements[0].text) {
-        const slideHeight = slideRef.current?.getBoundingClientRect().height!;
+        const slideHeight = Number(
+          slideRef.current?.getBoundingClientRect().height!.toFixed(0),
+        );
         setArray({ ...array, height: slideHeight });
       }
     };
+
+    updateHeight();
     window.addEventListener("resize", updateHeight);
     return () => {
       window.removeEventListener("resize", updateHeight);
