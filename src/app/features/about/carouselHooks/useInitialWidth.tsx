@@ -33,6 +33,7 @@ const useInitialWidth = (gap: number) => {
       const modifiedArr = {
         width: displayWidth,
         gap: gapValue(),
+        height: array.height,
         elements: [...newArr],
       };
       // if display is endabled, then width is updated
