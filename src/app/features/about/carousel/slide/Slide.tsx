@@ -1,6 +1,8 @@
 import { mabryProMedium, mabryProRegular } from "@/app/assets/fonts/MabryPro";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import CarouselOpenButton from "../CarouselOpenButton";
+import { useContext, useEffect, useRef } from "react";
+import { CarouselContext } from "../../carouselContext/CarouselContextProvider";
 
 export type SlideType = {
   text: string;
@@ -12,6 +14,8 @@ export type SlideType = {
 };
 
 const Slide = ({ text, x, gap, index, visible }: SlideType) => {
+  const { carouseElementsArr } = useContext(CarouselContext);
+  const slideRef = useRef<HTMLLIElement | null>(null);
   const motionVariants: Variants = {
     initial: (customX: number) => ({
       opacity: 0,
@@ -30,6 +34,20 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
     }),
   };
 
+  useEffect(() => {
+    const updateHeight = () => {
+      // all elements have same height, so trigger function just once
+      if(text === carouseElementsArr.array.elements[0].text){
+        const slideHeight = slideRef.current?.getBoundingClientRect().height
+        console.log(slideHeight)
+      }
+    };
+    window.addEventListener("resize", updateHeight);
+    return () => {
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, []);
+
   return (
     <AnimatePresence mode="wait">
       <motion.li
@@ -39,8 +57,9 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className="absolute flex items-center justify-center top-0"
+        className="absolute top-0 flex items-center justify-center"
         style={{}}
+        ref={slideRef}
       >
         <div className="rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">
           <h1
