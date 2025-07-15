@@ -50,7 +50,7 @@ const CarouselSlideDisplay = () => {
       ref={carouselSlideDisplayRef}
       className="relative w-[80%] max-w-[480px]"
     >
-      <SlideDecoy text={""} x={0} gap={0} index={0} active={false} visible={false}/>
+      {/* <SlideDecoy text={""} x={0} gap={0} index={0} active={false} visible={false}/> */}
       {display &&
         array.elements.map((x, i) => (
           <Slide

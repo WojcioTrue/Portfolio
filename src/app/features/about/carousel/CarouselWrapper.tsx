@@ -5,7 +5,7 @@ const CarouselWrapper = () => {
   useFirstLastActive();
 
   return (
-    <div className="relative flex w-[100%] max-w-[1200px] h-[100%] max-h-[500px] flex-row justify-center">
+    <div className="relative flex w-[100%] max-w-[1200px] h-[100%] flex-row justify-center">
       <CarouselSlideDisplay />
     </div>
   );
