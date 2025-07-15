@@ -39,12 +39,13 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
   useEffect(() => {
     const updateHeight = () => {
       // all elements have same height, so trigger function just once
-      if (text === array.elements[0].text) {
-        const slideHeight = Number(
-          slideRef.current?.getBoundingClientRect().height!.toFixed(0),
-        );
-        setArray({ ...array, height: slideHeight });
-      }
+      const slideHeight = Number(
+        slideRef.current?.getBoundingClientRect().height!.toFixed(0),
+      );
+      const newArr = { ...array, height: slideHeight }
+      console.log('new', newArr)
+      setArray(newArr);
+      console.log('initial change')
     };
 
     updateHeight();

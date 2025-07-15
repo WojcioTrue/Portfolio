@@ -12,7 +12,7 @@ const About = () => {
       <div
         id="About"
         ref={aboutSectionRef}
-        className="relative block min-h-[calc(100%_-_77px)] select-none overflow-hidden border-t-[1px] border-my-lightGray bg-gradient-to-tl from-my-lightBackground from-[20%] via-my-white pt-20 pb-24"
+        className="relative flex min-h-[calc(100%_-_77px)] select-none flex-col items-center justify-center overflow-hidden border-t-[1px] border-my-lightGray bg-gradient-to-tl from-my-lightBackground from-[20%] via-my-white pb-24 pt-20"
       >
         <Header />
         <Description />

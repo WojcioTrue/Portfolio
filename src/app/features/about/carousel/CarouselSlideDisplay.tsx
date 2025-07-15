@@ -29,7 +29,7 @@ const CarouselSlideDisplay = () => {
   useResponsiveWidth();
 
   useEffect(() => {
-    console.log(array.height, 'chuj');
+    console.log(array);
     if (array.height !== 0) {
       setDisplay(true);
       console.log("triggered");

@@ -20,8 +20,8 @@ const useResponsiveWidth = () => {
 
         const modifiedArr = {
           width: displayWidth,
-          gap: array.gap,
           height: array.height,
+          gap: array.gap,
           elements: [...newArr],
         };
         setArray(modifiedArr);
