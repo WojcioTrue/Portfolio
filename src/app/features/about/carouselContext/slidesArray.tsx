@@ -2,6 +2,7 @@ import { v4 as uuidv4, V4Options } from "uuid";
 
 export type SlideArrayType = {
   width: number;
+  height: number;
   gap: number;
   elements: {
     key: string;
@@ -16,6 +17,7 @@ export type SlideArrayType = {
 
 export const slideArray: SlideArrayType = {
   width: 0,
+  height: 0,
   gap: 0,
   elements: [
     {

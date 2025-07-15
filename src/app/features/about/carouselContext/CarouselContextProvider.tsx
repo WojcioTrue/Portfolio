@@ -26,6 +26,7 @@ export const CarouselContext = createContext<{
   carouseElementsArr: {
     array: {
       width: 0,
+      height: 0,
       gap: 0,
       elements: [
         {
