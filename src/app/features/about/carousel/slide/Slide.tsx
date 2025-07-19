@@ -45,7 +45,6 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
       const newArr = { ...array, height: slideHeight }
       console.log('new', newArr)
       setArray(newArr);
-      console.log('initial change')
     };
 
     updateHeight();

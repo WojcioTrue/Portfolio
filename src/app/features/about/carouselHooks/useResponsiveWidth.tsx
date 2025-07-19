@@ -19,9 +19,8 @@ const useResponsiveWidth = () => {
         });
 
         const modifiedArr = {
+          ...array,
           width: displayWidth,
-          height: array.height,
-          gap: array.gap,
           elements: [...newArr],
         };
         setArray(modifiedArr);

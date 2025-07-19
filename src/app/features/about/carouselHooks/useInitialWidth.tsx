@@ -31,8 +31,8 @@ const useInitialWidth = (gap: number) => {
       });
 
       const modifiedArr = {
+        ...array,
         width: displayWidth,
-        height: array.height,
         gap: gapValue(),
         elements: [...newArr],
       };
