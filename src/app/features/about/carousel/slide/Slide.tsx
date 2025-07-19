@@ -82,8 +82,8 @@ const Slide = ({ text, index, visible }: SlideType) => {
             <SlideParagraph />
           </div>
           <div className="absolute bottom-[10px] right-[10px] flex gap-3">
-            <CarouselOpenButton text={"Live view"} href={"#"} />
-            <CarouselOpenButton text={undefined} href={"#"} />
+            <CarouselOpenButton text={"Live view"} slideIndex={index} href={"#"} />
+            <CarouselOpenButton text={undefined} slideIndex={index} href={"#"} />
           </div>
         </motion.li>
       )}

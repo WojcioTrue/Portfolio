@@ -4,10 +4,15 @@ import { FaGithub } from "react-icons/fa";
 
 type CarouselOpenButtonType = {
   text?: string;
+  slideIndex: number;
   href: string;
 };
 
-const CarouselOpenButton = ({ text, href }: CarouselOpenButtonType) => {
+const CarouselOpenButton = ({
+  text,
+  slideIndex,
+  href,
+}: CarouselOpenButtonType) => {
   return (
     <motion.button
       initial={{
@@ -24,15 +29,16 @@ const CarouselOpenButton = ({ text, href }: CarouselOpenButtonType) => {
         },
       }}
       whileHover={{
-        scale: 1.1,
+        scale: slideIndex === 0 ? 1.1 : 1,
         transition: {
           delay: 0,
         },
       }}
       whileTap={{
-        scale: 0.95,
+        scale: slideIndex === 0 ? 0.95 : 1,
       }}
-      className="h-[45px] cursor-pointer rounded-md bg-transparent bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-3 text-white"
+      onClick={() => slideIndex === 0 && alert(text)}
+      className={`h-[45px] ${slideIndex === 0 ? "cursor-pointer" : "cursor-default"} rounded-md bg-transparent bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-3 text-white`}
       type="button"
       aria-controls="carousel_skill_open"
       aria-expanded="false"
