@@ -8,7 +8,7 @@ const useCarouselRightClick = () => {
 
   const rightClickEffect = (arg: SlideArrayType) => {
     const modifiedX = arg.elements.map((el) => {
-      if (el.x <= 0) {
+      if (el.index <= 0) {
         return {
           ...el,
           index: el.index - 1,

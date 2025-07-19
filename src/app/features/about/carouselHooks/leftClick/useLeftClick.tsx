@@ -8,7 +8,7 @@ const useLeftClick = () => {
 
   const leftClickEffect = (arg: SlideArrayType) => {
     const modifiedX = arg.elements.map((el) => {
-      if (el.x >= -(array.width + 1)) {
+      if (el.index >= -1) {
         return {
           ...el,
           index: el.index + 1,

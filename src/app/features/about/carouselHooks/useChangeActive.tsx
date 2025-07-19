@@ -8,7 +8,7 @@ const useChangeActive = () => {
 
   const changeActive = (array: SlideArrayType) => {
     const modifiedX = array.elements.map((el) => {
-      if (el.x === 0) {
+      if (el.index === 0) {
         return {
           ...el,
           active: true,

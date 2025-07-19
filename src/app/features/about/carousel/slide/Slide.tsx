@@ -43,11 +43,12 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         slideRef.current?.getBoundingClientRect().height!.toFixed(0),
       );
       const newArr = { ...array, height: slideHeight }
-      console.log('new', newArr)
       setArray(newArr);
+      console.log(newArr)
     };
 
     updateHeight();
+
     window.addEventListener("resize", updateHeight);
     return () => {
       window.removeEventListener("resize", updateHeight);
