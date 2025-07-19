@@ -15,7 +15,7 @@ const SlideParagraph = () => {
         scale: 1,
         transition: {
           type: "spring",
-          duration: 0.25,
+          duration: 0.35,
           delay: 0.35,
         },
       }}
