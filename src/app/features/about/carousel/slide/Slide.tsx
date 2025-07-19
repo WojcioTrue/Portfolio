@@ -13,7 +13,7 @@ export type SlideType = {
   visible: boolean;
 };
 
-const Slide = ({ text, x, gap, index, visible }: SlideType) => {
+const Slide = ({ text, index, visible }: SlideType) => {
   const { carouseElementsArr } = useContext(CarouselContext);
   const { array, setArray } = carouseElementsArr;
   const slideRef = useRef<HTMLLIElement | null>(null);
