@@ -16,7 +16,6 @@ const CarouselSlideDisplay = () => {
   } = useContext(CarouselContext);
   const { array } = carouseElementsArr;
   const [display, setDisplay] = useState(false);
-  const { gap } = array;
   const rightClick = useCarouselRightClick();
   const leftClick = useLeftClick();
   const { isFirstActive } = firstActive;
@@ -53,8 +52,6 @@ const CarouselSlideDisplay = () => {
           key={x.key}
           index={x.index}
           text={x.text}
-          x={x.x}
-          gap={gap}
           active={x.active}
           visible={x.visible}
         />
