@@ -5,7 +5,10 @@ export type SlideArrayType = {
   elements: {
     key: string;
     index: number;
-    text: string;
+    header: string;
+    description: string;
+    href: string;
+    liveView: string;
     visible: boolean;
     opacity: number;
     active: boolean;
@@ -18,7 +21,10 @@ export const slideArray: SlideArrayType = {
     {
       key: uuidv4(),
       index: 0,
-      text: "first",
+      header: "Header 1",
+      description: "Description 1",
+      href: "href 1",
+      liveView: "liveView 1",
       visible: true,
       opacity: 0,
       active: true,
@@ -26,7 +32,10 @@ export const slideArray: SlideArrayType = {
     {
       key: uuidv4(),
       index: 1,
-      text: "second",
+      header: "Header 2",
+      description: "Description 2",
+      href: "href 2",
+      liveView: "liveView 2",
       visible: true,
       opacity: 0,
       active: false,
@@ -34,7 +43,32 @@ export const slideArray: SlideArrayType = {
     {
       key: uuidv4(),
       index: 2,
-      text: "third",
+      header: "Header 3",
+      description: "Description 3",
+      href: "href 3",
+      liveView: "liveView 3",
+      visible: true,
+      opacity: 0,
+      active: false,
+    },
+    {
+      key: uuidv4(),
+      index: 2,
+      header: "Header 4",
+      description: "Description 4",
+      href: "href 4",
+      liveView: "liveView 4",
+      visible: true,
+      opacity: 0,
+      active: false,
+    },
+    {
+      key: uuidv4(),
+      index: 2,
+      header: "Header 5",
+      description: "Description 5",
+      href: "href 5",
+      liveView: "liveView 5",
       visible: true,
       opacity: 0,
       active: false,
