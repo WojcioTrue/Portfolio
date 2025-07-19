@@ -28,7 +28,6 @@ const Slide = ({ text, index, visible }: SlideType) => {
       filter: `blur(2px)`,
     },
     animate: (customX: number) => ({
-      // exit animation doesnt work with passed prop, im changing opacity without removing element from DOM
       opacity: visible ? 1 - index * 0.3 : 0,
       x: customX,
       y: 10 * index,
