@@ -1,4 +1,3 @@
-import { mabryProMedium, mabryProRegular } from "@/app/assets/fonts/MabryPro";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import CarouselOpenButton from "../CarouselOpenButton";
 import { useContext, useEffect, useRef } from "react";

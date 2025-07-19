@@ -52,7 +52,7 @@ export const CarouselContext = createContext<{
 
 const CarouselContextProvider = ({ children }: ChildrenType) => {
   const [array, setArray] = useState<SlideArrayType>(slideArray);
-  const carouselSlideDisplayRef = useRef<HTMLUListElement | null>(null);
+  const carouselSlideDisplayRef = useRef<HTMLUListElement>(null);
   const [isFirstActive, setIsFirstActive] = useState<boolean>(true);
   const [isLastActive, setIsLastActive] = useState<boolean>(true);
 

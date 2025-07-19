@@ -24,6 +24,7 @@ const CarouselSlideDisplay = () => {
   useFirstLastActive();
 
   useEffect(() => {
+    console.log(array);
     if (array.height !== 0) {
       setDisplay(true);
     }
@@ -42,12 +43,12 @@ const CarouselSlideDisplay = () => {
   return (
     <ul
       ref={carouselSlideDisplayRef}
-      className="relative w-[80%] max-w-[480px] m-auto"
+      className="relative m-auto w-[80%] max-w-[480px]"
       style={{
-        height: array.height
+        height: array.height,
       }}
     >
-      {array.elements.map((x, i) => (
+      {array.elements.map((x) => (
         <Slide
           key={x.key}
           index={x.index}
