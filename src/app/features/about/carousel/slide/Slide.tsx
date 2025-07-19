@@ -67,7 +67,6 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
         animate="animate"
         exit="exit"
         className="absolute top-0 flex items-center justify-center"
-        style={{}}
         ref={slideRef}
       >
         <div className="rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">
