@@ -60,7 +60,7 @@ const Slide = ({ text, x, gap, index, visible }: SlideType) => {
     <AnimatePresence mode="wait">
       <motion.li
         layout
-        custom={gap * index}
+        custom={20 * index}
         variants={motionVariants}
         initial="initial"
         animate="animate"
