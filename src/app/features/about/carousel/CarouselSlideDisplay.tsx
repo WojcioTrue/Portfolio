@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { CarouselContext } from "../carouselContext/CarouselContextProvider";
 import Slide from "./slide/Slide";
-import useResponsiveWidth from "../carouselHooks/useResponsiveWidth";
 import CarouselSlideButton from "./CarouselSlideButton";
 import useFirstLastActive from "../carouselHooks/useFirstLastActive";
 import useChangeActive from "../carouselHooks/useChangeActive";
@@ -24,7 +23,6 @@ const CarouselSlideDisplay = () => {
   const { isLastActive } = lastActive;
   const changeActive = useChangeActive();
   useFirstLastActive();
-  useResponsiveWidth();
 
   useEffect(() => {
     if (array.height !== 0) {

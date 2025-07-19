@@ -25,14 +25,11 @@ export const CarouselContext = createContext<{
 }>({
   carouseElementsArr: {
     array: {
-      width: 0,
       height: 0,
-      gap: 0,
       elements: [
         {
           key: "",
           index: 0,
-          x: 0,
           text: "",
           visible: false,
           opacity: 0,

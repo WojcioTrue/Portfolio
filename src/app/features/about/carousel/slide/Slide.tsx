@@ -6,8 +6,6 @@ import { CarouselContext } from "../../carouselContext/CarouselContextProvider";
 
 export type SlideType = {
   text: string;
-  x: number;
-  gap: number;
   index: number;
   active: boolean;
   visible: boolean;
