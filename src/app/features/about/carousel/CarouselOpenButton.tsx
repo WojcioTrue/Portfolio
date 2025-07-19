@@ -12,21 +12,15 @@ const CarouselOpenButton = ({ text, href }: CarouselOpenButtonType) => {
     <motion.button
       initial={{
         opacity: 0,
-        scale: 1.15,
+        scale: 1.17,
       }}
       animate={{
         opacity: 1,
         scale: 1,
         transition: {
           type: "spring",
-          opacity: {
-            duration: 0.1,
-            delay: 0.3,
-          },
-          scale: {
-            duration: 0.1,
-            delay: 0.3,
-          },
+          duration: 0.3,
+          delay: 0.35,
         },
       }}
       whileHover={{
