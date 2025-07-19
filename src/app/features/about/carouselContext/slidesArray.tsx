@@ -53,7 +53,7 @@ export const slideArray: SlideArrayType = {
     },
     {
       key: uuidv4(),
-      index: 2,
+      index: 3,
       header: "Header 4",
       description: "Description 4",
       href: "href 4",
@@ -64,7 +64,7 @@ export const slideArray: SlideArrayType = {
     },
     {
       key: uuidv4(),
-      index: 2,
+      index: 4,
       header: "Header 5",
       description: "Description 5",
       href: "href 5",

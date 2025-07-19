@@ -30,7 +30,10 @@ export const CarouselContext = createContext<{
         {
           key: "",
           index: 0,
-          text: "",
+          header: "",
+          description: "",
+          href: "",
+          liveView: "",
           visible: false,
           opacity: 0,
           active: false,
