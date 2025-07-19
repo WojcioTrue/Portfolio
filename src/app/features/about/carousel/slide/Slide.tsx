@@ -31,7 +31,7 @@ const Slide = ({ text, index, visible }: SlideType) => {
       x: customX,
       y: 10 * index,
       zIndex: 10 - index,
-      transition: { duration: 0.4 },
+      transition: { duration: 0.3 },
       filter: `blur(${Math.abs(index * 2)}px)`,
     }),
     exit: {
@@ -39,7 +39,7 @@ const Slide = ({ text, index, visible }: SlideType) => {
       x: -10,
       y: -10,
       zIndex: 10 - index,
-      transition: { duration: 0.4 },
+      transition: { duration: 0.3 },
     },
   };
 

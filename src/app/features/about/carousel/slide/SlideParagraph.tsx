@@ -14,8 +14,8 @@ const SlideParagraph = () => {
         scale: 1,
         transition: {
           type: "spring",
-          duration: 0.35,
-          delay: 0.35,
+          duration: 0.3,
+          delay: 0.3,
         },
       }}
       className={`mx-8 mb-9 text-my-gray ${mabryProRegular.className}`}

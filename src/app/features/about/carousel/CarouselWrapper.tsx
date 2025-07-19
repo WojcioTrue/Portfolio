@@ -6,7 +6,7 @@ const CarouselWrapper = () => {
     <motion.div
       initial={{
         opacity: 0,
-        y: 30,
+        y: 15,
       }}
       whileInView={{
         opacity: 1,

@@ -13,8 +13,8 @@ const SlideLine = () => {
         scale: 1,
         transition: {
           type: "spring",
-          duration: 0.35,
-          delay: 0.35,
+          duration: 0.3,
+          delay: 0.3,
         },
       }}
       className="m-auto my-3 h-[1px] w-[calc(100%-16px)] bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-9"

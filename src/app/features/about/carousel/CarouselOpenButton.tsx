@@ -25,7 +25,12 @@ const CarouselOpenButton = ({
         transition: {
           type: "spring",
           duration: 0.3,
-          delay: 0.35,
+          opacity: {
+            delay: 0.35,
+          },
+          scale: {
+            delay: 0.35,
+          },
         },
       }}
       whileHover={{
