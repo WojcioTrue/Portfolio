@@ -8,7 +8,6 @@ const SlideParagraph = () => {
       initial={{
         opacity: 0,
         scale: 1.07,
-        // x: 10,
       }}
       animate={{
         opacity: 1,

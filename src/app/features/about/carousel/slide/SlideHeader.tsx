@@ -8,12 +8,10 @@ const SlideHeader = () => {
       initial={{
         opacity: 0,
         scale: 1.15,
-        // x: 10,
       }}
       animate={{
         opacity: 1,
         scale: 1,
-        // x: 0,
         transition: {
           type: "spring",
           duration: 0.3,

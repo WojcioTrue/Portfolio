@@ -7,7 +7,6 @@ const SlideLine = () => {
       initial={{
         opacity: 0,
         scale: 1.05,
-        // x: 10,
       }}
       animate={{
         opacity: 1,
