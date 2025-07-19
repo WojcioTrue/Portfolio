@@ -12,14 +12,13 @@ const useLeftClick = () => {
         return {
           ...el,
           index: el.index + 1,
-          x: el.x + array.width,
           visible: true,
         };
       } else {
         return {
           ...el,
           index: el.index + 1,
-          x: el.x + array.width,
+
         };
       }
     });
