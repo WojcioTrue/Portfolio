@@ -3,6 +3,9 @@ import { AnimatePresence, motion, Variants } from "framer-motion";
 import CarouselOpenButton from "../CarouselOpenButton";
 import { useContext, useEffect, useRef } from "react";
 import { CarouselContext } from "../../carouselContext/CarouselContextProvider";
+import SlideHeader from "./SlideHeader";
+import SlideLine from "./SlideLine";
+import SlideParagraph from "./SlideParagraph";
 
 export type SlideType = {
   text: string;
@@ -77,41 +80,9 @@ const Slide = ({ text, index, visible }: SlideType) => {
           ref={slideRef}
         >
           <div className="rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">
-            <motion.h1
-              initial={{
-                opacity: 0,
-                scale: 1.15,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                transition: {
-                  type: "spring",
-                  opacity: {
-                    duration: 0.1,
-                    delay: 0.3,
-                  },
-                  scale: {
-                    duration: 0.1,
-                    delay: 0.3,
-                  },
-                },
-              }}
-              className={`inline-block bg-gradient-to-tr from-my-gradient1 to-my-gradient2 bg-clip-text px-2 text-4xl tracking-header text-transparent ${mabryProMedium.className}`}
-            >
-              Name of project
-            </motion.h1>
-            <div className="m-auto my-3 h-[1px] w-[calc(100%-16px)] bg-gradient-to-tr from-my-gradient1 to-my-gradient2 px-9"></div>
-            <p
-              className={`mx-8 mb-9 text-my-gray ${mabryProRegular.className}`}
-            >
-              lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem
-              ipsum dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum
-              dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum
-              dol...lorem ipsum dol...,lorem ipsum dol...,lorem ipsum
-              dol...,,lorem ipsum dol...lorem ipsum dol...lorem ipsum
-              dol...,lorem ipsum
-            </p>
+            <SlideHeader />
+            <SlideLine />
+            <SlideParagraph />
           </div>
           <div className="absolute bottom-[10px] right-[10px] flex gap-3">
             <CarouselOpenButton text={"Live view"} href={"#"} />
