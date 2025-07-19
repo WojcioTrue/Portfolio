@@ -70,7 +70,6 @@ const Slide = ({ text, index, visible }: SlideType) => {
     <AnimatePresence mode="wait">
       {visible && (
         <motion.li
-          layout
           custom={20 * index}
           variants={motionVariants}
           initial="initial"
