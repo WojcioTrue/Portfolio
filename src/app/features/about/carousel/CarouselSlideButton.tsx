@@ -16,6 +16,7 @@ const CarouselSlideButton = ({
     <motion.button
       initial={{
         zIndex: 100,
+        scale: 1,
         left: text === "Left" ? "-20px" : undefined,
         right: text === "Right" ? "-20px" : undefined,
       }}
@@ -25,6 +26,12 @@ const CarouselSlideButton = ({
         transition: {
           duration: 0.2,
         },
+      }}
+      whileHover={{
+        scale: !disabled ? 1.15 : undefined,
+      }}
+      whileTap={{
+        scale: !disabled ? 0.95 : undefined,
       }}
       onClick={() => buttonClick()}
       disabled={disabled}
