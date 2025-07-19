@@ -12,18 +12,19 @@ const CarouselOpenButton = ({ text, href }: CarouselOpenButtonType) => {
     <motion.button
       initial={{
         opacity: 0,
-        scale: 1.2,
+        scale: 1.15,
       }}
       animate={{
         opacity: 1,
         scale: 1,
         transition: {
+          type: "spring",
           opacity: {
-            duration: 0.2,
+            duration: 0.1,
             delay: 0.3,
           },
           scale: {
-            duration: 0.2,
+            duration: 0.1,
             delay: 0.3,
           },
         },

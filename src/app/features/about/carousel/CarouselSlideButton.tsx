@@ -20,7 +20,7 @@ const CarouselSlideButton = ({
         right: text === "Right" ? "-20px" : undefined,
       }}
       animate={{
-        filter: disabled ? "grayscale(0.8)" : "grayscale(0)",
+        filter: disabled ? "grayscale(1)" : "grayscale(0)",
         opacity: disabled ? 0.5 : 1,
         transition: {
           duration: 0.2,
