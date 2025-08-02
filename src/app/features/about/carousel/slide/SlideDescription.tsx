@@ -2,7 +2,11 @@ import { mabryProRegular } from "@/app/assets/fonts/MabryPro";
 import { motion } from "framer-motion";
 import React from "react";
 
-const SlideParagraph = () => {
+type SlideDescriptionType = {
+  description: string;
+};
+
+const SlideDescription = ({ description }: SlideDescriptionType) => {
   return (
     <motion.p
       initial={{
@@ -20,13 +24,9 @@ const SlideParagraph = () => {
       }}
       className={`mx-8 mb-9 text-my-gray ${mabryProRegular.className}`}
     >
-      lorem ipsum dol...,lorem ipsum dol...,lorem ipsum dol...,,lorem ipsum
-      dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum dol...,lorem ipsum
-      dol...,,lorem ipsum dol...lorem ipsum dol...lorem ipsum dol...,lorem ipsum
-      dol...,lorem ipsum dol...,,lorem ipsum dol...lorem ipsum dol...lorem ipsum
-      dol...,lorem ipsum
+      {description}
     </motion.p>
   );
 };
 
-export default SlideParagraph;
+export default SlideDescription;

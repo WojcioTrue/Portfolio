@@ -4,16 +4,17 @@ import { useContext, useEffect, useRef } from "react";
 import { CarouselContext } from "../../carouselContext/CarouselContextProvider";
 import SlideHeader from "./SlideHeader";
 import SlideLine from "./SlideLine";
-import SlideParagraph from "./SlideParagraph";
+import SlideDescription from "./SlideDescription";
 
 export type SlideType = {
-  text: string;
+  header: string;
+  description: string;
   index: number;
   active: boolean;
   visible: boolean;
 };
 
-const Slide = ({ text, index, visible }: SlideType) => {
+const Slide = ({ header, description, index, visible }: SlideType) => {
   const { carouseElementsArr } = useContext(CarouselContext);
   const { array, setArray } = carouseElementsArr;
   const slideRef = useRef<HTMLLIElement | null>(null);
@@ -77,13 +78,21 @@ const Slide = ({ text, index, visible }: SlideType) => {
           ref={slideRef}
         >
           <div className="rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">
-            <SlideHeader />
+            <SlideHeader header={header}/>
             <SlideLine />
-            <SlideParagraph />
+            <SlideDescription description={description}/>
           </div>
           <div className="absolute bottom-[10px] right-[10px] flex gap-3">
-            <CarouselOpenButton text={"Live view"} slideIndex={index} href={"#"} />
-            <CarouselOpenButton text={undefined} slideIndex={index} href={"#"} />
+            <CarouselOpenButton
+              text={"Live view"}
+              slideIndex={index}
+              href={"#"}
+            />
+            <CarouselOpenButton
+              text={undefined}
+              slideIndex={index}
+              href={"#"}
+            />
           </div>
         </motion.li>
       )}

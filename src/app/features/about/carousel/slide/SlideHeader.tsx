@@ -2,7 +2,11 @@ import { mabryProMedium } from "@/app/assets/fonts/MabryPro";
 import { motion } from "framer-motion";
 import React from "react";
 
-const SlideHeader = () => {
+type SlideHeaderType = {
+  header: string;
+};
+
+const SlideHeader = ({ header }: SlideHeaderType) => {
   return (
     <motion.h1
       initial={{
@@ -20,7 +24,7 @@ const SlideHeader = () => {
       }}
       className={`inline-block bg-gradient-to-tr from-my-gradient1 to-my-gradient2 bg-clip-text px-2 text-4xl tracking-header text-transparent ${mabryProMedium.className}`}
     >
-      Name of project
+      {header}
     </motion.h1>
   );
 };
