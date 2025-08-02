@@ -75,3 +75,21 @@ export const slideArray: SlideArrayType = {
     },
   ],
 };
+
+export const emptyArr: SlideArrayType = {
+  height: 0,
+  elements: [
+    {
+      key: uuidv4(),
+      index: 0,
+      header: "OOOOppppSSSS!!!!!!",
+      description:
+        "Looks like your slide Array is empty. Put something inside it!",
+      href: "#",
+      liveView: "#",
+      visible: true,
+      opacity: 0,
+      active: true,
+    },
+  ],
+};
