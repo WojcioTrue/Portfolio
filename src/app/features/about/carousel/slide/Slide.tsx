@@ -11,10 +11,18 @@ export type SlideType = {
   description: string;
   index: number;
   active: boolean;
+  href: string | undefined;
   visible: boolean;
 };
 
-const Slide = ({ header, description, index, visible }: SlideType) => {
+const Slide = ({
+  header,
+  description,
+  index,
+  active,
+  href,
+  visible,
+}: SlideType) => {
   const { carouseElementsArr } = useContext(CarouselContext);
   const { array, setArray } = carouseElementsArr;
   const slideRef = useRef<HTMLLIElement | null>(null);
@@ -74,24 +82,26 @@ const Slide = ({ header, description, index, visible }: SlideType) => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="absolute top-0 flex items-center justify-center w-full h-full min-h-[250px]"
+          className="absolute top-0 flex h-full min-h-[250px] w-full items-center justify-center"
           ref={slideRef}
         >
-          <div className="rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow h-full w-full">
-            <SlideHeader header={header}/>
+          <div className="h-full w-full rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">
+            <SlideHeader header={header} />
             <SlideLine />
-            <SlideDescription description={description}/>
+            <SlideDescription description={description} />
           </div>
           <div className="absolute bottom-[10px] right-[10px] flex gap-3">
             <CarouselOpenButton
               text={"Live view"}
               slideIndex={index}
-              href={"#"}
+              href={href}
+              active={active}
             />
             <CarouselOpenButton
               text={undefined}
               slideIndex={index}
-              href={"#"}
+              href={href}
+              active={active}
             />
           </div>
         </motion.li>

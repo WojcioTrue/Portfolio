@@ -53,6 +53,7 @@ const CarouselSlideDisplay = () => {
           key={x.key}
           index={x.index}
           header={x.header}
+          href={x.href}
           description={x.description}
           active={x.active}
           visible={x.visible}
