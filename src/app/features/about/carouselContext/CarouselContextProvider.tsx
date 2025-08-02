@@ -6,7 +6,7 @@ import {
   useRef,
 } from "react";
 import { ChildrenType } from "../../navbar/navBarContext/NavBarContextProvider";
-import { slideArray, SlideArrayType } from "./slidesArray";
+import { emptyArr, slideArray, SlideArrayType } from "./slidesArray";
 
 export const CarouselContext = createContext<{
   carouseElementsArr: {
@@ -54,7 +54,9 @@ export const CarouselContext = createContext<{
 });
 
 const CarouselContextProvider = ({ children }: ChildrenType) => {
-  const [array, setArray] = useState<SlideArrayType>(slideArray);
+  const [array, setArray] = useState<SlideArrayType>(() =>
+    slideArray.elements.length > 0 ? slideArray : emptyArr
+  );
   const carouselSlideDisplayRef = useRef<HTMLUListElement>(null);
   const [isFirstActive, setIsFirstActive] = useState<boolean>(true);
   const [isLastActive, setIsLastActive] = useState<boolean>(true);
