@@ -7,8 +7,8 @@ export type SlideArrayType = {
     index: number;
     header: string;
     description: string;
-    href: string | undefined;
-    liveView: string | undefined;
+    href: string;
+    liveView: string;
     visible: boolean;
     opacity: number;
     active: boolean;
@@ -29,8 +29,8 @@ export const emptyArr: SlideArrayType = {
       header: "OOOOppppSSSS!!!!!!",
       description:
         "Looks like your array for slides is empty. Put something inside it!",
-      href: undefined,
-      liveView: undefined,
+      href: "#",
+      liveView: "#",
       visible: true,
       opacity: 0,
       active: true,
