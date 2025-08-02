@@ -74,10 +74,10 @@ const Slide = ({ header, description, index, visible }: SlideType) => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="absolute top-0 flex items-center justify-center"
+          className="absolute top-0 flex items-center justify-center w-full h-full min-h-[250px]"
           ref={slideRef}
         >
-          <div className="rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">
+          <div className="rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow h-full w-full">
             <SlideHeader header={header}/>
             <SlideLine />
             <SlideDescription description={description}/>
