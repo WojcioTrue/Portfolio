@@ -82,7 +82,7 @@ const Slide = ({
           initial="initial"
           animate="animate"
           exit="exit"
-          className="absolute top-0 flex h-full min-h-[250px] w-full items-center justify-center"
+          className="absolute w-full items-center justify-center"
           ref={slideRef}
         >
           <div className="h-full w-full rounded-lg bg-white bg-opacity-90 px-3 py-8 shadow-myshadow">

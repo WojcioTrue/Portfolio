@@ -43,7 +43,7 @@ const CarouselSlideDisplay = () => {
   return (
     <ul
       ref={carouselSlideDisplayRef}
-      className="relative z-0 m-auto w-[80%] max-w-[480px]"
+      className="flex items-center relative z-0 m-auto w-[80%] max-w-[480px]"
       style={{
         height: array.height,
       }}
